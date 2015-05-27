@@ -1,0 +1,27 @@
+\documentclass[11pt,a4paper,notitlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{ifthen}
+\author{}
+\date{}
+\title{\name}
+
+% Variablen pro Pattern
+
+\newcommand{\name}{Swipe To Give}
+\newcommand{\category}{give}
+\newcommand{\desc}{Der Benutzer hat ein Gerät A in der Hand oder vor sich stehen. Mit einer Wischbewegung vom unteren zum oberen Bildschirmrand auf A in Richtung von Gerät B werden Daten von A nach B übertragen.}
+\newcommand{\tags}{wischen, swipe, Finger, von unten nach oben, Daten senden}
+
+% template inkludieren
+
+\begin{document}
+
+\newcommand*{\MyPath}{../template}%
+\input{\MyPath/template.tex}
+
+\end{document}
