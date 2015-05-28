@@ -28,5 +28,15 @@ Function build-web
 	gci -Exclude template.tex *.tex | ForEach-Object {htlatex $_.FullName "html, -css, charset=utf-8" " -cunihtf -utf8"}
 	gci -Exclude *.html, *.tex | ForEach-Object {mv -Force $_ ../output/temp/html}
 	mv -Force *.html ../output/html
-	cd ..
+	
+
+	cd ../output/html
+	New-Item -ItemType file -Force index.html
+	echo "<DOCTYPE HTML>" > index.html
+	echo "<head></head>" >> index.html
+	echo "<body><h1>Alle Pattern</h1>" >> index.html
+	gci -Name -Exclude index.html |ForEach-Object {echo "<a href='$_'>$_</a><br />"  >> index.html}
+	echo "</body>" >> index.html
+	cd ../..
 }
+
