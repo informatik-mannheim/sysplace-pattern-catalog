@@ -3,3 +3,9 @@
 *.dvi
 *.synctex.gz
 *.pdf
+*.4ct
+*.4tc
+*.tmp
+*.lg
+*.idv
+*.xref
