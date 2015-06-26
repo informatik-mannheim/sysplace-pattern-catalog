@@ -1,13 +1,13 @@
 Function clean
 {
 	delete-temps
-	gci -Recurse *.pdf, *.css, *.html, *.htm | rm 
+	gci -Recurse -Include *.pdf, *.css, *.html, *.htm | rm 
 	
 }
 
 Function delete-temps
 {
-	gci -Recurse *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref | rm 
+	gci -Recurse -Include *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref | rm 
 }
 
 Function build
@@ -25,7 +25,7 @@ Function build-web
 	New-Item -Force -ItemType directory -Path output/html
 	New-Item -Force -ItemType directory -Path output/temp/html
 	cd patterns
-	gci -Exclude template.tex *.tex | ForEach-Object {htlatex $_.FullName "html, -css, charset=utf-8" " -cunihtf -utf8"}
+	gci -Exclude template.tex *.tex | ForEach-Object {htlatex $_.FullName "html, -css, charset=utf-8" "-cunihtf -utf8"}
 	gci -Exclude *.html, *.tex, *.png | ForEach-Object {mv -Force $_ ../output/temp/html}
 	mv -Force *.html ../output/html
 	cp *.png ../output/html
