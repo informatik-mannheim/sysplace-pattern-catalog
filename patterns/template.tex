@@ -1,6 +1,17 @@
+% Template für checkboxen ----
+\newcommand{\checkbox}[1]{
+\ifx#1\undefined
+  $\Box$
+\else
+  $\boxtimes$  
+\fi}
+%----------------------------
+
 \maketitle
 
-
+% -------------------------------
+% WAS
+% -------------------------------
 \section*{Was}
 
 \subsection*{Problem}
@@ -10,11 +21,7 @@
 \solution
 
 \subsection*{Grafische Darstellung}
-
-\begin{figure}[H]
-\includegraphics[scale=0.3]{mypicture.png}
-\end{figure}
-
+\fig
 
 \subsection*{Kategorie}
 \ifthenelse{\equal{\category}{give}}{$\boxtimes$}{$\Box$} Give \\
@@ -24,6 +31,9 @@
 \ifthenelse{\equal{\category}{connect}}{$\boxtimes$}{$\Box$} Connect
 
 
+% -------------------------------
+% WIE
+% -------------------------------
 
 \section*{Wie}
 
@@ -31,24 +41,36 @@
 \useraction
 
 \subsection*{Reaktion des Sende-und Empfänger-Gerätes}
-%\reaction
+\reaction
 
 \subsection*{Hinweise zur Gestaltung der Interaktion}
 %\designnotes
 
-
+% -------------------------------
+% WANN
+% -------------------------------
 
 \section*{Wann}
 
 \subsection*{Geeigneter Nutzungskontext}
+%\context
 
 \subsubsection*{Zeit}
 \ifthenelse{\equal{\when}{gleichzeitig}}{$\boxtimes$}{$\Box$} gleichzeitige Nutzung von Geräten \\
 \ifthenelse{\equal{\when}{aufeinanderfolgend}}{$\boxtimes$}{$\Box$} sequentielle Nutzung von Geräten 
 
+
 \subsubsection*{Modus}
-\ifthenelse{\equal{\mode}{online}}{$\boxtimes$}{$\Box$} online \\
-\ifthenelse{\equal{\mode}{offline}}{$\boxtimes$}{$\Box$} offline \\
+
+\if\mode{online}
+{$\Box$} online
+\else{$\boxtimes$} 
+\fi
+
+\if\mode{offline}
+{$\Box$} offline
+\else{$\boxtimes$}
+\fi
 
 %\validcontext
 
@@ -56,23 +78,13 @@
 %\notvalidcontext
 
 \subsection*{Geräteklassen}
-\begin{tabular}{|c|c|c|c|c|}
-\hline 
-• & • & Mittel & Riesig & Groß \\ 
-\hline 
-• & • & • & • & • \\ 
-\hline 
-• & • & • & • & • \\ 
-\hline 
-• & • & • & • & • \\ 
-\hline 
-• & • & • & • & • \\ 
-\hline 
-\end{tabular} 
+\devicetabular
 
 \subsection*{Entfernung zwischen Sender- und Empfänger-Gerät}
 
-
+% -------------------------------
+% WARUM
+% -------------------------------
 
 \section*{Warum}
 
@@ -88,8 +100,17 @@
 
 \subsection*{Checkliste: Entspricht die Interaktion der Definiton eines "Blended Interaction"?}
 
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
 
 \section*{Technisches}
+
+
+\checkbox{\auswahla} Auswahl a \\
+\checkbox{\auswahlb} Auswahl b \\
+\checkbox{\auswahlc} Auswahl c \\
+
 
 \subsection*{Technologien zur Objekterkennung}
 
@@ -102,7 +123,9 @@
 
 \subsection*{Prototyp/Lösungsansatz/Code-Snippets/UML-Diagramm}
 
-
+% -------------------------------
+% SONSTIGES
+% -------------------------------
 
 \section*{Sonstiges}
 
