@@ -1,4 +1,4 @@
-% Template für checkboxen ----
+% Template für Checkboxen ----
 \newcommand{\checkbox}[1]{
 \ifx#1\undefined
   $\Box$
@@ -21,7 +21,9 @@
 \solution
 
 \subsection*{Grafische Darstellung}
-\fig
+\begin{figure}[H]
+\includegraphics[scale=0.3]{mypicture.png}
+\end{figure}
 
 \subsection*{Kategorie}
 \ifthenelse{\equal{\category}{give}}{$\boxtimes$}{$\Box$} Give \\
@@ -43,8 +45,18 @@
 \subsection*{Reaktion des Sende-und Empfänger-Gerätes}
 \reaction
 
+\subsubsection*{Reaktion im Erfolgsfall:}
+\checkbox{\reactionSuccessVisual} visuelle Rückmeldung \\
+\checkbox{\reactionSuccessAcustic} akustische Rückmeldung, z.B. Ton \\
+\checkbox{\reactionSuccessSensitive} sensitive Rückmeldung, z.B. Vibration \\
+
+\subsubsection*{Reaktion im Nicht-Erfolgsfall:}
+\checkbox{\reactionFailureConnection} wenn keine funktionierende Verbindung besteht \\
+\checkbox{\reactionFailureNoDevice} wenn das Zielgerät nicht erkannt wurde \\
+\checkbox{\reactionFailureCompatibility} wenn das Zielgerät nicht kompatibel ist
+
 \subsection*{Hinweise zur Gestaltung der Interaktion}
-%\designnotes
+\designnotes
 
 % -------------------------------
 % WANN
@@ -53,34 +65,52 @@
 \section*{Wann}
 
 \subsection*{Geeigneter Nutzungskontext}
-%\context
 
 \subsubsection*{Zeit}
-\ifthenelse{\equal{\when}{gleichzeitig}}{$\boxtimes$}{$\Box$} gleichzeitige Nutzung von Geräten \\
-\ifthenelse{\equal{\when}{aufeinanderfolgend}}{$\boxtimes$}{$\Box$} sequentielle Nutzung von Geräten 
 
+\checkbox{\simultaneously} gleichzeitige Nutzung von Geräten \\
+\checkbox{\sequentially} sequentielle Nutzung von Geräten 
 
 \subsubsection*{Modus}
+\checkbox{\online} online \\
+\checkbox{\offline} offline 
 
-\if\mode{online}
-{$\Box$} online
-\else{$\boxtimes$} 
-\fi
+\subsubsection*{Ort}
+\checkbox{\private} privat \\
+\checkbox{\semipublic} halb-öffentlich \\
+\checkbox{\public} öffentlich \\
+\checkbox{\stationary} stationär \\
+\checkbox{\onthego} unterwegs 
 
-\if\mode{offline}
-{$\Box$} offline
-\else{$\boxtimes$}
-\fi
+\subsubsection*{Position}
+\checkbox{\leanback} Lean-Back \\
+\checkbox{\leanforward} Lean-Forward 
 
-%\validcontext
+
+\subsubsection*{Teilnehmer}
+\checkbox{\single} Einzelnutzer \\
+\checkbox{\collaboration} Kollaboration 
+
+\subsubsection*{Tätigkeit}
+\checkbox{\smalltask} kleinere Aufgabe \\
+\checkbox{\repeatedtask} wiederholte Tätigkeit \\
+\checkbox{\locationbased} ortsbezogene Informationsbeschaffung \\
+\checkbox{\distraction} Ablenkung \\
+\checkbox{\urgent} dringendes 
+
+\validcontext
 
 \subsection*{Abzuratender Nutzungskontext}
-%\notvalidcontext
+\notvalidcontext
 
 \subsection*{Geräteklassen}
 \devicetabular
 
 \subsection*{Entfernung zwischen Sender- und Empfänger-Gerät}
+\checkbox{\distanceA} Entfernung 1 \\
+\checkbox{\distanceB} Entfernung 2 \\
+\checkbox{\distanceC} Entfernung 3 \\
+\checkbox{\distanceD} Entfernung 4 
 
 % -------------------------------
 % WARUM
@@ -88,17 +118,42 @@
 
 \section*{Warum}
 
-
-\subsection*{Displaygrößen}
-
+\checkbox{\established} Bewährtes Interaction Pattern \\
+\checkbox{\candidate} Interaction Pattern Kandidat 
+\checkbox{\realizable} realisierbar
+\checkbox{\futuristic} futuristisch 
 
 \subsection*{Analoge Patterns}
-
+\otherpatterns
 
 \subsection*{State of the Art/Gebrauchshistorie}
-
+\stateoftheart
 
 \subsection*{Checkliste: Entspricht die Interaktion der Definiton eines "Blended Interaction"?}
+\checkbox{\designprinciples} Werden die Designprinzipien berücksichtigt?
+\begin{itemize}
+\item[-] Die Interaktion findet in Kombination mit physikalischen Gegenständen statt.
+\item[-] Die Interaktion kann in einer Kollaboration ausgeführt werden.
+\item[-] Die Interaktion unterstützt einen Workflow/eine Aufgabe.
+\item[-] Die Interaktion findet in einer physikalischen Umgebung statt.
+\end{itemize}
+
+\checkbox{\imageschemata} Image Schema/ta liegen zu Grunde.
+\begin{itemize}
+\item[-] \checkbox{\imageschemataA} Image Schema 1
+\item[-] \checkbox{\imageschemataB} Image Schema 2
+\item[-] \checkbox{\imageschemataC} Image Schema 3
+\end{itemize}
+
+\checkbox{\realworld} Die real-weltlichen Kenntnisse des Menschen werden berücksichtigt.
+\begin{itemize}
+\item[-] \checkbox{\realworldA} Naive Physik
+\item[-] \checkbox{\realworldB} Body Awareness and Skills
+\item[-] \checkbox{\realworldC} Environment Awareness and Skills
+\item[-] \checkbox{\realworldD} Social Awareness and Skills
+\end{itemize}
+
+\checkbox{\metaphor} Es ist eine natürliche Interaktion. Metapher/Assoziation: 
 
 % -------------------------------
 % TECHNISCHES
@@ -106,22 +161,35 @@
 
 \section*{Technisches}
 
-
-\checkbox{\auswahla} Auswahl a \\
-\checkbox{\auswahlb} Auswahl b \\
-\checkbox{\auswahlc} Auswahl c \\
-
-
 \subsection*{Technologien zur Objekterkennung}
+\checkbox{\technologyObjectA} Distanz A \\
+\checkbox{\technologyObjectB} Distanz B \\
+\checkbox{\technologyObjectC} Distanz C \\
+\checkbox{\technologyObjectD} Distanz D \\
 
+\technologyObjectDesc
 
 \subsection*{Technologien zur Kommunikation}
+\checkbox{\technologyCommunicationServer} Server-basiert \\
+\checkbox{\technologyCommunicationAdhoc} Ad-hoc-Netzwerk basiert\\
 
+\technologyCommunicationDesc
 
 \subsection*{Technologien zur Bewegungs-/Orientierungsbestimmung}
+\checkbox{\technologyOrientationAccelerometer} Accelerometer \\
+\checkbox{\technologyOrientationGPS} GPS \\
+\checkbox{\technologyOrientationGyroskop} Gyroskop \\
+\checkbox{\technologyOrientationAnnaeherung} Annäherungssensor \\
+\checkbox{\technologyOrientationHoehe} Höhenmesser \\
+\checkbox{\technologyOrientationBeacons} Beacons \\
+\checkbox{\technologyOrientationOther} andere: \\
 
+\technologyOrientationDesc{...} 
 
 \subsection*{Prototyp/Lösungsansatz/Code-Snippets/UML-Diagramm}
+\prototype
+
+
 
 % -------------------------------
 % SONSTIGES
@@ -130,13 +198,19 @@
 \section*{Sonstiges}
 
 \subsection*{Autor/en}
+\authors
 
 \subsection*{Literaturreferenzen}
+\literature
 
 \subsection*{Abbildungsverzeichnis}
+\figures
 
 \subsection*{Versionshistorie}
+\versionhistory
 
 \subsection*{Kommentare}
+\comments
 
 \subsection*{Offene Fragen}
+\questions
