@@ -25,7 +25,7 @@ Function build-web
 	New-Item -Force -ItemType directory -Path output/html
 	New-Item -Force -ItemType directory -Path output/temp/html
 	cd patterns
-	gci -Exclude template.tex *.tex | ForEach-Object {htlatex $_.FullName "html, -css, charset=utf-8" "-cunihtf -utf8"}
+	gci -Exclude template.tex,header.tex *.tex | ForEach-Object {htlatex $_.FullName "html, -css, charset=utf-8" "-cunihtf -utf8"}
 	gci -Exclude *.html, *.tex, *.png | ForEach-Object {mv -Force $_ ../output/temp/html}
 	mv -Force *.html ../output/html
 	cp *.png ../output/html
