@@ -7,7 +7,7 @@ Function clean
 
 Function delete-temps
 {
-	gci -Recurse -Include *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref | rm 
+	gci -Recurse -Include *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref, *.bbl, *.lof, *.blg | rm 
 }
 
 Function build
@@ -15,7 +15,7 @@ Function build
 	New-Item -Force -ItemType directory -Path output/pdf
 	New-Item -Force -ItemType directory -Path output/temp/pdf
 	cd patterns
-	gci -Exclude template.tex *.tex | ForEach-Object {pdflatex -interaction=nonstopmode -output-directory "../output/pdf" $_.FullName }
+	gci -Exclude template.tex,header.tex *.tex | ForEach-Object {pdflatex -interaction=nonstopmode -output-directory "../output/pdf" $_.FullName }
 	gci ../output/pdf/ -Exclude *.pdf | ForEach-Object {mv -Force $_ ../output/temp/pdf}
 	cd ..
 }
