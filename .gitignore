@@ -9,4 +9,7 @@
 *.lg
 *.idv
 *.xref
+*.bbl
+*.blg
+*.lof
 output/
