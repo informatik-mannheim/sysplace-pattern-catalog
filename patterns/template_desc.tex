@@ -10,22 +10,6 @@
 
 \newcommand{\solution}{Eine allgemeine, grobe Beschreibung soll dem Leser den ersten Eindruck und Überblick über die Interaktion vermitteln bzw. die Lösung des zuvor beschriebenen Problems umfassen. }
 
-\newcommand{\figA}{\begin{figure}[H]
-\includegraphics[scale=0.6]{description_img.png}
-\end{figure}}
-
-\newcommand{\figB}{
-%\begin{figure}[H]
-%\includegraphics[scale=0.2]{FILENAME.png}
-%\end{figure}
-}
-
-\newcommand{\figC}{
-%\begin{figure}[H]
-%\includegraphics[scale=0.2]{FILENAME.png}
-%\end{figure}
-}
-
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
 %\newcommand{\category}{exchange}
@@ -36,15 +20,24 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{...}
+\newcommand{\useraction}{Handlungsablauf aus der Nutzersicht erläutern. 
+Wie sieht der Bewegungsablauf der Interaktion aus?}
 
-\newcommand{\reaction}{...}
+\newcommand{\reaction}{Reaktion des Systems bzw. der Geräte erläutern bei Erfolg als auch bei Nicht-Erfolg.
+Wie verhält sich das Gerät (z.B. akustisch), wie verhält sich das System (z.B. visuell)?}
 
-\newcommand{\designnotes}{...}
+\newcommand{\designnotes}{Hinweise für die Gestalter der Interaktion, was der Benutzer beim Ausführen beachten muss, z.B. den zu erbringenden Kraftaufwand bei der Interaktionsausführung oder wann das Gerät/die Geräte eine visuelle Rückmeldung geben sollen.\\ 
+Welche Geschwindigkeit muss das Gerät ggf. erreichen?\\
+In welche Richtung muss das Gerät gerichtet werden? 
+	
+}
 
 % -------------------------------
 % WANN
 % -------------------------------
+
+\newcommand{\validcontext}{Wann kann das Pattern angewendet werden?\\
+Beschreibung oder Auflistung von Verwendungsmöglichkeiten (Kontexten), in denen die Interaktion zweckmäßig Gebrauch findet.}
 
 %\newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
@@ -68,11 +61,10 @@
 %\newcommand{\repeatedtask}{}
 %\newcommand{\locationbased}{}
 %\newcommand{\distraction}{}
-%\newcommand{\urgent}{}
+%\newcommand{\urgent}{} 
 
-\newcommand{\validcontext}{...}
-
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{Wann kann das Pattern nicht angewendet werden?\\
+Beschreibung oder Auflistung von Verwendungsmöglichkeiten oder Kontexten, in denen die Interaktion keinen zweckmäßigen Gebrauch findet.}
 
 
 \newcommand{\devicetabular}{
@@ -93,10 +85,10 @@ Screens & • & • & • & • & • \\
 \end{tabular} }
 
 
-%\newcommand{\distanceA}{}
-%\newcommand{\distanceB}{}
-%\newcommand{\distanceC}{}
-%\newcommand{\distanceD}{}
+%\newcommand{\distanceIntimate}{}
+%\newcommand{\distancePersonal}{}
+%\newcommand{\distanceSocial}{}
+%\newcommand{\distancePublic}{}
 
 % -------------------------------
 % WARUM
@@ -107,9 +99,9 @@ Screens & • & • & • & • & • \\
 %\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{...}
+\newcommand{\otherpatterns}{Auflistung oder Beschreibung von Pattern, die dem beschriebenen Pattern hinsichtlich der Geste ähneln.}
 
-\newcommand{\stateoftheart}{...}
+\newcommand{\stateoftheart}{Verweis auf Projekte/Anwendungen/Produkte, in denen die beschriebene Interaktion bereits genutzt wird.}
 
 %\newcommand{\designprinciples}{}
 
@@ -125,42 +117,47 @@ Screens & • & • & • & • & • \\
 %\newcommand{\realworldD}{}
 
 %\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Assoziationen/Metaphern zu der beschriebenen Interaktion mit bekannten Gesten bzw. Ursprüngen aus der Natur.}
 
 % -------------------------------
 % TECHNISCHES
 % -------------------------------
 
-\newcommand{\technologyObjectA}{}
-\newcommand{\technologyObjectB}{}
-\newcommand{\technologyObjectC}{}
-\newcommand{\technologyObjectD}{}
-\newcommand{\technologyObjectDesc}{...}
+%\newcommand{\technologyObjectA}{}
+%\newcommand{\technologyObjectB}{}
+%\newcommand{\technologyObjectC}{}
+%\newcommand{\technologyObjectD}{}
 
-\newcommand{\technologyCommunicationServer}{}
-\newcommand{\technologyCommunicationAdhoc}{}
-\newcommand{\technologyCommunicationDesc}{...}
+\newcommand{\technologyObjectDesc}{Technologien unterschieden durch die Entfernung zwischen den Geräten, die die Objekterkennung unterstützen – sofern die Technologie für das beschriebe Pattern von Gebrauch ist.}
 
-\newcommand{\technologyOrientationAccelerometer}{}
-\newcommand{\technologyOrientationGPS}{}
-\newcommand{\technologyOrientationGyroskop}{}
-\newcommand{\technologyOrientationAnnaeherung}{}
-\newcommand{\technologyOrientationHoehe}{}
-\newcommand{\technologyOrientationBeacons}{}
-\newcommand{\technologyOrientationOther}{}
-\newcommand{\technologyOrientationDesc}{...}
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
 
-\newcommand{\prototype}{...}
+\newcommand{\technologyCommunicationDesc}{Technologien, die die (Daten-) Kommunikation unterstützen – sofern die Technologie für das beschriebe Pattern von Gebrauch ist.}
+
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+%\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+%\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationOther}{}
+
+\newcommand{\technologyOrientationDesc}{Technologien, die die Bestimmung der Bewegung bzw. Orientierung des Gerätes unterstützen – sofern die Technologie für das beschriebe Pattern von Gebrauch ist.}
+
+\newcommand{\prototype}{Verweise, Ideen, Prototypen, Code Snippets und UML-Diagramme sowie weitere technisch hilfreiche Darstellungen können als Ansatz oder Anleitung dienen, um das beschriebene Interaktions-Pattern zu realisieren.}
+
 
 % -------------------------------
 % SONSTIGES
 % -------------------------------
 
-\newcommand{\authors}{...}
-\newcommand{\literature}{...}
-\newcommand{\figures}{...}
-\newcommand{\versionhistory}{...}
-\newcommand{\comments}{...}
-\newcommand{\questions}{...}
+\newcommand{\authors}{Auflistung der Person bzw. Personen, die an der Entwicklung des beschriebenen Interaktions-Patterns beteiligt sind.}
+\newcommand{\literature}{Sammlung und Auflistung aller Literatur- als auch Videoreferenzen zum beschriebenen Pattern.}
+\newcommand{\figures}{Auflistung aller Abbildungsreferenzen zum beschriebenen Pattern.}
+\newcommand{\versionhistory}{Versionshistorie des beschriebenen Patterns.}
+\newcommand{\comments}{Kommentare zur aktuellen Version.}
+\newcommand{\questions}{Offene Fragen zum beschriebenen Pattern, die in einer weiteren Version ggf. beantwortet werden und zur Weiterentwicklung des Patterns beitragen.}
 
 
 % template inkludieren --------------

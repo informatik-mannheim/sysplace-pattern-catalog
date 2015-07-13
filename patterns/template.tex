@@ -15,7 +15,7 @@
 
 \subsection*{Grafische Darstellung}
 \begin{figure}[H]
-\includegraphics[scale=0.3]{\grafischedarstellung}
+\includegraphics[scale=0.4]{\grafischedarstellung}
 \end{figure}
 
 \subsection*{Kategorie}
@@ -24,7 +24,6 @@
 \ifthenelse{\equal{\category}{exchange}}{$\boxtimes$}{$\Box$} Exchange \\
 \ifthenelse{\equal{\category}{extend}}{$\boxtimes$}{$\Box$} Extend \\
 \ifthenelse{\equal{\category}{connect}}{$\boxtimes$}{$\Box$} Connect
-
 
 % -------------------------------
 % WIE
@@ -58,6 +57,7 @@
 \section*{Wann}
 
 \subsection*{Geeigneter Nutzungskontext}
+\validcontext
 
 \subsubsection*{Zeit}
 
@@ -91,8 +91,6 @@
 \checkbox{\distraction} Ablenkung \\
 \checkbox{\urgent} dringendes 
 
-\validcontext
-
 \subsection*{Abzuratender Nutzungskontext}
 \notvalidcontext
 
@@ -100,10 +98,10 @@
 \devicetabular
 
 \subsection*{Entfernung zwischen Sender- und Empfänger-Gerät}
-\checkbox{\distanceA} Entfernung 1 \\
-\checkbox{\distanceB} Entfernung 2 \\
-\checkbox{\distanceC} Entfernung 3 \\
-\checkbox{\distanceD} Entfernung 4 
+\checkbox{\distanceIntimate} vertraulich \\
+\checkbox{\distancePersonal} persönlich \\
+\checkbox{\distanceSocial} gesellschaftlich \\
+\checkbox{\distancePublic} öffentlich
 
 % -------------------------------
 % WARUM
@@ -112,8 +110,8 @@
 \section*{Warum}
 
 \checkbox{\established} Bewährtes Interaction Pattern \\
-\checkbox{\candidate} Interaction Pattern Kandidat 
-\checkbox{\realizable} realisierbar
+\checkbox{\candidate} Interaction Pattern Kandidat: 
+\checkbox{\realizable} realisierbar oder
 \checkbox{\futuristic} futuristisch 
 
 \subsection*{Analoge Patterns}
@@ -146,7 +144,7 @@
 \item[-] \checkbox{\realworldD} Social Awareness and Skills
 \end{itemize}
 
-\checkbox{\metaphor} Es ist eine natürliche Interaktion. Metapher/Assoziation: 
+\checkbox{\metaphor} Es ist eine natürliche Interaktion. Metapher/Assoziation: \metaphordesc
 
 % -------------------------------
 % TECHNISCHES
@@ -181,6 +179,22 @@
 
 \subsection*{Prototyp/Lösungsansatz/Code-Snippets/UML-Diagramm}
 \prototype
+
+\begin{figure}[H]
+\includegraphics[scale=0.4]{\umldiagram}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[scale=0.4]{\sequencediagram}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[scale=0.4]{\solutionimg}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[scale=0.4]{\prototypeimg}
+\end{figure}
 
 % -------------------------------
 % SONSTIGES
