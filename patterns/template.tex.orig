@@ -14,9 +14,15 @@
 \solution
 
 \subsection*{Grafische Darstellung}
+<<<<<<< HEAD
+\figA
+\figB
+\figC
+=======
 \begin{figure}[H]
 \includegraphics[scale=0.3]{\grafischedarstellung}
 \end{figure}
+>>>>>>> 45b49f0b6ec9f0f184c42ec55cc74a3eaf5f12fd
 
 \subsection*{Kategorie}
 \ifthenelse{\equal{\category}{give}}{$\boxtimes$}{$\Box$} Give \\

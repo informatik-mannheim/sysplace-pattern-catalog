@@ -1,18 +1,42 @@
 \input{header.tex}
-% Variablen pro Pattern
-
-\newcommand{\name}{Grab The Screen}
-\newcommand{\category}{take}
-\newcommand{\desc}{Gerät A wird auf Gerät B aufgelegt. 
-Die Bildfläche von Gerät B, auf der A aufliegt, wird exakt auf A übertragen.}
-
+\usepackage{currfile}
+\newcommand{\name}{Swipe To Give}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
+\newcommand{\desc}{...}
 
 \newcommand{\solution}{...}
+
+<<<<<<< HEAD
+\newcommand{\figA}{
+%\begin{figure}[H]
+%\includegraphics[scale=0.2]{FILENAME.png}
+%\end{figure}
+}
+
+\newcommand{\figB}{
+%\begin{figure}[H]
+%\includegraphics[scale=0.2]{FILENAME.png}
+%\end{figure}
+}
+
+\newcommand{\figC}{
+%\begin{figure}[H]
+%\includegraphics[scale=0.2]{FILENAME.png}
+%\end{figure}
+}
+
+
+=======
+>>>>>>> 45b49f0b6ec9f0f184c42ec55cc74a3eaf5f12fd
+\newcommand{\category}{give}
+%\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+%\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
 
 % -------------------------------
 % WIE
