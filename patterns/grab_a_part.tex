@@ -1,0 +1,190 @@
+\input{header.tex}
+
+\newcommand{\name}{Grab A Part}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{Ein Teil eines Bildschirmes von einem Gerät soll mit einem anderen Gerät ausgewählt und aufgesaugt werden, sodass der gewählte Ausschnitt auf dem anderen Gerät verfügbar ist.}
+
+\newcommand{\solution}{Durch Auflegen eines Gerätes A auf ein Gerät B wird ein gewählter Bildausschnitt von B auf A übertragen. Nach dem Wiederwegnehmen ist der Ausschnitt auch auf A verfügbar.}
+
+%\newcommand{\category}{give}
+\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+%\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{Der Anwender legt ein Gerät A auf ein Gerät B. Anschließend nimmt der Anwender Gerät A wieder weg.}
+
+\newcommand{\reaction}{Der ausgewählte Ausschnitt von Gerät B wird auf dem Bildschirm von Gerät A angezeigt.}
+
+\newcommand{\reactionSuccessVisual}{}
+%\newcommand{\reactionSuccessAcustic}{}
+%\newcommand{\reactionSuccessSensitive}{}
+
+%\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{...}
+
+%\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{...}
+
+%\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{...}
+
+\newcommand{\designnotes}{
+\begin{itemize}
+\item[-] Die Geräte müssen über einen Bildschirm verfügen, um die Daten darzustellen.
+\item[-] Die Geräte müssen über definierte Schnittstellen miteinander kommunizieren, um das Datenobjekt zu senden und zu empfangen.
+\item[-] Für eine intuitive Durchführung der Interaktion muss das Gerät, das die Daten bereitstellt, größer sein als das Gerät, das aufgelegt wird und das Datenobjekt mitnimmt/aufsaugt.
+\end{itemize}}
+
+% -------------------------------
+% WANN
+% -------------------------------
+
+\newcommand{\validcontext}{Informationsbeschaffung, z.B. Stadtkarte}
+
+%\newcommand{\simultaneously}{}
+\newcommand{\sequentially}{}
+
+%\newcommand{\online}{}
+%\newcommand{\offline}{}
+
+%\newcommand{\private}{}
+\newcommand{\semipublic}{}
+\newcommand{\public}{}
+\newcommand{\stationary}{}
+%\newcommand{\onthego}{}
+
+%\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
+
+%\newcommand{\distanceIntimate}{}
+%\newcommand{\distancePersonal}{}
+%\newcommand{\distanceSocial}{}
+%\newcommand{\distancePublic}{}
+
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
+%\newcommand{\facetoface}{}
+\newcommand{\sidetoside}{}
+\newcommand{\cornertocorner}{}
+
+%\newcommand{\smalltask}{}
+%\newcommand{\repeatedtask}{}
+\newcommand{\locationbased}{}
+%\newcommand{\distraction}{}
+%\newcommand{\urgent}{} 
+
+\newcommand{\notvalidcontext}{...}
+
+
+\newcommand{\devicetabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch            &            &            &        &          &         \\ 
+\hline 
+Smartphone            &            &            &   x    &     x    &     x   \\ 
+\hline 
+Tablet                &            &            &        &     x    &     x   \\ 
+\hline 
+Tabletop              &            &            &        &          &         \\ 
+\hline
+Screens               &            &            &        &          &         \\ 
+\hline 
+\end{tabular} }
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{Grab An Object}
+
+\newcommand{\stateoftheart}{...
+\begin{enumerate}
+\item \url{https://www.youtube.com/watch?v=6Cf7IL_eZ38} \\
+von Minute 2:50 bis 2:53 \\
+Hier wird das Gerät nicht direkt aufgelegt auf das andere Gerät, sondern wie beim Abfotografieren lediglich davorgehalten und die Interaktion „Grab A Part“ durchgeführt.
+
+\end{enumerate}
+}
+
+
+\newcommand{\designprinciples}{}
+
+\newcommand{\imageschemata}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaPartWhole}{}
+
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
+
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Ein Medium hinlegen, wie ein Schwamm, das den Inhalt von dem anderen Medium aufsaugt. Ausstanzen. Ausschneiden. Screenshot. Nach etwas greifen, wie nach einem Prospekt aus Papier.}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+\newcommand{\technologyObjectIntimate}{}
+\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
+
+\newcommand{\technologyObjectDesc}{TODO}
+
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
+
+\newcommand{\technologyCommunicationDesc}{TODO}
+
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+%\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationOther}{}
+
+\newcommand{\technologyOrientationDesc}{TODO}
+
+\newcommand{\prototype}{TODO Erläuterung wie GTS umgesetzt wurde}
+
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{Valentina Burjan, Hochschule Mannheim}
+\newcommand{\literature}{...}
+\newcommand{\figures}{...}
+\newcommand{\versionhistory}{Creation: 2015.07.15}
+\newcommand{\comments}{...}
+\newcommand{\questions}{...}
+
+
+% template inkludieren --------------
+
+\input{template.tex}

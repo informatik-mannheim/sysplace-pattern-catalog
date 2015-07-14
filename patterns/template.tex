@@ -15,7 +15,7 @@
 
 \subsection*{Grafische Darstellung}
 \begin{figure}[H]
-\includegraphics[scale=0.4]{\grafischedarstellung}
+\includegraphics[width=\textwidth]{\grafischedarstellung}
 \end{figure}
 
 \subsection*{Kategorie}
@@ -43,9 +43,9 @@
 \checkbox{\reactionSuccessSensitive} sensitive Rückmeldung, z.B. Vibration \\
 
 \subsubsection*{Reaktion im Nicht-Erfolgsfall:}
-\checkbox{\reactionFailureConnection} wenn keine funktionierende Verbindung besteht \\
-\checkbox{\reactionFailureNoDevice} wenn das Zielgerät nicht erkannt wurde \\
-\checkbox{\reactionFailureCompatibility} wenn das Zielgerät nicht kompatibel ist
+\checkbox{\reactionFailureConnection} wenn keine funktionierende Verbindung besteht: \reactionFailureConnectionDesc \\
+\checkbox{\reactionFailureNoDevice} wenn das Zielgerät nicht erkannt wurde:\reactionFailureNoDeviceDesc \\
+\checkbox{\reactionFailureCompatibility} wenn das Zielgerät nicht kompatibel ist: \reactionFailureCompatibilityDesc
 
 \subsection*{Hinweise zur Gestaltung der Interaktion}
 \designnotes
@@ -60,7 +60,6 @@
 \validcontext
 
 \subsubsection*{Zeit}
-
 \checkbox{\simultaneously} gleichzeitige Nutzung von Geräten \\
 \checkbox{\sequentially} sequentielle Nutzung von Geräten 
 
@@ -79,10 +78,14 @@
 \checkbox{\leanback} Lean-Back \\
 \checkbox{\leanforward} Lean-Forward 
 
-
 \subsubsection*{Teilnehmer}
 \checkbox{\single} Einzelnutzer \\
-\checkbox{\collaboration} Kollaboration 
+\checkbox{\collaboration} Kollaboration:
+
+\subsubsection*{Anordnung zwischen Sender und Empfänger}
+\checkbox{\facetoface} Face-To-Face \\
+\checkbox{\sidetoside} Side-To-Side \\
+\checkbox{\cornertocorner} Corner-To-Corner
 
 \subsubsection*{Tätigkeit}
 \checkbox{\smalltask} kleinere Aufgabe \\
@@ -96,12 +99,6 @@
 
 \subsection*{Geräteklassen}
 \devicetabular
-
-\subsection*{Entfernung zwischen Sender- und Empfänger-Gerät}
-\checkbox{\distanceIntimate} vertraulich \\
-\checkbox{\distancePersonal} persönlich \\
-\checkbox{\distanceSocial} gesellschaftlich \\
-\checkbox{\distancePublic} öffentlich
 
 % -------------------------------
 % WARUM
@@ -127,21 +124,26 @@
 \item[-] Die Interaktion kann in einer Kollaboration ausgeführt werden.
 \item[-] Die Interaktion unterstützt einen Workflow/eine Aufgabe.
 \item[-] Die Interaktion findet in einer physikalischen Umgebung statt.
-\end{itemize}
+\end{itemize} 
 
 \checkbox{\imageschemata} Image Schema/ta liegen zu Grunde.
 \begin{itemize}
-\item[-] \checkbox{\imageschemataA} Image Schema 1
-\item[-] \checkbox{\imageschemataB} Image Schema 2
-\item[-] \checkbox{\imageschemataC} Image Schema 3
+\item[-] \checkbox{\imageSchemaContainer} Container
+\item[-] \checkbox{\imageSchemaInOut} In-Out
+\item[-] \checkbox{\imageSchemaPath} Path
+\item[-] \checkbox{\imageSchemaSourcePathGoal} Source-Path-Goal
+\item[-] \checkbox{\imageSchemaUpDown} Up-Down
+\item[-] \checkbox{\imageSchemaLeftRight} Left-Right
+\item[-] \checkbox{\imageSchemaNearFar} Near-Far
+\item[-] \checkbox{\imageSchemaPartWhole} Part-Whole
 \end{itemize}
 
 \checkbox{\realworld} Die real-weltlichen Kenntnisse des Menschen werden berücksichtigt.
 \begin{itemize}
-\item[-] \checkbox{\realworldA} Naive Physik
-\item[-] \checkbox{\realworldB} Body Awareness and Skills
-\item[-] \checkbox{\realworldC} Environment Awareness and Skills
-\item[-] \checkbox{\realworldD} Social Awareness and Skills
+\item[-] \checkbox{\realworldNaivePhysic} Naive Physik
+\item[-] \checkbox{\realworldBodyAwareness} Body Awareness and Skills
+\item[-] \checkbox{\realworldEnvironmentAwareness} Environment Awareness and Skills
+\item[-] \checkbox{\realworldSocialAwareness} Social Awareness and Skills
 \end{itemize}
 
 \checkbox{\metaphor} Es ist eine natürliche Interaktion. Metapher/Assoziation: \metaphordesc
@@ -153,10 +155,10 @@
 \section*{Technisches}
 
 \subsection*{Technologien zur Objekterkennung}
-\checkbox{\technologyObjectA} Distanz A \\
-\checkbox{\technologyObjectB} Distanz B \\
-\checkbox{\technologyObjectC} Distanz C \\
-\checkbox{\technologyObjectD} Distanz D \\
+\checkbox{\technologyObjectIntimate} 0cm bis 50cm, z.B. NFC, Tags, RFID ... \\
+\checkbox{\technologyObjectPersonal} 0,5cm bis 1m, z.B. Bluetooth \\
+\checkbox{\technologyObjectSocial} 1m bis 4m, z.B. Kamera \\
+\checkbox{\technologyObjectPublic} über 4m, z.B. GPS \\
 
 \technologyObjectDesc
 
@@ -181,19 +183,19 @@
 \prototype
 
 \begin{figure}[H]
-\includegraphics[scale=0.4]{\umldiagram}
+\includegraphics[width=\textwidth]{\sequencediagram}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[scale=0.4]{\sequencediagram}
+\includegraphics[width=\textwidth]{\solutionimg}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[scale=0.4]{\solutionimg}
+\includegraphics[width=\textwidth]{\umldiagram}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[scale=0.4]{\prototypeimg}
+\includegraphics[width=\textwidth]{\prototypeimg}
 \end{figure}
 
 % -------------------------------

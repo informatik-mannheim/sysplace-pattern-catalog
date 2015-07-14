@@ -26,6 +26,19 @@ Wie sieht der Bewegungsablauf der Interaktion aus?}
 \newcommand{\reaction}{Reaktion des Systems bzw. der Geräte erläutern bei Erfolg als auch bei Nicht-Erfolg.
 Wie verhält sich das Gerät (z.B. akustisch), wie verhält sich das System (z.B. visuell)?}
 
+%\newcommand{\reactionSuccessVisual}{}
+%\newcommand{\reactionSuccessAcustic}{}
+%\newcommand{\reactionSuccessSensitive}{}
+
+%\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{...}
+
+%\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{...}
+
+%\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{...}
+
 \newcommand{\designnotes}{Hinweise für die Gestalter der Interaktion, was der Benutzer beim Ausführen beachten muss, z.B. den zu erbringenden Kraftaufwand bei der Interaktionsausführung oder wann das Gerät/die Geräte eine visuelle Rückmeldung geben sollen.\\ 
 Welche Geschwindigkeit muss das Gerät ggf. erreichen?\\
 In welche Richtung muss das Gerät gerichtet werden? 
@@ -54,8 +67,17 @@ Beschreibung oder Auflistung von Verwendungsmöglichkeiten (Kontexten), in denen
 %\newcommand{\leanback}{}
 %\newcommand{\leanforward}{}
 
+%\newcommand{\distanceIntimate}{}
+%\newcommand{\distancePersonal}{}
+%\newcommand{\distanceSocial}{}
+%\newcommand{\distancePublic}{}
+
 %\newcommand{\single}{}
 %\newcommand{\collaboration}{}
+
+%\newcommand{\facetoface}{}
+%\newcommand{\sidetoside}{}
+%\newcommand{\cornertocorner}{}
 
 %\newcommand{\smalltask}{}
 %\newcommand{\repeatedtask}{}
@@ -70,25 +92,19 @@ Beschreibung oder Auflistung von Verwendungsmöglichkeiten oder Kontexten, in de
 \newcommand{\devicetabular}{
 \begin{tabular}[H]{|c|c|c|c|c|c|}
 \hline 
-von/nach & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\diagbox{von}{nach}  & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch & • & • & • & • & • \\ 
+Smartwatch           &     •      &     •      &   •    &     •    &     •   \\ 
 \hline 
-Smartphone & • & • & • & • & •\\ 
+Smartphone           &     •      &     •      &   •    &     •    &     •   \\ 
 \hline 
-Tablet & • & • & • & • & •\\ 
+Tablet               &     •      &     •      &   •    &     •    &     •   \\ 
 \hline 
-Tabletop & • & • & • & • & •\\ 
+Tabletop             &     •      &     •      &   •    &     •    &     •   \\ 
 \hline
-Screens & • & • & • & • & • \\ 
+Screens              &     •      &     •      &   •    &     •    &     •   \\ 
 \hline 
 \end{tabular} }
-
-
-%\newcommand{\distanceIntimate}{}
-%\newcommand{\distancePersonal}{}
-%\newcommand{\distanceSocial}{}
-%\newcommand{\distancePublic}{}
 
 % -------------------------------
 % WARUM
@@ -101,20 +117,30 @@ Screens & • & • & • & • & • \\
 
 \newcommand{\otherpatterns}{Auflistung oder Beschreibung von Pattern, die dem beschriebenen Pattern hinsichtlich der Geste ähneln.}
 
-\newcommand{\stateoftheart}{Verweis auf Projekte/Anwendungen/Produkte, in denen die beschriebene Interaktion bereits genutzt wird.}
+\newcommand{\stateoftheart}{Verweis auf Projekte/Anwendungen/Produkte, in denen die beschriebene Interaktion bereits genutzt wird.\\
+\begin{enumerate}
+\item
+\item
+\end{enumerate}
+}
 
 %\newcommand{\designprinciples}{}
 
 %\newcommand{\imageschemata}{}
-%\newcommand{\imageschemataA}{}
-%\newcommand{\imageschemataB}{}
-%\newcommand{\imageschemataC}{}
+%\newcommand{\imageSchemaContainer}{}
+%\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaPath}{}
+%\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPartWhole}{}
 
 %\newcommand{\realworld}{}
-%\newcommand{\realworldA}{}
-%\newcommand{\realworldB}{}
-%\newcommand{\realworldC}{}
-%\newcommand{\realworldD}{}
+%\newcommand{\realworldNaivePhysic}{}
+%\newcommand{\realworldBodyAwareness}{}
+%\newcommand{\realworldEnvironmentAwareness}{}
+%\newcommand{\realworldSocialAwareness}{}
 
 %\newcommand{\metaphor}{}
 \newcommand{\metaphordesc}{Assoziationen/Metaphern zu der beschriebenen Interaktion mit bekannten Gesten bzw. Ursprüngen aus der Natur.}
@@ -123,10 +149,10 @@ Screens & • & • & • & • & • \\
 % TECHNISCHES
 % -------------------------------
 
-%\newcommand{\technologyObjectA}{}
-%\newcommand{\technologyObjectB}{}
-%\newcommand{\technologyObjectC}{}
-%\newcommand{\technologyObjectD}{}
+%\newcommand{\technologyObjectIntimate}{}
+%\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
 
 \newcommand{\technologyObjectDesc}{Technologien unterschieden durch die Entfernung zwischen den Geräten, die die Objekterkennung unterstützen – sofern die Technologie für das beschriebe Pattern von Gebrauch ist.}
 

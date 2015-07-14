@@ -1,17 +1,17 @@
 \input{header.tex}
 
-\newcommand{\name}{NAME DES PATTERN}
+\newcommand{\name}{Grab An Object}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{...}
+\newcommand{\desc}{Ein Datenobjekt auf einem Gerät soll auf einem anderen Gerät auch verfügbar sein.}
 
-\newcommand{\solution}{...}
+\newcommand{\solution}{Durch Auflegen eines Gerätes A auf ein Gerät B wird ein ausgewähltes Datenobjekt von B auf A übertragen. Nach dem Wiederwegnehmen ist das Datenobjekt auch auf A verfügbar.}
 
-\newcommand{\category}{give}
-%\newcommand{\category}{take}
+%\newcommand{\category}{give}
+\newcommand{\category}{take}
 %\newcommand{\category}{exchange}
 %\newcommand{\category}{extend}
 %\newcommand{\category}{connect}
@@ -20,11 +20,12 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{...}
+\newcommand{\useraction}{Der Anwender legt ein Gerät A auf ein Gerät B. 
+Anschließend nimmt der Anwender Gerät A wieder weg.}
 
-\newcommand{\reaction}{...}
+\newcommand{\reaction}{Das ausgewählte Datenobjekt von Gerät B wird auf dem Bildschirm von Gerät A angezeigt. }
 
-%\newcommand{\reactionSuccessVisual}{}
+\newcommand{\reactionSuccessVisual}{}
 %\newcommand{\reactionSuccessAcustic}{}
 %\newcommand{\reactionSuccessSensitive}{}
 
@@ -37,7 +38,13 @@
 %\newcommand{\reactionFailureCompatibility}{}
 \newcommand{\reactionFailureCompatibilityDesc}{...}
 
-\newcommand{\designnotes}{...}
+\newcommand{\designnotes}{
+\begin{itemize}
+\item[-] Die Geräte müssen über einen Bildschirm verfügen, um die Daten darzustellen.
+\item[-] Die Geräte müssen über definierte Schnittstellen miteinander kommunizieren, um das Datenobjekt zu senden und zu empfangen.
+\item[-] Für eine intuitive Durchführung der Interaktion muss das Gerät, das die Daten bereitstellt, größer sein als das Gerät, das aufgelegt wird und das Datenobjekt mitnimmt/aufsaugt.
+\end{itemize}
+}
 
 % -------------------------------
 % WANN
@@ -46,32 +53,32 @@
 \newcommand{\validcontext}{...}
 
 %\newcommand{\simultaneously}{}
-%\newcommand{\sequentially}{}
+\newcommand{\sequentially}{}
 
 %\newcommand{\online}{}
 %\newcommand{\offline}{}
 
-%\newcommand{\private}{}
-%\newcommand{\semipublic}{}
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
 %\newcommand{\public}{}
-%\newcommand{\stationary}{}
+\newcommand{\stationary}{}
 %\newcommand{\onthego}{}
 
 %\newcommand{\leanback}{}
-%\newcommand{\leanforward}{}
+\newcommand{\leanforward}{}
 
-%\newcommand{\distanceIntimate}{}
-%\newcommand{\distancePersonal}{}
+\newcommand{\distanceIntimate}{}
+\newcommand{\distancePersonal}{}
 %\newcommand{\distanceSocial}{}
 %\newcommand{\distancePublic}{}
 
-%\newcommand{\single}{}
-%\newcommand{\collaboration}{}
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
 %\newcommand{\facetoface}{}
-%\newcommand{\sidetoside}{}
-%\newcommand{\cornertocorner}{}
+\newcommand{\sidetoside}{}
+\newcommand{\cornertocorner}{}
 
-%\newcommand{\smalltask}{}
+\newcommand{\smalltask}{}
 %\newcommand{\repeatedtask}{}
 %\newcommand{\locationbased}{}
 %\newcommand{\distraction}{}
@@ -85,15 +92,15 @@
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     •      &     •      &   •    &     •    &     •   \\ 
+Smartwatch            &            &            &        &          &         \\ 
 \hline 
-Smartphone            &     •      &     •      &   •    &     •    &     •   \\ 
+Smartphone            &            &            &   x    &     x    &     x   \\ 
 \hline 
-Tablet                &     •      &     •      &   •    &     •    &     •   \\ 
+Tablet                &            &            &        &     x    &     x   \\ 
 \hline 
-Tabletop              &     •      &     •      &   •    &     •    &     •   \\ 
+Tabletop              &            &            &        &          &         \\ 
 \hline
-Screens               &     •      &     •      &   •    &     •    &     •   \\ 
+Screens               &            &            &        &          &         \\ 
 \hline 
 \end{tabular} }
 
@@ -102,11 +109,11 @@ Screens               &     •      &     •      &   •    &     •    &   
 % -------------------------------
 
 %\newcommand{\established}{}
-%\newcommand{\candidate}{}
-%\newcommand{\realizable}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{...}
+\newcommand{\otherpatterns}{Grab A Part}
 
 \newcommand{\stateoftheart}{...
 %\begin{enumerate}
@@ -116,26 +123,27 @@ Screens               &     •      &     •      &   •    &     •    &   
 }
 
 
-%\newcommand{\designprinciples}{}
+\newcommand{\designprinciples}{}
 
-%\newcommand{\imageschemata}{}
-%\newcommand{\imageSchemaContainer}{}
-%\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageschemata}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaPath}{}
-%\newcommand{\imageSchemaSourcePathGoal}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaUpDown}{}
 %\newcommand{\imageSchemaLeftRight}{}
 %\newcommand{\imageSchemaNearFar}{}
-%\newcommand{\imageSchemaPartWhole}{}
+\newcommand{\imageSchemaPartWhole}{}
 
-%\newcommand{\realworld}{}
-%\newcommand{\realworldNaivePhysic}{}
-%\newcommand{\realworldBodyAwareness}{}
-%\newcommand{\realworldEnvironmentAwareness}{}
-%\newcommand{\realworldSocialAwareness}{}
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
 
-%\newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{...}
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Ein Medium hinlegen, wie ein Schwamm, das den Inhalt von dem anderen Medium aufsaugt. Nach etwas greifen, wie nach einem Prospekt aus Papier.
+}
 
 % -------------------------------
 % TECHNISCHES

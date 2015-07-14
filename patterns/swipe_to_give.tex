@@ -6,10 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{...}
+\newcommand{\desc}{Ein Datenobjekt auf einem Gerät soll auf einem anderen Gerät auch verfügbar sein.}
 
-\newcommand{\solution}{...}
-
+\newcommand{\solution}{Der Benutzer hat ein Quellgerät in der Hand oder vor sich stehen. Durch eine Wischbewegung (Swipe) von unten nach oben, werden Daten auf ein zweites Gerät, das Zielgerät, übertragen. Die Übertragung hängt mit der Ausrichtung der Geräte zusammen.}
 
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -21,132 +20,197 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{...}
+\newcommand{\useraction}{Der Benutzer hält Gerät A (Sende-Gerät) in der Hand oder hat das Gerät vor sich stehen (z.B. in Form eines Tabletops).\\ 
+Der Benutzer führt einen Swipe mit einem Finger vom unteren zum oberen Bildschirmrand aus. Die Bewegung erfolgt in Richtung des Empfänger-Gerätes, welches die Daten empfängt. Der Swipe hat eine Länge, sowie eine Richtung. Dies ist zwingend erforderlich, um eine Datenübertragung anzuregen. 
+}
 
-\newcommand{\reaction}{...}
+\newcommand{\reaction}{Ist der Datensatz erfolgreich versendet worden, so reagiert Gerät A mit einer visuellen Nachricht an den Benutzer. Er bekommt eine kleine Nachricht angezeigt, dass die Übertragung erfolgreich verlief. Bereits während des Swipes soll der Benutzer verdeutlicht bekommen, dass die ausgewählten Dateien übertragen werden. Hierfür verblassen die ausgewählten Dateien nach oben hin.\\
+Gerät B empfängt den Datensatz und zeigt diesen auf dem Bildschirm an. Außerdem wird ein kurzer Vibrationsalarm ausgelöst. Auch hier könnten die Dateien vom oberen Rand hineingleiten.}
 
-\newcommand{\designnotes}{...}
+\newcommand{\reactionSuccessVisual}{}
+%\newcommand{\reactionSuccessAcustic}{}
+\newcommand{\reactionSuccessSensitive}{}
+
+%\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{...}
+
+%\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{...}
+
+%\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{...}
+
+\newcommand{\designnotes}{Es ist gefordert, entsprechend der Geräte zu berücksichtigen, mit wie viel Fingern die Swipe-Geste ausgeführt werden soll. In diesem Fall wird der Swipe mit einem Finger ausgeführt und findet in einer eigens dafür gestalteten App statt. Um die Interaktion, den Swipe, durchführen zu können, wird eine Verbindung zu einem Gerät benötigt. }
 
 % -------------------------------
 % WANN
 % -------------------------------
 
+\newcommand{\validcontext}{Datenaustausch von Bildern, Videos, Dateien (z.B. PDFs), Social Network IDs}
+
 %\newcommand{\simultaneously}{}
-%\newcommand{\sequentially}{}
+\newcommand{\sequentially}{}
 
 %\newcommand{\online}{}
 %\newcommand{\offline}{}
 
-%\newcommand{\private}{}
-%\newcommand{\semipublic}{}
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
 %\newcommand{\public}{}
-%\newcommand{\stationary}{}
+\newcommand{\stationary}{}
 %\newcommand{\onthego}{}
 
-%\newcommand{\leanback}{}
-%\newcommand{\leanforward}{}
+\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
 
-%\newcommand{\single}{}
-%\newcommand{\collaboration}{}
+%\newcommand{\distanceIntimate}{}
+%\newcommand{\distancePersonal}{}
+%\newcommand{\distanceSocial}{}
+%\newcommand{\distancePublic}{}
+
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
+\newcommand{\facetoface}{}
+%\newcommand{\sidetoside}{}
+%\newcommand{\cornertocorner}{}
 
 %\newcommand{\smalltask}{}
 %\newcommand{\repeatedtask}{}
 %\newcommand{\locationbased}{}
 %\newcommand{\distraction}{}
-%\newcommand{\urgent}{}
+%\newcommand{\urgent}{} 
 
-\newcommand{\validcontext}{...}
-
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{--- keine Information ---}
 
 
 \newcommand{\devicetabular}{
 \begin{tabular}[H]{|c|c|c|c|c|c|}
 \hline 
-von/nach & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch & • & • & • & • & • \\ 
+Smartwatch          &            &     x      &   x    &     x    &     x   \\ 
 \hline 
-Smartphone & • & • & • & • & •\\ 
+Smartphone          &            &     x      &   x    &     x    &     x   \\ 
 \hline 
-Tablet & • & • & • & • & •\\ 
+Tablet              &            &            &   x    &     x    &     x   \\ 
 \hline 
-Tabletop & • & • & • & • & •\\ 
+Tabletop            &            &            &        &          &     x   \\ 
 \hline
-Screens & • & • & • & • & • \\ 
+Screens             &            &            &        &          &         \\ 
 \hline 
 \end{tabular} }
-
-
-%\newcommand{\distanceA}{}
-%\newcommand{\distanceB}{}
-%\newcommand{\distanceC}{}
-%\newcommand{\distanceD}{}
 
 % -------------------------------
 % WARUM
 % -------------------------------
 
 %\newcommand{\established}{}
-%\newcommand{\candidate}{}
-%\newcommand{\realizable}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{...}
+\newcommand{\otherpatterns}{--- keine Information ---}
 
-\newcommand{\stateoftheart}{...}
+\newcommand{\stateoftheart}{
+\begin{enumerate}
 
-%\newcommand{\designprinciples}{}
+\item \url{https://www.youtube.com/watch?v=GDdPN6mVLPM} \\
+von Minute 0:56 bis 0:59\\
+Mit der Swipe-Geste auf vom Gerät, wird das konfigurierte Auto auf die
+Leinwand gegenüber des Kunden projiziert.
+
+\item \url{http://vimeo.com/53606494} \\
+von Minute 2:14 bis 2:25 \\
+Mit der Swipe-Geste auf dem Tablet simuliert der Verkäufer (rotes
+Hemd) dem Kunden (blaues Hemd) wie diverse Krawatten an ihm aussehen.
+
+\item \url{http://www.microsoft.com/office/vision/} \\
+von Minute 3:41 bis 3:45
+
+\item \url{https://www.youtube.com/watch?v=ho00x7ZvDLw} \\
+von Minute 0:35 bis 0:37
+
+\item \url{https://www.youtube.com/watch?v=o_hKFOQolIg} \\
+von Minute 1:04 bis 1:09 und 1:30 bis 1:45 in kollaborativer Nutzung
+
+\item \url{http://vimeo.com/110928116} \\
+von Minute 1:09 bis 1:15
+
+\item \url{https://www.youtube.com/watch?v=yw564p8oF1M} \\
+von Minute 0:14 bis 0:20 \\
+Chromecast: Technologie mit der Daten z.B. vom Smartphone auf den
+Fernseher übertragen werden.
+
+\item Gradual Engagement: Facilitating Information Exchange between Digital
+Devices as a Function of Proximity (TODO LITERATUR)
+
+\item Hoccer (TODO LITERATUR)
+\item Push2Send (TODO LITERATUR)
+\item FotoSwipe (TODO LITERATUR)
+
+\end{enumerate}
+}
+
+\newcommand{\designprinciples}{}
 
 %\newcommand{\imageschemata}{}
-%\newcommand{\imageschemataA}{}
-%\newcommand{\imageschemataB}{}
-%\newcommand{\imageschemataC}{}
+%\newcommand{\imageSchemaContainer}{}
+%\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaPath}{}
+%\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPartWhole}{}
 
-%\newcommand{\realworld}{}
-%\newcommand{\realworldA}{}
-%\newcommand{\realworldB}{}
-%\newcommand{\realworldC}{}
-%\newcommand{\realworldD}{}
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
 
-%\newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{...}
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Jemandem etwas aushändigen / übergeben}
 
 % -------------------------------
 % TECHNISCHES
 % -------------------------------
 
-\newcommand{\technologyObjectA}{}
-\newcommand{\technologyObjectB}{}
-\newcommand{\technologyObjectC}{}
-\newcommand{\technologyObjectD}{}
+%\newcommand{\technologyObjectIntimate}{}
+%\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
+
 \newcommand{\technologyObjectDesc}{...}
 
-\newcommand{\technologyCommunicationServer}{}
-\newcommand{\technologyCommunicationAdhoc}{}
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
+
 \newcommand{\technologyCommunicationDesc}{...}
 
-\newcommand{\technologyOrientationAccelerometer}{}
-\newcommand{\technologyOrientationGPS}{}
-\newcommand{\technologyOrientationGyroskop}{}
-\newcommand{\technologyOrientationAnnaeherung}{}
-\newcommand{\technologyOrientationHoehe}{}
-\newcommand{\technologyOrientationBeacons}{}
-\newcommand{\technologyOrientationOther}{}
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+%\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+%\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationOther}{}
+
 \newcommand{\technologyOrientationDesc}{...}
 
 \newcommand{\prototype}{...}
+
 
 % -------------------------------
 % SONSTIGES
 % -------------------------------
 
-\newcommand{\authors}{...}
-\newcommand{\literature}{...}
-\newcommand{\figures}{...}
-\newcommand{\versionhistory}{...}
-\newcommand{\comments}{...}
-\newcommand{\questions}{...}
+\newcommand{\authors}{Alexander Hahn, Valentina Burjan // Hochschule Mannheim}
+\newcommand{\literature}{ TODO }
+\newcommand{\figures}{---}
+\newcommand{\versionhistory}{Creation: 2015.07.15}
+\newcommand{\comments}{---}
+\newcommand{\questions}{---}
 
 
 % template inkludieren --------------
