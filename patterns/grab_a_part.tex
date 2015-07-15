@@ -29,13 +29,13 @@
 %\newcommand{\reactionSuccessSensitive}{}
 
 %\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{...}
+\newcommand{\reactionFailureConnectionDesc}{ist das "Mitnehmen" von den Daten nicht möglich. Der Nutzer muss vor Interaktionsauführung darauf hingewiesen werden (z.B. visuell), dass noch keine Verbindung zwischen den Geräten hergestellt wurde. Der Nutzer muss ggf. prüfen, ob die Internetverbindung und/oder andere Schnittstellen aktiv sind.}
 
 %\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{...}
+\newcommand{\reactionFailureNoDeviceDesc}{ist das "Mitnehmen" von den Daten nicht möglich. Der Nutzer muss ggf. die Interaktion erneut ausführen.}
 
 %\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{...}
+\newcommand{\reactionFailureCompatibilityDesc}{ist die Interaktion zwischen den gewählten Geräten nicht erfolgreich ausführbar.}
 
 \newcommand{\designnotes}{
 \begin{itemize}
@@ -53,7 +53,7 @@
 %\newcommand{\simultaneously}{}
 \newcommand{\sequentially}{}
 
-%\newcommand{\online}{}
+\newcommand{\online}{}
 %\newcommand{\offline}{}
 
 %\newcommand{\private}{}
@@ -64,11 +64,6 @@
 
 %\newcommand{\leanback}{}
 \newcommand{\leanforward}{}
-
-%\newcommand{\distanceIntimate}{}
-%\newcommand{\distancePersonal}{}
-%\newcommand{\distanceSocial}{}
-%\newcommand{\distancePublic}{}
 
 \newcommand{\single}{}
 \newcommand{\collaboration}{}
@@ -82,7 +77,7 @@
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{Wenn der ausgewählte Ausschnitt auf dem Sender-Gerät für das Empfänger-Gerät flächenmäßig (für das Display) zu groß ist.}
 
 
 \newcommand{\devicetabular}{
@@ -150,15 +145,17 @@ Hier wird das Gerät nicht direkt aufgelegt auf das andere Gerät, sondern wie b
 
 \newcommand{\technologyObjectIntimate}{}
 \newcommand{\technologyObjectPersonal}{}
-%\newcommand{\technologyObjectSocial}{}
+\newcommand{\technologyObjectSocial}{}
 %\newcommand{\technologyObjectPublic}{}
 
-\newcommand{\technologyObjectDesc}{TODO}
+\newcommand{\technologyObjectDesc}{Um das aufliegende Smartphone auf dem Multi-Touch-Tisch zu erkennen benötigt es eine Technologie (wie Tags), wenn der Multi-Touch-Tisch keine Schnittstelle wie Bluetooth oder NFC anbietet. Sofern der Multi-Touch-Tisch und das Smartphone aber über eine drahtlose Schnittstelle wie Bluetooth kommunizieren können ist die Objekterkennung auch in einer entfernteren Distanz möglich. \\
+In weiteren Prototypen (TODO QUELLE Huddlelamp) ist auch die Kamera als Objekterkennung und zur Lokalisation verwendet worden.}
 
-%\newcommand{\technologyCommunicationServer}{}
-%\newcommand{\technologyCommunicationAdhoc}{}
+\newcommand{\technologyCommunicationServer}{}
+\newcommand{\technologyCommunicationAdhoc}{}
 
-\newcommand{\technologyCommunicationDesc}{TODO}
+\newcommand{\technologyCommunicationDesc}{Damit der Multi-Touch-Tisch und das Smartphone kommunizieren (Daten austauschen) können, kann ein Server zwischengeschaltet werden. \\
+Wenn technisch eine direkte Kommunikation zwischen Multi-Touch-Tisch und Smartphone (z.B. über Bluetooth) möglich ist, kann auch ein Ad-hoc-Netz gewählt werden.}
 
 %\newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
@@ -168,9 +165,9 @@ Hier wird das Gerät nicht direkt aufgelegt auf das andere Gerät, sondern wie b
 \newcommand{\technologyOrientationBeacons}{}
 %\newcommand{\technologyOrientationOther}{}
 
-\newcommand{\technologyOrientationDesc}{TODO}
+\newcommand{\technologyOrientationDesc}{Um zu bestimmen, ob das Smartphone auf dem Multi-Touch-Tisch aufliegt bzw. in seiner Nähe ist, dienen (wie in [1.] verwendet) Beacons.}
 
-\newcommand{\prototype}{TODO Erläuterung wie GTS umgesetzt wurde}
+\newcommand{\prototype}{In [1.] ist die prototypische Implementierung der Interaktion unter dem Namen „grab the screen“ beschrieben. Die Beschreibung gilt für einen Multi-Touch-Tisch in Kombination mit einem Android Smartphone. Über einen Server erfolgt die Datenkommunikation und die Lokalisation des Tisches wird durch ein Beacon gestützt.}
 
 
 % -------------------------------
@@ -178,9 +175,11 @@ Hier wird das Gerät nicht direkt aufgelegt auf das andere Gerät, sondern wie b
 % -------------------------------
 
 \newcommand{\authors}{Valentina Burjan, Hochschule Mannheim}
-\newcommand{\literature}{...}
+\newcommand{\literature}{\begin{enumerate}
+\item Burjan, Valentina (2015). Prototypische Implementierung des Blended Interaction Patterns „grab the screen“. Hochschule Mannheim.
+\end{enumerate}}
 \newcommand{\figures}{...}
-\newcommand{\versionhistory}{Creation: 2015.07.15}
+\newcommand{\versionhistory}{...}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
 

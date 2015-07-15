@@ -6,7 +6,7 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Datenobjekt auf einem Gerät soll auf einem anderen Gerät auch verfügbar sein.}
+\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll von einem Empfänger-Gerät angefordert werden. Das Datenobjekt soll auch auf dem Empfänger-Gerät verfügbar sein.}
 
 \newcommand{\solution}{Durch Auflegen eines Gerätes A auf ein Gerät B wird ein ausgewähltes Datenobjekt von B auf A übertragen. Nach dem Wiederwegnehmen ist das Datenobjekt auch auf A verfügbar.}
 
@@ -29,14 +29,14 @@ Anschließend nimmt der Anwender Gerät A wieder weg.}
 %\newcommand{\reactionSuccessAcustic}{}
 %\newcommand{\reactionSuccessSensitive}{}
 
-%\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{...}
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{ist das "Mitnehmen" von den Daten nicht möglich. Der Nutzer muss vor Interaktionsauführung darauf hingewiesen werden (z.B. visuell), dass noch keine Verbindung zwischen den Geräten hergestellt wurde. Der Nutzer muss ggf. prüfen, ob die Internetverbindung und/oder andere Schnittstellen aktiv sind.}
 
-%\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{...}
+\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{ist das "Mitnehmen" von den Daten nicht möglich. Der Nutzer muss ggf. die Interaktion erneut ausführen.}
 
-%\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{...}
+\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{ist die Interaktion zwischen den gewählten Geräten nicht erfolgreich ausführbar.}
 
 \newcommand{\designnotes}{
 \begin{itemize}
@@ -50,12 +50,19 @@ Anschließend nimmt der Anwender Gerät A wieder weg.}
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{...}
+\newcommand{\validcontext}{
+
+\begin{itemize}
+\item Informationsbeschaffung, z.B. im Autohaus nach Autokonfiguration 
+\item Informationsbeschaffung, z.B. im Shopping-Center nach Zusammenstellung von einer Einkaufsliste
+\item Wiederholte Tätigkeit, z.B. im Computerspiel als physikalisches Hilfsmittel
+\item Kleinere Aufgabe, z.B. im Unternehmen zur Aufgaben-Verteilung
+\end{itemize}}
 
 %\newcommand{\simultaneously}{}
 \newcommand{\sequentially}{}
 
-%\newcommand{\online}{}
+\newcommand{\online}{}
 %\newcommand{\offline}{}
 
 \newcommand{\private}{}
@@ -67,11 +74,6 @@ Anschließend nimmt der Anwender Gerät A wieder weg.}
 %\newcommand{\leanback}{}
 \newcommand{\leanforward}{}
 
-\newcommand{\distanceIntimate}{}
-\newcommand{\distancePersonal}{}
-%\newcommand{\distanceSocial}{}
-%\newcommand{\distancePublic}{}
-
 \newcommand{\single}{}
 \newcommand{\collaboration}{}
 %\newcommand{\facetoface}{}
@@ -79,12 +81,12 @@ Anschließend nimmt der Anwender Gerät A wieder weg.}
 \newcommand{\cornertocorner}{}
 
 \newcommand{\smalltask}{}
-%\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
+\newcommand{\repeatedtask}{}
+\newcommand{\locationbased}{}
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{Wenn der ausgewählte Ausschnitt auf dem Sender-Gerät für das Empfänger-Gerät flächenmäßig (für das Display) zu groß ist.}
 
 
 \newcommand{\devicetabular}{
@@ -115,13 +117,15 @@ Screens               &            &            &        &          &         \\
 
 \newcommand{\otherpatterns}{Grab A Part}
 
-\newcommand{\stateoftheart}{...
-%\begin{enumerate}
-%\item
-%\item
-%\end{enumerate}
+\newcommand{\stateoftheart}{
+\begin{enumerate}
+\item \url{https://vimeo.com/53606494} \\
+gesamtes Video stellt die Interaktion „Grab An Object“ dar für diverse Bereiche, z.B. Dateien holen/verschieben oder auch für Spiele
+\item \url{http://emergingexperiences.com/2012/01/introducing-the-razorfish-connected-retail-experience-platform-code-named-5d/} \\
+und \url{https://vimeo.com/53606494} \\
+Im Konzeptvideo von Razorfish wird die „Grab An Object“ Interaktion eingesetzt, um das Nutzer-Erlebnis beim Einkaufen zu steigern
+\end{enumerate}
 }
-
 
 \newcommand{\designprinciples}{}
 
@@ -149,37 +153,41 @@ Screens               &            &            &        &          &         \\
 % TECHNISCHES
 % -------------------------------
 
-%\newcommand{\technologyObjectIntimate}{}
-%\newcommand{\technologyObjectPersonal}{}
-%\newcommand{\technologyObjectSocial}{}
+\newcommand{\technologyObjectIntimate}{}
+\newcommand{\technologyObjectPersonal}{}
+\newcommand{\technologyObjectSocial}{}
 %\newcommand{\technologyObjectPublic}{}
 
-\newcommand{\technologyObjectDesc}{...}
+\newcommand{\technologyObjectDesc}{Um das aufliegende Smartphone auf dem Multi-Touch-Tisch zu erkennen benötigt es eine Technologie (wie Tags), wenn der Multi-Touch-Tisch keine Schnittstelle wie Bluetooth oder NFC anbietet. Sofern der Multi-Touch-Tisch und das Smartphone aber über eine drahtlose Schnittstelle wie Bluetooth kommunizieren können ist die Objekterkennung auch in einer entfernteren Distanz möglich. \\
+In weiteren Prototypen (TODO QUELLE Huddlelamp) ist auch die Kamera als Objekterkennung und zur Lokalisation verwendet worden.}
 
-%\newcommand{\technologyCommunicationServer}{}
-%\newcommand{\technologyCommunicationAdhoc}{}
+\newcommand{\technologyCommunicationServer}{}
+\newcommand{\technologyCommunicationAdhoc}{}
 
-\newcommand{\technologyCommunicationDesc}{...}
+\newcommand{\technologyCommunicationDesc}{Damit der Multi-Touch-Tisch und das Smartphone kommunizieren (Daten austauschen) können, kann ein Server zwischengeschaltet werden. \\
+Wenn technisch eine direkte Kommunikation zwischen Multi-Touch-Tisch und Smartphone (z.B. über Bluetooth) möglich ist, kann auch ein Ad-hoc-Netz gewählt werden.}
 
 %\newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
 %\newcommand{\technologyOrientationGyroskop}{}
 %\newcommand{\technologyOrientationAnnaeherung}{}
 %\newcommand{\technologyOrientationHoehe}{}
-%\newcommand{\technologyOrientationBeacons}{}
+\newcommand{\technologyOrientationBeacons}{}
 %\newcommand{\technologyOrientationOther}{}
 
-\newcommand{\technologyOrientationDesc}{...}
+\newcommand{\technologyOrientationDesc}{Um zu bestimmen, ob das Smartphone auf dem Multi-Touch-Tisch aufliegt bzw. in seiner Nähe ist, dienen (wie in [1.] verwendet) Beacons.}
 
-\newcommand{\prototype}{...}
+\newcommand{\prototype}{In [1.] ist die prototypische Implementierung der Interaktion unter dem Namen „grab the screen“ beschrieben. Die Beschreibung gilt für einen Multi-Touch-Tisch in Kombination mit einem Android Smartphone. Über einen Server erfolgt die Datenkommunikation und die Lokalisation des Tisches wird durch ein Beacon gestützt.}
 
 
 % -------------------------------
 % SONSTIGES
 % -------------------------------
 
-\newcommand{\authors}{...}
-\newcommand{\literature}{...}
+\newcommand{\authors}{Valentina Burjan, Hochschule Mannheim}
+\newcommand{\literature}{\begin{enumerate}
+\item Burjan, Valentina (2015). Prototypische Implementierung des Blended Interaction Patterns „grab the screen“. Hochschule Mannheim.
+\end{enumerate}}
 \newcommand{\figures}{...}
 \newcommand{\versionhistory}{...}
 \newcommand{\comments}{...}

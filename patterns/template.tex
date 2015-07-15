@@ -15,14 +15,14 @@
 
 \subsection*{Grafische Darstellung}
 \begin{figure}[H]
-\includegraphics[width=\textwidth]{\grafischedarstellung}
+\IfFileExists{\jobname_graphical_description.png}{\includegraphics[width=\textwidth]{\grafischedarstellung}}{}
 \end{figure}
 
 \subsection*{Kategorie}
-\ifthenelse{\equal{\category}{give}}{$\boxtimes$}{$\Box$} Give \\
-\ifthenelse{\equal{\category}{take}}{$\boxtimes$}{$\Box$} Take \\
-\ifthenelse{\equal{\category}{exchange}}{$\boxtimes$}{$\Box$} Exchange \\
-\ifthenelse{\equal{\category}{extend}}{$\boxtimes$}{$\Box$} Extend \\
+\ifthenelse{\equal{\category}{give}}{$\boxtimes$}{$\Box$} Give   |   
+\ifthenelse{\equal{\category}{take}}{$\boxtimes$}{$\Box$} Take   |   
+\ifthenelse{\equal{\category}{exchange}}{$\boxtimes$}{$\Box$} Exchange   |   
+\ifthenelse{\equal{\category}{extend}}{$\boxtimes$}{$\Box$} Extend   |   
 \ifthenelse{\equal{\category}{connect}}{$\boxtimes$}{$\Box$} Connect
 
 % -------------------------------
@@ -40,11 +40,11 @@
 \subsubsection*{Reaktion im Erfolgsfall:}
 \checkbox{\reactionSuccessVisual} visuelle Rückmeldung \\
 \checkbox{\reactionSuccessAcustic} akustische Rückmeldung, z.B. Ton \\
-\checkbox{\reactionSuccessSensitive} sensitive Rückmeldung, z.B. Vibration \\
+\checkbox{\reactionSuccessSensitive} sensitive Rückmeldung, z.B. Vibration
 
 \subsubsection*{Reaktion im Nicht-Erfolgsfall:}
 \checkbox{\reactionFailureConnection} wenn keine funktionierende Verbindung besteht: \reactionFailureConnectionDesc \\
-\checkbox{\reactionFailureNoDevice} wenn das Zielgerät nicht erkannt wurde:\reactionFailureNoDeviceDesc \\
+\checkbox{\reactionFailureNoDevice} wenn das Zielgerät nicht erkannt wurde: \reactionFailureNoDeviceDesc \\
 \checkbox{\reactionFailureCompatibility} wenn das Zielgerät nicht kompatibel ist: \reactionFailureCompatibilityDesc
 
 \subsection*{Hinweise zur Gestaltung der Interaktion}
@@ -175,27 +175,27 @@
 \checkbox{\technologyOrientationAnnaeherung} Annäherungssensor \\
 \checkbox{\technologyOrientationHoehe} Höhenmesser \\
 \checkbox{\technologyOrientationBeacons} Beacons \\
-\checkbox{\technologyOrientationOther} andere: \\
+\checkbox{\technologyOrientationOther} andere \\
 
-\technologyOrientationDesc{...} 
+\technologyOrientationDesc 
 
 \subsection*{Prototyp/Lösungsansatz/Code-Snippets/UML-Diagramm}
 \prototype
 
 \begin{figure}[H]
-\includegraphics[width=\textwidth]{\sequencediagram}
+\IfFileExists{\jobname_sequence.png}{\includegraphics[width=\textwidth]{\sequencediagram}}{}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=\textwidth]{\solutionimg}
+\IfFileExists{\jobname_solution.png}{\includegraphics[width=\textwidth]{\solutionimg}}{}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=\textwidth]{\umldiagram}
+\IfFileExists{\jobname_uml.png}{\includegraphics[width=\textwidth]{\umldiagram}}{}
 \end{figure}
 
 \begin{figure}[H]
-\includegraphics[width=\textwidth]{\prototypeimg}
+\IfFileExists{\jobname_prototype.png}{\includegraphics[width=\textwidth]{\prototypeimg}}{}
 \end{figure}
 
 % -------------------------------
@@ -214,6 +214,7 @@
 \figures
 
 \subsection*{Versionshistorie}
+Letzte Änderung am: {\today} \\
 \versionhistory
 
 \subsection*{Kommentare}
