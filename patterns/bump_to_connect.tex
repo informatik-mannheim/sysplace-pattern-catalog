@@ -1,30 +1,31 @@
 \input{header.tex}
 
-\newcommand{\name}{Bump To Take}
+\newcommand{\name}{Bump To Connect}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll von einem Empfänger-Gerät angefordert werden. Das Datenobjekt soll auch auf dem Empfänger-Gerät verfügbar sein.}
+\newcommand{\desc}{Eine Verbindung soll zwischen zwei Geräten hergestellt werden.}
 
-\newcommand{\solution}{Das Empfänger-Gerät wird mit Sender-Gerät leicht zusammengestoßen/gebumpt. Dadurch fordert das Empfänger-Gerät vom Sender-Gerät einen Datensatz an.}
+\newcommand{\solution}{Das Empfänger-Gerät wird mit Sender-Gerät leicht zusammengestoßen/gebumpt. Dadurch wird eine Verbindung zwischen den Geräten aufgebaut.}
 
 %\newcommand{\category}{give}
-\newcommand{\category}{take}
+%\newcommand{\category}{take}
 %\newcommand{\category}{exchange}
 %\newcommand{\category}{extend}
-%\newcommand{\category}{connect}
+\newcommand{\category}{connect}
 
 % -------------------------------
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Zwei Benutzer halten jeweils ein Gerät fest in der Hand und lassen die Geräte an der Seitenkante zusammenstoßen/bumpen. }
+\newcommand{\useraction}{Zwei Benutzer halten jeweils ein Gerät fest in der Hand und lassen die Geräte
+an der Seitenkante zusammenstoßen/bumpen.}
 
-\newcommand{\reaction}{Die Geräte geben nach dem Zusammenstoß eine visuelle oder akustische Rückmeldung an die Benutzer.\\
-Es wird signalisiert, dass ein Bump vom Endgerät festgestellt wurde z.B. über Vibration. \\
-Auf dem Quellgerät angezeigte Dokumente werden auf das Zielgerät übertragen und dort angezeigt.}
+\newcommand{\reaction}{Die Geräte geben nach dem Zusammenstoß eine visuelle oder akustische
+Rückmeldung an die Benutzer.\\
+Es wird signalisiert, dass ein Bump vom Endgerät festgestellt wurde z.B. über Vibration. Die Verbindung zwischen den Geräten ist nach erfolgreichem bumpen hergestellt.}
 
 \newcommand{\reactionSuccessVisual}{}
 %\newcommand{\reactionSuccessAcustic}{}
@@ -43,7 +44,8 @@ Auf dem Quellgerät angezeigte Dokumente werden auf das Zielgerät übertragen u
 \begin{itemize}
 \item Es sollte im besten Fall keinen Abstand zwischen den beiden Geräten geben, um die Erkennung des angelegten Gerätes zu gewährleisten.
 \item Der Zusammenstoß der Geräte muss so erfolgen, dass eine Erkennung möglich ist, andererseits aber die Geräte nicht beschädigt werden.
-\end{itemize}}
+\end{itemize}
+}
 
 % -------------------------------
 % WANN
@@ -72,13 +74,13 @@ Auf dem Quellgerät angezeigte Dokumente werden auf das Zielgerät übertragen u
 %\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
-\newcommand{\smalltask}{}
+%\newcommand{\smalltask}{}
 %\newcommand{\repeatedtask}{}
 %\newcommand{\locationbased}{}
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{--- keine Information ---}
+\newcommand{\notvalidcontext}{...}
 
 
 \newcommand{\devicetabular}{
@@ -96,7 +98,7 @@ Tabletop              &            &            &        &          &         \\
 \hline
 Screens               &            &            &        &          &         \\ 
 \hline 
-\end{tabular} }
+\end{tabular}}
 
 % -------------------------------
 % WARUM
@@ -110,15 +112,15 @@ Screens               &            &            &        &          &         \\
 \newcommand{\otherpatterns}{
 \begin{itemize}
 \item Bump To Give
+\item Bump To Take
 \item Bump To Exchange
-\item Bump To Connect
 \item Nudge
 \end{itemize}
 }
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item Bump App [1]: Bis 2014 in den App/Play Stores erhältlich gewesen. 
+\item Bump App  Bis 2014 in den App/Play Stores erhältlich gewesen.
 \end{enumerate}
 }
 
@@ -126,12 +128,12 @@ Screens               &            &            &        &          &         \\
 \newcommand{\designprinciples}{}
 
 \newcommand{\imageschemata}{}
-\newcommand{\imageSchemaContainer}{}
+%\newcommand{\imageSchemaContainer}{}
 %\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaPath}{}
 %\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaUpDown}{}
-\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaLeftRight}{}
 %\newcommand{\imageSchemaNearFar}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
@@ -149,59 +151,41 @@ Screens               &            &            &        &          &         \\
 % -------------------------------
 
 \newcommand{\technologyObjectIntimate}{}
-\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectPersonal}{}
 %\newcommand{\technologyObjectSocial}{}
 %\newcommand{\technologyObjectPublic}{}
 
-\newcommand{\technologyObjectDesc}{-}
+\newcommand{\technologyObjectDesc}{...}
 
-\newcommand{\technologyCommunicationServer}{}
-\newcommand{\technologyCommunicationAdhoc}{}
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
 
-\newcommand{\technologyCommunicationDesc}{-}
+\newcommand{\technologyCommunicationDesc}{...}
 
-\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
 %\newcommand{\technologyOrientationGyroskop}{}
 %\newcommand{\technologyOrientationAnnaeherung}{}
 %\newcommand{\technologyOrientationHoehe}{}
-\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationBeacons}{}
 %\newcommand{\technologyOrientationOther}{}
 
-\newcommand{\technologyOrientationDesc}{-}
+\newcommand{\technologyOrientationDesc}{...}
 
-\newcommand{\prototype}{Generell können zwei Lösungsansätze unterschieden werden:\\
-\begin{itemize}
-\item Kommunikation über ein Ad-Hoc Netzwerk, das zwischen den beteiligten Geräten gebildet wird.\\
-Vorraussetzungen für Endgeräte:
-\begin{itemize}
-\item Accelerometer
-\item Ad-Hoc-Netzwerktechnologie - Bluetooth/Wi-Fi
-\item GPS oder Beacon
-\end{itemize}
-\item Kommunikation über einen Server zu dem sich beteiligte Geräte verbinden.\\
-Vorraussetzungen für Endgeräte:
-\begin{itemize}
-\item Accelerometer
-\item Wi-Fi oder Mobilfunk
-\item GPS oder Beacon
-\end{itemize}
-\end{itemize}
-}
+\newcommand{\prototype}{...}
 
 
 % -------------------------------
 % SONSTIGES
 % -------------------------------
 
-\newcommand{\authors}{Benjamin Grab}
+\newcommand{\authors}{}
 \newcommand{\literature}{
 \begin{enumerate}
 \item Bump. [Online]. \url{http://bu.mp/}
 \item BumpTechnologies. Youtube.com. [Online]. \url{https://www.youtube.com/user/BumpTechnologies}
 \item Ken Hinckley. 2003. Synchronous gestures for multiple persons and computers. In Proceedings of the 16th annual ACM symposium on User interface software and technology (UIST '03). ACM, New York, NY, USA, 149-158. DOI=10.1145/964696.964713 
-\end{enumerate}
-}
+\end{enumerate}}
 \newcommand{\figures}{...}
 \newcommand{\versionhistory}{...}
 \newcommand{\comments}{...}
