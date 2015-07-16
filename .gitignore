@@ -12,4 +12,5 @@
 *.bbl
 *.blg
 *.lof
+*.out
 output/
