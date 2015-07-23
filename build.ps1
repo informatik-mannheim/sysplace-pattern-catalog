@@ -1,8 +1,7 @@
-Function clean
+﻿Function clean
 {
 	delete-temps
-	gci -Recurse -Include *.pdf, *.css, *.html, *.htm | rm 
-	
+	gci -Recurse -Path output/ -Include *.* | rm 
 }
 
 Function delete-temps
@@ -15,7 +14,7 @@ Function build
 	New-Item -Force -ItemType directory -Path output/pdf
 	New-Item -Force -ItemType directory -Path output/temp/pdf
 	cd patterns
-	gci -Exclude template.tex,header.tex *.tex | ForEach-Object {pdflatex -interaction=nonstopmode -output-directory "../output/pdf" $_.FullName }
+	gci -Exclude template.tex,header.tex *.tex | ForEach-Object {pdflatex -interaction=nonstopmode -output-directory "../output/pdf"  $_.FullName }
 	gci ../output/pdf/ -Exclude *.pdf | ForEach-Object {mv -Force $_ ../output/temp/pdf}
 	cd ..
 }
@@ -25,7 +24,7 @@ Function build-web
 	New-Item -Force -ItemType directory -Path output/html
 	New-Item -Force -ItemType directory -Path output/temp/html
 	cd patterns
-	gci -Exclude template.tex,header.tex *.tex | ForEach-Object {htlatex $_.FullName "html, -css, charset=utf-8" "-cunihtf -utf8"}
+	gci -Exclude template.tex,header.tex *.tex | ForEach-Object {htlatex $_.FullName "html, -css, charset=utf-8" " -cunihtf -utf8"}
 	gci -Exclude *.html, *.tex, *.png | ForEach-Object {mv -Force $_ ../output/temp/html}
 	mv -Force *.html ../output/html
 	cp *.png ../output/html
