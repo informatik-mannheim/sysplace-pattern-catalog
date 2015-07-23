@@ -1,0 +1,174 @@
+\input{header.tex}
+\usepackage{currfile}
+\newcommand{\name}{Swipe To Give}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{...}
+
+\newcommand{\solution}{...}
+
+<<<<<<< HEAD
+\newcommand{\figA}{
+%\begin{figure}[H]
+%\includegraphics[scale=0.2]{FILENAME.png}
+%\end{figure}
+}
+
+\newcommand{\figB}{
+%\begin{figure}[H]
+%\includegraphics[scale=0.2]{FILENAME.png}
+%\end{figure}
+}
+
+\newcommand{\figC}{
+%\begin{figure}[H]
+%\includegraphics[scale=0.2]{FILENAME.png}
+%\end{figure}
+}
+
+
+=======
+>>>>>>> 45b49f0b6ec9f0f184c42ec55cc74a3eaf5f12fd
+\newcommand{\category}{give}
+%\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+%\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{...}
+
+\newcommand{\reaction}{...}
+
+\newcommand{\designnotes}{...}
+
+% -------------------------------
+% WANN
+% -------------------------------
+
+%\newcommand{\simultaneously}{}
+%\newcommand{\sequentially}{}
+
+%\newcommand{\online}{}
+%\newcommand{\offline}{}
+
+%\newcommand{\private}{}
+%\newcommand{\semipublic}{}
+%\newcommand{\public}{}
+%\newcommand{\stationary}{}
+%\newcommand{\onthego}{}
+
+%\newcommand{\leanback}{}
+%\newcommand{\leanforward}{}
+
+%\newcommand{\single}{}
+%\newcommand{\collaboration}{}
+
+%\newcommand{\smalltask}{}
+%\newcommand{\repeatedtask}{}
+%\newcommand{\locationbased}{}
+%\newcommand{\distraction}{}
+%\newcommand{\urgent}{}
+
+\newcommand{\validcontext}{...}
+
+\newcommand{\notvalidcontext}{...}
+
+
+\newcommand{\devicetabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+von/nach & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch & • & • & • & • & • \\ 
+\hline 
+Smartphone & • & • & • & • & •\\ 
+\hline 
+Tablet & • & • & • & • & •\\ 
+\hline 
+Tabletop & • & • & • & • & •\\ 
+\hline
+Screens & • & • & • & • & • \\ 
+\hline 
+\end{tabular} }
+
+
+%\newcommand{\distanceA}{}
+%\newcommand{\distanceB}{}
+%\newcommand{\distanceC}{}
+%\newcommand{\distanceD}{}
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+%\newcommand{\established}{}
+%\newcommand{\candidate}{}
+%\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{...}
+
+\newcommand{\stateoftheart}{...}
+
+%\newcommand{\designprinciples}{}
+
+%\newcommand{\imageschemata}{}
+%\newcommand{\imageschemataA}{}
+%\newcommand{\imageschemataB}{}
+%\newcommand{\imageschemataC}{}
+
+%\newcommand{\realworld}{}
+%\newcommand{\realworldA}{}
+%\newcommand{\realworldB}{}
+%\newcommand{\realworldC}{}
+%\newcommand{\realworldD}{}
+
+%\newcommand{\metaphor}{}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+\newcommand{\technologyObjectA}{}
+\newcommand{\technologyObjectB}{}
+\newcommand{\technologyObjectC}{}
+\newcommand{\technologyObjectD}{}
+\newcommand{\technologyObjectDesc}{...}
+
+\newcommand{\technologyCommunicationServer}{}
+\newcommand{\technologyCommunicationAdhoc}{}
+\newcommand{\technologyCommunicationDesc}{...}
+
+\newcommand{\technologyOrientationAccelerometer}{}
+\newcommand{\technologyOrientationGPS}{}
+\newcommand{\technologyOrientationGyroskop}{}
+\newcommand{\technologyOrientationAnnaeherung}{}
+\newcommand{\technologyOrientationHoehe}{}
+\newcommand{\technologyOrientationBeacons}{}
+\newcommand{\technologyOrientationOther}{}
+\newcommand{\technologyOrientationDesc}{...}
+
+\newcommand{\prototype}{...}
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{...}
+\newcommand{\literature}{...}
+\newcommand{\figures}{...}
+\newcommand{\versionhistory}{...}
+\newcommand{\comments}{...}
+\newcommand{\questions}{...}
+
+
+% template inkludieren --------------
+
+\input{template.tex}
