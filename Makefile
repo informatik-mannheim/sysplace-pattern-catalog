@@ -22,4 +22,12 @@ build:
 	@for f in $(TEMPFILES) ; do find patterns -name $$f -exec mv {} -t output/temp/pdf \; ; done
 
 build-web:
-
+#	mkdir -p output/html
+#	mkdir -p output/temp/html
+#	@for file in `find . -name "*.tex" ! -name "template.tex" ! -name "header.tex" -printf "%f\n"`; do \
+#		(cd patterns && echo "building $$file" && htlatex $$file "html, -css, charset=utf-8" " -cunithf -utf8"); \
+#	done
+	find patterns/ -name "*.*" ! -name "*.html" ! -name "*.tex" ! -name "*.png" -exec mv {} output/temp/html \;
+	mv patterns/*.html output/html
+	cp patterns/*.png output/html
+	
