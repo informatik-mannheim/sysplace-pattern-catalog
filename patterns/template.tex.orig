@@ -14,16 +14,23 @@
 \solution
 
 \subsection*{Grafische Darstellung}
+<<<<<<< HEAD
+\figA
+\figB
+\figC
+=======
 \begin{figure}[H]
-\IfFileExists{\jobname_graphical_description.png}{\includegraphics[width=\textwidth]{\grafischedarstellung}}{}
+\includegraphics[scale=0.3]{\grafischedarstellung}
 \end{figure}
+>>>>>>> 45b49f0b6ec9f0f184c42ec55cc74a3eaf5f12fd
 
 \subsection*{Kategorie}
-\ifthenelse{\equal{\category}{give}}{$\boxtimes$}{$\Box$} Give   |   
-\ifthenelse{\equal{\category}{take}}{$\boxtimes$}{$\Box$} Take   |   
-\ifthenelse{\equal{\category}{exchange}}{$\boxtimes$}{$\Box$} Exchange   |   
-\ifthenelse{\equal{\category}{extend}}{$\boxtimes$}{$\Box$} Extend   |   
+\ifthenelse{\equal{\category}{give}}{$\boxtimes$}{$\Box$} Give \\
+\ifthenelse{\equal{\category}{take}}{$\boxtimes$}{$\Box$} Take \\
+\ifthenelse{\equal{\category}{exchange}}{$\boxtimes$}{$\Box$} Exchange \\
+\ifthenelse{\equal{\category}{extend}}{$\boxtimes$}{$\Box$} Extend \\
 \ifthenelse{\equal{\category}{connect}}{$\boxtimes$}{$\Box$} Connect
+
 
 % -------------------------------
 % WIE
@@ -40,12 +47,12 @@
 \subsubsection*{Reaktion im Erfolgsfall:}
 \checkbox{\reactionSuccessVisual} visuelle Rückmeldung \\
 \checkbox{\reactionSuccessAcustic} akustische Rückmeldung, z.B. Ton \\
-\checkbox{\reactionSuccessSensitive} sensitive Rückmeldung, z.B. Vibration
+\checkbox{\reactionSuccessSensitive} sensitive Rückmeldung, z.B. Vibration \\
 
 \subsubsection*{Reaktion im Nicht-Erfolgsfall:}
-\checkbox{\reactionFailureConnection} wenn keine funktionierende Verbindung besteht: \reactionFailureConnectionDesc \\
-\checkbox{\reactionFailureNoDevice} wenn das Zielgerät nicht erkannt wurde: \reactionFailureNoDeviceDesc \\
-\checkbox{\reactionFailureCompatibility} wenn das Zielgerät nicht kompatibel ist: \reactionFailureCompatibilityDesc
+\checkbox{\reactionFailureConnection} wenn keine funktionierende Verbindung besteht \\
+\checkbox{\reactionFailureNoDevice} wenn das Zielgerät nicht erkannt wurde \\
+\checkbox{\reactionFailureCompatibility} wenn das Zielgerät nicht kompatibel ist
 
 \subsection*{Hinweise zur Gestaltung der Interaktion}
 \designnotes
@@ -57,9 +64,9 @@
 \section*{Wann}
 
 \subsection*{Geeigneter Nutzungskontext}
-\validcontext
 
 \subsubsection*{Zeit}
+
 \checkbox{\simultaneously} gleichzeitige Nutzung von Geräten \\
 \checkbox{\sequentially} sequentielle Nutzung von Geräten 
 
@@ -78,14 +85,10 @@
 \checkbox{\leanback} Lean-Back \\
 \checkbox{\leanforward} Lean-Forward 
 
+
 \subsubsection*{Teilnehmer}
 \checkbox{\single} Einzelnutzer \\
-\checkbox{\collaboration} Kollaboration
-
-\subsubsection*{Anordnung zwischen Sender und Empfänger}
-\checkbox{\facetoface} Face-To-Face \\
-\checkbox{\sidetoside} Side-To-Side \\
-\checkbox{\cornertocorner} Corner-To-Corner
+\checkbox{\collaboration} Kollaboration 
 
 \subsubsection*{Tätigkeit}
 \checkbox{\smalltask} kleinere Aufgabe \\
@@ -94,11 +97,19 @@
 \checkbox{\distraction} Ablenkung \\
 \checkbox{\urgent} dringendes 
 
+\validcontext
+
 \subsection*{Abzuratender Nutzungskontext}
 \notvalidcontext
 
 \subsection*{Geräteklassen}
 \devicetabular
+
+\subsection*{Entfernung zwischen Sender- und Empfänger-Gerät}
+\checkbox{\distanceA} Entfernung 1 \\
+\checkbox{\distanceB} Entfernung 2 \\
+\checkbox{\distanceC} Entfernung 3 \\
+\checkbox{\distanceD} Entfernung 4 
 
 % -------------------------------
 % WARUM
@@ -107,8 +118,8 @@
 \section*{Warum}
 
 \checkbox{\established} Bewährtes Interaction Pattern \\
-\checkbox{\candidate} Interaction Pattern Kandidat: 
-\checkbox{\realizable} realisierbar oder
+\checkbox{\candidate} Interaction Pattern Kandidat 
+\checkbox{\realizable} realisierbar
 \checkbox{\futuristic} futuristisch 
 
 \subsection*{Analoge Patterns}
@@ -124,29 +135,24 @@
 \item[-] Die Interaktion kann in einer Kollaboration ausgeführt werden.
 \item[-] Die Interaktion unterstützt einen Workflow/eine Aufgabe.
 \item[-] Die Interaktion findet in einer physikalischen Umgebung statt.
-\end{itemize} 
+\end{itemize}
 
 \checkbox{\imageschemata} Image Schema/ta liegen zu Grunde.
 \begin{itemize}
-\item[-] \checkbox{\imageSchemaContainer} Container
-\item[-] \checkbox{\imageSchemaInOut} In-Out
-\item[-] \checkbox{\imageSchemaPath} Path
-\item[-] \checkbox{\imageSchemaSourcePathGoal} Source-Path-Goal
-\item[-] \checkbox{\imageSchemaUpDown} Up-Down
-\item[-] \checkbox{\imageSchemaLeftRight} Left-Right
-\item[-] \checkbox{\imageSchemaNearFar} Near-Far
-\item[-] \checkbox{\imageSchemaPartWhole} Part-Whole
+\item[-] \checkbox{\imageschemataA} Image Schema 1
+\item[-] \checkbox{\imageschemataB} Image Schema 2
+\item[-] \checkbox{\imageschemataC} Image Schema 3
 \end{itemize}
 
 \checkbox{\realworld} Die real-weltlichen Kenntnisse des Menschen werden berücksichtigt.
 \begin{itemize}
-\item[-] \checkbox{\realworldNaivePhysic} Naive Physik
-\item[-] \checkbox{\realworldBodyAwareness} Body Awareness and Skills
-\item[-] \checkbox{\realworldEnvironmentAwareness} Environment Awareness and Skills
-\item[-] \checkbox{\realworldSocialAwareness} Social Awareness and Skills
+\item[-] \checkbox{\realworldA} Naive Physik
+\item[-] \checkbox{\realworldB} Body Awareness and Skills
+\item[-] \checkbox{\realworldC} Environment Awareness and Skills
+\item[-] \checkbox{\realworldD} Social Awareness and Skills
 \end{itemize}
 
-\checkbox{\metaphor} Es ist eine natürliche Interaktion. Metapher/Assoziation: \metaphordesc
+\checkbox{\metaphor} Es ist eine natürliche Interaktion. Metapher/Assoziation: 
 
 % -------------------------------
 % TECHNISCHES
@@ -155,10 +161,10 @@
 \section*{Technisches}
 
 \subsection*{Technologien zur Objekterkennung}
-\checkbox{\technologyObjectIntimate} 0cm bis 50cm, z.B. NFC, Tags, RFID ... \\
-\checkbox{\technologyObjectPersonal} 0,5cm bis 1m, z.B. Bluetooth \\
-\checkbox{\technologyObjectSocial} 1m bis 4m, z.B. Kamera \\
-\checkbox{\technologyObjectPublic} über 4m, z.B. GPS \\
+\checkbox{\technologyObjectA} Distanz A \\
+\checkbox{\technologyObjectB} Distanz B \\
+\checkbox{\technologyObjectC} Distanz C \\
+\checkbox{\technologyObjectD} Distanz D \\
 
 \technologyObjectDesc
 
@@ -175,28 +181,12 @@
 \checkbox{\technologyOrientationAnnaeherung} Annäherungssensor \\
 \checkbox{\technologyOrientationHoehe} Höhenmesser \\
 \checkbox{\technologyOrientationBeacons} Beacons \\
-\checkbox{\technologyOrientationOther} andere \\
+\checkbox{\technologyOrientationOther} andere: \\
 
-\technologyOrientationDesc 
+\technologyOrientationDesc{...} 
 
 \subsection*{Prototyp/Lösungsansatz/Code-Snippets/UML-Diagramm}
 \prototype
-
-\begin{figure}[H]
-\IfFileExists{\jobname_sequence.png}{\includegraphics[width=\textwidth]{\sequencediagram}}{}
-\end{figure}
-
-\begin{figure}[H]
-\IfFileExists{\jobname_solution.png}{\includegraphics[width=\textwidth]{\solutionimg}}{}
-\end{figure}
-
-\begin{figure}[H]
-\IfFileExists{\jobname_uml.png}{\includegraphics[width=\textwidth]{\umldiagram}}{}
-\end{figure}
-
-\begin{figure}[H]
-\IfFileExists{\jobname_prototype.png}{\includegraphics[width=\textwidth]{\prototypeimg}}{}
-\end{figure}
 
 % -------------------------------
 % SONSTIGES
@@ -209,20 +199,18 @@
 
 \subsection*{Literaturreferenzen}
 \literature
-\nocite{*}
-\bibliography{lit.bib}
 
 \subsection*{Abbildungsverzeichnis}
 \figures
 
 \subsection*{Versionshistorie}
-Letzte Änderung am: \versionhistory \\
-Erstelldatum: \dateofcreation
+\versionhistory
 
 \subsection*{Kommentare}
 \comments
 
 \subsection*{Offene Fragen}
 \questions
+
 
 \end{document}

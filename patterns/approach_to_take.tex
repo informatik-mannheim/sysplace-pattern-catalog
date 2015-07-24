@@ -1,0 +1,185 @@
+\input{header.tex}
+
+\newcommand{\name}{Approach To Take}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll von einem Empfänger-Gerät angefordert werden. Das Datenobjekt soll auch auf dem Empfänger-Gerät verfügbar sein.}
+
+\newcommand{\solution}{Ein Nutzer nähert sich mit einem Quell-Gerät einem Ziel-Gerät.
+Durch die Nähe wird veranlasst, dass Empfänger-Gerät vom Sender-Gerät einen Datensatz anfordert.}
+
+%\newcommand{\category}{give}
+\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+%\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{Der Anwender nähert sich mit einem portablen Quell-Gerät dem Ziel-Gerät bis auf eine definierte Distanz.}
+
+\newcommand{\reaction}{Beim Erreichen einer definierten Distanz zwischen Quell- und Ziel-Gerät wird visuell, akustisch oder auf eine andere Weise erkenntlich gemacht, dass sich das Quell- und Ziel-Gerät erkannt haben. Daraufhin fordert das Empfänger-Gerät vom Sender-Gerät ein Datenobjekt an und stellt es dar.}
+
+\newcommand{\reactionSuccessVisual}{}
+\newcommand{\reactionSuccessAcustic}{}
+\newcommand{\reactionSuccessSensitive}{}
+
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{haben das Quell- und Ziel-Gerät den Mindest-Abstand zueinander nicht erreicht. Die Distanz darf ggf. nicht zu klein definiert sein. Solange keine funktionierende Verbindung zwischen den Geräten hergestellt werden kann, sucht das Quell-Gerät weiterhin nach dem Ziel-Gerät. Dadurch kann die Datenanforderung und -übertragung nicht stattfinden.}
+
+\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{sucht das Quell-Gerät weiterhin nach dem Ziel-Gerät.}
+
+\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{muss das Quell-Gerät bei gescheitertem Verbindungsaufbau zum Ziel-Gerät einen Hinweis anzeigen, dass das Ziel-Gerät nicht kompatibel ist, um Daten vom Sender-Gerät zu anzufordern bzw. darzustellen.}
+
+\newcommand{\designnotes}{Die Distanz zwischen Quell- und Ziel-Gerät darf nicht zu gering definiert werden (sonst müsste man das Quell-Gerät ggf. auf das Ziel-Gerät auflegen).}
+
+% -------------------------------
+% WANN
+% -------------------------------
+
+\newcommand{\validcontext}{...}
+
+\newcommand{\simultaneously}{}
+%\newcommand{\sequentially}{}
+
+\newcommand{\online}{}
+%\newcommand{\offline}{}
+
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+%\newcommand{\public}{}
+\newcommand{\stationary}{}
+%\newcommand{\onthego}{}
+
+%\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
+
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
+\newcommand{\facetoface}{}
+%\newcommand{\sidetoside}{}
+%\newcommand{\cornertocorner}{}
+
+%\newcommand{\smalltask}{}
+%\newcommand{\repeatedtask}{}
+%\newcommand{\locationbased}{}
+%\newcommand{\distraction}{}
+%\newcommand{\urgent}{} 
+
+\newcommand{\notvalidcontext}{...}
+
+
+\newcommand{\devicetabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch            &     x      &     x      &   x    &     x    &     x   \\ 
+\hline 
+Smartphone            &     x      &     x      &   x    &     x    &     x   \\ 
+\hline 
+Tablet                &     x      &     x      &   x    &     x    &     x   \\ 
+\hline 
+Tabletop              &            &            &        &          &     x   \\ 
+\hline
+Screens               &            &            &        &          &         \\ 
+\hline 
+\end{tabular} }
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{
+\begin{itemize}
+\item Approach To Connect
+\item Approach To Extend
+\item Approach To Give
+\end{itemize}}
+
+\newcommand{\stateoftheart}{...
+%\begin{enumerate}
+%\item
+%\item
+%\end{enumerate}
+}
+
+
+\newcommand{\designprinciples}{}
+
+\newcommand{\imageschemata}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaLeftRight}{}
+\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPartWhole}{}
+
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
+
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Magnet}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+\newcommand{\technologyObjectIntimate}{}
+\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
+
+\newcommand{\technologyObjectDesc}{...}
+
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
+
+\newcommand{\technologyCommunicationDesc}{...}
+
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationOther}{}
+
+\newcommand{\technologyOrientationDesc}{...}
+
+\newcommand{\prototype}{...}
+
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{...}
+\newcommand{\literature}{...}
+\newcommand{\figures}{...}
+\newcommand{\versionhistory}{...}
+\newcommand{\dateofcreation}{...}
+\newcommand{\comments}{...}
+\newcommand{\questions}{...}
+
+
+% template inkludieren --------------
+
+\input{template.tex}

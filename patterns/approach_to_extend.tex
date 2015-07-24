@@ -1,51 +1,44 @@
 \input{header.tex}
 
-\newcommand{\name}{Bump To Connect}
+\newcommand{\name}{Approach To Extend}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Eine Verbindung soll zwischen zwei Geräten hergestellt werden.}
+\newcommand{\desc}{Der Bildschirm-Inhalt des Quell-Gerätes soll auf dem Ziel-Gerät erweitert dargestellt werden.}
 
-\newcommand{\solution}{Das Empfänger-Gerät wird mit Sender-Gerät leicht zusammengestoßen/gebumpt. Dadurch wird eine Verbindung zwischen den Geräten aufgebaut.}
+\newcommand{\solution}{Ein Nutzer nähert sich mit einem Quell-Gerät einem Ziel-Gerät.
+Durch die Nähe wird veranlasst, dass der Bildschirm-Inhalt des Quell-Gerätes auf das Ziel-Gerät erweitert wird.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
 %\newcommand{\category}{exchange}
-%\newcommand{\category}{extend}
-\newcommand{\category}{connect}
+\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
 
 % -------------------------------
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Zwei Benutzer halten jeweils ein Gerät fest in der Hand und lassen die Geräte
-an der Seitenkante zusammenstoßen/bumpen.}
+\newcommand{\useraction}{Der Anwender nähert sich mit einem portablen Quell-Gerät dem Ziel-Gerät bis auf eine definierte Distanz.}
 
-\newcommand{\reaction}{Die Geräte geben nach dem Zusammenstoß eine visuelle oder akustische
-Rückmeldung an die Benutzer.\\
-Es wird signalisiert, dass ein Bump vom Endgerät festgestellt wurde z.B. über Vibration. Die Verbindung zwischen den Geräten ist nach erfolgreichem bumpen hergestellt.}
+\newcommand{\reaction}{Beim Erreichen einer definierten Distanz zwischen Quell- und Ziel-Gerät wird visuell, akustisch oder auf eine andere Weise erkenntlich gemacht, dass sich das Quell- und Ziel-Gerät erkannt haben. Daraufhin wird der Bildschirm des Quell-Gerätes geteilt und auf dem Ziel-Gerät erweitert dargestellt.}
 
 \newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
+\newcommand{\reactionSuccessAcustic}{}
 \newcommand{\reactionSuccessSensitive}{}
 
-%\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{...}
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{haben das Quell- und Ziel-Gerät den Mindest-Abstand zueinander nicht erreicht. Die Distanz darf ggf. nicht zu klein definiert sein. Solange keine funktionierende Verbindung zwischen den Geräten hergestellt werden kann, sucht das Quell-Gerät weiterhin nach dem Ziel-Gerät.}
 
-%\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{...}
+\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{sucht das Quell-Gerät weiterhin nach dem Ziel-Gerät.}
 
-%\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{...}
+\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{muss das Quell-Gerät bei gescheitertem Verbindungsaufbau zum Ziel-Gerät einen Hinweis anzeigen, dass das Ziel-Gerät nicht kompatibel für eine Bildschirmerweiterung ist.}
 
-\newcommand{\designnotes}{
-\begin{itemize}
-\item Es sollte im besten Fall keinen Abstand zwischen den beiden Geräten geben, um die Erkennung des angelegten Gerätes zu gewährleisten.
-\item Der Zusammenstoß der Geräte muss so erfolgen, dass eine Erkennung möglich ist, andererseits aber die Geräte nicht beschädigt werden.
-\end{itemize}
-}
+\newcommand{\designnotes}{Die Distanz zwischen Quell- und Ziel-Gerät darf nicht zu gering definiert werden (sonst müsste man das Quell-Gerät ggf. auf das Ziel-Gerät auflegen).}
 
 % -------------------------------
 % WANN
@@ -61,14 +54,14 @@ Es wird signalisiert, dass ein Bump vom Endgerät festgestellt wurde z.B. über 
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
-\newcommand{\public}{}
+%\newcommand{\public}{}
 \newcommand{\stationary}{}
-\newcommand{\onthego}{}
+%\newcommand{\onthego}{}
 
 %\newcommand{\leanback}{}
 \newcommand{\leanforward}{}
 
-%\newcommand{\single}{}
+\newcommand{\single}{}
 \newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
 %\newcommand{\sidetoside}{}
@@ -88,54 +81,54 @@ Es wird signalisiert, dass ein Bump vom Endgerät festgestellt wurde z.B. über 
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &            &            &        &          &         \\ 
+Smartwatch            &     x      &     x      &        &          &         \\ 
 \hline 
-Smartphone            &            &     x      &   x    &     x    &    x    \\ 
+Smartphone            &            &     x      &   x    &          &         \\ 
 \hline 
-Tablet                &            &            &   x    &     x    &    x    \\ 
+Tablet                &            &            &   x    &     x    &     x   \\ 
 \hline 
 Tabletop              &            &            &        &          &         \\ 
 \hline
 Screens               &            &            &        &          &         \\ 
 \hline 
-\end{tabular}}
+\end{tabular} }
 
 % -------------------------------
 % WARUM
 % -------------------------------
 
-\newcommand{\established}{}
-%\newcommand{\candidate}{}
-%\newcommand{\realizable}{}
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
 \newcommand{\otherpatterns}{
 \begin{itemize}
-\item Bump To Give
-\item Bump To Take
-\item Bump To Exchange
-\item Nudge
+\item Approach To Connect
+\item Appraoch To Give
+\item Appraoch To Take
 \end{itemize}
 }
 
-\newcommand{\stateoftheart}{
-\begin{enumerate}
-\item Bump App  Bis 2014 in den App/Play Stores erhältlich gewesen.
-\end{enumerate}
+\newcommand{\stateoftheart}{...
+%\begin{enumerate}
+%\item
+%\item
+%\end{enumerate}
 }
 
 
 \newcommand{\designprinciples}{}
 
 \newcommand{\imageschemata}{}
-%\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaContainer}{}
 %\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaPath}{}
 %\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaUpDown}{}
-%\newcommand{\imageSchemaLeftRight}{}
+\newcommand{\imageSchemaLeftRight}{}
 %\newcommand{\imageSchemaNearFar}{}
-%\newcommand{\imageSchemaPartWhole}{}
+\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
 \newcommand{\realworldNaivePhysic}{}
@@ -144,14 +137,14 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Fistbump, Anstoßen (wie mit Getränken)}
+\newcommand{\metaphordesc}{Magnet, Bildschirmerweiterung}
 
 % -------------------------------
 % TECHNISCHES
 % -------------------------------
 
 \newcommand{\technologyObjectIntimate}{}
-%\newcommand{\technologyObjectPersonal}{}
+\newcommand{\technologyObjectPersonal}{}
 %\newcommand{\technologyObjectSocial}{}
 %\newcommand{\technologyObjectPublic}{}
 
@@ -165,9 +158,9 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
 %\newcommand{\technologyOrientationGyroskop}{}
-%\newcommand{\technologyOrientationAnnaeherung}{}
+\newcommand{\technologyOrientationAnnaeherung}{}
 %\newcommand{\technologyOrientationHoehe}{}
-%\newcommand{\technologyOrientationBeacons}{}
+\newcommand{\technologyOrientationBeacons}{}
 %\newcommand{\technologyOrientationOther}{}
 
 \newcommand{\technologyOrientationDesc}{...}
@@ -179,13 +172,8 @@ Screens               &            &            &        &          &         \\
 % SONSTIGES
 % -------------------------------
 
-\newcommand{\authors}{}
-\newcommand{\literature}{
-\begin{enumerate}
-\item Bump. [Online]. \url{http://bu.mp/}
-\item BumpTechnologies. Youtube.com. [Online]. \url{https://www.youtube.com/user/BumpTechnologies}
-\item Ken Hinckley. 2003. Synchronous gestures for multiple persons and computers. In Proceedings of the 16th annual ACM symposium on User interface software and technology (UIST '03). ACM, New York, NY, USA, 149-158. DOI=10.1145/964696.964713 
-\end{enumerate}}
+\newcommand{\authors}{...}
+\newcommand{\literature}{...}
 \newcommand{\figures}{...}
 \newcommand{\versionhistory}{...}
 \newcommand{\dateofcreation}{...}
@@ -195,4 +183,4 @@ Screens               &            &            &        &          &         \\
 
 % template inkludieren --------------
 
-\input{template}
+\input{template.tex}
