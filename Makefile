@@ -7,9 +7,9 @@ delete-temps:
 build:
 	mkdir -p output/pdf
 	mkdir -p output/temp/pdf
-	cd patterns
-	for file in `find . -name "*.tex" -printf "%f\n"` ; do pdflatex $$file -interaction=nonstopmode ; done
-	cd ..
+#	for file in `find . -name "*.tex" ! -name "template.tex" ! -name "header.tex" -printf "%f\n"` ; do pdflatex $$file -interaction=nonstopmode -output-directory=patterns/ ; done
+	for file in `find . -name "*.tex" ! -name "template.tex" ! -name "header.tex" -printf "%f\n"` ; do pdflatex -interaction=nonstopmode -output-directory=patterns patterns/$$file ; done
+	mv patterns/*.pdf output/pdf/
 
 build-web:
 
