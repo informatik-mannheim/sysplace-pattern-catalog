@@ -10,17 +10,16 @@ delete-temps:
 	for f in $(TEMPFILES) ; do find . -name $$f -delete ; done
 
 build:
-	@# create output dirs (if not existing)
 	mkdir -p output/pdf
 	mkdir -p output/temp/pdf
-	@# run all .tex files through pdflatex, except for the template and header ones
-	@for file in `find . -name "*.tex" ! -name "template.tex" ! -name "header.tex" -printf "%f\n"`; do \
-		(cd patterns && echo "building $$file" && latexmk $$file -pdf -bibtex -interaction=nonstopmode  > /dev/null); \
+	
+	@for file in `find . -name "*.tex" ! -name "template.tex" ! -name "header.tex"`; do \
+		(echo "building $$file" && latexmk $$file -pdf -bibtex -interaction=nonstopmode -output-directory=patterns/); \
 	done
-	@# move pdf files to output
+	
 	@echo "moving pdf and temp files to output/pdf/"
 	@mv patterns/*.pdf output/pdf/
-	@# move all temp files to output
+	
 	@for f in $(TEMPFILES) ; do find patterns -name $$f -exec mv {} -t output/temp/pdf \; ; done
 
 build-web:
