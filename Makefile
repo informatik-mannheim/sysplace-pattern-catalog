@@ -15,7 +15,7 @@ build:
 	mkdir -p output/temp/pdf
 	@# run all .tex files through pdflatex, except for the template and header ones
 	@for file in `find . -name "*.tex" ! -name "template.tex" ! -name "header.tex" -printf "%f\n"`; do \
-		(cd patterns && echo "building $$file" && pdflatex -interaction=nonstopmode $$file > /dev/null); \
+		(cd patterns && echo "building $$file" && latexmk $$file -pdf -bibtex -interaction=nonstopmode  > /dev/null); \
 	done
 	@# move pdf files to output
 	@echo "moving pdf and temp files to output/pdf/"
