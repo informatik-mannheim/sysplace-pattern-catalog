@@ -1,14 +1,14 @@
 \input{header.tex}
 
-\newcommand{\name}{NAME DES PATTERN}
+\newcommand{\name}{Tennis}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{...}
+\newcommand{\desc}{Ein Datenobjekt von einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
 
-\newcommand{\solution}{...}
+\newcommand{\solution}{Der Anwender hält ein Quell-Gerät fest in der Hand und schwenkt es aus dem Unterarm heraus in Richtung des Ziel-Gerätes.}
 
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -20,24 +20,26 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{...}
+\newcommand{\useraction}{Der Benutzer hat das Sender-Gerät fest in der Hand. Aus dem Unterarm heraus schwingt der Benutzer seinen Arm in Richtung des Empfänger-Gerätes und überträgt dabei ein Datenobjekt.}
 
-\newcommand{\reaction}{...}
+\newcommand{\reaction}{Das Sender-Gerät erkennt eine Schwingbewegung. Dadurch wird ein ausgewähltes Datenobjekt an das Empfänger-Gerät übertragen und durch eine akustische Rückmeldung oder z.B. Vibration bestätigt.\\
+Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Display an.
+}
 
-%\newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
-%\newcommand{\reactionSuccessSensitive}{}
+\newcommand{\reactionSuccessVisual}{}
+\newcommand{\reactionSuccessAcustic}{}
+\newcommand{\reactionSuccessSensitive}{}
 
-%\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{...}
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{muss dem Anwender durch ein Signal, z.B. einen Ton, mitgeteilt werden, dass die Interaktion und Datenübertragung nicht funktioniert.}
 
-%\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{...}
+\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender ggf. die Interaktion erneut ausführen. Solange kein erfolgreicher Datentransfer stattgefunden hat, sollte dem Anwender signalisiert werden, dass das Zielgerät nicht erkannt wurde.}
 
-%\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{...}
+\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender vor erneuter Ausführung der Interaktion informiert werden, welche Geräte miteinander kompatibel sind und die Interaktion erneut ausführen.}
 
-\newcommand{\designnotes}{...}
+\newcommand{\designnotes}{Eine akustische Rückmeldung nach dem Senden der Daten (nach der Schwing-Bewegung) ist erforderlich, um dem Benutzer mitzuteilen, dass die Aktion erfolgreich war. Erfolgt keine Rückmeldung, besteht die Möglichkeit, dass der Benutzer häufig hintereinander die Interaktion durchführt, obwohl bereits die Daten erfolgreich das Ziel-Gerät versendet wurden.}
 
 % -------------------------------
 % WANN
@@ -45,24 +47,24 @@
 
 \newcommand{\validcontext}{...}
 
-%\newcommand{\simultaneously}{}
+\newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
 
-%\newcommand{\online}{}
+\newcommand{\online}{}
 %\newcommand{\offline}{}
 
-%\newcommand{\private}{}
-%\newcommand{\semipublic}{}
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
 %\newcommand{\public}{}
-%\newcommand{\stationary}{}
+\newcommand{\stationary}{}
 %\newcommand{\onthego}{}
 
 %\newcommand{\leanback}{}
-%\newcommand{\leanforward}{}
+\newcommand{\leanforward}{}
 
-%\newcommand{\single}{}
+\newcommand{\single}{}
 %\newcommand{\collaboration}{}
-%\newcommand{\facetoface}{}
+\newcommand{\facetoface}{}
 %\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
@@ -72,7 +74,7 @@
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{Übermittlung von Datenobjekten, z.B. in Form von Bildern, Dateien}
 
 
 \newcommand{\devicetabular}{
@@ -80,9 +82,9 @@
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     •      &     •      &   •    &     •    &     •   \\ 
+Smartwatch            &            &            &        &          &         \\ 
 \hline 
-Smartphone            &     •      &     •      &   •    &     •    &     •   \\ 
+Smartphone            &            &            &   •    &     •    &     •   \\ 
 \hline 
 Tablet                &     •      &     •      &   •    &     •    &     •   \\ 
 \hline 

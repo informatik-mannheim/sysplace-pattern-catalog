@@ -1,0 +1,188 @@
+\input{header.tex}
+
+\newcommand{\name}{Give Through Body}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
+
+\newcommand{\solution}{Ein Anwender bildet durch seinen Körper eine Schnittstelle zwischen zwei Geräten, indem er zunächst eine Hand auf das Sender-Gerät und die zweite Hand auf das Empfänger-Gerät bzw. deren Displays auflegt und so Daten übertragen werden.}
+
+\newcommand{\category}{give}
+%\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+%\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{Der Anwender platziert seine Hand auf dem Quell-Gerät, z.B. auf einem bestimmten Datenobjekt. Anschließend platziert der Anwender seine andere Hand auf dem zweiten Gerät, dem Empfänger-Gerät, welches das Datenobjekt empfängt.  \\
+Beim Platzieren der ersten Hand wird die Dateien (o.ä.) ausgewählt und beim Auflegen der zweiten Hand auf das Empfänger-Gerät wird die Datei übertragen.}
+
+\newcommand{\reaction}{Sobald die Hände aufgelegt und vom System erkannt wurden erfolgt die Datenübertragung vom Sende-Gerät auf das Empfänger-Gerät. Die Übertragung der Datei (o.ä.) und der Fortschritt der Übertragung wird in Form von Lichtprojektion auf den Körper des Nutzers dargestellt.}
+
+\newcommand{\reactionSuccessVisual}{}
+%\newcommand{\reactionSuccessAcustic}{}
+%\newcommand{\reactionSuccessSensitive}{}
+
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{sollte kein Licht auf den Anwender projiziert werden.}
+
+\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender die Hand ggf. erneut auflegen.}
+
+\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender vor Ausführung der Interaktion informiert werden, dass die Geräte nicht miteinander kompatibel sind.}
+
+\newcommand{\designnotes}{\begin{itemize}
+\item Die Geräte müssen standfest sein (z.B. Screens an der Wand oder horizontale Tabletops), damit der Anwender die Interaktion mit beiden Händen mühelos durchführen kann.
+\item Die Geräte dürfen keinen zu großen Abstand voneinander haben, damit der Anwender mühelos seine Hände gleichzeitig auf beiden Geräten platzieren kann.
+\item Die Lichtverhältnisse müssen für die Projektion angepasst werden, ein zu heller Raum kann den Interaktionsablauf beeinträchtigen.
+\end{itemize}}
+
+% -------------------------------
+% WANN
+% -------------------------------
+
+\newcommand{\validcontext}{Übermittlung von Datenobjekten, z.B. in Form von Bildern, Dateien oder ählichem}
+
+\newcommand{\simultaneously}{}
+%\newcommand{\sequentially}{}
+
+\newcommand{\online}{}
+%\newcommand{\offline}{}
+
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+%\newcommand{\public}{}
+\newcommand{\stationary}{}
+%\newcommand{\onthego}{}
+
+%\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
+
+\newcommand{\single}{}
+%\newcommand{\collaboration}{}
+%\newcommand{\facetoface}{}
+\newcommand{\sidetoside}{}
+%\newcommand{\cornertocorner}{}
+
+%\newcommand{\smalltask}{}
+%\newcommand{\repeatedtask}{}
+%\newcommand{\locationbased}{}
+%\newcommand{\distraction}{}
+%\newcommand{\urgent}{} 
+
+\newcommand{\notvalidcontext}{An öffentlichen bzw. in zu hellen physikalischen Umgebungen.}
+
+
+\newcommand{\devicetabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch            &            &            &        &          &         \\ 
+\hline 
+Smartphone            &            &            &        &          &         \\ 
+\hline 
+Tablet                &            &            &        &          &         \\ 
+\hline 
+Tabletop              &            &            &        &     x    &     x   \\ 
+\hline
+Screens               &            &            &        &     x    &     x   \\ 
+\hline 
+\end{tabular} }
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{
+\begin{itemize}
+\item Exchange Through Body
+\end{itemize}
+}
+
+\newcommand{\stateoftheart}{...
+\begin{enumerate}
+\item Microsoft Research. (n.d.). LightSpace. Retrieved from \url{http://research.microsoft.com/en-us/projects/lightspace/}
+\item Wilson, A. D., and Benko, H. (2010). Combining multiple depth cameras and projectors for interactions on, above and between surfaces. Proceedings of UIST 2010, 273–282. \url{http://doi.org/10.1145/1866029.1866073}
+\end{enumerate}
+}
+
+
+\newcommand{\designprinciples}{}
+
+\newcommand{\imageschemata}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPartWhole}{}
+
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
+
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Kabel/Draht zwischen zwei Geräten}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+%\newcommand{\technologyObjectIntimate}{}
+\newcommand{\technologyObjectPersonal}{}
+\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
+
+\newcommand{\technologyObjectDesc}{//TODO}
+
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
+
+\newcommand{\technologyCommunicationDesc}{//TODO}
+
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+%\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+%\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationOther}{}
+
+\newcommand{\technologyOrientationDesc}{//TODO}
+
+\newcommand{\prototype}{//TODO}
+
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{...}
+\newcommand{\literature}{...}
+\newcommand{\figures}{...}
+\newcommand{\versionhistory}{...}
+\newcommand{\dateofcreation}{...}
+\newcommand{\comments}{...}
+\newcommand{\questions}{...}
+
+
+% template inkludieren --------------
+
+\input{template.tex}

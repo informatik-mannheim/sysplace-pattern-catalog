@@ -1,0 +1,186 @@
+\input{header.tex}
+
+\newcommand{\name}{Picking Up An Object}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll von einem Empfänger-Gerät angefordert werden. Das Datenobjekt soll auch auf dem Empfänger-Gerät verfügbar sein.}
+
+\newcommand{\solution}{Der Benutzer schiebt/sammelt von einem Sender-Gerät ein Datenobjekt (repräsentiert durch Licht) auf seine Hand und transportiert dieses Lichtobjekt zum Empfänger-Gerät und legt es ab.}
+
+%\newcommand{\category}{give}
+\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+%\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{Der Benutzer schiebt auf dem Sender-Gerät mit seiner Hand ein ausgewähltes Datenobjekt an den Displayrand und fängt das ausgewählte Objekt mit der anderen Hand auf. Das aufgefangene Objekt stellt sich in Form von Licht auf der Handinnenfläche dar.\\
+Nun bewegt sich der Anwender mit dem Objekt „auf“ der Hand zum Emfpänger-Gerät und legt das Objekt auf diesem ab.}
+
+\newcommand{\reaction}{Wenn auf dem Display die Bewegung erkannt wird, dass ein Anwender ein ausgewähltes Objekt an den Displayrand des Sender-Gerätes und somit auf die Hand des Nutzers schiebt, wird das ausgewählte Objekt als Lichtball durch Projektion auf die Hand dargestellt.
+Das Ziel-Gerät empfängt das Licht-Objekt und stellt es in seiner Ursprungsform (z.B. als Bild/Datei) dar.}
+
+\newcommand{\reactionSuccessVisual}{}
+%\newcommand{\reactionSuccessAcustic}{}
+%\newcommand{\reactionSuccessSensitive}{}
+
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{sollte kein Lichtball auf die Handfläche projiziert werden.}
+
+\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender die Interaktion ggf. erneut ausführen und den Lichtball ein weiteres Mal versuchen abzulegen.}
+
+\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender vor erneuter Ausführung der Interaktion informiert werden, welche Geräte miteinander kompatibel sind und die Interaktion erneut ausführen.}
+
+\newcommand{\designnotes}{
+\begin{itemize}
+\item Die Geräte müssen standfest sein, damit der Anwender die Interaktion des Aufsammelns, Transportierens und Ablegens mühelos durchführen kann.
+\item Die Lichtverhältnisse müssen für die Projektion des Lichtballs angepasst werden, ein zu heller Raum kann den Interaktionsablauf beeinträchtigen.
+\end{itemize}
+}
+
+% -------------------------------
+% WANN
+% -------------------------------
+
+\newcommand{\validcontext}{Übermittlung von Datenobjekten, z.B. in Form von Bildern, Dateien}
+
+%\newcommand{\simultaneously}{}
+\newcommand{\sequentially}{}
+
+\newcommand{\online}{}
+%\newcommand{\offline}{}
+
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+%\newcommand{\public}{}
+\newcommand{\stationary}{}
+%\newcommand{\onthego}{}
+
+%\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
+
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
+%\newcommand{\facetoface}{}
+\newcommand{\sidetoside}{}
+\newcommand{\cornertocorner}{}
+
+%\newcommand{\smalltask}{}
+%\newcommand{\repeatedtask}{}
+%\newcommand{\locationbased}{}
+%\newcommand{\distraction}{}
+%\newcommand{\urgent}{} 
+
+\newcommand{\notvalidcontext}{An öffentlichen bzw. in zu hellen physikalischen Umgebungen.}
+
+
+\newcommand{\devicetabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch            &            &            &        &          &         \\ 
+\hline 
+Smartphone            &            &            &        &          &         \\ 
+\hline 
+Tablet                &            &            &   x    &     x    &     x   \\ 
+\hline 
+Tabletop              &            &            &   x    &     x    &     x   \\ 
+\hline
+Screens               &            &            &   x    &     x    &     x   \\ 
+\hline 
+\end{tabular} }
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+%\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{---}
+
+\newcommand{\stateoftheart}{
+\begin{enumerate}
+\item Microsoft Research. (n.d.). LightSpace. Retrieved from \url{http://research.microsoft.com/en-us/projects/lightspace/}
+\item Wilson, A. D., and Benko, H. (2010). Combining multiple depth cameras and projectors for interactions on, above and between surfaces. Proceedings of UIST 2010, 273–282. \url{http://doi.org/10.1145/1866029.1866073}
+\end{enumerate}
+}
+
+
+\newcommand{\designprinciples}{}
+
+\newcommand{\imageschemata}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPartWhole}{}
+
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
+
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Ein physikalisches Objekt (z.B. ein Bild, Buch, etc.) aufsammeln/aufheben/halten und an einem anderen Ort wieder ablegen.}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+%\newcommand{\technologyObjectIntimate}{}
+\newcommand{\technologyObjectPersonal}{}
+\newcommand{\technologyObjectSocial}{}
+\newcommand{\technologyObjectPublic}{}
+
+\newcommand{\technologyObjectDesc}{// TODO}
+
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
+
+\newcommand{\technologyCommunicationDesc}{// TODO}
+
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+%\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+%\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationOther}{}
+
+\newcommand{\technologyOrientationDesc}{// TODO}
+
+\newcommand{\prototype}{// TODO}
+
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{...}
+\newcommand{\literature}{...}
+\newcommand{\figures}{...}
+\newcommand{\versionhistory}{...}
+\newcommand{\dateofcreation}{...}
+\newcommand{\comments}{...}
+\newcommand{\questions}{...}
+
+
+% template inkludieren --------------
+
+\input{template.tex}
