@@ -1,14 +1,14 @@
 \input{header.tex}
 
-\newcommand{\name}{Tennis}
+\newcommand{\name}{Dump}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Datenobjekt von einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
+\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
 
-\newcommand{\solution}{Der Anwender hält ein Quell-Gerät fest in der Hand und schwenkt es aus dem Unterarm heraus in Richtung des Ziel-Gerätes.}
+\newcommand{\solution}{Der Anwender hält ein Quell-Gerät fest (ggf. mit beiden Händen) und macht eine Kipp-Bewegung in Richtung des Ziel-Gerätes und überträgt dadurch das Datenobjekt vom Quell- auf das Ziel-Gerät.}
 
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -20,11 +20,11 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Benutzer hat das Sender-Gerät fest in der Hand. Aus dem Unterarm heraus schwingt der Benutzer seinen Arm in Richtung des Empfänger-Gerätes und überträgt dabei ein Datenobjekt.}
+\newcommand{\useraction}{Der Benutzer hält das Sender-Gerät fest in der Hand,  ggf. mit beiden Händen.\\
+Durch eine Kippbewegung nach vorne (bis 180 Grad) löst der Benutzer den Datentransfer vom Sender- auf das Ziel-Gerät aus. Das Ziel-Gerät befindet sich hierbei unterhalb des Sender-Gerätes, z.B. auf einer Fläche (Tisch).}
 
-\newcommand{\reaction}{Das Sender-Gerät erkennt eine Schwingbewegung. Dadurch wird ein ausgewähltes Datenobjekt an das Empfänger-Gerät übertragen und durch eine akustische Rückmeldung oder z.B. Vibration bestätigt.\\
-Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Display an.
-}
+\newcommand{\reaction}{Sobald das Quell-Gerät die Kippbewegung registriert hat, wird der Datentransfer an das Ziel-Gerät veranlasst. Dabei wird dem Anwender akustisch oder durch Vibration der erfolgreiche Transfer bestätigt.
+Das Ziel-Gerät zeigt die empfangenen Daten bzw. das Datenobjekt an.}
 
 \newcommand{\reactionSuccessVisual}{}
 \newcommand{\reactionSuccessAcustic}{}
@@ -34,24 +34,29 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 \newcommand{\reactionFailureConnectionDesc}{muss dem Anwender durch ein Signal, z.B. einen Ton, mitgeteilt werden, dass die Interaktion und Datenübertragung nicht funktioniert.}
 
 \newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender ggf. die Interaktion erneut ausführen. Solange kein erfolgreicher Datentransfer stattgefunden hat, sollte dem Anwender signalisiert werden, dass das Zielgerät nicht erkannt wurde.}
+\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender ggf. die Interaktion erneut ausführen. Solange kein erfolgreicher Datentransfer stattgefunden hat, sollte dem Anwender signalisiert werden, dass das Zielgerät nicht erkannt wurde. Der Anwender muss darauf hingewiesen werden in der unmittelbaren Nähe des Ziel-Gerätes die Interaktion erneut auszuführen.}
 
 \newcommand{\reactionFailureCompatibility}{}
 \newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender vor erneuter Ausführung der Interaktion informiert werden, welche Geräte kompatibel sind und die Interaktion erneut ausführen.}
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Eine Rückmeldung nach dem Senden der Daten (nach der Schwing-Bewegung) ist erforderlich, um dem Benutzer mitzuteilen, dass die Aktion erfolgreich war. Erfolgt keine Rückmeldung, besteht die Möglichkeit, dass der Benutzer häufig hintereinander die Interaktion durchführt, obwohl bereits die Daten erfolgreich das Ziel-Gerät versendet wurden.
-\item Das Empfänger-Gerät sollte standfest sein (z.B. Screens an der Wand) und einen Abstand zum Sender-Gerät gewährleisten, um die Interaktion korrekt auszuführen.
-\item Die Schwing-Bewegung muss eine definierte Geschwindigkeit erreichen bis das System die Bewegung als Interaktion erkennt, damit der Anwender ein natürliches Empfinden hat bei der Ausführung der Interaktion.
-\item Das Sender-Gerät sollte handlich sein, um die definierte Mindestgeschwindigkeit der Geste zu erreichen ohne dabei das Gerät zu beschädigen.
+\item Das Ziel-Gerät sollte fest angebracht (z.B. Tabletop) oder liegen (z.B. Tablet auf einer Fläche), da ggf. beide Hände des Benutzers benötigt werden für die Interaktionsdurchführung.
+\item Um die Interaktion „Dump“ natürlich zu halten, muss sich das Ziel-Gerät unterhalb des Quell-Gerätes befinden, z.B. auf Hüfthöhe des Benutzers/auf einem Tisch.
+\item Die Kippbewegung muss eine definierte Geschwindigkeit erreichen bis zu einem definierten Winkel bis das System die Bewegung als Interaktion erkennt, damit der Anwender ein natürliches Empfinden hat bei der Ausführung der Interaktion.
+\item Das Sender-Gerät sollte handlich sein.
+\item Der Datentransfer sollte erst dann erfolgreich stattfinden, wenn das Ziel-Gerät sich physisch unterhalb des Quell-Gerätes befindet.
 \end{itemize}}
 
 % -------------------------------
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{...}
+\newcommand{\validcontext}{
+\begin{itemize}
+\item Datenaustausch: Bilder, Videos, Dateien, Social Network IDs, Kontaktinformationen, usw.
+\item Verteilung von Arbeitsaufgaben/Tasks (o.ä.)
+\end{itemize}}
 
 \newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
@@ -61,7 +66,7 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
-%\newcommand{\public}{}
+\newcommand{\public}{}
 \newcommand{\stationary}{}
 %\newcommand{\onthego}{}
 
@@ -69,7 +74,7 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 \newcommand{\leanforward}{}
 
 \newcommand{\single}{}
-%\newcommand{\collaboration}{}
+\newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
 %\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
@@ -80,7 +85,7 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{Übermittlung von Datenobjekten, z.B. in Form von Bildern, Dateien}
+\newcommand{\notvalidcontext}{...}
 
 
 \newcommand{\devicetabular}{
@@ -88,11 +93,11 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &            &            &        &          &    x    \\ 
+Smartwatch            &            &            &   x    &     x    &         \\ 
 \hline 
-Smartphone            &            &            &        &          &    x    \\ 
+Smartphone            &            &     x      &   x    &     x    &         \\ 
 \hline 
-Tablet                &            &            &        &          &    x    \\ 
+Tablet                &            &     x      &   x    &     x    &         \\ 
 \hline 
 Tabletop              &            &            &        &          &         \\ 
 \hline
@@ -109,9 +114,9 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{Das Pattern Frisbee - ähnlich in der Ausführung}
+\newcommand{\otherpatterns}{---}
 
-\newcommand{\stateoftheart}{---
+\newcommand{\stateoftheart}{
 %\begin{enumerate}
 %\item
 %\item
@@ -124,11 +129,11 @@ Screens               &            &            &        &          &         \\
 \newcommand{\imageschemata}{}
 \newcommand{\imageSchemaContainer}{}
 \newcommand{\imageSchemaInOut}{}
-%\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaPath}{}
 \newcommand{\imageSchemaSourcePathGoal}{}
-%\newcommand{\imageSchemaUpDown}{}
+\newcommand{\imageSchemaUpDown}{}
 %\newcommand{\imageSchemaLeftRight}{}
-\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaNearFar}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
@@ -138,7 +143,7 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Tennis spielen: Der Datensatz ist der Tennisball, der mit einem Tennisschläger (hier das Gerät) weggeschlagen (hier versendet) wird.}
+\newcommand{\metaphordesc}{etwas ausleeren, z.B. einen Eimer Wasser}
 
 % -------------------------------
 % TECHNISCHES
@@ -146,15 +151,15 @@ Screens               &            &            &        &          &         \\
 
 %\newcommand{\technologyObjectIntimate}{}
 \newcommand{\technologyObjectPersonal}{}
-\newcommand{\technologyObjectSocial}{}
-\newcommand{\technologyObjectPublic}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
 
-\newcommand{\technologyObjectDesc}{// TODO}
+\newcommand{\technologyObjectDesc}{...}
 
 %\newcommand{\technologyCommunicationServer}{}
 %\newcommand{\technologyCommunicationAdhoc}{}
 
-\newcommand{\technologyCommunicationDesc}{//TODO}
+\newcommand{\technologyCommunicationDesc}{...}
 
 %\newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
@@ -164,9 +169,9 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\technologyOrientationBeacons}{}
 %\newcommand{\technologyOrientationOther}{}
 
-\newcommand{\technologyOrientationDesc}{//TODO}
+\newcommand{\technologyOrientationDesc}{...}
 
-\newcommand{\prototype}{//TODO}
+\newcommand{\prototype}{...}
 
 
 % -------------------------------

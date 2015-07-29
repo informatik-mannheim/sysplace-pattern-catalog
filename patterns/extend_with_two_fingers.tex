@@ -1,57 +1,52 @@
 \input{header.tex}
 
-\newcommand{\name}{Frisbee}
+\newcommand{\name}{Extend With Two Fingers}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Datenobjekt von einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
+\newcommand{\desc}{Der Bildschirm-Inhalt des Quell-Gerätes soll auf dem Ziel-Gerät erweitert dargestellt werden.}
 
-\newcommand{\solution}{Der Benutzer hält Sender-Gerät in der Hand und schwenkt es waagerecht aus dem Handgelenk heraus in Richtung des Empfänger-Gerätes. Dabei wird ein Datenobjekt vom Quell-Gerät auf das Ziel-Gerät übertragen.}
+\newcommand{\solution}{Ein Anwender platziert zwei Geräte unmittelbar nebeneinander und berührt mit je einem Finger die Displays der Geräte. Die beiden aufliegenden Finger zieht er zusammen. Dadurch wird eine Erweiterung des Bildschirminhalts des Quell-Geräts auf das Ziel-Gerät veranlasst.}
 
-\newcommand{\category}{give}
+%\newcommand{\category}{give}
 %\newcommand{\category}{take}
 %\newcommand{\category}{exchange}
-%\newcommand{\category}{extend}
+\newcommand{\category}{extend}
 %\newcommand{\category}{connect}
 
 % -------------------------------
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Benutzer hält ein Sender-Gerät fest in der Hand. Aus dem Handgelenk heraus schwenkt der Benutzer das Gerät (vom Körper weg) wie eine Frisbee-Scheibe in Richtung des Empfänger-Gerätes.}
+\newcommand{\useraction}{Der Anwender legt ein Quell-Gerät an ein Ziel-Gerät an. Dann platziert der Anwender einen Finger (z.B. Zeigefinger) auf dem Display des Quell-Gerätes. Anschließend platziert der Anwender einen anderen Finger (z.B. Daumen) auf dem Display des Ziel-Gerätes. Die beiden Finger zieht er zusammen bis sie sich berühren.}
 
-\newcommand{\reaction}{Das Sender-Gerät erkennt die Schwenkbewegung. Dadurch wird ein ausgewähltes Datenobjekt an das Empfänger-Gerät übertragen und durch eine akustische Rückmeldung oder z.B. Vibration bestätigt.\\
-Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Display an.
-}
+\newcommand{\reaction}{Durch Auflegen des ersten Fingers wird das Quell-Gerät bestimmt. Durch Auflegen des zweiten Fingers das Ziel-Gerät. Sobald beide Finger außerhalb des Displayrandes beider Geräte gezogen wurden, wird der Bildschirm-Inhalt des Quell-Gerätes auf dem Ziel-Gerät erweitert dargestellt.}
 
 \newcommand{\reactionSuccessVisual}{}
-\newcommand{\reactionSuccessAcustic}{}
-\newcommand{\reactionSuccessSensitive}{}
+%\newcommand{\reactionSuccessAcustic}{}
+%\newcommand{\reactionSuccessSensitive}{}
 
 \newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{muss dem Anwender durch ein Signal, z.B. einen Ton, mitgeteilt werden, dass die Interaktion und Datenübertragung nicht funktioniert.}
+\newcommand{\reactionFailureConnectionDesc}{muss dem Anwender durch einen Hinweis mitgeteilt werden, dass die Interaktion nicht erfolgreich war - der Bildschirm kann nicht erweitert auf einem weiteren Gerät dargestellt werden.}
 
 \newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender ggf. die Interaktion erneut ausführen. Solange kein erfolgreicher Datentransfer stattgefunden hat, sollte dem Anwender signalisiert werden, dass das Zielgerät nicht erkannt wurde.}
+\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender ggf. die Interaktion erneut ausführen. Solange keine erfolgreiche Bildschirm-Erweiterung stattgefunden hat, sollte dem Anwender signalisiert werden, dass das Zielgerät nicht erkannt wurde.}
 
 \newcommand{\reactionFailureCompatibility}{}
 \newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender vor erneuter Ausführung der Interaktion informiert werden, welche Geräte kompatibel sind und die Interaktion erneut ausführen.}
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Eine Rückmeldung nach dem Senden der Daten (nach der Schwenk-Bewegung) ist erforderlich, um dem Benutzer mitzuteilen, dass die Aktion erfolgreich war. Erfolgt keine Rückmeldung, besteht die Möglichkeit, dass der Benutzer häufig hintereinander die Interaktion durchführt, obwohl bereits die Daten erfolgreich das Ziel-Gerät versendet wurden.
-\item Das Empfänger-Gerät sollte standfest sein (z.B. Screens an der Wand) und einen Abstand zum Sender-Gerät gewährleisten, um die Interaktion korrekt auszuführen.
-\item Die Schwenk-Bewegung muss eine definierte Geschwindigkeit erreichen bis das System die Bewegung als Interaktion erkennt, damit der Anwender ein natürliches Empfinden hat bei der Ausführung der Interaktion.
-\item Das Sender-Gerät sollte handlich sein, um die definierte Mindestgeschwindigkeit der Geste zu erreichen ohne dabei das Gerät zu beschädigen.
+\item Es sollte im besten Fall keinen Abstand zwischen den beiden Geräten geben, um die Erkennung des angelegten Gerätes zu gewährleisten.
 \end{itemize}}
 
 % -------------------------------
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{Geeignet für z.B. Datenaustausch: Bilder, Videos, Dateien, Social Network IDs, Kontaktinformationen}
+\newcommand{\validcontext}{Bildschirmerweiterung}
 
 \newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
@@ -72,7 +67,7 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 \newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
 \newcommand{\sidetoside}{}
-%\newcommand{\cornertocorner}{}
+\newcommand{\cornertocorner}{}
 
 %\newcommand{\smalltask}{}
 %\newcommand{\repeatedtask}{}
@@ -88,11 +83,11 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &            &            &   x    &     x    &     x   \\ 
+Smartwatch            &            &            &        &          &         \\ 
 \hline 
-Smartphone            &            &            &   x    &     x    &     x   \\ 
+Smartphone            &            &     x      &   x    &          &     x   \\ 
 \hline 
-Tablet                &            &            &        &          &         \\ 
+Tablet                &            &     x      &   x    &          &     x   \\ 
 \hline 
 Tabletop              &            &            &        &          &         \\ 
 \hline
@@ -106,11 +101,15 @@ Screens               &            &            &        &          &         \\
 
 %\newcommand{\established}{}
 \newcommand{\candidate}{}
-\newcommand{\realizable}{}
+%\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{Das Pattern Tennis - ähnlich in der Ausführung}
-
+\newcommand{\otherpatterns}{
+\begin{itemize}
+\item Approach To Extend - Der Nutzer nähert sich mit dem Quell-Gerät an das Ziel-Gerät.
+\item Stitch To Extend - Der Bildschirm-Inahlt des Quell-Gerätes wird durch eine Bewegung mit dem Finger von dem Quell-Display auf das Ziel-Display erweitert.
+\item Appose - Der Bildschirm-Inhalt des Quell-Gerätes wird durch Anlegen eines Ziel-Gerätes auf diesem erweitert dargestellt. 
+\end{itemize}}
 
 \newcommand{\stateoftheart}{
 %\begin{enumerate}
@@ -124,12 +123,12 @@ Screens               &            &            &        &          &         \\
 
 \newcommand{\imageschemata}{}
 \newcommand{\imageSchemaContainer}{}
-\newcommand{\imageSchemaInOut}{}
-\newcommand{\imageSchemaPath}{}
-\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaPath}{}
+%\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaUpDown}{}
-%\newcommand{\imageSchemaLeftRight}{}
-\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
@@ -139,16 +138,16 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Frisbee, etwas wegwerfen}
+\newcommand{\metaphordesc}{Bildschirmerweiterung, etwas herüberziehen}
 
 % -------------------------------
 % TECHNISCHES
 % -------------------------------
 
-%\newcommand{\technologyObjectIntimate}{}
-\newcommand{\technologyObjectPersonal}{}
-\newcommand{\technologyObjectSocial}{}
-\newcommand{\technologyObjectPublic}{}
+\newcommand{\technologyObjectIntimate}{}
+%\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
 
 \newcommand{\technologyObjectDesc}{...}
 

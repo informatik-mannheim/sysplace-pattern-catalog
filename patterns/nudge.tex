@@ -1,14 +1,14 @@
 \input{header.tex}
 
-\newcommand{\name}{Tennis}
+\newcommand{\name}{Nudge}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Datenobjekt von einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
+\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
 
-\newcommand{\solution}{Der Anwender hält ein Quell-Gerät fest in der Hand und schwenkt es aus dem Unterarm heraus in Richtung des Ziel-Gerätes.}
+\newcommand{\solution}{Ein Sender-Gerät berührt/stupst mit einer Ecke ein Ziel-Gerät auf dessen Displayfläche. Dabei wird die Übertragung eines Datenobjektes vom Quell- auf das Ziel-Gerät ausgelöst.}
 
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -20,18 +20,16 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Benutzer hat das Sender-Gerät fest in der Hand. Aus dem Unterarm heraus schwingt der Benutzer seinen Arm in Richtung des Empfänger-Gerätes und überträgt dabei ein Datenobjekt.}
+\newcommand{\useraction}{Der Benutzer hält das Sender-Gerät fest in der Hand und stupst/berührt die Displayfläche des Empfänger-Gerätes leicht mit einer Ecke des Sender-Gerätes.}
 
-\newcommand{\reaction}{Das Sender-Gerät erkennt eine Schwingbewegung. Dadurch wird ein ausgewähltes Datenobjekt an das Empfänger-Gerät übertragen und durch eine akustische Rückmeldung oder z.B. Vibration bestätigt.\\
-Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Display an.
-}
+\newcommand{\reaction}{Sobald das Ziel-Gerät auf seiner Displayfläche das Quell-Gerät identifiziert hat empfängt es das gesendete Datenobjekt vom Quell-Gerät und stellt es dar.}
 
 \newcommand{\reactionSuccessVisual}{}
-\newcommand{\reactionSuccessAcustic}{}
-\newcommand{\reactionSuccessSensitive}{}
+%\newcommand{\reactionSuccessAcustic}{}
+%\newcommand{\reactionSuccessSensitive}{}
 
 \newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{muss dem Anwender durch ein Signal, z.B. einen Ton, mitgeteilt werden, dass die Interaktion und Datenübertragung nicht funktioniert.}
+\newcommand{\reactionFailureConnectionDesc}{muss dem Anwender durch einen Hinweis mitgeteilt werden, dass die Interaktion und Datenübertragung nicht funktioniert hat. Der Transfer des Datenobjektes kann in dem Moment nicht stattfinden.}
 
 \newcommand{\reactionFailureNoDevice}{}
 \newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender ggf. die Interaktion erneut ausführen. Solange kein erfolgreicher Datentransfer stattgefunden hat, sollte dem Anwender signalisiert werden, dass das Zielgerät nicht erkannt wurde.}
@@ -41,10 +39,9 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Eine Rückmeldung nach dem Senden der Daten (nach der Schwing-Bewegung) ist erforderlich, um dem Benutzer mitzuteilen, dass die Aktion erfolgreich war. Erfolgt keine Rückmeldung, besteht die Möglichkeit, dass der Benutzer häufig hintereinander die Interaktion durchführt, obwohl bereits die Daten erfolgreich das Ziel-Gerät versendet wurden.
-\item Das Empfänger-Gerät sollte standfest sein (z.B. Screens an der Wand) und einen Abstand zum Sender-Gerät gewährleisten, um die Interaktion korrekt auszuführen.
-\item Die Schwing-Bewegung muss eine definierte Geschwindigkeit erreichen bis das System die Bewegung als Interaktion erkennt, damit der Anwender ein natürliches Empfinden hat bei der Ausführung der Interaktion.
-\item Das Sender-Gerät sollte handlich sein, um die definierte Mindestgeschwindigkeit der Geste zu erreichen ohne dabei das Gerät zu beschädigen.
+\item Beim Anstupsen sollte eine Rückmeldung (z.B. visuell) an den Benutzer erfolgen, um die Geräteerkennung bzw. die Verbindung der Geräte zu bestätigen.
+\item Das Ziel-Gerät sollte (muss aber nicht) fest angebracht (z.B. Tabletop) oder liegen (z.B. Tablet auf einer Fläche), da ggf. beide Hände des Benutzers benötigt werden für die Interaktionsdurchführung.
+\item Das Sender-Gerät sollte handlich sein.
 \end{itemize}}
 
 % -------------------------------
@@ -61,7 +58,7 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
-%\newcommand{\public}{}
+\newcommand{\public}{}
 \newcommand{\stationary}{}
 %\newcommand{\onthego}{}
 
@@ -69,7 +66,7 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 \newcommand{\leanforward}{}
 
 \newcommand{\single}{}
-%\newcommand{\collaboration}{}
+\newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
 %\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
@@ -80,7 +77,7 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{Übermittlung von Datenobjekten, z.B. in Form von Bildern, Dateien}
+\newcommand{\notvalidcontext}{---}
 
 
 \newcommand{\devicetabular}{
@@ -88,11 +85,11 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &            &            &        &          &    x    \\ 
+Smartwatch            &            &            &        &          &         \\ 
 \hline 
-Smartphone            &            &            &        &          &    x    \\ 
+Smartphone            &            &     x      &   x    &     x    &     x   \\ 
 \hline 
-Tablet                &            &            &        &          &    x    \\ 
+Tablet                &            &            &   x    &     x    &     x   \\ 
 \hline 
 Tabletop              &            &            &        &          &         \\ 
 \hline
@@ -109,9 +106,15 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{Das Pattern Frisbee - ähnlich in der Ausführung}
+\newcommand{\otherpatterns}{
+\begin{itemize}
+\item Bump To Give
+\item Bump To Exchange
+\item Bump To Connect
+\item Bump To Take
+\end{itemize}}
 
-\newcommand{\stateoftheart}{---
+\newcommand{\stateoftheart}{
 %\begin{enumerate}
 %\item
 %\item
@@ -125,7 +128,7 @@ Screens               &            &            &        &          &         \\
 \newcommand{\imageSchemaContainer}{}
 \newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaPath}{}
-\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaUpDown}{}
 %\newcommand{\imageSchemaLeftRight}{}
 \newcommand{\imageSchemaNearFar}{}
@@ -138,23 +141,23 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Tennis spielen: Der Datensatz ist der Tennisball, der mit einem Tennisschläger (hier das Gerät) weggeschlagen (hier versendet) wird.}
+\newcommand{\metaphordesc}{anstoßen, anstupsen}
 
 % -------------------------------
 % TECHNISCHES
 % -------------------------------
 
-%\newcommand{\technologyObjectIntimate}{}
-\newcommand{\technologyObjectPersonal}{}
-\newcommand{\technologyObjectSocial}{}
-\newcommand{\technologyObjectPublic}{}
+\newcommand{\technologyObjectIntimate}{}
+%\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
 
-\newcommand{\technologyObjectDesc}{// TODO}
+\newcommand{\technologyObjectDesc}{...}
 
 %\newcommand{\technologyCommunicationServer}{}
 %\newcommand{\technologyCommunicationAdhoc}{}
 
-\newcommand{\technologyCommunicationDesc}{//TODO}
+\newcommand{\technologyCommunicationDesc}{...}
 
 %\newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
@@ -164,9 +167,9 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\technologyOrientationBeacons}{}
 %\newcommand{\technologyOrientationOther}{}
 
-\newcommand{\technologyOrientationDesc}{//TODO}
+\newcommand{\technologyOrientationDesc}{...}
 
-\newcommand{\prototype}{//TODO}
+\newcommand{\prototype}{...}
 
 
 % -------------------------------
