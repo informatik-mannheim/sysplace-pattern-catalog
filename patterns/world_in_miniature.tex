@@ -1,0 +1,184 @@
+\input{header.tex}
+
+\newcommand{\name}{World In Miniature}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{Der Bildschirm-Inhalt des Quell-Gerätes soll auf dem Ziel-Gerät erweitert dargestellt werden.}
+
+\newcommand{\solution}{Ein Anwender hat ein Ziel-Gerät in der Hand. Das Ziel-Gerät ermöglicht die erweiterte Ansicht (detailliert bzw. gröber) des Bildschirm-Inhaltes des Quell-Gerätes}
+
+%\newcommand{\category}{give}
+%\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{Der Nutzer befindet sich mit dem Ziel-Gerät vor dem Quell-Gerät. Durch Touch-Gesten auf dem Bildschirm des Ziel-Gerätes kann er sich durch den Bildschirm-Inhalt des Quell-Gerätes navigieren. Dabei kann der Anwender den Inhalt fokussieren und detaillierter oder gröber/weniger detailliert betrachten.}
+
+\newcommand{\reaction}{Das Quell-Gerät stellt seinen Bildschirm-Inhalt dar. Durch das Ziel-Gerät wird ein Ausschnitt dieses Inhalts ausgewählt und auf dem Display des Ziel-Geräts dargestellt.\\ 
+Sobald ein anderer Bereich des Bildschirm-Inhalts auf dem Quell-Gerät ausgewählt wurde, wird dieser auf dem Ziel-Gerät dargestellt.}
+
+\newcommand{\reactionSuccessVisual}{}
+%\newcommand{\reactionSuccessAcustic}{}
+%\newcommand{\reactionSuccessSensitive}{}
+
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{sollte auf dem Ziel-Gerät eine Meldung für den Anwender erscheinen, dass das Quell- und Ziel-Gerät noch keine Verbindung zueinander aufgebaut haben.}
+
+\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{sollte erneut versucht werden eine Verbindung aufzubauen. Der Anwender muss informiert werden, welche Schritte er absolvieren muss, damit eine Verbindung hergestellt werden kann (z.B. Bluetooth aktivieren, oder WiFi prüfen).}
+
+\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender informiert werden, welche Geräte miteinander kompatibel sind und die Interaktion mit kompatiblen Geräten erneut durchführen.}
+
+\newcommand{\designnotes}{
+\begin{itemize}
+\item Das Ziel-Gerät sollte möglichst handlich sein oder sich standfest vor dem Nutzer befinden (z.B. in Form eines Tabeltops), um mühelos mit dem Quell-Gerät interagieren zu können.
+\end{itemize}
+}
+
+% -------------------------------
+% WANN
+% -------------------------------
+
+\newcommand{\validcontext}{Bildschirmerweiterung}
+
+\newcommand{\simultaneously}{}
+%\newcommand{\sequentially}{}
+
+\newcommand{\online}{}
+%\newcommand{\offline}{}
+
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+%\newcommand{\public}{}
+%\newcommand{\stationary}{}
+%\newcommand{\onthego}{}
+
+%\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
+
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
+\newcommand{\facetoface}{}
+%\newcommand{\sidetoside}{}
+%\newcommand{\cornertocorner}{}
+
+%\newcommand{\smalltask}{}
+%\newcommand{\repeatedtask}{}
+%\newcommand{\locationbased}{}
+%\newcommand{\distraction}{}
+%\newcommand{\urgent}{} 
+
+\newcommand{\notvalidcontext}{---}
+
+
+\newcommand{\devicetabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch            &            &            &   x    &     x    &     x   \\ 
+\hline 
+Smartphone            &            &            &   x    &     x    &     x   \\ 
+\hline 
+Tablet                &            &            &   x    &     x    &     x   \\ 
+\hline 
+Tabletop              &            &            &        &          &     x   \\ 
+\hline
+Screens               &            &            &        &          &         \\ 
+\hline 
+\end{tabular} }
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+%\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{---}
+
+\newcommand{\stateoftheart}{
+%\begin{enumerate}
+%\item
+%\item
+%\end{enumerate}
+}
+
+
+\newcommand{\designprinciples}{}
+
+\newcommand{\imageschemata}{}
+%\newcommand{\imageSchemaContainer}{}
+%\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaPath}{}
+%\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaLeftRight}{}
+\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaPartWhole}{}
+
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
+
+%\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{...}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+%\newcommand{\technologyObjectIntimate}{}
+%\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
+
+\newcommand{\technologyObjectDesc}{...}
+
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
+
+\newcommand{\technologyCommunicationDesc}{...}
+
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+%\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+%\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationOther}{}
+
+\newcommand{\technologyOrientationDesc}{...}
+
+\newcommand{\prototype}{...}
+
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{...}
+\newcommand{\literature}{...}
+\newcommand{\figures}{...}
+\newcommand{\versionhistory}{...}
+\newcommand{\dateofcreation}{...}
+\newcommand{\comments}{...}
+\newcommand{\questions}{...}
+
+
+% template inkludieren --------------
+
+\input{template.tex}

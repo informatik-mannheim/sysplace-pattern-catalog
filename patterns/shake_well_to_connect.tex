@@ -1,0 +1,182 @@
+\input{header.tex}
+
+\newcommand{\name}{Shake Well To Connect}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{Eine Verbindung soll zwischen zwei Geräten hergestellt werden.}
+
+\newcommand{\solution}{Ein Anwender hat zwei handliche Geräte fest in einer Hand. Durch eine Schüttel-Bewegung wird die Verbindung zwischen den zwei Geräten hergestellt.}
+
+%\newcommand{\category}{give}
+%\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+%\newcommand{\category}{extend}
+\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{Der Anwender hält zwei Geräte in einer Hand fest umschlossen. Anschließend schüttelt der Anwender die Geräte solange bis sie eine Verbindung zueinander aufgebaut haben.}
+
+\newcommand{\reaction}{Sobald der Anwender die Schüttel-Bewegung ausübt, analysieren die Geräte bzw. die Anwendungen auf den Geräten die Bewegung. Ist die Bewegung auf beiden Geräten identisch werden die zwei Geräte miteinander verbunden. Bei erfolgreicher Verbindung wird der Anwender (z.B. akustisch oder sensitiv) informiert.}
+
+%\newcommand{\reactionSuccessVisual}{}
+\newcommand{\reactionSuccessAcustic}{}
+\newcommand{\reactionSuccessSensitive}{}
+
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{sollte der Anwender informiert werden (akustisch), zum Beispiel wenn die Schüttel-Bewegung länger als eine definierte Zeit (bspw. 3 Sekunden) erfolglos durchgeführt wird.}
+
+\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{wurde von den Geräten eine unterschiedliche Bewegung festgestellt. Der Anwender sollte die Interaktion erneut ausführen.}
+
+%\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{...}
+
+\newcommand{\designnotes}{
+\begin{itemize}
+\item Die Geräte müssen handlich sein (Smartphones z.B.), um die Interaktion korrekt und erfolgreich durchzuführen. Größere Geräte könnten ggf. beschädigt werden.
+\item Der Anwender muss die Geräte in einer Hand halten. Die Interaktionsausführung mit zwei Händen kann nicht erfolgreich ausgeführt werden, da die Bewegungen mit zwei Händen nicht synchron verlaufen können.
+\end{itemize}}
+% -------------------------------
+% WANN
+% -------------------------------
+
+\newcommand{\validcontext}{...}
+
+\newcommand{\simultaneously}{}
+%\newcommand{\sequentially}{}
+
+\newcommand{\online}{}
+\newcommand{\offline}{}
+
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+\newcommand{\public}{}
+\newcommand{\stationary}{}
+\newcommand{\onthego}{}
+
+\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
+
+\newcommand{\single}{}
+%\newcommand{\collaboration}{}
+%\newcommand{\facetoface}{}
+%\newcommand{\sidetoside}{}
+%\newcommand{\cornertocorner}{}
+
+%\newcommand{\smalltask}{}
+%\newcommand{\repeatedtask}{}
+%\newcommand{\locationbased}{}
+%\newcommand{\distraction}{}
+%\newcommand{\urgent}{} 
+
+\newcommand{\notvalidcontext}{...}
+
+
+\newcommand{\devicetabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch            &            &            &        &          &         \\ 
+\hline 
+Smartphone            &            &     x      &        &          &         \\ 
+\hline 
+Tablet                &            &            &        &          &         \\ 
+\hline 
+Tabletop              &            &            &        &          &         \\ 
+\hline
+Screens               &            &            &        &          &         \\ 
+\hline 
+\end{tabular} }
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{---}
+
+\newcommand{\stateoftheart}{
+\begin{enumerate}
+\item //TODO PAPER
+\item
+\end{enumerate}
+}
+
+
+\newcommand{\designprinciples}{}
+
+%\newcommand{\imageschemata}{}
+%\newcommand{\imageSchemaContainer}{}
+%\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaPath}{}
+%\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPartWhole}{}
+
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
+
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{etwas schütteln}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+\newcommand{\technologyObjectIntimate}{}
+%\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
+
+\newcommand{\technologyObjectDesc}{...}
+
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
+
+\newcommand{\technologyCommunicationDesc}{...}
+
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+%\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+%\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationOther}{}
+
+\newcommand{\technologyOrientationDesc}{...}
+
+\newcommand{\prototype}{...}
+
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{...}
+\newcommand{\literature}{...}
+\newcommand{\figures}{...}
+\newcommand{\versionhistory}{...}
+\newcommand{\dateofcreation}{...}
+\newcommand{\comments}{...}
+\newcommand{\questions}{...}
+
+
+% template inkludieren --------------
+
+\input{template.tex}

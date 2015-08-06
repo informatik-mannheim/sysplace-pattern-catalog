@@ -1,0 +1,185 @@
+\input{header.tex}
+
+\newcommand{\name}{Leave To Disconnect}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{Die Verbindung zwischen zwei Geräten soll getrennt werden.}
+
+\newcommand{\solution}{Der Nutzer veranlasst durch den Austritt aus einer definierten Umgebung um ein Gerät herum den Verbindungsabbruch zwischen diesem und einem weiteren Gerät.}
+
+%\newcommand{\category}{give}
+%\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+%\newcommand{\category}{extend}
+\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{Der Nutzer trägt ein (mobiles) Gerät bei sich. Solange sich der Nutzer in der definierten Umgebung um ein weiteres (nicht-mobiles) Gerät befindet besteht eine Verbindung zwischen diesen Geräten. \\
+Um die Verbindung zwischen den Geräten zu unterbrechen, muss der der Anwender den definierten Bereich/Radius um das nicht-mobile Gerät verlassen.}
+
+\newcommand{\reaction}{Zwischen den Geräten existiert eine Verbindung. Diese besteht solange bis sich das mobile Gerät nicht mehr in dem definierten Radius um das nicht-mobile Gerät befindet. Dann bricht die Verbindung zwischen den Geräten ab.}
+
+\newcommand{\reactionSuccessVisual}{}
+\newcommand{\reactionSuccessAcustic}{}
+\newcommand{\reactionSuccessSensitive}{}
+
+%\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{---}
+
+%\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{---}
+
+%\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{---}
+
+\newcommand{\designnotes}{
+\begin{itemize}
+\item Um den Verbindungsabbruch zwischen den Geräten erfolgreich durchzuführen sollten sich um diese herum (bzw. in dem Radius) keine anderen Geräte befinden, um den Interaktionsablauf und -erfolg nicht zu beinträchtigen.
+\item Das Quell-Gerät sollte standfest sein, z.B. Tabletop oder Screen an der Wand. Das Ziel-Gerät hingegen sollte handlich sein, z.B. Smartphone, Tablet, Smartwatch, um damit den definierten Radius um das Quell-Gerät herum mühelos verlassen zu können.
+\end{itemize}
+}
+
+% -------------------------------
+% WANN
+% -------------------------------
+
+\newcommand{\validcontext}{Um die Verbindung zwischen Geräten trennen}
+
+\newcommand{\simultaneously}{}
+%\newcommand{\sequentially}{}
+
+%\newcommand{\online}{}
+\newcommand{\offline}{}
+
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+\newcommand{\public}{}
+\newcommand{\stationary}{}
+%\newcommand{\onthego}{}
+
+%\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
+
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
+\newcommand{\facetoface}{}
+%\newcommand{\sidetoside}{}
+%\newcommand{\cornertocorner}{}
+
+%\newcommand{\smalltask}{}
+%\newcommand{\repeatedtask}{}
+%\newcommand{\locationbased}{}
+%\newcommand{\distraction}{}
+%\newcommand{\urgent}{} 
+
+\newcommand{\notvalidcontext}{---}
+
+
+\newcommand{\devicetabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch            &            &            &        &          &         \\ 
+\hline 
+Smartphone            &            &            &        &          &         \\ 
+\hline 
+Tablet                &            &            &        &          &         \\ 
+\hline 
+Tabletop              &     x      &     x      &   x    &          &         \\ 
+\hline
+Screens               &     x      &     x      &   x    &          &         \\ 
+\hline 
+\end{tabular} }
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{---}
+
+\newcommand{\stateoftheart}{
+%\begin{enumerate}
+%\item
+%\item
+%\end{enumerate}
+}
+
+
+\newcommand{\designprinciples}{}
+
+%\newcommand{\imageschemata}{}
+%\newcommand{\imageSchemaContainer}{}
+%\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaPath}{}
+%\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPartWhole}{}
+
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
+
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Distanz vergrößern, um etwas zu unterbrechen, z.B. ein gespanntes Seil, das nach Erreichen einer bestimmten Distanz nachgibt und reißt}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+%\newcommand{\technologyObjectIntimate}{}
+%\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
+
+\newcommand{\technologyObjectDesc}{...}
+
+%\newcommand{\technologyCommunicationServer}{}
+%\newcommand{\technologyCommunicationAdhoc}{}
+
+\newcommand{\technologyCommunicationDesc}{...}
+
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+%\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+%\newcommand{\technologyOrientationBeacons}{}
+%\newcommand{\technologyOrientationOther}{}
+
+\newcommand{\technologyOrientationDesc}{...}
+
+\newcommand{\prototype}{...}
+
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{...}
+\newcommand{\literature}{...}
+\newcommand{\figures}{...}
+\newcommand{\versionhistory}{...}
+\newcommand{\dateofcreation}{...}
+\newcommand{\comments}{Hinweis: In dieser Pattern-Beschreibung wird das mobile Gerät als Ziel-Gerät und das nicht-mobile-Gerät als Quell-Gerät betitelt.}
+\newcommand{\questions}{...}
+
+
+% template inkludieren --------------
+
+\input{template.tex}
