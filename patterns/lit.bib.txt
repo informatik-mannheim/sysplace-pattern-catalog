@@ -1,4 +1,4 @@
-@inproceedings{Marquardt:2012:GEF:2396636.2396642,
+﻿@inproceedings{Marquardt:2012:GEF:2396636.2396642,
  author = {Marquardt, Nicolai and Ballendat, Till and Boring, Sebastian and Greenberg, Saul and Hinckley, Ken},
  title = {Gradual Engagement: Facilitating Information Exchange Between Digital Devices As a Function of Proximity},
  booktitle = {Proceedings of the 2012 ACM International Conference on Interactive Tabletops and Surfaces},
@@ -15,3 +15,33 @@
  address = {New York, NY, USA},
  keywords = {awareness, gradual engagement, handhelds, interactive surfaces, proxemic interactions, proximity},
 } 
+
+@online{Sokolov:2012,
+ author = {Sokolov, Sergey},
+ title = {Push2Send: Transfer any media file with a swipe of a finger},
+ month = {5},
+ year = {2012},
+ url = {http://prmac.com/release-id-43191.htm}
+}
+
+@online{Hoccer,
+ author = {Hoccer Betriebs GmbH},
+ title = {Hoccer -  Der Messenger},
+ year = {2015},
+ url = {http://hoccer.com/de/}
+}
+
+@online{Fotoswipe,
+ author = {FotoSwipe},
+ title = {FotoSwipe{@ONLINE}},
+ year = {2014-2015},
+ url = {http://fotoswipe.com/}
+}
+
+@mastersthesis{Alexander:Hahn:2015,
+  author = {Hahn Alexander}, 
+  title = {Konzeption und Implementierung der Swipe-Geste zum Datentransfer im Multi-Screen Kontext},
+  school = {Hochschule Mannheim},
+  year = {2015},
+  month = {6},
+}

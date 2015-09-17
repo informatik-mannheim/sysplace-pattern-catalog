@@ -8,7 +8,7 @@
 
 \newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
 
-\newcommand{\solution}{Der Benutzer hat ein Quellgerät in der Hand oder vor sich stehen. Durch eine Wischbewegung (Swipe) von unten nach oben, werden Daten auf ein zweites Gerät, das Zielgerät, übertragen. Die Übertragung hängt mit der Ausrichtung der Geräte zusammen.}
+\newcommand{\solution}{Der Benutzer hat ein Quellgerät in der Hand oder vor sich stehen. Durch eine Wischbewegung (Swipe) von unten nach oben, werden Daten auf ein zweites Gerät, das Zielgerät, übertragen.}
 
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -20,19 +20,20 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Benutzer hält Gerät A (Sende-Gerät) in der Hand oder hat das Gerät vor sich stehen (z.B. in Form eines Tabletops).\\ 
-Der Benutzer führt einen Swipe mit einem Finger vom unteren zum oberen Bildschirmrand aus. Die Bewegung erfolgt in Richtung des Empfänger-Gerätes, welches die Daten empfängt. Der Swipe hat eine Länge, sowie eine Richtung. Dies ist zwingend erforderlich, um eine Datenübertragung anzuregen. 
-}
+\newcommand{\useraction}{Der Benutzer hält das Sender-Gerät in der Hand oder hat das Gerät vor sich stehen (z.B. in Form eines Tabletops).\\ 
+Der Benutzer führt einen Swipe mit einem Finger vom unteren zum oberen Bildschirmrand aus. Die Bewegung erfolgt in Richtung des Empfänger-Gerätes, welches die Daten empfängt. Der Swipe hat eine Länge, sowie eine Richtung. Dies ist zwingend erforderlich, um eine Datenübertragung auszulösen.}
 
-\newcommand{\reaction}{Ist der Datensatz erfolgreich versendet worden, so reagiert Gerät A mit einer visuellen Nachricht an den Benutzer. Er bekommt eine kleine Nachricht angezeigt, dass die Übertragung erfolgreich verlief. Bereits während des Swipes soll der Benutzer verdeutlicht bekommen, dass die ausgewählten Dateien übertragen werden. Hierfür verblassen die ausgewählten Dateien nach oben hin.\\
-Gerät B empfängt den Datensatz und zeigt diesen auf dem Bildschirm an. Außerdem wird ein kurzer Vibrationsalarm ausgelöst. Auch hier könnten die Dateien vom oberen Rand hineingleiten.}
+\newcommand{\reaction}{Ist der Datensatz erfolgreich versendet worden, so reagiert das Sendergerät mit einer visuellen Nachricht an den Benutzer. Er bekommt eine kleine Nachricht angezeigt, dass die Übertragung erfolgreich verlief (z.B. durch ein Ausfaden/Verblassen des Bildes).\\
+Das Empfänger-Gerät empfängt den Datensatz und zeigt diesen auf dem Bildschirm an.\\
+Die Reaktion beim Sender ist eine Popup-Nachricht, welche signalisiert, dass die Dateien übertragen wurden. Des Weiteren wird die Liste der ausgewählten Bilder geleert.\\
+Die eigentliche Reaktion ist es die übertragenen Dateien anzuzeigen (visuelle Rückmeldung). Dies könnte bspw. durch Hineingleiten vom oberen Rand des Empfänger-Geräts sein, wie es auch beim Senden beschrieben wurde. Der Benutzer erhält durch diese gestalterische Lösung ein besseres Verständnis für den Vorgang. Das Gerät soll jedoch zusätzlich eine akustische Rückmeldung an den Benutzer geben, dass Daten übertragen wurden. In diesem Fall ist die akustische Rückmeldung ein Vibrationsalarm.}
 
 \newcommand{\reactionSuccessVisual}{}
 %\newcommand{\reactionSuccessAcustic}{}
 \newcommand{\reactionSuccessSensitive}{}
 
-%\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{...}
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{wird ein Fehlertext auf dem Sender-Gerät angezeigt.}
 
 %\newcommand{\reactionFailureNoDevice}{}
 \newcommand{\reactionFailureNoDeviceDesc}{...}
@@ -40,25 +41,25 @@ Gerät B empfängt den Datensatz und zeigt diesen auf dem Bildschirm an. Außerd
 %\newcommand{\reactionFailureCompatibility}{}
 \newcommand{\reactionFailureCompatibilityDesc}{...}
 
-\newcommand{\designnotes}{Es ist gefordert, entsprechend der Geräte zu berücksichtigen, mit wie viel Fingern die Swipe-Geste ausgeführt werden soll. In diesem Fall wird der Swipe mit einem Finger ausgeführt und findet in einer eigens dafür gestalteten App statt. Um die Interaktion, den Swipe, durchführen zu können, wird eine Verbindung zu einem Gerät benötigt. }
+\newcommand{\designnotes}{Entsprechend der Geräte ist es notwendig zu berücksichtigen, mit wie viel Fingern die Swipe-Geste ausgeführt werden soll. In diesem Fall wird der Swipe mit einem Finger ausgeführt und findet in einer eigens dafür gestalteten App statt. Um die Interaktion, den Swipe, durchführen zu können, wird eine Verbindung zu einem Gerät benötigt. }
 
 % -------------------------------
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{Datenaustausch von Bildern, Videos, Dateien (z.B. PDFs), Social Network IDs}
+\newcommand{\validcontext}{Datenaustausch von Bildern, Videos, Dateien, Social Network IDs}
 
 %\newcommand{\simultaneously}{}
 \newcommand{\sequentially}{}
 
-%\newcommand{\online}{}
-%\newcommand{\offline}{}
+\newcommand{\online}{}
+\newcommand{\offline}{}
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
-%\newcommand{\public}{}
+\newcommand{\public}{}
 \newcommand{\stationary}{}
-%\newcommand{\onthego}{}
+\newcommand{\onthego}{}
 
 \newcommand{\leanback}{}
 \newcommand{\leanforward}{}
@@ -69,8 +70,8 @@ Gerät B empfängt den Datensatz und zeigt diesen auf dem Bildschirm an. Außerd
 %\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
-%\newcommand{\smalltask}{}
-%\newcommand{\repeatedtask}{}
+\newcommand{\smalltask}{}
+\newcommand{\repeatedtask}{}
 %\newcommand{\locationbased}{}
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
@@ -137,24 +138,23 @@ Chromecast: Technologie mit der Daten z.B. vom Smartphone auf den
 Fernseher übertragen werden.
 
 \item \cite{Marquardt:2012:GEF:2396636.2396642}
-
-\item Hoccer (TODO LITERATUR)
-\item Push2Send (TODO LITERATUR)
-\item FotoSwipe (TODO LITERATUR)
+\item \cite{Hoccer}
+\item \cite{Sokolov:2012}
+\item \cite{Fotoswipe}
 
 \end{enumerate}
 }
 
 \newcommand{\designprinciples}{}
 
-%\newcommand{\imageschemata}{}
-%\newcommand{\imageSchemaContainer}{}
-%\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageschemata}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaPath}{}
-%\newcommand{\imageSchemaSourcePathGoal}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaUpDown}{}
 %\newcommand{\imageSchemaLeftRight}{}
-%\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaNearFar}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
@@ -173,14 +173,24 @@ Fernseher übertragen werden.
 %\newcommand{\technologyObjectIntimate}{}
 %\newcommand{\technologyObjectPersonal}{}
 %\newcommand{\technologyObjectSocial}{}
-%\newcommand{\technologyObjectPublic}{}
+\newcommand{\technologyObjectPublic}{}
 
-\newcommand{\technologyObjectDesc}{...}
+\newcommand{\technologyObjectDesc}{Aufgrund der Erhebung der technischen Vor- und Nachteile (TODO QUELLE HAHN BA), fiel die Auswahl der Übertragungstechnologie für den Prototyp auf WiFi Direct. Die hohe Reichweite und Übertragungsgeschwindigkeit ist für diese Entscheidung ausschlaggebend. Eine manuelle Auswahl des Zielgeräts ist für den Prototyp von Nachteil.\\
+
+Durch die Methode discoverPeers() wird der Applikation mitgeteilt, dass nach
+verfügbaren Geräten gesucht werden soll. Sobald Geräte gefunden werden,
+wird der peerListListener aufgerufen. Dieser muss zuvor überschrieben werden,
+damit auf die Liste zugegriffen werden kann. Sobald
+neue Geräte gefunden werden, wird die alte Liste geleert und mit den Neuen
+gefüllt. Daraufhin wird die GUI geupdated.}
 
 %\newcommand{\technologyCommunicationServer}{}
-%\newcommand{\technologyCommunicationAdhoc}{}
+\newcommand{\technologyCommunicationAdhoc}{}
 
-\newcommand{\technologyCommunicationDesc}{...}
+\newcommand{\technologyCommunicationDesc}{
+Um Dateien in Android auswählen zu können, wird das Storage Access Framework
+(SAF) benötigt. Hierdurch können Nutzer ihre Bibliothek durchsuchen und
+Dokumente, Bilder, sowie andere Dateien öffnen.}
 
 %\newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
@@ -190,20 +200,41 @@ Fernseher übertragen werden.
 %\newcommand{\technologyOrientationBeacons}{}
 %\newcommand{\technologyOrientationOther}{}
 
-\newcommand{\technologyOrientationDesc}{...}
+\newcommand{\technologyOrientationDesc}{In Android werden Gesten vom Betriebssystem erkannt und können weiter verarbeitet
+werden. Beispielsweise wird erkannt, wann und wo ein Finger das Display
+berührt (Action Down). Das Gleiche gilt auch für das wieder Anheben des
+Fingers (Action Up). Durch diese beiden Gesten kann ein Swipe erkannt werden.
+Für eine Implementierung werden zwei Variablen benötigt.
+Variable y1 steht für das Berühren des Displays, Variable y2 für das
+wieder loslassen. Nun können die beiden Punkte und deren Entfernung gemessen
+werden.\\
+Ein Swipe hat eine Richtung, sowie eine Länge. In diesem Fall muss der Swipe
+von unten nach oben erfolgen und die Länge muss mindestens 450 Pixel lang
+sein.}
 
-\newcommand{\prototype}{...}
+\newcommand{\prototype}{Um die Interaktion umzusetzen, müssen zwei Apps entwickelt werden, eine für das Start- und eine für das Zielgerät. Die App ist notwendig, damit das Swipen zur Datenübertragung genutzt werden kann. Außerdem müssen die Auswahl der Dateien und das Herstellen der Verbindung von Start- zu Zielgerät speziell für diese Interaktion angepasst werden.\\
+Bei der Verbindung der beiden Endgeräte muss ein Informationskanal geöffnet werden, damit Dateien übertragen werden können. Des Weiteren muss mindestens ein Gerät erkennen, welche Geräte zur Interaktion zu Verfügung stehen.\\
+Eine Applikation wurde auf der Android-Plattform implementiert mit der sich Endgeräte über WiFi Direct identifizieren und über lokale WLAN Netzwerke oder AD-Hoc Netzwerke Bilddateien austauschen können.}
 
 
 % -------------------------------
 % SONSTIGES
 % -------------------------------
 
-\newcommand{\authors}{Alexander Hahn, Valentina Burjan // Hochschule Mannheim}
-\newcommand{\literature}{ TODO }
+\newcommand{\authors}{
+Alexander Hahn, Hochschule Mannheim  \\
+Valentina Burjan // Hochschule Mannheim}
+\newcommand{\literature}{
+\begin{enumerate}
+\item \url{https://github.com/informatik-mannheim/thesis-swipe-to-give/tree/master/sources/Code}\\
+Java-Code zu den Demonstrator Applikationen von swipe-to-give
+
+\item \url{https://github.com/informatik-mannheim/thesis-swipe-to-give/blob/master/sources/Video/SwipeToGive_Demo.mp4}\\
+Demo-Video zu swipe-to-give
+\end{enumerate}}
 \newcommand{\figures}{---}
-\newcommand{\versionhistory}{...}
-\newcommand{\dateofcreation}{...}
+\newcommand{\versionhistory}{---}
+\newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{---}
 \newcommand{\questions}{---}
 
