@@ -23,26 +23,25 @@
 \newcommand{\useraction}{Zwei Benutzer halten jeweils ein Gerät fest in der Hand und lassen die Geräte an der Stirnseite/Seitenkante/Ecke zusammenstoßen/bumpen. }
 
 \newcommand{\reaction}{Die hauptsächliche Reaktion des Systems ist es, die Daten des Quellgeräts auf das Zielgerät zu übertragen und dort anzuzeigen. Die Geräte
-sollten aber auch eine visuelle oder akustische Rückmeldung an die Benutzer
-geben, um zu signalisieren, dass ein Bump von den Endgeräten festgestellt wurde,
+sollten aber auch eine visuelle oder akustische Rückmeldung an die Benutzer geben, um zu signalisieren, dass ein Bump von den Endgeräten festgestellt wurde,
 z.B. über Vibration und mit welchem Gerät/Person Daten ausgetauscht werden.}
 
 \newcommand{\reactionSuccessVisual}{}
 %\newcommand{\reactionSuccessAcustic}{}
 \newcommand{\reactionSuccessSensitive}{}
 
-%\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{...}
+\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine funktionierende Verbindung besteht.}
 
-%\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{...}
+\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine Geräte identifiziert werden konnten.}
 
-%\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{...}
+\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine kompatiblen Geräte identifiziert werden konnten.}
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Es sollte im besten Fall keinen Abstand zwischen den beiden Geräten geben, um die Erkennung des angelegten Gerätes zu gewährleisten.
+\item Es sollte im besten Fall keinen Abstand zwischen den beiden Geräten geben beim Ausführen der Bump-Geste, um die Erkennung des angelegten Gerätes zu gewährleisten.
 \item Der Zusammenstoß der Geräte muss so erfolgen, dass eine Erkennung möglich ist, andererseits aber die Geräte nicht beschädigt werden.
 \end{itemize}}
 
@@ -103,9 +102,9 @@ Screens               &            &            &        &          &         \\
 % WARUM
 % -------------------------------
 
-\newcommand{\established}{}
-%\newcommand{\candidate}{}
-%\newcommand{\realizable}{}
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
 \newcommand{\otherpatterns}{
@@ -119,10 +118,9 @@ Screens               &            &            &        &          &         \\
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item Bump App [1]: Bis 2014 in den App/Play Stores erhältlich gewesen. 
+\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen. 
 \end{enumerate}
 }
-
 
 \newcommand{\designprinciples}{}
 
@@ -154,14 +152,12 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\technologyObjectSocial}{}
 %\newcommand{\technologyObjectPublic}{}
 
-\newcommand{\technologyObjectDesc}{Über die Major- und Minor-Werte kann mit iBeacon jedem Endgerät eine einzigartige ID zugeordnet werden mit der Endgeräte identifiziert werden können. Um diese ID zwischen Bump-Partnern auszutauschen, wird auf beiden Geräten iBeacon zum Zeitpunk des Bumps für kurze Zeit aktiviert. Gerade lange genug, damit die Endgeräte alle aktiven Beacons in ihrem Umfeld sehen können. Dadurch besitzt jedes Gerät eine Liste an Beacons die zu einen bestimmten Zeitpunkt an einem Bump, in ihrer Empfangsreichweite, beteiligt waren. Können die Endgeräte jeweils nur ein anderes Beacon sehen, haben Sie ihren Bump-Partner identifiziert. Ist mehr als ein Beacon sichtbar, fanden mehrere Bumps zeitgleich statt. In diesen Fällen können die Partner, über die Entfernung der Geräte zueinander, ermittelt werden. Bei den Geräten mit dem geringsten Abstand handelt es sich um die Bump-Partner. Die Erkennung der Partnergeräte über die Entfernung macht es erforderlich, dass
-zeitgleiche Bumps mindestens einige Zentimeter voneinander entfernt stattfinden. Dies stellt sicher, dass eine falsche Zuordnung durch ungenaue Abstandsmessungen vermieden wird.}
+\newcommand{\technologyObjectDesc}{Über die Major- und Minor-Werte kann mit iBeacon jedem Endgerät eine einzigartige ID zugeordnet werden mit der Endgeräte identifiziert werden können. Um diese ID zwischen Bump-Partnern auszutauschen, wird auf beiden Geräten iBeacon zum Zeitpunk des Bumps für kurze Zeit aktiviert. Gerade lange genug, damit die Endgeräte alle aktiven Beacons in ihrem Umfeld sehen können. Dadurch besitzt jedes Gerät eine Liste an Beacons die zu einen bestimmten Zeitpunkt an einem Bump, in ihrer Empfangsreichweite, beteiligt waren. Können die Endgeräte jeweils nur ein anderes Beacon sehen, haben Sie ihren Bump-Partner identifiziert. Ist mehr als ein Beacon sichtbar, fanden mehrere Bumps zeitgleich statt. In diesen Fällen können die Partner, über die Entfernung der Geräte zueinander, ermittelt werden. Bei den Geräten mit dem geringsten Abstand handelt es sich um die Bump-Partner. Die Erkennung der Partnergeräte über die Entfernung macht es erforderlich, dass zeitgleiche Bumps mindestens einige Zentimeter voneinander entfernt stattfinden. Dies stellt sicher, dass eine falsche Zuordnung durch ungenaue Abstandsmessungen vermieden wird.}
 
 %\newcommand{\technologyCommunicationServer}{}
 \newcommand{\technologyCommunicationAdhoc}{}
 
-\newcommand{\technologyCommunicationDesc}{Wird auf einem Gerät ein Bump registriert, ist der erste Schritt die Generierung von Zufallszahlen für den Major- und Minor-Wert von iBeacon. Diese Zahlen bilden eine eindeutige ID, mit der sich jedes Gerät im Netzwerk identifizieren kann. Anschließend wird iBeacon aktiviert, die Geräte können sich gegenseitig sehen, GeräteIDs lesen und die Distanz zu allen sichtbaren Beacons erfassen. Ist mehr als ein Beacon sichtbar, wird jenes ermittelt, welches die geringste Distanz zum suchenden Gerät aufweist. Die GeräteID dieses Geräts wird lokal gespeichert und iBeacon wird deaktiviert. Anschließend startet die DiscoveryPhase des Multipeer-
-Connectivity-Frameworks.}
+\newcommand{\technologyCommunicationDesc}{Wird auf einem Gerät ein Bump registriert, ist der erste Schritt die Generierung von Zufallszahlen für den Major- und Minor-Wert von iBeacon. Diese Zahlen bilden eine eindeutige ID, mit der sich jedes Gerät im Netzwerk identifizieren kann. Anschließend wird iBeacon aktiviert, die Geräte können sich gegenseitig sehen, GeräteIDs lesen und die Distanz zu allen sichtbaren Beacons erfassen. Ist mehr als ein Beacon sichtbar, wird jenes ermittelt, welches die geringste Distanz zum suchenden Gerät aufweist. Die GeräteID dieses Geräts wird lokal gespeichert und iBeacon wird deaktiviert. Anschließend startet die DiscoveryPhase des Multipeer-Connectivity-Frameworks.}
 
 \newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
@@ -175,10 +171,8 @@ Connectivity-Frameworks.}
 
 \newcommand{\prototype}{
 Die Bump-Interaktion besteht aus drei Teilsystemen:
-Eines dieser Systeme muss erkennen, wenn Endgeräte angestoßen werden. Ein weiteres
-System muss Endgeräte identifizieren können, damit die Daten zwischen den
-richtigen Geräten ausgetauscht werden. Außerdem wird ein System benötigt, über
-das ein Kommunikationskanal zwischen den Geräten hergestellt wird, über den Daten
+Eines dieser Systeme muss erkennen, wenn Endgeräte angestoßen werden. Ein weiteres System muss Endgeräte identifizieren können, damit die Daten zwischen den
+richtigen Geräten ausgetauscht werden. Außerdem wird ein System benötigt, über das ein Kommunikationskanal zwischen den Geräten hergestellt wird, über den Daten
 ausgetauscht werden können.\\
 
 Es wurden drei iOS Frameworks genutzt für die Umsetzung von Bump:
@@ -208,8 +202,7 @@ Valentina Burjan, Hochschule Mannheim}
 \item \url{https://github.com/informatik-mannheim/thesis-bump-to-transfer/tree/master/sources/
 Bumper}\\
 Swift-Code zu der Demonstrator Applikationen von Bump
-\end{enumerate}
-}
+\end{enumerate}}
 \newcommand{\figures}{...}
 \newcommand{\versionhistory}{...}
 \newcommand{\dateofcreation}{17. September 2015}
