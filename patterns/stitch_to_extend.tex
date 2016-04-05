@@ -1,0 +1,210 @@
+\input{header.tex}
+
+\newcommand{\name}{Stitch To Extend}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{Der Bildschirm-Inhalt des Quell-Gerätes soll auf dem Ziel-Gerät erweitert dargestellt werden.}
+
+\newcommand{\solution}{Zwei Geräte werden nebeneinandergelegt. Der Anwender zieht mit dem Finger eine Linie auf dem Display des Quell-Gerätes hinüber auf das Display des Ziel-Gerätes, wo die gezogene Linie endet.
+Dabei wird der Bildschirm-Inhalt vom Quell- auf der Ziel-Gerät erweitert dargestellt.}
+
+%\newcommand{\category}{give}
+%\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{Der Nutzer legt das Quell- und Zielgerät nebeneinander. Auf dem Quell-Gerät wählt er die zu erweiternde Ansicht (z.B. Bild) aus. Er platziert einen Finger auf dem Bildschirm des Quellgerätes und führt diesen auf den Bildschirm des Zielgerätes hinüber, ohne den Finger zu heben.}
+
+\newcommand{\reaction}{Die Bildschirm-Ansicht des Quell-Gerätes wird bei korrekter Ausführung und Erkennung auf dem Ziel-Gerät erweitert, also anteilig, dargestellt. }
+
+\newcommand{\reactionSuccessVisual}{}
+%\newcommand{\reactionSuccessAcustic}{}
+%\newcommand{\reactionSuccessSensitive}{}
+
+%\newcommand{\reactionFailureConnection}{}
+\newcommand{\reactionFailureConnectionDesc}{...}
+
+%\newcommand{\reactionFailureNoDevice}{}
+\newcommand{\reactionFailureNoDeviceDesc}{...}
+
+%\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{...}
+
+\newcommand{\designnotes}{Unterschiedliche Displaygrößen können ggf. keinen Mehrwert erzeugen (z.B. wenn ein Tablet und ein Smartphone nebeneinandergelegt werden kann bei der Erweiterung Fläche verloren gehen (siehe Abb.).\\
+Um möglichst einen fließenden Übergang zu gewinnen müssen die Displays sehr nah und parallel aneinander anliegen.\\
+Jeder Bildschirm hat einen Rand, was dazu führt, dass durch das Nebeneinanderlegen zweier Geräte eine Lücke zwischen den Displays entsteht. Dadurch, dass mobile Endgeräte viel kleiner sind als Computermonitore, ist die Lücke zwischen den Geräten relativ zu ihren Dimensionen größer.\\
+Es gibt zwei Möglichkeiten Ansichten zu erweitern: 
+\begin{enumerate}
+\item Das Bild in zwei Teile schneiden und die Ränder der Displays zu ignorieren. Dabei entsteht eine Streckung des Bildes (siehe Abb. /links)
+\item Das Bild in zwei Teile schneiden und die Ränder der Displays einkalkulieren und aus dem Bild ausschneiden.(siehe Abb. /rechts)
+\end{enumerate} }
+
+% -------------------------------
+% WANN
+% -------------------------------
+
+\newcommand{\validcontext}{
+\begin{itemize}
+\item Visuelle Erweiterung/Bildschirmerweiterung, z.B. für Foto-/Video-/Spiele-Anwendungen/Teilen in zwei Arbeitsflächen oder für die Panorama-Ansicht bei Bildern (siehe Abb.), Darstellung von Medien im Originalformat (z.B. aufgeschlagenes Buch, also zwei Seiten, auf zwei Medien darstellen)
+\item Logisches Erweitern/Auslagern von Programmlogik, um auf einem Screen eine Aktion durchzuführen, z.B. Fernsehen und auf dem zweiten Screen ein dazugehörige Aktion, z.B. ein Quiz auszuführen
+\end{itemize}
+}
+
+\newcommand{\simultaneously}{}
+\newcommand{\sequentially}{}
+
+%\newcommand{\online}{}
+\newcommand{\offline}{}
+
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+%\newcommand{\public}{}
+\newcommand{\stationary}{}
+%\newcommand{\onthego}{}
+
+%\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
+
+\newcommand{\single}{}
+%\newcommand{\collaboration}{}
+%\newcommand{\facetoface}{}
+\newcommand{\sidetoside}{}
+%\newcommand{\cornertocorner}{}
+
+\newcommand{\smalltask}{}
+%\newcommand{\repeatedtask}{}
+%\newcommand{\locationbased}{}
+%\newcommand{\distraction}{}
+%\newcommand{\urgent}{} 
+
+\newcommand{\notvalidcontext}{...}
+
+
+\newcommand{\devicetabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch            &     x      &            &        &          &         \\ 
+\hline 
+Smartphone            &            &     x      &   x    &          &         \\ 
+\hline 
+Tablet                &            &     x      &   x    &     x    &         \\ 
+\hline 
+Tabletop              &            &     x      &   x    &          &         \\ 
+\hline
+Screens               &            &     x      &   x    &          &         \\ 
+\hline 
+\end{tabular} }
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+%\newcommand{\established}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{
+\begin{itemize}
+\item Stitch to Connect
+\item Stitch to Give
+\item Stitch to Take
+\end{itemize}
+}
+
+\newcommand{\stateoftheart}{
+\begin{enumerate}
+\item \cite{Sokolov:2012}
+\item HINKLEY, Ken; RAMOS, Gonzalo; GUIMBRETIERE, Francois; BAUDISCH, Patrick; SMITH, Marc: Stitching: Pen Gestures that Span Multiple Displays. Proc. AVI 2004, May 25-28, 2004, Gallipoli (LE), Italy.
+\item
+\end{enumerate}
+}
+
+
+\newcommand{\designprinciples}{}
+
+\newcommand{\imageschemata}{}
+%\newcommand{\imageSchemaContainer}{}
+%\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPartWhole}{}
+
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
+
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Das Zusammennähen von zwei Stoffteilen}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+\newcommand{\technologyObjectIntimate}{}
+%\newcommand{\technologyObjectPersonal}{}
+%\newcommand{\technologyObjectSocial}{}
+%\newcommand{\technologyObjectPublic}{}
+
+\newcommand{\technologyObjectDesc}{Die Geräteerkennung basiert auf einer Verbindung über Wifi-Direct zwischen dem Sende- und Empfängergerät. Die Geräte liegen hierbei in unmittelbarer Nähe nebeneinander.\\
+Die Geräte tauschen untereinander ihre Eigenschaften wie Display-Breite und Pixeldichte aus (wichtig für die optimale Aufteilung der erweiterten Bildschirm-Ansicht). Dabei ist zu berücksichtigen, dass einige Endgeräte (Smartphones, als auch Tablets) falsche Werte zurückgeben und bei der Berechnung die Relation der Ansicht/Erweiterung falsch ausfällt.
+}
+
+%\newcommand{\technologyCommunicationServer}{}
+\newcommand{\technologyCommunicationAdhoc}{}
+
+\newcommand{\technologyCommunicationDesc}{Die Sende- und Empfängergeräte bauen eine Kommunikation durch Wi-Fi Direct auf.\\
+Ein Stitch besteht technisch gesehen aus zwei Swipes.
+Der ausgehende Swipe geht von dem Sendegerät aus, beginnt immer in der Mitte des Bildschirms und endet am Rand.
+Der eingehende Swipe kommt vom Bildschirmrand des Gerätes und endet an der Stelle, an der der Nutzer seinen Finger vom Display nimmt.
+Ein Swipe besteht aus einem Startpunkt, einem Endpunkt, der Bewegungsrichtung (Links, rechts, oben, unten) und der Information, ob es sich um einen ausgehenden oder eingehenden Swipe handelt.\\
+Um einen Swipe konsistent erkennen zu können muss an den Bildschirmrändern eine Kulanz von 100 Pixeln miteinbezogen werden. Ohne diese müsste der Nutzer den Finger bis zum letzten Pixel am Rand des Gerätes bewegen, was sich als unzuverlässig erwiesen hat.
+Wird ein Swipe erfolgreich erstellt, informiert dieser den Kommunikationsservice. Der Service kümmert sich daraufhin um die Erkennung des Stitches. Damit ein Stitch erkannt werden kann, müssen die zwei ermittelten Swipes durch Kommunikationsservices miteinander verglichen werden.
+}
+
+%\newcommand{\technologyOrientationAccelerometer}{}
+%\newcommand{\technologyOrientationGPS}{}
+%\newcommand{\technologyOrientationGyroskop}{}
+%\newcommand{\technologyOrientationAnnaeherung}{}
+%\newcommand{\technologyOrientationHoehe}{}
+%\newcommand{\technologyOrientationBeacons}{}
+\newcommand{\technologyOrientationOther}{}
+
+\newcommand{\technologyOrientationDesc}{Bei der Stitch-Geste werden die Bewegungen des Fingers vom einen Bildschirm über den anderen (das sog. Swipen) von einem Kommunikationsservice getrackt und verglichen. }
+
+\newcommand{\prototype}{...}
+
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{
+Valentina Burjan, Hochschule Mannheim\\
+Dominick Madden, Hochschule Mannheim}
+\newcommand{\literature}{...}
+\newcommand{\figures}{...}
+\newcommand{\versionhistory}{...}
+\newcommand{\dateofcreation}{...}
+\newcommand{\comments}{...}
+\newcommand{\questions}{...}
+
+
+% template inkludieren --------------
+
+\input{template.tex}
