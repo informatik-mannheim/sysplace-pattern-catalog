@@ -43,6 +43,39 @@ Die eigentliche Reaktion ist es die übertragenen Dateien anzuzeigen (visuelle R
 
 \newcommand{\designnotes}{Entsprechend der Geräte ist es notwendig zu berücksichtigen, mit wie viel Fingern die Swipe-Geste ausgeführt werden soll. In diesem Fall wird der Swipe mit einem Finger ausgeführt und findet in einer eigens dafür gestalteten App statt. Um die Interaktion, den Swipe, durchführen zu können, wird eine Verbindung zu einem Gerät benötigt. }
 
+\newcommand{\microinteractions}{
+\begin{enumerate}
+\item Touch
+\item Move
+\item Release
+\item Receive
+\end{enumerate}
+}
+
+\newcommand{\microinteractionstabular}{
+\begin{tabular}[H]{|c|c|c|c|c|c|}
+\hline 
+\thead{N\degree} & \thead{Name} & \thead{Trigger Type} & \thead{Trigger} & \thead{Rules} & \thead{Feedback} \\ 
+\hline 
+1 &  Touch & Manual & Touch Event on Screen (Down) & -Touch must be on image &  Animation 1 \\ 
+\hline
+2 & Move & Manual & Touch Event on Screen (Move) & \makecell{-N\degree 1 has occured \\-N\degree 2 has not occured} & Animation 2 \\ 
+\hline 
+3 & Release & Manual & Touch Event on Screen (Up) &  \makecell{-Swipelength OK \\ -Swipeduration OK \\ -Swipeorientation OK} & Animation 3 \\ 
+\hline 
+4 & Receive & System & Data Received & -Data is an image file & \makecell{-Animation 4 \\ -Vibrate device} \\
+\hline 
+\end{tabular}}
+
+\newcommand{\animations}{
+\begin{enumerate}
+\item Touch-Animation
+\item Move-Animation
+\item Release-Animation
+\item Receive-Animation
+\end{enumerate}
+}
+
 % -------------------------------
 % WANN
 % -------------------------------

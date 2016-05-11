@@ -24,7 +24,7 @@
  url = {http://prmac.com/release-id-43191.htm}
 }
 
-@online{Hoccer,
+@online{Hoccer:2015,
  author = {Hoccer Betriebs GmbH},
  title = {Hoccer -  Der Messenger},
  year = {2015},
