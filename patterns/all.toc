@@ -1,0 +1,24 @@
+\select@language {german}
+\contentsline {section}{\numberline {1}\ignorespaces Appose}{3}
+\contentsline {section}{\numberline {2}\ignorespaces Approach To Connect}{9}
+\contentsline {section}{\numberline {3}\ignorespaces Approach To Extend}{15}
+\contentsline {section}{\numberline {4}\ignorespaces Approach To Give}{21}
+\contentsline {section}{\numberline {5}\ignorespaces Approach To Take}{27}
+\contentsline {section}{\numberline {6}\ignorespaces Bump To Connect}{33}
+\contentsline {section}{\numberline {7}\ignorespaces Bump To Exchange}{40}
+\contentsline {section}{\numberline {8}\ignorespaces Bump To Give}{50}
+\contentsline {section}{\numberline {9}\ignorespaces Bump To Take}{60}
+\contentsline {section}{\numberline {10}\ignorespaces Swipe To Give}{70}
+\contentsline {section}{\numberline {11}\ignorespaces Dump}{81}
+\contentsline {section}{\numberline {12}\ignorespaces Nudge}{88}
+\contentsline {section}{\numberline {13}\ignorespaces Grab A Part}{95}
+\contentsline {section}{\numberline {14}\ignorespaces Grab An Object}{103}
+\contentsline {section}{\numberline {15}\ignorespaces Exchange Through Body}{111}
+\contentsline {section}{\numberline {16}\ignorespaces Extend With Two Fingers}{118}
+\contentsline {section}{\numberline {17}\ignorespaces Give Through Body}{124}
+\contentsline {section}{\numberline {18}\ignorespaces Picking Up An Object}{131}
+\contentsline {section}{\numberline {19}\ignorespaces Shake Well To Connect}{138}
+\contentsline {section}{\numberline {20}\ignorespaces Frisbee}{144}
+\contentsline {section}{\numberline {21}\ignorespaces Tennis}{151}
+\contentsline {section}{\numberline {22}\ignorespaces World In Miniature}{158}
+\contentsline {section}{\numberline {23}\ignorespaces Leave To Disconnect}{164}
