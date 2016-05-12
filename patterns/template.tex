@@ -71,12 +71,8 @@
 \validcontext
 
 \subsubsection*{Zeit}
-\checkbox{\simultaneously} gleichzeitige Nutzung von Geräten \\
-\checkbox{\sequentially} sequentielle Nutzung von Geräten 
-
-\subsubsection*{Modus}
-\checkbox{\online} online \\
-\checkbox{\offline} offline 
+\checkbox{\simultaneously} gleichzeitige Nutzung der beteiligten Geräte \\
+\checkbox{\sequentially} sequentielle Nutzung der beteiligten Geräte
 
 \subsubsection*{Ort}
 \checkbox{\private} privat \\
@@ -85,7 +81,7 @@
 \checkbox{\stationary} stationär \\
 \checkbox{\onthego} unterwegs 
 
-\subsubsection*{Position}
+\subsubsection*{Körperhaltung der Benutzer}
 \checkbox{\leanback} Lean-Back \\
 \checkbox{\leanforward} Lean-Forward 
 
@@ -95,15 +91,7 @@
 
 \subsubsection*{Anordnung zwischen Sender und Empfänger}
 \checkbox{\facetoface} Face-To-Face \\
-\checkbox{\sidetoside} Side-To-Side \\
-\checkbox{\cornertocorner} Corner-To-Corner
-
-\subsubsection*{Tätigkeit}
-\checkbox{\smalltask} kleinere Aufgabe \\
-\checkbox{\repeatedtask} wiederholte Tätigkeit \\
-\checkbox{\locationbased} ortsbezogene Informationsbeschaffung \\
-\checkbox{\distraction} Ablenkung \\
-\checkbox{\urgent} dringendes 
+\checkbox{\sidetoside} Side-To-Side
 
 \subsection*{Abzuratender Nutzungskontext}
 \notvalidcontext
@@ -111,21 +99,21 @@
 \subsection*{Geräteklassen}
 \devicetabular
 
+
 % -------------------------------
 % WARUM
 % -------------------------------
 
 \section*{Warum}
-
 \checkbox{\established} Bewährtes Interaction Pattern \\
 \checkbox{\candidate} Interaction Pattern Kandidat: 
 \checkbox{\realizable} realisierbar oder
-\checkbox{\futuristic} futuristisch 
+\checkbox{\futuristic} futuristisch
 
-\subsection*{Analoge Patterns}
+\subsection*{Verwandte Patterns}
 \otherpatterns
 
-\subsection*{State of the Art/Gebrauchshistorie}
+\subsection*{State of the Art}
 \stateoftheart
 
 \subsection*{Checkliste: Entspricht die Interaktion der Definiton eines "Blended Interaction"?}
@@ -228,22 +216,19 @@ z.B. GPS, WiFi Direct
 \subsection*{Autor/en}
 \authors
 
-\subsection*{Literaturreferenzen}
-\literature
-%\nocite{*}
-\bibliography{lit.bib}
-
-\subsection*{Abbildungsverzeichnis}
-\figures
-
 \subsection*{Versionshistorie}
-Letzte Änderung am: \versionhistory \\
-Erstelldatum: \dateofcreation
+Erstelldatum: \dateofcreation \\
+Letzte Änderung am: \versionhistory
 
 \subsection*{Kommentare}
 \comments
 
 \subsection*{Offene Fragen}
 \questions
+
+\listoffigures
+
+\bibliographystyle{dinat}
+\bibliography{lit}
 
 \end{document}

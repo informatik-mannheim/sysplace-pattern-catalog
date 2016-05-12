@@ -75,9 +75,6 @@ Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgef�
 %\newcommand{\simultaneously}{}
 \newcommand{\sequentially}{}
 
-\newcommand{\online}{}
-\newcommand{\offline}{}
-
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
 \newcommand{\public}{}
@@ -91,19 +88,12 @@ Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgef�
 \newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
 %\newcommand{\sidetoside}{}
-%\newcommand{\cornertocorner}{}
-
-\newcommand{\smalltask}{}
-\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
-%\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
 
 \newcommand{\notvalidcontext}{--- keine Information ---}
 
-
 \newcommand{\devicetabular}{
-\begin{tabular}[H]{|c|c|c|c|c|c|}
+\begin{figure}[H]
+\begin{tabular}{|c|c|c|c|c|c|}
 \hline 
 \diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
@@ -117,22 +107,24 @@ Tabletop            &            &            &        &          &     x   \\
 \hline
 Screens             &            &            &        &          &         \\ 
 \hline 
-\end{tabular} }
+\end{tabular}
+\caption{Geräteklassen für das Swipe To Give Pattern} 
+\end{figure}
+}
 
 % -------------------------------
 % WARUM
 % -------------------------------
 
-%\newcommand{\established}{}
-\newcommand{\candidate}{}
-\newcommand{\realizable}{}
+\newcommand{\established}{}
+%\newcommand{\candidate}{}
+%\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{--- keine Information ---}
+\newcommand{\otherpatterns}{Stitch, Extend With Two Fingers}
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-
 \item \url{https://www.youtube.com/watch?v=GDdPN6mVLPM} \\
 von Minute 0:56 bis 0:59\\
 Mit der Swipe-Geste auf vom Gerät, wird das konfigurierte Auto auf die
@@ -157,14 +149,9 @@ von Minute 1:09 bis 1:15
 
 \item \url{https://www.youtube.com/watch?v=yw564p8oF1M} \\
 von Minute 0:14 bis 0:20 \\
-Chromecast: Technologie mit der Daten z.B. vom Smartphone auf den
-Fernseher übertragen werden.
-
-\item \cite{Marquardt:2012:GEF:2396636.2396642}
-\item \cite{Hoccer}
-\item \cite{Sokolov:2012}
-\item \cite{Fotoswipe}
-
+\item Verschiedene kommerzielle Applikationen zum Übertragen von Dateien per Swipe-Geste \cite{Fotoswipe} \cite{Sokolov2012} \cite{Hoccer2015}.
+\item Beispiel-Implementierung des Swipe To Give Patterns \citep{Hahn2015}.
+\item Microinteractions für Swipe-Gesten \cite{Madden2016}
 \end{enumerate}
 }
 
@@ -246,17 +233,12 @@ Eine Applikation wurde auf der Android-Plattform implementiert mit der sich Endg
 
 \newcommand{\authors}{
 Alexander Hahn, Hochschule Mannheim  \\
-Valentina Burjan // Hochschule Mannheim}
-\newcommand{\literature}{
-\begin{enumerate}
-\item \url{https://github.com/informatik-mannheim/thesis-swipe-to-give/tree/master/sources/Code}\\
-Java-Code zu den Demonstrator Applikationen von swipe-to-give
+Valentina Burjan, Hochschule Mannheim \\
+Dominick Madden, Hochschule Mannheim \\
+Horst Schneider, Hochschule Mannheim}
 
-\item \url{https://github.com/informatik-mannheim/thesis-swipe-to-give/blob/master/sources/Video/SwipeToGive_Demo.mp4}\\
-Demo-Video zu swipe-to-give
-\end{enumerate}}
 \newcommand{\figures}{---}
-\newcommand{\versionhistory}{---}
+\newcommand{\versionhistory}{12.05.2016}
 \newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{---}
 \newcommand{\questions}{---}
