@@ -20,53 +20,51 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand oder hat es vor sich liegen bzw. stehen (z.B. ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der aktuelle Bildschirm) zum Versenden ausgewählt worden.\\
+\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand oder hat es vor sich liegen bzw. stehen (z.B. ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der aktuelle Bildschirm) zum Versenden ausgewählt worden. Zudem besteht eine Verbindung zum \recdev\ \\
 Der \sen\ führt einen Swipe mit einem Finger in Richtung des \recdev s\ aus. Der Swipe muss mit einer Dynamik versehen werden, die dem Sender das Gefühl gibt, die physikalische Distanz zum \recdev\ durch Bewegung des \data s\ zu überbrücken. Diese Dynamik kann über Anpassung der Parameter (\textit{Länge}, \textit{Richtung}, \textit{Geschwindigkeit}) des Swipes beeinflusst werden. Von den gewählten Parametern hängt ab, ob ein Swipe als \textit{erfolgreich} oder \textit{nicht erfolgreich} erkannt wird.}
 
 \newcommand{\reactionSen}{Auf dem \sendev\ kann dem Nutzer zu verschiedenen Phasen des Swipes ein Feedback gegeben werden. Ein Swipe besteht aus den drei Microinteractions \textit{Touch}, \textit{Move} und \textit{Release}.\\
-Bei einem \textit{erfolgreich} ausgeführten Swipe finden alle Microinteractions statt und können jeweils mit Feedback versehen werden, nach Beendigung der letzten Phase wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Swipe wird kein Transfer ausgeführt, einzelne Microinteractions des Swipes können entfallen.}
+Bei einem \textit{erfolgreich} ausgeführten Swipe finden alle Microinteractions statt, nach Beendigung der letzten Microinteraction wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Swipe wird kein Transfer ausgeführt, einzelne Microinteractions des Swipes können entfallen.}
 
 \newcommand{\reactionRec}{Auf dem \recdev\ kann dem Nutzer bei erfolgreichem Swipe auf dem \sendev\ und anschließendem erfolgreichen Transfer ein Feedback über den Empfang des \data s\ gegeben werden (Microinteraction \textit{Receive}).}
 
 \newcommand{\microinteractionstabular}{
-\begin{figure}
 \begin{table}[H]
 \renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
 \centering
 \newcolumntype{b}{X}
 \newcolumntype{t}{>{\hsize=.3\hsize}X}
 \newcolumntype{s}{>{\hsize=.2\hsize}c}
-\newcolumntype{m}{>{\hsize=.5\hsize}X}
-
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
 \begin{tabularx}{\textwidth}{tsbbm}
 \thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
 Touch & M & Touch Down Event auf dem Screen & Touch auf dem \data\ &  Animation 1 \\ 
 \hline
 Move & M & Touch Move Event auf dem Screen & 
-Touch ausgeführt, \newline Move nicht ausgeführt & Animation 2 \\ 
+Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\ 
 \hline
 Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
 \hline
-Receive & S & Daten empfangen & \data\ ist darstellbar & Animation, Vibration \\
+Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vibration \\
 \hline
 \end{tabularx}
 \end{table}
-*Typ: (M)anual, (S)ystem, (A)utomatic
-\end{figure}
+*Typ: (M)anuell, (S)ystem
 }
 
 \newcommand{\animations}{
 \begin{enumerate}
-\item Touch-Animation
-\item Move-Animation
-\item Release-Animation
-\item Receive-Animation
+\item Touch-Animation: visualisiert dem Benutzer, ob der Touch auf dem \data\ ausgeführt wurde (z.B. Ripple-Effekt)
+\item Move-Animation: visualisiert dem Benutzer, dass das \data\ beweglich ist (z.B. durch Drag-And-Drop-Animation)
+\item Release-Animation: visualisiert dem Benutzer, dass das Objekt losgelassen und entweder versendet (\textit{erfolgreicher Swipe}) oder nicht versendet wurde (\textit{nicht erfolgreicher Swipe})
+\item Receive-Animation: visualisiert dem Benutzer, dass ein \data\ empfangen wurde
 \end{enumerate}
 }
 
+\newcommand{\designnotes}{Es ist zu beachten, dass der Swipe im verwendeten Kontext nicht mehrdeutig ist, also z.B. von Betriebssystemfeatures wie einem per Swipe zu öffnenden Einstellungsmenü überlagert wird. Zudem sollte innerhalb des Applikationskontextes keine weitere Funktionalität durch einen Swipe ausgelöst werden (z.B. Scrollen, Umblättern etc.).\\
 
-\newcommand{\designnotes}{Entsprechend der Geräte ist es notwendig zu berücksichtigen, mit wie viel Fingern die Swipe-Geste ausgeführt werden soll. In diesem Fall wird der Swipe mit einem Finger ausgeführt und findet in einer eigens dafür gestalteten App statt. Um die Interaktion, den Swipe, durchführen zu können, wird eine Verbindung zu einem Gerät benötigt. }
+Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgeführt werden. Da es unter Umständen schwierig ist, die Orientierung verschiedener Geräte zueinander zu bestimmen, kann alternativ auch eine feste Richtung für den Swipe vorgegeben werden (z.B. immer von unten nach oben).}
 
 % -------------------------------
 % WANN
