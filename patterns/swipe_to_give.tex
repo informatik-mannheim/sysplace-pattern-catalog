@@ -21,51 +21,40 @@
 % -------------------------------
 
 \newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand oder hat es vor sich liegen bzw. stehen (z.B. ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der aktuelle Bildschirm) zum Versenden ausgewählt worden.\\
-Der \sen\ führt einen Swipe mit einem Finger in Richtung des \recdev s\ aus. Der Swipe muss mit einer Dynamik versehen werden, die dem Sender das Gefühl gibt, die physikalische Distanz zum \recdev\ durch Bewegung des \data s\ zu überbrücken. Diese Dynamik kann über Anpassung der Parameter (Länge, Richtung, Geschwindigkeit) des Swipes beeinflusst werden.}
+Der \sen\ führt einen Swipe mit einem Finger in Richtung des \recdev s\ aus. Der Swipe muss mit einer Dynamik versehen werden, die dem Sender das Gefühl gibt, die physikalische Distanz zum \recdev\ durch Bewegung des \data s\ zu überbrücken. Diese Dynamik kann über Anpassung der Parameter (\textit{Länge}, \textit{Richtung}, \textit{Geschwindigkeit}) des Swipes beeinflusst werden. Von den gewählten Parametern hängt ab, ob ein Swipe als \textit{erfolgreich} oder \textit{nicht erfolgreich} erkannt wird.}
 
-\newcommand{\reaction}{Ist der Datensatz erfolgreich versendet worden, so reagiert das Sendergerät mit einer visuellen Nachricht an den Benutzer. Er bekommt eine kleine Nachricht angezeigt, dass die Übertragung erfolgreich verlief (z.B. durch ein Ausfaden/Verblassen des Bildes).\\
-Das Empfänger-Gerät empfängt den Datensatz und zeigt diesen auf dem Bildschirm an.\\
-Die Reaktion beim Sender ist eine Popup-Nachricht, welche signalisiert, dass die Dateien übertragen wurden. Des Weiteren wird die Liste der ausgewählten Bilder geleert.\\
-Die eigentliche Reaktion ist es die übertragenen Dateien anzuzeigen (visuelle Rückmeldung). Dies könnte bspw. durch Hineingleiten vom oberen Rand des Empfänger-Geräts sein, wie es auch beim Senden beschrieben wurde. Der Benutzer erhält durch diese gestalterische Lösung ein besseres Verständnis für den Vorgang. Das Gerät soll jedoch zusätzlich eine akustische Rückmeldung an den Benutzer geben, dass Daten übertragen wurden. In diesem Fall ist die akustische Rückmeldung ein Vibrationsalarm.}
+\newcommand{\reactionSen}{Auf dem \sendev\ kann dem Nutzer zu verschiedenen Phasen des Swipes ein Feedback gegeben werden. Ein Swipe besteht aus den drei Microinteractions \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Bei einem \textit{erfolgreich} ausgeführten Swipe finden alle Microinteractions statt und können jeweils mit Feedback versehen werden, nach Beendigung der letzten Phase wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Swipe wird kein Transfer ausgeführt, einzelne Microinteractions des Swipes können entfallen.}
 
-\newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
-\newcommand{\reactionSuccessSensitive}{}
-
-\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{wird ein Fehlertext auf dem Sender-Gerät angezeigt.}
-
-%\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{...}
-
-%\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{...}
-
-\newcommand{\designnotes}{Entsprechend der Geräte ist es notwendig zu berücksichtigen, mit wie viel Fingern die Swipe-Geste ausgeführt werden soll. In diesem Fall wird der Swipe mit einem Finger ausgeführt und findet in einer eigens dafür gestalteten App statt. Um die Interaktion, den Swipe, durchführen zu können, wird eine Verbindung zu einem Gerät benötigt. }
-
-\newcommand{\microinteractions}{
-\begin{enumerate}
-\item Touch
-\item Move
-\item Release
-\item Receive
-\end{enumerate}
-}
+\newcommand{\reactionRec}{Auf dem \recdev\ kann dem Nutzer bei erfolgreichem Swipe auf dem \sendev\ und anschließendem erfolgreichen Transfer ein Feedback über den Empfang des \data s\ gegeben werden (Microinteraction \textit{Receive}).}
 
 \newcommand{\microinteractionstabular}{
-\begin{tabular}[H]{|c|c|c|c|c|c|}
-\hline 
-\thead{N\degree} & \thead{Name} & \thead{Trigger Type} & \thead{Trigger} & \thead{Rules} & \thead{Feedback} \\ 
-\hline 
-1 &  Touch & Manual & Touch Event on Screen (Down) & -Touch must be on image &  Animation 1 \\ 
+\begin{figure}
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.5\hsize}X}
+
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
-2 & Move & Manual & Touch Event on Screen (Move) & \makecell{-N\degree 1 has occured \\-N\degree 2 has not occured} & Animation 2 \\ 
-\hline 
-3 & Release & Manual & Touch Event on Screen (Up) &  \makecell{-Swipelength OK \\ -Swipeduration OK \\ -Swipeorientation OK} & Animation 3 \\ 
-\hline 
-4 & Receive & System & Data Received & -Data is an image file & \makecell{-Animation 4 \\ -Vibrate device} \\
-\hline 
-\end{tabular}}
+Touch & M & Touch Down Event auf dem Screen & Touch auf dem \data\ &  Animation 1 \\ 
+\hline
+Move & M & Touch Move Event auf dem Screen & 
+Touch ausgeführt, \newline Move nicht ausgeführt & Animation 2 \\ 
+\hline
+Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
+\hline
+Receive & S & Daten empfangen & \data\ ist darstellbar & Animation, Vibration \\
+\hline
+\end{tabularx}
+\end{table}
+*Typ: (M)anual, (S)ystem, (A)utomatic
+\end{figure}
+}
 
 \newcommand{\animations}{
 \begin{enumerate}
@@ -75,6 +64,9 @@ Die eigentliche Reaktion ist es die übertragenen Dateien anzuzeigen (visuelle R
 \item Receive-Animation
 \end{enumerate}
 }
+
+
+\newcommand{\designnotes}{Entsprechend der Geräte ist es notwendig zu berücksichtigen, mit wie viel Fingern die Swipe-Geste ausgeführt werden soll. In diesem Fall wird der Swipe mit einem Finger ausgeführt und findet in einer eigens dafür gestalteten App statt. Um die Interaktion, den Swipe, durchführen zu können, wird eine Verbindung zu einem Gerät benötigt. }
 
 % -------------------------------
 % WANN
