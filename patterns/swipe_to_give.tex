@@ -185,23 +185,6 @@ von Minute 0:14 bis 0:20 \\
 %\newcommand{\technologyObjectSocial}{}
 \newcommand{\technologyObjectPublic}{}
 
-\newcommand{\technologyObjectDesc}{Aufgrund der Erhebung der technischen Vor- und Nachteile \citep{Hahn2015}, fiel die Auswahl der Übertragungstechnologie für den Prototyp auf WiFi Direct. Die hohe Reichweite und Übertragungsgeschwindigkeit ist für diese Entscheidung ausschlaggebend. Eine manuelle Auswahl des Zielgeräts ist für den Prototyp von Nachteil.\\
-
-Durch die Methode discoverPeers() wird der Applikation mitgeteilt, dass nach
-verfügbaren Geräten gesucht werden soll. Sobald Geräte gefunden werden,
-wird der peerListListener aufgerufen. Dieser muss zuvor überschrieben werden,
-damit auf die Liste zugegriffen werden kann. Sobald
-neue Geräte gefunden werden, wird die alte Liste geleert und mit den Neuen
-gefüllt. Daraufhin wird die GUI geupdated.}
-
-%\newcommand{\technologyCommunicationServer}{}
-\newcommand{\technologyCommunicationAdhoc}{}
-
-\newcommand{\technologyCommunicationDesc}{
-Um Dateien in Android auswählen zu können, wird das Storage Access Framework
-(SAF) benötigt. Hierdurch können Nutzer ihre Bibliothek durchsuchen und
-Dokumente, Bilder, sowie andere Dateien öffnen.}
-
 %\newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
 %\newcommand{\technologyOrientationGyroskop}{}
@@ -210,17 +193,17 @@ Dokumente, Bilder, sowie andere Dateien öffnen.}
 %\newcommand{\technologyOrientationBeacons}{}
 %\newcommand{\technologyOrientationOther}{}
 
-\newcommand{\technologyOrientationDesc}{In Android werden Gesten vom Betriebssystem erkannt und können weiter verarbeitet
-werden. Beispielsweise wird erkannt, wann und wo ein Finger das Display
-berührt (Action Down). Das Gleiche gilt auch für das wieder Anheben des
-Fingers (Action Up). Durch diese beiden Gesten kann ein Swipe erkannt werden.
-Für eine Implementierung werden zwei Variablen benötigt.
-Variable y1 steht für das Berühren des Displays, Variable y2 für das
-wieder loslassen. Nun können die beiden Punkte und deren Entfernung gemessen
-werden.\\
-Ein Swipe hat eine Richtung, sowie eine Länge. In diesem Fall muss der Swipe
-von unten nach oben erfolgen und die Länge muss mindestens 450 Pixel lang
-sein.}
+\newcommand{\requiredTechnologies}{
+\begin{itemize}
+\item Touchscreen
+\item Verbindung (Ad-Hoc oder Infrastruktur/Server)
+\item Bildschirm
+\item eventuell Vibration
+\end{itemize}
+
+=> Verweis auf das große Domain-Model \\
+=> sollen wir ein "kleines" Domain-Model extrahieren?
+}
 
 \newcommand{\prototype}{
 \subsubsection*{Ablauf Gestenerkennung}
@@ -265,7 +248,12 @@ Beide Constraints werden anhand von Variablen überprüft, die aus den \textit{U
 \caption{Überprüfung der Constraints für die Swipe Geste}
 \label{check_constraints}
 \end{figure}
+
+BLABLABLA Glue Sentence mit Verweis auf den Appendix (der muss noch erstellt werden).
+
 }
+
+
 
 % -------------------------------
 % SONSTIGES
