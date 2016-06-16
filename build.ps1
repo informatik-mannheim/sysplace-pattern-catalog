@@ -24,18 +24,49 @@ Function build-web
 	New-Item -Force -ItemType directory -Path output/html
 	New-Item -Force -ItemType directory -Path output/temp/html
 	cd patterns
-	gci -Exclude template.tex,header.tex *.tex | ForEach-Object {htlatex $_.Name "html, -css, charset=utf-8" " -cunihtf -utf8"}
-	gci -Exclude *.html, *.tex, *.png | ForEach-Object {mv -Force $_ ../output/temp/html}
+	gci -Exclude template.tex, header.tex *.tex | ForEach-Object {htlatex $_.Name "html, -css, charset=utf-8" " -cunihtf -utf8"}
+	gci -Exclude *.html, *.tex, *.png, *.pdf, *.bib | ForEach-Object {mv -Force $_ ../output/temp/html} # move all build-related files to temp for debugging
 	mv -Force *.html ../output/html
-	cp *.png ../output/html
+	cp *.png ../output/html # copy, DON'T move as we need them for every build again.
 
 	cd ../output/html
 	New-Item -ItemType file -Force index.html
 	echo "<DOCTYPE HTML>" > index.html
 	echo "<head></head>" >> index.html
 	echo "<body><h1>Alle Pattern</h1>" >> index.html
-	gci -Name -Exclude index.html |ForEach-Object {echo "<a href='$_'>$_</a><br />"  >> index.html}
+	gci -Name -Exclude index.html, *.png | ForEach-Object {echo "<a href='$_'>::> $_</a><br />"  >> index.html}
 	echo "</body>" >> index.html
 	cd ../..
+}
+
+Function build-web-single
+{
+	Param(
+		[parameter(Mandatory=$true)]
+		[ValidateNotNull()]
+		[string]
+		$file
+	)
+
+	cd patterns
+	htlatex ($file + ".tex") "html5, charset=utf-8" " -cunihtf -utf8"
+	gci -Exclude *.html, *.tex, *.png, *.pdf, *.bib, *.cfg | ForEach-Object {mv -Force $_ ../output/temp/html} # move all build-related files to temp for debugging
+	mv -Force ($file + ".html") ../output/html
+	cp *.png ../output/html # copy, DON'T move as we need them for every build again.
+	
+	# rebuild index file
+	cd ../output/html
+	New-Item -ItemType file -Force index.html
+	echo "<DOCTYPE HTML>" > index.html
+	echo "<head><link rel=""stylesheet"" href=""style.css""></head>" >> index.html
+	echo "<body><h1>Alle Pattern</h1>" >> index.html
+	gci -Name -Exclude index.html, *.png | ForEach-Object {echo "<a href='$_'>::> $_</a><br />"  >> index.html}
+	echo "</body>" >> index.html
+	cd ../..
+}
+
+Function deploy
+{
+	pscp output/html/* web/* webdeploy@141.19.142.50:/var/www/html/sysplace
 }
 
