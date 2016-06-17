@@ -82,14 +82,8 @@ div.maketitle + p {
 	float: right;
 }
 
-/* hide horizontal bars before figures */
-hr.figure {
-	display: none;
-}
-
-/* hide horizontal bars after figures */
-
-hr.endfigure {
+/* hide ugly hrs */
+hr.figure, hr.endfigure, hr.float, hr.endfloat {
 	display: none;
 }
 
@@ -115,3 +109,13 @@ div.figure > div.caption {
 	display: block;
 	text-align:center;
 } 
+
+td.td11 > img {
+	display: none;
+}
+
+td.td11, td.td00 {
+	padding: 10px;
+}
+
+
