@@ -51,7 +51,14 @@ Function build-web-single
 	cd patterns
 	htlatex ($file + ".tex") "html5, charset=utf-8" " -cunihtf -utf8"
 	gci -Exclude *.html, *.tex, *.png, *.pdf, *.bib, *.cfg | ForEach-Object {mv -Force $_ ../output/temp/html} # move all build-related files to temp for debugging
+	
+	#insert menu
+	insert-into-file $file
+	
+	#move to output
 	mv -Force ($file + ".html") ../output/html
+	
+	# move png files to output as well
 	cp *.png ../output/html # copy, DON'T move as we need them for every build again.
 	
 	# rebuild index file
@@ -70,3 +77,20 @@ Function deploy
 	pscp output/html/* web/* webdeploy@141.19.142.50:/var/www/html/sysplace
 }
 
+Function insert-into-file
+{
+	Param(
+		[parameter(Mandatory=$true)]
+		[ValidateNotNull()]
+		[string]
+		$file
+	)
+	
+	(Get-Content ($file + ".html")) | ForEach-Object {
+		if ($_ -match "<div class=""maketitle"">") 
+		{
+			Get-Content ../web/menu.html
+		}
+		$_;
+	} | Set-Content ($file + ".html")
+}

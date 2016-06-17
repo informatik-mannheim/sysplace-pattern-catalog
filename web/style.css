@@ -2,7 +2,7 @@ body {
 	cglor: #333;
 	font-size: 18px;
 	line-height: 1.5;
-	font-family: Cambria, Palatino Linotype, Palatino, Liberation Serif, serif;
+	font-family: roboto;
 	padding: 0;
 	margin: 0 2% 0 30%;
 }
@@ -31,6 +31,10 @@ div.author, div.date {
 	display: none;
 }
 
+ul {
+	list-style: none;
+}
+
 /* make space for a menu / blank space on the right */
 div#menu {
   position: fixed;
@@ -42,10 +46,26 @@ div#menu {
   overflow-x: hidden;
   overflow-y: auto;
   box-sizing: border-box;
-
-  background-color: #111;
+  font-size: 16px;
+  color: #9e9e9e;
+  background-color: #212121;
 
   transition: opacity 0.1s linear;
+}
+
+div.category {
+	font-size: 24px;
+	margin-left: 22px;
+}
+
+a.pattern-link, a.pattern-link:visited {
+	color: #eeeeee;
+	text-decoration: none;
+}
+
+a.pattern-link:hover {
+  text-decoration: underline;
+  color: #ef6c00;
 }
 
 h3.likesectionHead {
