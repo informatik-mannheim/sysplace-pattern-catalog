@@ -1,4 +1,97 @@
-h2.titleHead {
-	font-family: Verdana;
-	font-size: 72px;
+body {
+	cglor: #333;
+	font-size: 18px;
+	line-height: 1.5;
+	font-family: Cambria, Palatino Linotype, Palatino, Liberation Serif, serif;
+	padding: 0;
+	margin: 0 2% 0 30%;
 }
+
+/* just the color size of the main header */
+h2.titleHead {
+	font-size: 3.67em;
+	color: #f60;
+	margin: 0;
+}
+
+/* needed to resize the header so the logo fits right to it; also some margins  */
+div.maketitle {
+	display: inline-block;	
+	margin-bottom: 100px;
+	margin-top: 50px;
+}
+
+/* disable some unnecessay brakes */
+div.maketitle > br {
+	display: none;
+}
+
+/* don't show author and date as we have none anyway */
+div.author, div.date {
+	display: none;
+}
+
+/* make space for a menu / blank space on the right */
+div#menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 24%;
+  z-index: 2;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  background-color: #111;
+
+  transition: opacity 0.1s linear;
+}
+
+h3.likesectionHead {
+	clear: both;
+}
+
+div.maketitle + p > img {
+	width: 100px;
+	height: auto;
+}
+
+div.maketitle + p {
+	display: inline-block;
+	float: right;
+}
+
+/* hide horizontal bars before figures */
+hr.figure {
+	display: none;
+}
+
+/* hide horizontal bars after figures */
+
+hr.endfigure {
+	display: none;
+}
+
+/* draw box around figures and center it */
+div.figure {
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	border: #f60 dashed;
+	padding: 25px;
+}
+
+/* center images and size to 50% */
+div.figure > p > img {
+	width: 50%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* align caption with image */
+div.figure > div.caption {
+	display: block;
+	text-align:center;
+} 

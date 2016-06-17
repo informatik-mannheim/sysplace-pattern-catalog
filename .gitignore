@@ -13,4 +13,5 @@
 *.blg
 *.lof
 *.out
+*0x.png
 output/
