@@ -25,13 +25,17 @@ Function build-pdf
 		build-single-pdf $_;
 	}
 	
-	# Build the catalog with all patterns
-	gci all.tex | Foreach-Object { build-single-pdf $_; }
-	
 	# Move everything that is not a pdf to output/temp/pdf
 	Write-Host "Cleaning up...";
 	gci ../output/pdf/ -Exclude *.pdf | ForEach-Object {mv -Force $_ ../output/temp/pdf}
 	cd ..
+}
+
+Function build-catalog
+{
+	# code to compose one pdf with all patterns
+	# Something like:
+	#gci all.tex | Foreach-Object { build-single-pdf $_; } 
 }
 
 Function build-single-pdf
@@ -42,9 +46,35 @@ Function build-single-pdf
 			$file
 		)
 		
-		Write-Host ("Building " + $file.FullName + "... ") -NoNewline; 
+		# Reset success flag
+		$success = 0;
+		
+		# Build pdflatex (step 1/4)
+		Write-Host ("Building " + $file.FullName + " ... ") -NoNewline; 
 		pdflatex -interaction=nonstopmode -output-directory "../output/pdf"  $_.FullName *>> ../output/temp/pdf/build.log;
-		if($LASTEXITCODE -eq 0)
+		Write-Host "[ pdflatex " -NoNewline
+		$success += $LASTEXITCODE;
+		
+		# Build bibtex (step 2/4)
+		cp lit.bib ../output/pdf
+		cd ../output/pdf
+		bibtex $file.BaseName *>> ../temp/pdf/build.log;
+		Write-Host "bibtex " -NoNewline
+		$success += $LASTEXITCODE;
+		
+		# Build pdflatex (step 3/4)
+		cd ../../patterns
+		pdflatex -interaction=nonstopmode -output-directory "../output/pdf"  $_.FullName *>> ../output/temp/pdf/build.log;
+		$success += $LASTEXITCODE;
+		Write-Host "pdflatex " -NoNewline
+		
+		# Build pdflatex (step 4/4)
+		pdflatex -interaction=nonstopmode -output-directory "../output/pdf"  $_.FullName *>> ../output/temp/pdf/build.log;
+		$success += $LASTEXITCODE;
+		Write-Host "pdflatex ] " -NoNewline
+		
+		# Success if all 4 steps returned error code 0, Error otherwise
+		if($success -eq 0)
 		{
 			Write-Host "Success" -ForegroundColor green
 		} else {
