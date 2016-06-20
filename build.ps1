@@ -11,6 +11,8 @@ Function delete-temps
 
 Function build-pdf
 {
+	$stopwatch = [system.diagnostics.stopwatch]::startNew()
+
 	Write-Host "Creating output/pdf"
 	New-Item -Force -ItemType directory -Path output/pdf | Out-Null
 	Write-Host "Creating output/temp/pdf"
@@ -29,13 +31,9 @@ Function build-pdf
 	Write-Host "Cleaning up...";
 	gci ../output/pdf/ -Exclude *.pdf | ForEach-Object {mv -Force $_ ../output/temp/pdf}
 	cd ..
-}
-
-Function build-catalog
-{
-	# code to compose one pdf with all patterns
-	# Something like:
-	#gci all.tex | Foreach-Object { build-single-pdf $_; } 
+	
+	$stopwatch.Stop()
+	Write-Host ("It took " + $stopwatch.Elapsed.ToString("mm\:ss") + " to build.")
 }
 
 Function build-single-pdf
@@ -74,26 +72,14 @@ Function build-single-pdf
 		Write-Host "pdflatex ] " -NoNewline
 		
 		# Success if all 4 steps returned error code 0, Error otherwise
-		if($success -eq 0)
-		{
-			Write-Host "Success" -ForegroundColor green
-		} else {
-			Write-Host "Error" -ForegroundColor red 
-		}
-}
-
-Function PrintSuccessOrError
-{
-	if($LASTEXITCODE -eq 0)
-	{
-		Write-Host "Success" -ForegroundColor green
-	} else {
-		Write-Host "Error" -ForegroundColor red 
-	}
+		PrintSuccessOrError $success
 }
 
 Function build-web
 {
+	#start timer
+	$stopwatch = [system.diagnostics.stopwatch]::startNew()
+
 	# Recreate Output Folders
 	Write-Host "Creating output/html"
 	New-Item -Force -ItemType directory -Path output/html | Out-Null
@@ -109,7 +95,7 @@ Function build-web
 	gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex *.tex | ForEach-Object {
 		Write-Host ("Building Website " + $_.FullName + " ... ") -NoNewline
 		htlatex $_.Name "html5, charset=utf-8" " -cunihtf -utf8" *>>  ../output/temp/html/build.log
-		PrintSuccessOrError
+		PrintSuccessOrError $LASTEXITCODE
 	} 
 	
 	# Move all build-related files to output/temp for debugging
@@ -133,42 +119,35 @@ Function build-web
 	gci -Name -Exclude index.html, *.png | ForEach-Object {echo "<a href='$_'>::> $_</a><br />"  >> index.html}
 	echo "</body>" >> index.html
 	cd ../..
+	
+	$stopwatch.Stop()
+	Write-Host ("It took " + $stopwatch.Elapsed.ToString("mm\:ss") + " to build.")
 }
 
-Function build-web-single
+Function build-catalog
 {
-	# TODO: weniger redundanz
+	# code to compose one pdf with all patterns
+	# Something like:
+	#gci all.tex | Foreach-Object { build-single-pdf $_; } 
+}
+
+
+Function PrintSuccessOrError
+{
 	Param(
 		[parameter(Mandatory=$true)]
-		[ValidateNotNull()]
-		[string]
-		$file
+		[int]
+		$code
 	)
 
-	cd patterns
-	htlatex ($file + ".tex") "html5, charset=utf-8" " -cunihtf -utf8"
-	gci -Exclude *.html, *.tex, *.png, *.pdf, *.bib, *.cfg | ForEach-Object {mv -Force $_ ../output/temp/html} # move all build-related files to temp for debugging
-	
-	#insert menu
-	insert-into-file ($file + ".html")
-	
-	#move to output
-	mv -Force ($file + ".html") ../output/html
-	
-	# move png files to output as well
-	cp *.png ../output/html # copy, DON'T move as we need them for every build again.
-	cp ../web/style.css ../output/html
-	
-	# rebuild index file
-	cd ../output/html
-	New-Item -ItemType file -Force index.html
-	echo "<DOCTYPE HTML>" > index.html
-	echo "<head><link rel=""stylesheet"" href=""style.css""></head>" >> index.html
-	echo "<body><h1>Alle Pattern</h1>" >> index.html
-	gci -Name -Exclude index.html, *.png | ForEach-Object {echo "<a href='$_'>::> $_</a><br />"  >> index.html}
-	echo "</body>" >> index.html
-	cd ../..
+	if($code -eq 0)
+	{
+		Write-Host "Success" -ForegroundColor green
+	} else {
+		Write-Host "Error" -ForegroundColor red 
+	}
 }
+
 
 Function deploy
 {
@@ -192,3 +171,4 @@ Function insert-into-file
 		$_;
 	} | Set-Content $file
 }
+
