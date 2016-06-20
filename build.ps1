@@ -21,7 +21,7 @@ Function build-pdf
 	cd patterns
 	
 	# Build all pattern pdfs
-	gci -Exclude template.tex,header.tex,all.tex *.tex | ForEach-Object {
+	gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex *.tex | ForEach-Object {
 		build-single-pdf $_;
 	}
 	
@@ -50,7 +50,7 @@ Function build-single-pdf
 		$success = 0;
 		
 		# Build pdflatex (step 1/4)
-		Write-Host ("Building " + $file.FullName + " ... ") -NoNewline; 
+		Write-Host ("Building PDF " + $file.FullName + " ... ") -NoNewline; 
 		pdflatex -interaction=nonstopmode -output-directory "../output/pdf"  $_.FullName *>> ../output/temp/pdf/build.log;
 		Write-Host "[ pdflatex " -NoNewline
 		$success += $LASTEXITCODE;
@@ -82,19 +82,38 @@ Function build-single-pdf
 		}
 }
 
+Function PrintSuccessOrError
+{
+	if($LASTEXITCODE -eq 0)
+	{
+		Write-Host "Success" -ForegroundColor green
+	} else {
+		Write-Host "Error" -ForegroundColor red 
+	}
+}
+
 Function build-web
 {
 	# Recreate Output Folders
-	New-Item -Force -ItemType directory -Path output/html
-	New-Item -Force -ItemType directory -Path output/temp/html
+	Write-Host "Creating output/html"
+	New-Item -Force -ItemType directory -Path output/html | Out-Null
+	Write-Host "Creating output/temp/html"
+	New-Item -Force -ItemType directory -Path output/temp/html | Out-Null
+	Write-Host "Writing all output to output/temp/html/build.log"
+	New-Item -Force -Path output/temp/html -Name "build.log" -ItemType File | Out-Null
 	
 	cd patterns
 	
 	# Build HTML
-	gci -Exclude template.tex,header.tex,all.tex *.tex | ForEach-Object {htlatex $_.Name "html5, charset=utf-8" " -cunihtf -utf8"} 
+	cp ../output/temp/pdf/*.bbl .
+	gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex *.tex | ForEach-Object {
+		Write-Host ("Building Website " + $_.FullName + " ... ") -NoNewline
+		htlatex $_.Name "html5, charset=utf-8" " -cunihtf -utf8" *>>  ../output/temp/html/build.log
+		PrintSuccessOrError
+	} 
 	
 	# Move all build-related files to output/temp for debugging
-	gci -Exclude *.html, *.tex, *.png, *.pdf, *.bib, *.cfg | ForEach-Object {mv -Force $_ ../output/temp/html} 
+	gci -Exclude *.html, *.tex, *.png, *.pdf, lit.bib, *.cfg | ForEach-Object {mv -Force $_ ../output/temp/html} 
 	
 	# Insert menu into generated HTML files
 	gci *.html | ForEach-Object {insert-into-file $_} 
@@ -105,8 +124,9 @@ Function build-web
 	cp ../web/style.css ../output/html
 
 	# Generate an index of all files
+	Write-Host "Generating index"
 	cd ../output/html
-	New-Item -ItemType file -Force index.html
+	New-Item -ItemType file -Force index.html | Out-Null
 	echo "<DOCTYPE HTML>" > index.html
 	echo "<head></head>" >> index.html
 	echo "<body><h1>Alle Pattern</h1>" >> index.html
@@ -117,6 +137,7 @@ Function build-web
 
 Function build-web-single
 {
+	# TODO: weniger redundanz
 	Param(
 		[parameter(Mandatory=$true)]
 		[ValidateNotNull()]
