@@ -104,13 +104,20 @@ Function build-web
 	# Insert menu into generated HTML files
 	gci *.html | ForEach-Object {insert-into-file $_} 
 	
+	# Generate search index
+	Write-Host "Generating search index"
+	..\composer\vendor\bin\jsindex .
+	mv  -Force jssearch.index.js ..\output\html
+	
 	# Move / copy all HTML, images and css to output
 	mv -Force *.html ../output/html 
 	cp *.png ../output/html
 	cp ../web/style.css ../output/html
+	cp ../web/jssearch.js ../output/html
+	cp ../web/search.html ../output/html
 
 	# Generate an index of all files
-	Write-Host "Generating index"
+	Write-Host "Generating index.html"
 	cd ../output/html
 	New-Item -ItemType file -Force index.html | Out-Null
 	echo "<DOCTYPE HTML>" > index.html
@@ -172,3 +179,7 @@ Function insert-into-file
 	} | Set-Content $file
 }
 
+Function create-index
+{
+
+}
