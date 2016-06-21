@@ -4,8 +4,6 @@
 \usepackage[T1]{fontenc}
 \usepackage[german]{babel}
 \usepackage{float}
-%\usepackage{amsmath}
-%\usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{ifthen}
@@ -16,7 +14,8 @@
 \usepackage{textpos}
 \usepackage{tabularx}
 \usepackage{csquotes}
-%\usepackage{hyperref}
+\usepackage{hyperref}
+\usepackage{glossaries}
 \usepackage[natbib=true,bibstyle=numeric,backend=bibtexu,citestyle=numeric]{biblatex}
 \bibliography{lit.bib} 
 \renewcommand\theadalign{cb}
@@ -24,6 +23,16 @@
 \renewcommand\theadgape{\Gape[4pt]}
 
 \usepackage{nopageno}
+
+%-Glossary-------------------------%
+\makeglossaries
+
+\newglossaryentry{benutzer}
+{
+    name=benutzer,
+    description={Der Benutzer benutzt das Gerät.}
+}
+%----------------------------------%
 
 \author{}
 \date{}

@@ -53,11 +53,13 @@ div#menu {
   transition: opacity 0.1s linear;
 }
 
+/* category headers */
 div.category {
 	font-size: 24px;
 	margin-left: 22px;
 }
 
+/* the pattern links */
 a.pattern-link, a.pattern-link:visited {
 	color: #eeeeee;
 	text-decoration: none;
@@ -67,6 +69,12 @@ a.pattern-link:hover {
   text-decoration: underline;
   color: #ef6c00;
 }
+
+/* any other link */
+a {
+	color: #f70;
+}
+
 
 h3.likesectionHead {
 	clear: both;
@@ -110,10 +118,12 @@ div.figure > div.caption {
 	text-align:center;
 } 
 
+/* hide that ugly diagonal bar in the upper left corner of the display table */
 td.td11 > img {
 	display: none;
 }
 
+/* give table cells a little padding */
 td.td11, td.td00 {
 	padding: 10px;
 }

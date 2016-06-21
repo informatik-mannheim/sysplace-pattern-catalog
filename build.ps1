@@ -7,7 +7,7 @@
 
 Function delete-temps
 {
-	gci -Recurse -Include *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref, *.bbl, *.lof, *.blg, *.out, *.run.xml, *-blx.bib, *.ps | rm 
+	gci -Recurse -Include *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref, *.bbl, *.lof, *.blg, *.out, *.run.xml, *-blx.bib, *.ist, *.glo, *.ps | rm 
 }
 
 Function build-pdf
@@ -48,26 +48,31 @@ Function build-single-pdf
 		# Reset success flag
 		$success = 0;
 		
-		# Build pdflatex (step 1/4)
+		# Build pdflatex (step 1/5)
 		Write-Host ("Building PDF " + $file.FullName + " ... ") -NoNewline; 
 		pdflatex -interaction=nonstopmode -output-directory "../output/pdf"  $_.FullName *>> ../output/temp/pdf/build.log;
 		Write-Host "[ pdflatex " -NoNewline
 		$success += $LASTEXITCODE;
 		
-		# Build bibtex (step 2/4)
+		# Build bibtex (step 2/5)
 		cp lit.bib ../output/pdf
 		cd ../output/pdf
 		bibtex $file.BaseName *>> ../temp/pdf/build.log;
 		Write-Host "bibtex " -NoNewline
 		$success += $LASTEXITCODE;
 		
-		# Build pdflatex (step 3/4)
+		# Make glossaries (step 3/5)
+		Write-Host "glossaries " -NoNewline
+		makeglossaries $_.BaseName *>> ../temp/pdf/build.log
+		$success += $LASTEXITCODE;
+		
+		# Build pdflatex (step 4/5)
 		cd ../../patterns
 		pdflatex -interaction=nonstopmode -output-directory "../output/pdf"  $_.FullName *>> ../output/temp/pdf/build.log;
 		$success += $LASTEXITCODE;
 		Write-Host "pdflatex " -NoNewline
 		
-		# Build pdflatex (step 4/4)
+		# Build pdflatex (step 5/5)
 		pdflatex -interaction=nonstopmode -output-directory "../output/pdf"  $_.FullName *>> ../output/temp/pdf/build.log;
 		$success += $LASTEXITCODE;
 		Write-Host "pdflatex ] " -NoNewline
