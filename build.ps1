@@ -2,11 +2,12 @@
 {
 	delete-temps
 	gci -Recurse -Path output/ -Include *.* | rm 
+	gci -Path patterns/ -Include *.html,*.css -Recurse | rm
 }
 
 Function delete-temps
 {
-	gci -Recurse -Include *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref, *.bbl, *.lof, *.blg, *.out, *.run.xml, *-blx.bib | rm 
+	gci -Recurse -Include *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref, *.bbl, *.lof, *.blg, *.out, *.run.xml, *-blx.bib, *.ps | rm 
 }
 
 Function build-pdf
