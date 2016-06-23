@@ -37,7 +37,7 @@ Function build-pdf
 	}
 	else {
 		# build all patterns
-		gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex *.tex | ForEach-Object {
+		gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex,glossary.tex *.tex | ForEach-Object {
 			build-single-pdf $_;
 		}
 	}
@@ -115,7 +115,7 @@ Function build-web
 	cp ../output/temp/pdf/*.bbl .
 	cp ../output/temp/pdf/*.gls .
 	cp ../output/temp/pdf/*.aux .
-	gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex *.tex | ForEach-Object {
+	gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex,glossary.tex *.tex | ForEach-Object {
 		Write-Host ("Building Website " + $_.FullName + " ... ") -NoNewline
 		htlatex $_.Name "html5, charset=utf-8" " -cunihtf -utf8" *>>  ../output/temp/html/build.log
 		PrintSuccessOrError $LASTEXITCODE
