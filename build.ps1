@@ -128,9 +128,8 @@ Function build-web
 	gci *.html | ForEach-Object {insert-into-file $_} 
 	
 	# Generate search index
-	Write-Host "Generating search index"
-	..\composer\vendor\bin\jsindex .
-	mv  -Force jssearch.index.js ..\output\html
+	Write-Host "Generating search index [temporarily disabled]"
+	#generate-index
 	
 	# Move / copy all HTML, images and css to output
 	mv -Force *.html ../output/html 
@@ -155,6 +154,12 @@ Function build-web
 Function deploy
 {
 	pscp output/html/* web/* webdeploy@141.19.142.50:/var/www/html/sysplace
+}
+
+Function generate-index
+{
+	..\composer\vendor\bin\jsindex .
+	mv  -Force jssearch.index.js ..\output\html
 }
 
 Function PrintSuccessOrError
