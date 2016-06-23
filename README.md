@@ -8,4 +8,7 @@ Build-Skript:
 
 ```Shell
 $ . .\build.ps1
+$ build-pdf
+$ build-web
+$ deploy
 ```
