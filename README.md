@@ -6,6 +6,6 @@ Alle Patternbeschreibungen sind als LaTeX-Dokumente im Ordner `patterns/` abgele
 
 Build-Skript:
 
-```bash
+```shell
 $ . .\build.ps1
 ```
