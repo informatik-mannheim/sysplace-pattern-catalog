@@ -15,7 +15,8 @@
 \usepackage{tabularx}
 \usepackage{csquotes}
 \usepackage{hyperref}
-\usepackage{glossaries}
+% for some reason, the grouping has to be disabled because htlatex won't do it!
+\usepackage[nonumberlist,nogroupskip]{glossaries} 
 \usepackage[natbib=true,bibstyle=numeric,backend=bibtexu,citestyle=numeric]{biblatex}
 \bibliography{lit.bib} 
 \renewcommand\theadalign{cb}
@@ -29,8 +30,20 @@
 
 \newglossaryentry{benutzer}
 {
-    name=benutzer,
-    description={Der Benutzer benutzt das Gerät.}
+    name=Benutzer,
+    description={Der Benutzer benutzt das Gerät}
+}
+
+\newglossaryentry{empfangsgeraet}
+{
+    name=Empfangsgerät,
+    description={Das Empfangsgerät empfängt die Daten}
+}
+
+\newglossaryentry{swipe}
+{
+    name=Empfangsgerät,
+    description={Ein ganz ganz langer Tooltip, um zu zeigen, wie der Tooltip aussieht, wenn ein längerer Text drin steht}
 }
 %----------------------------------%
 

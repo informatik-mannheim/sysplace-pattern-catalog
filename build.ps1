@@ -12,6 +12,12 @@ Function delete-temps
 
 Function build-pdf
 {
+	$single_file;
+	
+	if($args[0]) {
+		$single_file = $true;
+	}
+
 	$stopwatch = [system.diagnostics.stopwatch]::startNew()
 
 	Write-Host "Creating output/pdf"
@@ -23,10 +29,19 @@ Function build-pdf
 	
 	cd patterns
 	
-	# Build all pattern pdfs
-	gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex *.tex | ForEach-Object {
-		build-single-pdf $_;
+	if($single_file) {
+		# build the specified pattern
+		gci -Filter ($args[0] + ".tex") | ForEach-Object {
+			build-single-pdf $_;
+		};
 	}
+	else {
+		# build all patterns
+		gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex *.tex | ForEach-Object {
+			build-single-pdf $_;
+		}
+	}
+	
 	
 	# Move everything that is not a pdf to output/temp/pdf
 	Write-Host "Cleaning up...";
@@ -98,6 +113,8 @@ Function build-web
 	
 	# Build HTML
 	cp ../output/temp/pdf/*.bbl .
+	cp ../output/temp/pdf/*.gls .
+	cp ../output/temp/pdf/*.aux .
 	gci -Exclude template.tex,header.tex,all.tex,template_desc.tex,template_starter.tex *.tex | ForEach-Object {
 		Write-Host ("Building Website " + $_.FullName + " ... ") -NoNewline
 		htlatex $_.Name "html5, charset=utf-8" " -cunihtf -utf8" *>>  ../output/temp/html/build.log
@@ -118,10 +135,8 @@ Function build-web
 	# Move / copy all HTML, images and css to output
 	mv -Force *.html ../output/html 
 	cp *.png ../output/html
-	cp ../web/style.css ../output/html
-	cp ../web/jssearch.js ../output/html
-	cp ../web/search.html ../output/html
-
+	cp ../web/* ../output/html # menu.html shouldn't be copied...
+	
 	# Generate an index of all files
 	Write-Host "Generating index.html"
 	cd ../output/html
@@ -137,13 +152,10 @@ Function build-web
 	Write-Host ("It took " + $stopwatch.Elapsed.ToString("mm\:ss") + " to build.")
 }
 
-Function build-catalog
+Function deploy
 {
-	# code to compose one pdf with all patterns
-	# Something like:
-	#gci all.tex | Foreach-Object { build-single-pdf $_; } 
+	pscp output/html/* web/* webdeploy@141.19.142.50:/var/www/html/sysplace
 }
-
 
 Function PrintSuccessOrError
 {
@@ -159,12 +171,6 @@ Function PrintSuccessOrError
 	} else {
 		Write-Host "Error" -ForegroundColor red 
 	}
-}
-
-
-Function deploy
-{
-	pscp output/html/* web/* webdeploy@141.19.142.50:/var/www/html/sysplace
 }
 
 Function insert-into-file
@@ -183,9 +189,4 @@ Function insert-into-file
 		}
 		$_;
 	} | Set-Content $file
-}
-
-Function create-index
-{
-
 }

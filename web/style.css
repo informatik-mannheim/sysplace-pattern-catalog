@@ -7,6 +7,33 @@ body {
 	margin: 0 2% 0 30%;
 }
 
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 2px dotted black;
+	border-color: #f60;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+	top: -5px;
+    left: 105%; 
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 /* just the color size of the main header */
 h2.titleHead {
 	font-size: 3.67em;
