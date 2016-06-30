@@ -197,6 +197,17 @@ von Minute 0:14 bis 0:20 \\
 %\newcommand{\technologyOrientationOther}{}
 
 \newcommand{\requiredTechnologies}{
+
+Blabla required Technologies
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{swipe_hardware.png}
+\caption{Erkennung der Swipe Geste}
+\label{recognize_swipe}
+\end{figure}
+
+Blablabal
+
 \begin{itemize}
 \item Touchscreen
 \item Verbindung (Ad-Hoc oder Infrastruktur/Server)
@@ -234,7 +245,7 @@ Zum Erkennen der Geste wird ein \textit{Touchscreen} (resistiv, kapazitiv o.Ä.)
 Basierend auf diesen Events ergibt sich die Implementierung der Swipe-Erkennung entsprechend Abbildung \ref{recognize_swipe}. Ein Swipe wird dann erkannt, wenn nach einem initialen \textbf{DOWN}-Event und beliebig vielen \textbf{MOVE}-Events ein \textbf{UP}-Event stattfindet. Die Empfindlichkeit der Swipe-Erkennung kann an dieser Stelle über Parameter gesteuert werden. Das Beispiel in Abbildung \ref{recognize_swipe} definiert einen Parameter \textit{min\_velocity}, durch den eine Mindestgeschwindigkeit vorausgesetzt wird. Wurde der Swipe erkannt, wird ein SwipeEvent generiert, das für die Überprüfung der Constraints im nächsten Schritt benötigt wird.
 
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{swipe_recognize.pdf}
+\includegraphics[width=\textwidth]{swipe_recognize.png}
 \caption{Erkennung der Swipe Geste}
 \label{recognize_swipe}
 \end{figure}
@@ -246,13 +257,14 @@ Um einzuschränken, unter welchen Bedingungen ein erkannter Swipe als Swipe To G
 \item die zeitliche Dauer des Swipes.
 \end{itemize}
 Beide Constraints werden anhand von Variablen überprüft, die aus den \textit{UP}- und \textit{DOWN}-Events der Geste abgeleitet und mit definierten Richtwerten verglichen werden können. In diesem Fall würde ein Swipe To Give ausgelöst, wenn der Swipe zum rechten Bildschirmrand mit einer Mindestdauer von 250ms ausgeführt wird. Auch weitere Constraints sind denkbar, solange sich die Variablen aus den Rohdaten des Touchscreens ableiten lassen.
+
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{swipe_check_constraints.pdf}
+\includegraphics[width=\textwidth]{swipe_check_constraints.png}
 \caption{Überprüfung der Constraints für die Swipe Geste}
 \label{check_constraints}
 \end{figure}
 
-BLABLABLA Glue Sentence mit Verweis auf den Appendix (der muss noch erstellt werden).
+Entsprechend dem Lebenszyklus einer Multiscreen-Applikation wird nach erfolgreich ausgeführtem Swipe ein Transfer selektierter Daten durchgeführt. Weitergehende Informationen zur Gestaltung des Applikations-Lebenszyklus finden sich auf \href{http://141.19.142.50/sysplace/}{der Entwicklerseite}.
 }
 
 
