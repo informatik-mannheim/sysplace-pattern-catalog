@@ -6,6 +6,9 @@ Alle Patternbeschreibungen sind als LaTeX-Dokumente im Ordner `patterns/` abgele
 
 Build-Skript:
 
-```
+```PowerShell
 $ . .\build.ps1
+$ build-pdf
+$ build-web
+$ deploy
 ```
