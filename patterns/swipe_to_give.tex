@@ -20,16 +20,17 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand oder hat es vor sich liegen bzw. stehen (z.B. ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der aktuelle Bildschirm) zum Versenden ausgewählt worden. Zudem besteht eine Verbindung zum \recdev\ \\
-Der \sen\ führt einen Swipe mit einem Finger in Richtung des \recdev s\ aus. Der Swipe muss mit einer Dynamik versehen werden, die dem Sender das Gefühl gibt, die physikalische Distanz zum \recdev\ durch Bewegung des \data s\ zu überbrücken. Diese Dynamik kann über Anpassung der Parameter (\textit{Länge}, \textit{Richtung}, \textit{Geschwindigkeit}) des Swipes beeinflusst werden. Von den gewählten Parametern hängt ab, ob ein Swipe als \textit{erfolgreich} oder \textit{nicht erfolgreich} erkannt wird.}
+\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand oder hat es vor sich liegen bzw. stehen (z.B. ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der aktuelle Bildschirm) zum Versenden ausgewählt worden. Zudem besteht eine Verbindung zum \recdev.\\
 
-\newcommand{\reactionSen}{Auf dem \sendev\ kann dem Nutzer zu verschiedenen Phasen des Swipes ein Feedback gegeben werden. Ein Swipe besteht aus den drei Microinteractions \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Der \sen\ führt einen Swipe mit einem Finger in Richtung des \recdev s\ aus. Die Dynamik der Swipe Geste sollte dem Sender das Gefühl geben, die physikalische Distanz zum \recdev\ durch Bewegung des \data s\ zu überbrücken. Diese Dynamik kann über Anpassung der Parameter (\textit{Länge}, \textit{Richtung}, \textit{Geschwindigkeit}) des Swipes gestaltet werden. Von den gewählten Parametern hängt ab, wann ein Swipe als \textit{erfolgreich} oder \textit{nicht erfolgreich} erkannt wird.}
+
+\newcommand{\reactionSen}{Auf dem \sendev\ kann dem Nutzer zu verschiedenen Phasen des Swipes ein Feedback gegeben werden. Ein Swipe besteht aus den drei \Glspl{microinteraction} \textit{Touch}, \textit{Move} und \textit{Release}.\\
 Bei einem \textit{erfolgreich} ausgeführten Swipe finden alle Microinteractions statt, nach Beendigung der letzten Microinteraction wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Swipe wird kein Transfer ausgeführt, einzelne Microinteractions des Swipes können entfallen.}
 
 \newcommand{\reactionRec}{Auf dem \recdev\ kann dem Nutzer bei erfolgreichem Swipe auf dem \sendev\ und anschließendem erfolgreichen Transfer ein Feedback über den Empfang des \data s\ gegeben werden (Microinteraction \textit{Receive}).}
 
 \newcommand{\microinteractionstabular}{
-\begin{figure}
+\begin{figure}[H]
 \begin{table}[H]
 \renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
 \centering
@@ -73,7 +74,7 @@ Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgef�
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{Datenaustausch von Bildern, Videos, Dateien, Social Network IDs}
+\newcommand{\validcontext}{Datenaustausch von Bildern, Videos, Visitenkarten, Social Network IDs, Systembefehlen}
 
 %\newcommand{\simultaneously}{}
 \newcommand{\sequentially}{}
@@ -81,7 +82,7 @@ Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgef�
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
 \newcommand{\public}{}
-\newcommand{\stationary}{}
+%\newcommand{\stationary}{}
 \newcommand{\onthego}{}
 
 \newcommand{\leanback}{}
@@ -183,56 +184,37 @@ von Minute 0:14 bis 0:20 \\
 % TECHNISCHES
 % -------------------------------
 
-%\newcommand{\technologyObjectIntimate}{}
-%\newcommand{\technologyObjectPersonal}{}
-%\newcommand{\technologyObjectSocial}{}
-\newcommand{\technologyObjectPublic}{}
-
-%\newcommand{\technologyOrientationAccelerometer}{}
-%\newcommand{\technologyOrientationGPS}{}
-%\newcommand{\technologyOrientationGyroskop}{}
-%\newcommand{\technologyOrientationAnnaeherung}{}
-%\newcommand{\technologyOrientationHoehe}{}
-%\newcommand{\technologyOrientationBeacons}{}
-%\newcommand{\technologyOrientationOther}{}
-
 \newcommand{\requiredTechnologies}{
+Um Swipe To Give auf einem Gerät (\textit{Device}) einsetzen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der verfügbaren Technologien auf diesem Gerät. Ein Gerät ist dann für das Swipe To Give Pattern verwendbar, wenn es folgende Eigenschaften aufweist:
+\begin{itemize}
+\item \textbf{Input}: Für die Erkennung der Swipe To Give Geste ist ein Touchscreen notwendig. Bezüglich der technischen Funktionsweise des \textit{Screens} (kapazitiv, resistiv etc.) gibt es keine Einschränkungen, da ein einzelner Touchpunkt von den meisten gängigen Technologien erkannt wird.
+\item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind \textit{Output} per Bildschirm sowie Vibration und Sound denkbar, wobei letztere optional sind.
+\item \textbf{Connectivity}: Die Übertragung von Daten beim Swipe To Give erfolgt entweder über ein drahtloses Infrastrukturnetzwerk wie WLAN oder über Ad-Hoc-Netzwerke.
+\end{itemize}
 
-Blabla required Technologies
+Abbildung \ref{swipe_hardware} fasst die benötigten Technologien modellhaft zusammen.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{swipe_hardware.png}
-\caption{Erkennung der Swipe Geste}
-\label{recognize_swipe}
+\caption{Benötigte Technologie für das Swipe To Give Pattern}
+\label{swipe_hardware}
 \end{figure}
-
-Blablabal
-
-\begin{itemize}
-\item Touchscreen
-\item Verbindung (Ad-Hoc oder Infrastruktur/Server)
-\item Bildschirm
-\item eventuell Vibration
-\end{itemize}
-
-=> Verweis auf das große Domain-Model \\
-=> sollen wir ein "kleines" Domain-Model extrahieren?
 }
 
-\newcommand{\prototype}{
+\newcommand{\implementation}{
 \subsubsection*{Ablauf Gestenerkennung}
 Bei der Geste Swipe To Give handelt es sich um eine \textit{einfache Geste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf entfällt in zwei Teile (s. Abbildung \ref{gesture_detection}):
 \begin{itemize}
 \item Erkennen der Geste
-\item Überprüfen eventueller Constraints an die Geste
+\item Überprüfen eventueller \textit{Constraints} an die Geste
 \end{itemize}
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{gesture_detection.png}
-\caption{Allgemeiner Ablauf der Gestenerkennung}
+\caption{Allgemeiner Ablauf einer Gestenerkennung}
 \label{gesture_detection}
 \end{figure}
-Wurde die Geste erkannt, wird ein entsprechendes Gestenevent generiert, das an den Constraint Check übergeben wird.
+Wurde die Geste erkannt, wird ein entsprechendes \textit{GestureEvent} generiert, das an den \textit{Constraint Check} übergeben wird.
 
 \subsubsection*{Swipe Erkennung}
 Zum Erkennen der Geste wird ein \textit{Touchscreen} (resistiv, kapazitiv o.Ä.) vorausgesetzt. Folgende Events sollten durch den Touchscreen zur Verfügung gestellt werden:
@@ -242,7 +224,7 @@ Zum Erkennen der Geste wird ein \textit{Touchscreen} (resistiv, kapazitiv o.Ä.)
 \item \textbf{MOVE} [optional]: Weitere Berührungen zwischen \textbf{DOWN} und \textbf{UP}, z.B. für Animationen des Swipes
 \end{itemize}
 
-Basierend auf diesen Events ergibt sich die Implementierung der Swipe-Erkennung entsprechend Abbildung \ref{recognize_swipe}. Ein Swipe wird dann erkannt, wenn nach einem initialen \textbf{DOWN}-Event und beliebig vielen \textbf{MOVE}-Events ein \textbf{UP}-Event stattfindet. Die Empfindlichkeit der Swipe-Erkennung kann an dieser Stelle über Parameter gesteuert werden. Das Beispiel in Abbildung \ref{recognize_swipe} definiert einen Parameter \textit{min\_velocity}, durch den eine Mindestgeschwindigkeit vorausgesetzt wird. Wurde der Swipe erkannt, wird ein SwipeEvent generiert, das für die Überprüfung der Constraints im nächsten Schritt benötigt wird.
+Basierend auf diesen Events ergibt sich die Implementierung der Swipe-Erkennung entsprechend Abbildung \ref{recognize_swipe}. Ein Swipe wird dann erkannt, wenn nach einem initialen \textbf{DOWN}-Event und beliebig vielen \textbf{MOVE}-Events ein \textbf{UP}-Event stattfindet. Die Empfindlichkeit der Swipe-Erkennung kann an dieser Stelle über Parameter gesteuert werden. Das Beispiel in Abbildung \ref{recognize_swipe} definiert einen Parameter \textit{min\_velocity}, durch den eine Mindestgeschwindigkeit vorausgesetzt wird. Wurde der Swipe erkannt, wird ein SwipeEvent generiert, das für die Überprüfung der \textit{Constraints} im nächsten Schritt benötigt wird.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{swipe_recognize.png}
@@ -251,12 +233,12 @@ Basierend auf diesen Events ergibt sich die Implementierung der Swipe-Erkennung 
 \end{figure}
 
 \subsubsection*{Swipe Constraint Check}
-Um einzuschränken, unter welchen Bedingungen ein erkannter Swipe als Swipe To Give gewertet werden soll, kann das im vorigen Schritt generierte SwipeEvent mit vorher gesetzten \textit{Constraints} verglichen werden. Abbildung \ref{check_constraints} zeigt beispielhaft den Ablauf des \textit{Constraint Checks}. Es werden zwei Constraints überprüft:
+Um einzuschränken, unter welchen Bedingungen ein erkannter Swipe als Swipe To Give gewertet werden soll, kann das im vorigen Schritt generierte \textit{SwipeEvent} mit vorher gesetzten \textit{Constraints} verglichen werden. Abbildung \ref{check_constraints} zeigt beispielhaft den Ablauf des \textit{Constraint Checks}. Es werden zwei \textit{Constraints} überprüft:
 \begin{itemize}
 \item die Richtung des Swipes und
 \item die zeitliche Dauer des Swipes.
 \end{itemize}
-Beide Constraints werden anhand von Variablen überprüft, die aus den \textit{UP}- und \textit{DOWN}-Events der Geste abgeleitet und mit definierten Richtwerten verglichen werden können. In diesem Fall würde ein Swipe To Give ausgelöst, wenn der Swipe zum rechten Bildschirmrand mit einer Mindestdauer von 250ms ausgeführt wird. Auch weitere Constraints sind denkbar, solange sich die Variablen aus den Rohdaten des Touchscreens ableiten lassen.
+Beide Constraints werden anhand von Variablen überprüft, die aus den \textit{UP}- und \textit{DOWN}-Events der Geste abgeleitet und mit definierten Richtwerten verglichen werden können. In diesem Fall würde ein Swipe To Give ausgelöst, wenn der Swipe zum rechten Bildschirmrand mit einer Mindestdauer von 250ms ausgeführt wird. Auch weitere \textit{Constraints} sind denkbar, solange sich die Variablen aus den Rohdaten des Touchscreens ableiten lassen.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{swipe_check_constraints.png}
@@ -264,10 +246,10 @@ Beide Constraints werden anhand von Variablen überprüft, die aus den \textit{U
 \label{check_constraints}
 \end{figure}
 
-Entsprechend dem Lebenszyklus einer Multiscreen-Applikation wird nach erfolgreich ausgeführtem Swipe ein Transfer selektierter Daten durchgeführt. Weitergehende Informationen zur Gestaltung des Applikations-Lebenszyklus finden sich auf \href{http://141.19.142.50/sysplace/}{der Entwicklerseite}.
+Entsprechend dem \textit{Lebenszyklus} einer Multiscreen-Applikation wird nach erfolgreich ausgeführtem Swipe ein \textit{Transfer} \textit{selektierter Daten} durchgeführt, eine \textit{Connection} besteht bereits.
+
+Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren Gestaltungsmöglichkeiten für den \textit{Transfer}, \textit{Feedbacks} etc. finden sich auf \href{http://141.19.142.50/sysplace/}{der Entwicklerseite}.
 }
-
-
 
 % -------------------------------
 % SONSTIGES
@@ -279,7 +261,6 @@ Valentina Burjan, Hochschule Mannheim \\
 Dominick Madden, Hochschule Mannheim \\
 Horst Schneider, Hochschule Mannheim}
 
-\newcommand{\figures}{---}
 \newcommand{\versionhistory}{12.05.2016}
 \newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{---}

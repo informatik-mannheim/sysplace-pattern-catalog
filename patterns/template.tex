@@ -26,6 +26,10 @@
 \newcommand{\requiredTechnologies}{tbd.}
 \fi
 
+\ifdefined\implementation
+\else
+\newcommand{\implementation}{tbd.}
+\fi
 
 \maketitle
 
@@ -183,34 +187,8 @@
 \subsection*{Benötigte Technologien}
 \requiredTechnologies
 
-\subsection*{Technologien zur Geräteerkennung}
-\textbf{WEG?} \\
-\begin{minipage}{0.3\textwidth}
-\checkbox{\technologyObjectIntimate} 0cm bis 50cm, \\
-\checkbox{\technologyObjectPersonal} 0,5cm bis 1m \\
-\checkbox{\technologyObjectSocial} 1m bis 4m \\
-\checkbox{\technologyObjectPublic} über 4m 
-\end{minipage}
-\begin{minipage}{0.5\textwidth}
-z.B. NFC, Tags, RFID, Bluetooth \\
-z.B. Bluetooth \\
-z.B. (Tiefen-) Kamera \\
-z.B. GPS, WiFi Direct
-\end{minipage}\\
-
-\subsection*{Technologien zur Bewegungs-/Orientierungsbestimmung}
-\textbf{WEG?} \\
-\checkbox{\technologyOrientationAccelerometer} Accelerometer \\
-\checkbox{\technologyOrientationGPS} GPS \\
-\checkbox{\technologyOrientationGyroskop} Gyroskop \\
-\checkbox{\technologyOrientationAnnaeherung} Annäherungssensor \\
-\checkbox{\technologyOrientationHoehe} Höhenmesser \\
-\checkbox{\technologyOrientationBeacons} Beacons \\
-\checkbox{\technologyOrientationOther} andere \\
-
-
 \subsection*{Implementierungshinweise}
-\prototype
+\implementation
 
 % -------------------------------
 % SONSTIGES
