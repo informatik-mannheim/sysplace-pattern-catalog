@@ -104,6 +104,8 @@ Function build-web
 	# Recreate Output Folders
 	Write-Host "Creating output/html"
 	New-Item -Force -ItemType directory -Path output/html | Out-Null
+	Write-Host "Creating output/html/patterns"
+	New-Item -Force -ItemType directory -Path output/html/patterns | Out-Null
 	Write-Host "Creating output/temp/html"
 	New-Item -Force -ItemType directory -Path output/temp/html | Out-Null
 	Write-Host "Writing all output to output/temp/html/build.log"
@@ -132,20 +134,10 @@ Function build-web
 	#generate-index
 	
 	# Move / copy all HTML, images and css to output
-	mv -Force *.html ../output/html 
-	cp *.png ../output/html
-	cp ../web/* ../output/html # menu.html shouldn't be copied...
-	
-	# Generate an index of all files
-	Write-Host "Generating index.html"
-	cd ../output/html
-	New-Item -ItemType file -Force index.html | Out-Null
-	echo "<DOCTYPE HTML>" > index.html
-	echo "<head></head>" >> index.html
-	echo "<body><h1>Alle Pattern</h1>" >> index.html
-	gci -Name -Exclude index.html, *.png | ForEach-Object {echo "<a href='$_'>::> $_</a><br />"  >> index.html}
-	echo "</body>" >> index.html
-	cd ../..
+	mv -Force *.html ../output/html/patterns
+	cp *.png ../output/html/patterns
+	cp -Recurse -Force ../web/* ../output/html  # menu.html shouldn't be copied...
+	cd ..
 	
 	$stopwatch.Stop()
 	Write-Host ("It took " + $stopwatch.Elapsed.ToString("mm\:ss") + " to build.")
@@ -153,7 +145,7 @@ Function build-web
 
 Function deploy
 {
-	pscp output/html/* web/* webdeploy@141.19.142.50:/var/www/html/sysplace
+	pscp -r output/html/* webdeploy@141.19.142.50:/var/www/html/sysplace
 }
 
 Function generate-index
