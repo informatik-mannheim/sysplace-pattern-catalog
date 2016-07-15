@@ -133,10 +133,13 @@ Function build-web
 	Write-Host "Generating search index [temporarily disabled]"
 	#generate-index
 	
+	# Jekyll Build
+	jekyll build -s ../web/ -d ../output/html/
+	
 	# Move / copy all HTML, images and css to output
 	mv -Force *.html ../output/html/patterns
 	cp *.png ../output/html/patterns
-	cp -Recurse -Force ../web/* ../output/html  # menu.html shouldn't be copied...
+	#cp -Recurse -Force ../web/_site/* ../output/html  # menu.html shouldn't be copied...
 	cd ..
 	
 	$stopwatch.Stop()
@@ -182,7 +185,7 @@ Function insert-into-file
 	(Get-Content $file) | ForEach-Object {
 		if ($_ -match "<div class=""maketitle"">") 
 		{
-			Get-Content ../web/menu.html
+			Get-Content ../web/_includes/menu.html
 		}
 		$_;
 	} | Set-Content $file

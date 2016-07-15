@@ -1,0 +1,130 @@
+/* content-wrapper and navigation, content, footer; ensures footer always on bottom */
+a {
+    text-decoration: none;
+    color: $primary-color-dark;
+
+    &:hover {
+        text-decoration: underline;
+        color: lighten($primary-color-dark, 15%);
+    }
+}
+
+img.banner {
+    width:100%; 
+    margin-left: 0px; 
+}
+
+div#content-wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
+div#primary-navigation {
+    text-align: center;
+    height: 75px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-color: $primary-color;
+    margin-bottom: 20px;
+}
+
+div#content {
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-bottom: 25px;  /* Height of the footer */
+    font-size: 24px;
+}
+
+div#footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 25px;   /* Height of the footer */
+    background-color: $primary-color-dark;  
+}
+
+/* The primary navigation bar */
+
+ul#primary-navigation-ul {
+    list-style: none;
+    margin: 0;
+    padding: 15;
+}
+
+li.primary-navigation {
+    display: inline;
+    margin-left: 20px;
+    margin-right: 20px; 
+}
+
+a.navigation-link {
+    text-decoration: none;
+    font-size: 30px;
+    color: $navlink-color;
+}
+
+a.navigation-link:hover {
+    text-decoration: underline;
+    color: $navlink-color-hover;
+}
+
+ul#footer-navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a.footer-link {
+    text-decoration: none;
+    color: $navlink-color;
+}
+
+a.footer-link:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
+/* Grid Layout stuff */
+
+%clearfix:after {
+    display:block;
+    clear:both;
+    content:'';
+}
+
+$grid-spacing:3%;
+
+.row {
+    @extend %clearfix;
+
+    & + & {
+        margin-top:$grid-spacing;
+    }
+}
+
+[class^="col-"] {
+    float:left;
+    margin-right:$grid-spacing;
+    -webkit-box-sizing:border-box; 
+    -moz-box-sizing:border-box; 
+    box-sizing:border-box;
+
+    &:last-child {
+        margin-right:0%;
+    }
+}
+
+//----- Columns (Automatic)
+.col-1   { width:(100% / 12) - ($grid-spacing * 11 / 12); }
+.col-2   { width:(100% / 6) - ($grid-spacing * 10 / 12); }
+.col-3   { width:(100% / 4) - ($grid-spacing * 9 / 12); }
+.col-4   { width:(100% / 3) - ($grid-spacing * 8 / 12); }
+.col-5   { width:(100% / 2.4) - ($grid-spacing * 7 / 12); }
+.col-6   { width:(100% / 2) - ($grid-spacing * 6 / 12); }
+.col-7   { width:(100% / 1.714285714285714) - ($grid-spacing * 5 / 12); }
+.col-8   { width:(100% / 1.5) - ($grid-spacing * 4 / 12); }
+.col-9   { width:(100% / 1.333333333333333) - ($grid-spacing * 3 / 12); }
+.col-10  { width:(100% / 1.2) - ($grid-spacing * 2 / 12); }
+.col-11  { width:(100% / 1.090909090909091) - ($grid-spacing * 1 / 12); }
+.col-12  { width:100%; }
