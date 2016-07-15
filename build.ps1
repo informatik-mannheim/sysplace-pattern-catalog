@@ -104,10 +104,10 @@ Function build-web
 	# Recreate Output Folders
 	Write-Host "Creating output/html"
 	New-Item -Force -ItemType directory -Path output/html | Out-Null
-	Write-Host "Creating output/html/patterns"
-	New-Item -Force -ItemType directory -Path output/html/patterns | Out-Null
+	rm -Force -Recurse output/html/*
 	Write-Host "Creating output/temp/html"
 	New-Item -Force -ItemType directory -Path output/temp/html | Out-Null
+	rm -Force -Recurse output/temp/html/*
 	Write-Host "Writing all output to output/temp/html/build.log"
 	New-Item -Force -Path output/temp/html -Name "build.log" -ItemType File | Out-Null
 	
@@ -129,17 +129,12 @@ Function build-web
 	# Insert menu into generated HTML files
 	gci *.html | ForEach-Object {insert-into-file $_} 
 	
-	# Generate search index
-	Write-Host "Generating search index [temporarily disabled]"
-	#generate-index
-	
 	# Jekyll Build
 	jekyll build -s ../web/ -d ../output/html/
 	
 	# Move / copy all HTML, images and css to output
 	mv -Force *.html ../output/html/patterns
 	cp *.png ../output/html/patterns
-	#cp -Recurse -Force ../web/_site/* ../output/html  # menu.html shouldn't be copied...
 	cd ..
 	
 	$stopwatch.Stop()
