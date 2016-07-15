@@ -8,13 +8,16 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
-
+html {
+    height: 100%;
+}
 
 /**
  * Basic styling
  */
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    height: 100%; /* needed for footer placement */
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;

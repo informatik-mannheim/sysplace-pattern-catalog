@@ -4,17 +4,19 @@
   {% include head.html %}
 
   <body>
+    <div id="content-wrapper">
+      <div id="primary-navigation" class="default-primary-color">
+        {% include navigation.html %}
+      </div>
 
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
+      <div id="content">      
         {{ content }}
       </div>
+    
+      <div id="footer">
+        {% include footer.html %}
+      </div>
     </div>
-
-    {% include footer.html %}
-
   </body>
 
 </html>
