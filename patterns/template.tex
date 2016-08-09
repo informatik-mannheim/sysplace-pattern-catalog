@@ -158,6 +158,9 @@
 
 \checkbox{\imageschemata} Image Schema/ta liegen zu Grunde.
 \begin{itemize}
+\writeifexists{\imageSchemaVoid}{Keine Image Schemata vorhanden.}
+\writeifexists{\imageSchemaObject}{Object}
+\writeifexists{\imageSchemaSubstance}{Substance}
 \writeifexists{\imageSchemaCenterPeriphery}{Center-Periphery}
 \writeifexists{\imageSchemaContact}{Contact}
 \writeifexists{\imageSchemaFrontBack}{Front-Back}
