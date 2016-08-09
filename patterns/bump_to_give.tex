@@ -6,9 +6,10 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
+\newcommand{\desc}{Ein Benutzer (der Sender) hat ein Datenobjekt und will es mit einem weiteren Benutzer (dem Empfänger) bzw. einem Empfangsgerät teilen. Es soll vom Sendegerät auf das Empfangsgerät übertragen werden,
+sodass es anschließend auf beiden Geräten verfügbar ist.}
 
-\newcommand{\solution}{Das Empfänger-Gerät wird mit Sender-Gerät leicht zusammengestoßen/gebumpt. Dadurch wird ein Datensatz vom Sender- auf das Empfänger-Gerät gesendet.}
+\newcommand{\solution}{Der Sender hat das Sendegerät in der Hand. Durch das  zusammenstoßen (bumpen) des Sendegeräts mit dem Empfangsgerät wird das Datenobjekt auf das Empfangsgerät übertragen.}
 
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -18,44 +19,63 @@
 
 % -------------------------------
 % WIE
-% -------------------------------
+% -------------------------------`
 
-\newcommand{\useraction}{Zwei Benutzer halten jeweils ein Gerät fest in der Hand und lassen die Geräte an der Stirnseite/Seitenkante/Ecke zusammenstoßen/bumpen. }
+\newcommand{\useraction}{Der Sender hält das Sendegerät in der Hand und stößt es leicht an das Empfangsgerät an. Das Empfangsgerät kann dabei von einer weiteren Person gehalten werden oder stationär sein (z.B ein Tablet oder Tabletop). Ein Datenobjekt ist entweder explizit vom Sender (z.B. ein Foto) oder implizit durch die Applikation (z.B. der
+aktuelle Bildschirm) zum Versenden ausgewählt worden. Zudem besteht eine
+Verbindung zum Empfangsgerät.}
 
-\newcommand{\reaction}{Die hauptsächliche Reaktion des Systems ist es, die Daten des Quellgeräts auf das Zielgerät zu übertragen und dort anzuzeigen. Die Geräte
-sollten aber auch eine visuelle oder akustische Rückmeldung an die Benutzer geben, um zu signalisieren, dass ein Bump von den Endgeräten festgestellt wurde,
-z.B. über Vibration und mit welchem Gerät/Person Daten ausgetauscht werden.}
+\newcommand{\reactionSen}{Auf dem \sendev\ sollte zu verschiedenen Phasen des Bumps ein Feedback gegeben werden. Ein Bump besteht aus den drei {Atomaren Interaktionen}: \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
+Da es sich bei \textbf{Bump to Give} um eine \textit{Synchrone Geste} handelt, werden nach dem Bump die Acceleratordaten der beteiligten Geräte verglichen. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt, nach Beendigung der letzten wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Bump wird kein Transfer ausgeführt.}
 
-\newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
-\newcommand{\reactionSuccessSensitive}{}
+\newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, dass von einem Nutzer gehalten wird, werden die selben Atomaren Interaktionen ausgeführt wie auf dem \sendev .\ Bei einem erfolgreichen Datentransfer (Atomare Reaktion \textit{Receive}) sollte dem \rec\ Feedback über den Empfang des \data\ gegeben werden.}
 
-\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine funktionierende Verbindung besteht.}
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Move & M & Gerät wurde bewegt (Acceleratordaten) & \data\ ist ausgewählt &  Animation 1 \\ 
+\hline
+Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Acceleratordaten) & Acceleratordaten erfüllen Bump-Anforderungen & Animation 2 \\ 
+\hline
+Bump Recognized & S & Bump-Daten von anderem Gerät empfangen und mit eigenen verglichen & Acceleratordaten beider Geräte ähnlich genug & Animation 3 \\ 
+\hline
+Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vibration \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Bump to Give Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
 
-\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine Geräte identifiziert werden konnten.}
+\newcommand{\animations}{
+\begin{enumerate}
+\item Move-Animation: visualisiert dem Benutzer, dass das physische Bewegen des Geräts eine Funktionalität darstellt (z.B. Das Datenobjekt bewegt sich etwas verzögert, als hätte es Masse)
+\item Abrupt Stop-Animation: visualisiert dem Benutzer, dass ein Bump auf seinem Gerät erkannt wurde (z.B. Das \data\ bleibt am angestoßenen Rand des Bildschirms)
+\item Bump Recognized-Animation: visualisiert dem Benutzer, dass die Bump-Geste richtig erkannt wurde und das \data\ versandt wurde (z.B. Das \data\ verlässt den Bildschirm in Richtung des \recdev s\ )
+\item Receive-Animation: visualisiert dem Benutzer, dass ein \data\ empfangen wurde
+\end{enumerate}
+}
 
-\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine kompatiblen Geräte identifiziert werden konnten.}
-
-\newcommand{\designnotes}{
-\begin{itemize}
-\item Es sollte im besten Fall keinen Abstand zwischen den beiden Geräten geben beim Ausführen der Bump-Geste, um die Erkennung des angelegten Gerätes zu gewährleisten.
-\item Der Zusammenstoß der Geräte muss so erfolgen, dass eine Erkennung möglich ist, andererseits aber die Geräte nicht beschädigt werden.
-\end{itemize}}
+\newcommand{\designnotes}{ 
+Beim Ausführen der Bump-Geste sollten die Geräte direkt aneinandergestoßen werden um eine möglichst gute Erkennung zu gewährleisten. Zudem sollte die Härte des Zusammenstoßes stark genug sein um eine Erkennung zu ermöglichen, jedoch die Geräte nicht beschädigen.}
 
 % -------------------------------
 % WANN
 % -------------------------------
-
-\newcommand{\validcontext}{...}
+\newcommand{\validcontext}{Datenaustausch von Bildern, Videos, Visitenkarten, Social Network IDs, Systembefehlen}
 
 \newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
-
-\newcommand{\online}{}
-%\newcommand{\offline}{}
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
@@ -63,40 +83,36 @@ z.B. über Vibration und mit welchem Gerät/Person Daten ausgetauscht werden.}
 \newcommand{\stationary}{}
 \newcommand{\onthego}{}
 
-%\newcommand{\leanback}{}
+\newcommand{\leanback}{}
 \newcommand{\leanforward}{}
 
-%\newcommand{\single}{}
+\newcommand{\single}{}
 \newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
-%\newcommand{\sidetoside}{}
-%\newcommand{\cornertocorner}{}
-
-\newcommand{\smalltask}{}
-%\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
-%\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
+\newcommand{\sidetoside}{}
 
 \newcommand{\notvalidcontext}{--- keine Information ---}
 
-
 \newcommand{\devicetabular}{
-\begin{tabular}[H]{|c|c|c|c|c|c|}
+\begin{figure}[H]
+\begin{tabular}{|c|c|c|c|c|c|}
 \hline 
-\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &            &            &        &          &         \\ 
+Smartwatch          &     x      &     x      &   x    &     x    &        \\ 
 \hline 
-Smartphone            &            &     x      &   x    &     x    &    x    \\ 
+Smartphone          &     x      &     x      &   x    &     x    &        \\ 
 \hline 
-Tablet                &            &            &   x    &     x    &    x    \\ 
+Tablet              &     x      &     x      &   x    &     x    &        \\ 
 \hline 
-Tabletop              &            &            &        &          &         \\ 
+Tabletop            &            &            &        &          &        \\ 
 \hline
-Screens               &            &            &        &          &         \\ 
+Screens             &            &            &        &          &         \\ 
 \hline 
-\end{tabular}}
+\end{tabular}
+\caption{Geräteklassen für das Bump To Give Pattern} 
+\end{figure}
+}
 
 % -------------------------------
 % WARUM
@@ -125,13 +141,26 @@ Screens               &            &            &        &          &         \\
 \newcommand{\designprinciples}{}
 
 \newcommand{\imageschemata}{}
-\newcommand{\imageSchemaContainer}{}
-%\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaCenterPeriphery}{}
+\newcommand{\imageSchemaContact}{}
+%\newcommand{\imageSchemaFrontBack}{}
+%\newcommand{\imageSchemaLocation}{}
+\newcommand{\imageSchemaNearFar}{}
 %\newcommand{\imageSchemaPath}{}
-%\newcommand{\imageSchemaSourcePathGoal}{}
-%\newcommand{\imageSchemaUpDown}{}
-\newcommand{\imageSchemaLeftRight}{}
-%\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaScale}{}
+%\newcommand{\imageSchemaLeftRight}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaContent}{}
+%\newcommand{\imageSchemaFullEmpty}{}
+\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaSurface}{}
+%\newcommand{\imageSchemaMerging}{}
+%\newcommand{\imageSchemaSplitting}{}
+\newcommand{\imageSchemaMomentum}{}
+%\newcommand{\imageSchemaSelfMotion}{}
+%\newcommand{\imageSchemaBigSmall}{}
+\newcommand{\imageSchemaFastSlow}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
@@ -141,7 +170,7 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Fistbump, Anstoßen (wie mit Getränken)}
+\newcommand{\metaphordesc}{Fistbump, Anstoßen von Getränken}
 
 % -------------------------------
 % TECHNISCHES

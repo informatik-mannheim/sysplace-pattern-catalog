@@ -83,7 +83,7 @@
 \subsection*{Reaktionen des \recdev s}
 \reactionRec
 
-\subsection*{Übersicht über die Microinteractions}
+\subsection*{Übersicht über die Atomaren Interaktionen}
 \microinteractionstabular
 
 \subsubsection*{Animationen}
@@ -158,14 +158,26 @@
 
 \checkbox{\imageschemata} Image Schema/ta liegen zu Grunde.
 \begin{itemize}
-\item[-] \checkbox{\imageSchemaContainer} Container
-\item[-] \checkbox{\imageSchemaInOut} In-Out
-\item[-] \checkbox{\imageSchemaPath} Path
-\item[-] \checkbox{\imageSchemaSourcePathGoal} Source-Path-Goal
-\item[-] \checkbox{\imageSchemaUpDown} Up-Down
-\item[-] \checkbox{\imageSchemaLeftRight} Left-Right
-\item[-] \checkbox{\imageSchemaNearFar} Near-Far
-\item[-] \checkbox{\imageSchemaPartWhole} Part-Whole
+\writeifexists{\imageSchemaCenterPeriphery}{Center-Periphery}
+\writeifexists{\imageSchemaContact}{Contact}
+\writeifexists{\imageSchemaFrontBack}{Front-Back}
+\writeifexists{\imageSchemaLocation}{Location}
+\writeifexists{\imageSchemaNearFar}{Near-Far}
+\writeifexists{\imageSchemaPath}{Path}
+\writeifexists{\imageSchemaSourcePathGoal}{Source-Path-Goal}
+\writeifexists{\imageSchemaUpDown}{Up-Down}
+\writeifexists{\imageSchemaLeftRight}{Left-Right}
+\writeifexists{\imageSchemaContainer}{Container}
+\writeifexists{\imageSchemaContent}{Content}
+\writeifexists{\imageSchemaInOut}{In-Out}
+\writeifexists{\imageSchemaSurface}{Surface}
+\writeifexists{\imageSchemaMerging}{Merging}
+\writeifexists{\imageSchemaSplitting}{Splitting}
+\writeifexists{\imageSchemaMomentum}{Momentum}
+\writeifexists{\imageSchemaSelfMotion}{Self-Motion}
+\writeifexists{\imageSchemaBigSmall}{Big-Small}
+\writeifexists{\imageSchemaFastSlow}{Fast-Slow}
+\writeifexists{\imageSchemaPartWhole}{Part-Whole}
 \end{itemize}
 
 \checkbox{\realworld} Die real-weltlichen Kenntnisse des Menschen werden berücksichtigt.

@@ -40,6 +40,14 @@
   $\boxtimes$  
 \fi}
 
+% Template für optionale Listenpunkte ----
+\newcommand{\writeifexists}[2]{
+\ifx#1\undefined
+
+\else
+  \item[-]{#2}
+\fi}
+
 \setlength{\parindent}{0pt}
 
 %----------------------------
