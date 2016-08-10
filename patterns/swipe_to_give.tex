@@ -20,14 +20,14 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand oder hat es vor sich liegen bzw. stehen (z.B. ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der aktuelle Bildschirm) zum Versenden ausgewählt worden. Zudem besteht eine Verbindung zum \recdev.\\
+\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand oder hat es vor sich liegen bzw. stehen (z.B. ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der aktuelle Bildschirm) zum Versenden ausgewählt worden. \recdev\ und \sendev\ sind bereits zum bidirektionalen Datenaustausch verbunden.\\
 
 Der \sen\ führt einen Swipe mit einem Finger in Richtung des \recdev s\ aus. Die Dynamik der Swipe Geste sollte dem Sender das Gefühl geben, die physikalische Distanz zum \recdev\ durch Bewegung des \data s\ zu überbrücken. Diese Dynamik kann über Anpassung der Parameter (\textit{Länge}, \textit{Richtung}, \textit{Geschwindigkeit}) des Swipes gestaltet werden. Von den gewählten Parametern hängt ab, wann ein Swipe als \textit{erfolgreich} oder \textit{nicht erfolgreich} erkannt wird.}
 
-\newcommand{\reactionSen}{Auf dem \sendev\ kann dem Nutzer zu verschiedenen Phasen des Swipes ein Feedback gegeben werden. Ein Swipe besteht aus den drei \Glspl{microinteraction} \textit{Touch}, \textit{Move} und \textit{Release}.\\
-Bei einem \textit{erfolgreich} ausgeführten Swipe finden alle Microinteractions statt, nach Beendigung der letzten Microinteraction wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Swipe wird kein Transfer ausgeführt, einzelne Microinteractions des Swipes können entfallen.}
+\newcommand{\reactionSen}{Auf dem \sendev\ kann dem Nutzer zu verschiedenen Phasen des Swipes ein Feedback gegeben werden. Ein Swipe besteht aus den drei atomaren Interaktionen \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Bei einem \textit{erfolgreich} ausgeführten Swipe finden alle atomaren Interaktionen statt, nach Beendigung der letzten atomaren Interaktion wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Swipe wird kein Transfer ausgeführt, einzelne atomare Interaktionen des Swipes können entfallen.}
 
-\newcommand{\reactionRec}{Auf dem \recdev\ kann dem Nutzer bei erfolgreichem Swipe auf dem \sendev\ und anschließendem erfolgreichen Transfer ein Feedback über den Empfang des \data s\ gegeben werden (Microinteraction \textit{Receive}).}
+\newcommand{\reactionRec}{Auf dem \recdev\ kann dem Nutzer bei erfolgreichem Swipe auf dem \sendev\ und anschließendem erfolgreichen Transfer ein Feedback über den Empfang des \data s\ gegeben werden (\Gls{microinteraction} \textit{Receive}).}
 
 \newcommand{\microinteractionstabular}{
 \begin{figure}[H]
@@ -66,9 +66,9 @@ Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vi
 \end{enumerate}
 }
 
-\newcommand{\designnotes}{Es ist zu beachten, dass der Swipe im verwendeten Kontext nicht mehrdeutig ist, also z.B. von Betriebssystemfeatures wie einem per Swipe zu öffnenden Einstellungsmenü überlagert wird. Zudem sollte innerhalb des Applikationskontextes keine weitere Funktionalität durch einen Swipe ausgelöst werden (z.B. Scrollen, Umblättern etc.).\\
+\newcommand{\designnotes}{Es sollte darauf geachtet werden, dass die Swipe Geste im Verwendungskontext nicht konkurrierend eingesetzt wird, also z.B. von Betriebssystemfeatures wie einem per Swipe zu öffnenden Einstellungsmenü überlagert wird. Zudem sollte innerhalb des Applikationskontextes keine weitere Funktionalität durch einen Swipe ausgelöst werden (z.B. Scrollen, Umblättern etc.).\\
 
-Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgeführt werden. Da es unter Umständen schwierig ist, die Orientierung verschiedener Geräte zueinander zu bestimmen, kann alternativ auch eine feste Richtung für den Swipe vorgegeben werden (z.B. immer von unten nach oben).}
+Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgeführt werden. Da es unter Umständen schwierig ist, die Orientierung verschiedener Geräte zueinander zu bestimmen, kann alternativ auch eine feste Richtung für den Swipe vorgegeben werden (z.B. immer von unten nach oben). In dem Fall sollte der Nutzer auf die vorgegebene Richtung visuell hingewiesen werden (z.B. durch eine Markierung am Bildschirmrand).}
 
 % -------------------------------
 % WANN
@@ -129,26 +129,26 @@ Screens             &            &            &        &          &         \\
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item \url{https://www.youtube.com/watch?v=GDdPN6mVLPM} \\
+\item \url{https://www.youtube.com/watch?v=GDdPN6mVLPM} (Audi Deutschland) \\
 von Minute 0:56 bis 0:59\\
 Mit der Swipe-Geste auf vom Gerät, wird das konfigurierte Auto auf die
 Leinwand gegenüber des Kunden projiziert.
 
-\item \url{http://vimeo.com/53606494} \\
+\item \url{http://vimeo.com/53606494} (Razorfish - Emerging Experiences) \\
 von Minute 2:14 bis 2:25 \\
 Mit der Swipe-Geste auf dem Tablet simuliert der Verkäufer (rotes
 Hemd) dem Kunden (blaues Hemd) wie diverse Krawatten an ihm aussehen.
 
-\item \url{http://www.microsoft.com/office/vision/} \\
+\item \url{http://www.microsoft.com/office/vision/} (Microsoft) \\
 von Minute 3:41 bis 3:45
 
-\item \url{https://www.youtube.com/watch?v=ho00x7ZvDLw} \\
+\item \url{https://www.youtube.com/watch?v=ho00x7ZvDLw} (Microsoft) \\
 von Minute 0:35 bis 0:37
 
 \item \url{https://www.youtube.com/watch?v=o_hKFOQolIg} \\
 von Minute 1:04 bis 1:09 und 1:30 bis 1:45 in kollaborativer Nutzung
 
-\item \url{http://vimeo.com/110928116} \\
+\item \url{http://vimeo.com/110928116} (Razorfish - Emerging Experiences) \\
 von Minute 1:09 bis 1:15
 
 \item \url{https://www.youtube.com/watch?v=yw564p8oF1M} \\
@@ -162,14 +162,12 @@ von Minute 0:14 bis 0:20 \\
 \newcommand{\designprinciples}{}
 
 \newcommand{\imageschemata}{}
-%\newcommand{\imageSchemaVoid}{}
-\newcommand{\imageSchemaObject}{}
-%\newcommand{\imageSchemaSubstance}{}
 %\newcommand{\imageSchemaCenterPeriphery}{}
 %\newcommand{\imageSchemaContact}{}
 %\newcommand{\imageSchemaFrontBack}{}
 %\newcommand{\imageSchemaLocation}{}
 %\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaObject}{}
 \newcommand{\imageSchemaPath}{}
 \newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaScale}{}
@@ -212,7 +210,7 @@ Abbildung \ref{swipe_hardware} fasst die benötigten Technologien modellhaft zus
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{swipe_hardware.png}
-\caption{Benötigte Technologie für das Swipe To Give Pattern}
+\caption{Benötigte Technologien für das Swipe To Give Pattern}
 \label{swipe_hardware}
 \end{figure}
 }
@@ -221,8 +219,8 @@ Abbildung \ref{swipe_hardware} fasst die benötigten Technologien modellhaft zus
 \subsubsection*{Ablauf Gestenerkennung}
 Bei der Geste Swipe To Give handelt es sich um eine \textit{einfache Geste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf entfällt in zwei Teile (s. Abbildung \ref{gesture_detection}):
 \begin{itemize}
-\item Erkennen der Geste
-\item Überprüfen eventueller \textit{Constraints} an die Geste
+\item Erkennen der Geste (\textit{Gesture Detection}) und
+\item Überprüfen eventueller Bedingungen an die Geste (\textit{Constraint Check}).
 \end{itemize}
 
 \begin{figure}[h]
@@ -240,7 +238,7 @@ Zum Erkennen der Geste wird ein \textit{Touchscreen} (resistiv, kapazitiv o.Ä.)
 \item \textbf{MOVE} [optional]: Weitere Berührungen zwischen \textbf{DOWN} und \textbf{UP}, z.B. für Animationen des Swipes
 \end{itemize}
 
-Basierend auf diesen Events ergibt sich die Implementierung der Swipe-Erkennung entsprechend Abbildung \ref{recognize_swipe}. Ein Swipe wird dann erkannt, wenn nach einem initialen \textbf{DOWN}-Event und beliebig vielen \textbf{MOVE}-Events ein \textbf{UP}-Event stattfindet. Die Empfindlichkeit der Swipe-Erkennung kann an dieser Stelle über Parameter gesteuert werden. Das Beispiel in Abbildung \ref{recognize_swipe} definiert einen Parameter \textit{min\_velocity}, durch den eine Mindestgeschwindigkeit vorausgesetzt wird. Wurde der Swipe erkannt, wird ein SwipeEvent generiert, das für die Überprüfung der \textit{Constraints} im nächsten Schritt benötigt wird.
+Basierend auf diesen Events ergibt sich die Implementierung der Swipe-Erkennung entsprechend Abbildung \ref{recognize_swipe}. Ein Swipe wird dann erkannt, wenn nach einem initialen \textbf{DOWN}-Event und beliebig vielen \textbf{MOVE}-Events ein \textbf{UP}-Event stattfindet. Die Empfindlichkeit der Swipe-Erkennung kann an dieser Stelle über Constraints gesteuert werden, die bspw. Geschwindigkeit, Dauer oder Richtung des Swipes einschränken. Das Beispiel in Abbildung \ref{recognize_swipe} definiert einen Parameter \textit{min\_velocity}, durch den eine Mindestgeschwindigkeit vorausgesetzt wird. Wurde der Swipe erkannt, wird ein SwipeEvent generiert, das für die Überprüfung der \textit{Constraints} im nächsten Schritt benötigt wird.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{swipe_recognize.png}
@@ -249,12 +247,12 @@ Basierend auf diesen Events ergibt sich die Implementierung der Swipe-Erkennung 
 \end{figure}
 
 \subsubsection*{Swipe Constraint Check}
-Um einzuschränken, unter welchen Bedingungen ein erkannter Swipe als Swipe To Give gewertet werden soll, kann das im vorigen Schritt generierte \textit{SwipeEvent} mit vorher gesetzten \textit{Constraints} verglichen werden. Abbildung \ref{check_constraints} zeigt beispielhaft den Ablauf des \textit{Constraint Checks}. Es werden zwei \textit{Constraints} überprüft:
+Um einzuschränken, unter welchen Bedingungen ein Swipe als Swipe To Give gewertet werden soll, wird das im vorigen Schritt generierte \textit{SwipeEvent} mit vorher gesetzten \textit{Constraints} verglichen. Abbildung \ref{check_constraints} zeigt beispielhaft den Ablauf des \textit{Constraint Checks}. Es werden zwei \textit{Constraints} überprüft:
 \begin{itemize}
 \item die Richtung des Swipes und
 \item die zeitliche Dauer des Swipes.
 \end{itemize}
-Beide Constraints werden anhand von Variablen überprüft, die aus den \textit{UP}- und \textit{DOWN}-Events der Geste abgeleitet und mit definierten Richtwerten verglichen werden können. In diesem Fall würde ein Swipe To Give ausgelöst, wenn der Swipe zum rechten Bildschirmrand mit einer Mindestdauer von 250ms ausgeführt wird. Auch weitere \textit{Constraints} sind denkbar, solange sich die Variablen aus den Rohdaten des Touchscreens ableiten lassen.
+Beide Constraints werden anhand von Variablen überprüft, die aus den \textit{UP}- und \textit{DOWN}-Events der Geste abgeleitet und mit definierten Richtwerten verglichen werden können. In diesem Fall würde ein Swipe To Give ausgelöst, wenn der Swipe zum rechten Bildschirmrand mit einer Mindestdauer von 250ms ausgeführt wird. Beliebige weitere \textit{Constraints} sind denkbar, solange sich die Variablen aus den Rohdaten des Touchscreens ableiten lassen.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{swipe_check_constraints.png}
@@ -264,7 +262,7 @@ Beide Constraints werden anhand von Variablen überprüft, die aus den \textit{U
 
 Entsprechend dem \textit{Lebenszyklus} einer Multiscreen-Applikation wird nach erfolgreich ausgeführtem Swipe ein \textit{Transfer} \textit{selektierter Daten} durchgeführt, eine \textit{Connection} besteht bereits.
 
-Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren Gestaltungsmöglichkeiten für den \textit{Transfer}, \textit{Feedbacks} etc. finden sich auf \href{http://141.19.142.50/sysplace/}{der Entwicklerseite}.
+Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren Gestaltungsmöglichkeiten für den \textit{Transfer}, \textit{Feedbacks} etc. finden sich auf der \developerpage.
 }
 
 % -------------------------------
