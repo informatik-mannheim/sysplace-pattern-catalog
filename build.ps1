@@ -7,7 +7,7 @@
 
 Function delete-temps
 {
-	gci -Recurse -Include *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref, *.bbl, *.lof, *.blg, *.out, *.run.xml, *-blx.bib, *.ist, *.glo, *.gls, *.ps | rm 
+	gci -Recurse -Include *.aux, *.log, *.dvi, *.synctex.gz, *.4ct, *.4tc, *.tmp, *.lg, *.idv, *.xref, *.bbl, *.lof, *.blg, *.out, *.run.xml, *-blx.bib, *.ist, *.glg, *.glo, *.gls, *.ps | rm 
 }
 
 Function build-pdf

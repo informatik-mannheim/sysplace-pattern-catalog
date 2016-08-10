@@ -16,6 +16,8 @@
 *.run.xml
 *-blx.bib
 *.glo
+*.gls
+*.glg
 *.ist
 *0x.png
 output/
