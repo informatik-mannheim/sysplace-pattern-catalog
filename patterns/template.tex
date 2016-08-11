@@ -1,15 +1,28 @@
 \begin{document}
 
 % ------ fixes the build for all patterns where those new variables haven't been defined yet
-\ifdefined\reactionSen
-\else
-\newcommand{\reactionSen}{tbd.}
-\fi
 
-\ifdefined\reactionRec
-\else
-\newcommand{\reactionRec}{tbd.}
-\fi
+\@ifundefined{reactionRecFirst}{
+	$\ifdefined\reactionSen
+	\else
+	\newcommand{\reactionSen}{tbd.}
+	\fi
+
+	\ifdefined\reactionRec
+	\else
+	\newcommand{\reactionRec}{tbd.}
+	\fi$
+}{
+	$\ifdefined\reactionRec
+	\else
+	\newcommand{\reactionRec}{tbd.}
+	\fi
+	
+	\ifdefined\reactionSen
+	\else
+	\newcommand{\reactionSen}{tbd.}
+	\fi$
+}
 
 \ifdefined\microinteractionstabular
 \else

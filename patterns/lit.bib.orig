@@ -53,6 +53,7 @@
   school = {Hochschule Mannheim},
   year = {2016},
   type = {Studienarbeit},
+<<<<<<< HEAD
 }
 
 @mastersthesis{Grab2015,
@@ -64,6 +65,8 @@ mobilen Endgeräten
   school = {Hochschule Mannheim},
   year = {2015},
   type = {Bachelorthesis},
+=======
+>>>>>>> 5f39d99ec838cf415f9d09e65f6b9a45c0e0bd87
 }
 
 @inproceedings{Dachselt2009,
@@ -72,7 +75,6 @@ mobilen Endgeräten
  booktitle = {CHI '09 Extended Abstracts on Human Factors in Computing Systems},
  series = {CHI EA '09},
  year = {2009},
- location = {Boston, MA, USA},
  pages = {3253--3258},
  numpages = {6},
  publisher = {ACM},
