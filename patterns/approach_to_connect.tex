@@ -155,11 +155,20 @@ Screens               &            &            &        &          &         \\
 \newcommand{\requiredTechnologies}{
 Um Approach To Connect auf einem Gerät (\textit{Device}) ausführen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der verfügbaren Technologien auf diesem Gerät. Ein Gerät ist dann für das Approach To Connect Pattern verwendbar, wenn es folgende Eigenschaften aufweist:
 \begin{itemize}
-\item \textbf{Input}:
-\item \textbf{Output}:
-\item \textbf{Connectivity}:
+\item \textbf{Proximity}: Voraussetzung für die Erkennung der Approach To Connect Geste ist die technische Möglichkeit, Entfernungen zu anderen Geräten messen zu können. Dazu gibt es verschiedene technische Möglichkeiten, wobei zumeist \textit{Bluetooth Low Energy} für weitere und \textit{NFC} für kurze Distanzen weit verbreitet ist.
+\item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind visueller Output (Bildschirm) sowie Vibration und Sound denkbar, um erkannte Geräte und aufgebaute Verbindungen zu signalisieren.
+\item \textbf{Connectivity}: Ziel der Approach To Connect Geste ist das Aufbauen einer Verbindung zu einem entfernten Gerät. Es wird hier von einer Ad-Hoc Verbindung ausgegangen, also einer direkten Verbindung mit dem entfernten Gerät. Bei Verwendung von \textit{Bluetooth Low Energy} als \textit{Proximity}-Hardware bietet sich der Aufbau einer Bluetooth-Verbindung zur Datenübertragung an.
 \end{itemize}
+
+Abbildung \ref{approach_hardware} fasst die benötigten Technologien modellhaft zusammen.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{approach_hardware.png}
+\caption{Benötigte Technologien für das Approach To Connect Pattern}
+\label{approach_hardware}
+\end{figure}
 }
+
 \newcommand{\implementation}{
 \subsubsection*{Ablauf Gestenerkennung}
 Bei der Geste Approach To Connect handelt es sich um eine \textit{einfache Geste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf entfällt in zwei Teile (s. Abbildung \ref{gesture_detection}):
@@ -176,19 +185,42 @@ Bei der Geste Approach To Connect handelt es sich um eine \textit{einfache Geste
 Wurde die Geste erkannt, wird ein entsprechendes \textit{GestureEvent} generiert, das an den \textit{Constraint Check} übergeben wird.
 
 \subsubsection*{Approach Erkennung}
+Zum Erkennen der Geste wird \textit{Proximity}-Hardware vorausgesetzt, die \textit{Ranging} ermöglicht, also eine kontinuierliche Suche nach Geräten in der Umgebung. Gefundene Geräte sollten sich mit einer \textit{Service-UUID} o.Ä. identifizieren, anhand derer sie als mögliche Verbindungspartner identifiziert werden können. Daraus ergeben sich folgende Events:
+\begin{itemize}
+\item \textbf{DEVICE\_FOUND}: Beim Ranging wurde ein entferntes Gerät gefunden.
+\item \textbf{MATCH}: Ein gefundenes Gerät besitzt die korrekte Service-UUID.
+\item \textbf{NO\_MATCH}: Ein gefundenes Gerät besitzt eine ungültige Service-UUID.
+\item \textbf{STOP\_RANGING}: Das Ranging wurde beendet, es werden keine weiteren. 
+\end{itemize}
+
+Basierend auf diesen Events ergibt sich die Implementierung der Approach-Erkennung entsprechend Abbildung \ref{recognize_approach}. Ein Approach wird dann erkannt, wenn ein beim Ranging gefundenes Gerät die erwartete Service-UUID besitzt. Danach kann entweder nach weiteren Geräten gesucht oder die Suche beendet werden. Besitzt ein gefundenes Gerät keine gültige Service-UUID, wird so lange weiter gesucht, bis entweder ein möglicher Verbindungspartner gefunden wurde oder ein Abbruch des Ranging signalisiert wird. Wurde ein Approach erkannt, wird ein \textit{ProximityEvent} generiert, das für die Überprüfung der \textit{Constraints} im nächsten Schritt benötigt wird.
+
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{approach_recognize.png}
 \caption{Erkennung der Approach Geste}
-\label{recognize_swipe}
+\label{recognize_approach}
 \end{figure}
 
 \subsubsection*{Approach Constraint Check}
+Um einzuschränken, unter welchen Bedingungen eine Annäherung als Approach To Connect gewertet werden soll, wird das im vorigen Schritt generierte \textit{ProximityEvent} mit vorher gesetzten \textit{Constraint} verglichen. Abbildung \ref{check_approach_constraints} zeigt beispielhaft den Ablauf des \textit{Constraint Checks}. Es werden zwei Constraints überprüft:
+\begin{itemize}
+\item Ein Integer, die sog. Major-Nummer und
+\item die Entfernung (\textit{Proximity}) zum erkannten Gerät.
+\end{itemize}
+Der erste Constraint ist angelehnt an das iBeacon-Protokoll, in dem neben einer Service-UUID (s. voriges Kapitel) zur eindeutigen Identifikation von Geräten eine Major- und Minor-Nummer gesendet werden können. Dadurch kann der Kreis möglicher Verbindungspartner weiter eingeschränkt werden. 
+Im nächsten Schritt wird die gemessene Entfernung mit einem Vorgabewert verglichen. Die vier Bereiche \textit{immediate}, \textit{near}, \textit{far} und \textit{unknown} sind angelehnt an \cite{Marquardt2015} und können auch durch konkrete Entfernungswerte ersetzt werden.\\
+
+Entsprechend dem Lebenszyklus einer Multiscreen-Applikation besteht nach erfolgreich
+ausgeführtem Approach To Connect eine Verbindung zum \recdev{}, was die Voraussetzung für Transfer-Gesten ist.
+Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren
+Gestaltungsmöglichkeiten für den \textit{Connect}, \textit{Feedbacks} etc. finden sich
+auf der \developerpage.
+
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{approach_check_constraints.png}
 \caption{Überprüfung der Constraints für die Approach Geste}
-\label{check_constraints}
+\label{check_approach_constraints}
 \end{figure}
-
 }
 
 % -------------------------------
