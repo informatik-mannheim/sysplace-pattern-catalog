@@ -98,6 +98,7 @@ Screens               &            &            &        &          &         \\
 \item Approach To Give
 \item Approach To Take
 \item Approach To Extend
+\item Leave To Disconnect
 \end{itemize}
 }
 
@@ -152,23 +153,42 @@ Screens               &            &            &        &          &         \\
 % -------------------------------
 
 \newcommand{\requiredTechnologies}{
+Um Approach To Connect auf einem Gerät (\textit{Device}) ausführen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der verfügbaren Technologien auf diesem Gerät. Ein Gerät ist dann für das Approach To Connect Pattern verwendbar, wenn es folgende Eigenschaften aufweist:
 \begin{itemize}
-\item Liste benötigter Technologien
-\item Input/Output/Connectivity
-\item Grafik
+\item \textbf{Input}:
+\item \textbf{Output}:
+\item \textbf{Connectivity}:
 \end{itemize}
 }
 \newcommand{\implementation}{
+\subsubsection*{Ablauf Gestenerkennung}
+Bei der Geste Approach To Connect handelt es sich um eine \textit{einfache Geste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf entfällt in zwei Teile (s. Abbildung \ref{gesture_detection}):
 \begin{itemize}
-\item genereller Ablauf der Geste (Grafik + Erklärung)
-\item Erkennung der Geste (Grafik + Erklärung)
-\item Constraint Check (Grafik + Erklärung)
-\item Anknüpfpunkt zu Transfer // Überleitung Developer Page
+\item Erkennen der Geste (\textit{Gesture Detection}) und
+\item Überprüfen eventueller Bedingungen an die Geste (\textit{Constraint Check}).
 \end{itemize}
 
-\subsubsection*{Ablauf Gestenerkennung}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{gesture_detection.png}
+\caption{Allgemeiner Ablauf einer Gestenerkennung}
+\label{gesture_detection}
+\end{figure}
+Wurde die Geste erkannt, wird ein entsprechendes \textit{GestureEvent} generiert, das an den \textit{Constraint Check} übergeben wird.
+
 \subsubsection*{Approach Erkennung}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{approach_recognize.png}
+\caption{Erkennung der Approach Geste}
+\label{recognize_swipe}
+\end{figure}
+
 \subsubsection*{Approach Constraint Check}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{approach_check_constraints.png}
+\caption{Überprüfung der Constraints für die Approach Geste}
+\label{check_constraints}
+\end{figure}
+
 }
 
 % -------------------------------
