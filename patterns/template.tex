@@ -2,27 +2,15 @@
 
 % ------ fixes the build for all patterns where those new variables haven't been defined yet
 
-\@ifundefined{reactionRecFirst}{
-	$\ifdefined\reactionSen
-	\else
-	\newcommand{\reactionSen}{tbd.}
-	\fi
-
-	\ifdefined\reactionRec
-	\else
-	\newcommand{\reactionRec}{tbd.}
-	\fi$
-}{
-	$\ifdefined\reactionRec
-	\else
-	\newcommand{\reactionRec}{tbd.}
-	\fi
+\ifdefined\reactionSen
+\else
+\newcommand{\reactionSen}{tbd.}
+\fi
 	
-	\ifdefined\reactionSen
-	\else
-	\newcommand{\reactionSen}{tbd.}
-	\fi$
-}
+ \ifdefined\reactionRec
+\else
+\newcommand{\reactionRec}{tbd.}
+\fi
 
 \ifdefined\microinteractionstabular
 \else
@@ -87,14 +75,26 @@
 \newpage
 \section*{Wie}
 
-\subsection*{Aktion des \sen s}
-\useraction
+\ifx\swapReactions\undefined
+	\subsection*{Aktion des \sen s}
+	\useraction
 
-\subsection*{Reaktionen des \sendev s}
-\reactionSen
+	\subsection*{Reaktionen des \sendev s}
+	\reactionSen
 
-\subsection*{Reaktionen des \recdev s}
-\reactionRec
+	\subsection*{Reaktionen des \recdev s}
+	\reactionRec
+\else
+	\subsection*{Aktion des \rec s}
+	\useraction
+	
+	\subsection*{Reaktionen des \recdev s}
+	\reactionRec
+	
+	\subsection*{Reaktionen des \sendev s}
+	\reactionSen
+\fi
+
 
 \subsection*{Übersicht über die Atomaren Interaktionen}
 \microinteractionstabular
