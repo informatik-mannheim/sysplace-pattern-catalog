@@ -1,4 +1,4 @@
-## Anlage Entwicklerinformationen
+﻿## Anlage Entwicklerinformationen
 
 # Lifecycle Multiscreen-Apps
 - Connect
@@ -23,3 +23,5 @@
 # Weiterführende Informationen
 - Verweis auf Masterarbeit (Erläuterung und Github-Link)
 - Gesten-Framework in Github
+- Blablabla
+- Blabla
