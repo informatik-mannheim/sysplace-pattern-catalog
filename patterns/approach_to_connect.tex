@@ -6,9 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Eine Verbindung soll zwischen zwei Geräten hergestellt werden.}
+\newcommand{\desc}{Ein Benutzer möchte zur Datenübertragung eine Verbindung zwischen seinem Gerät und einem weiteren, in der Nähe befindlichen Gerät aufbauen.}
 
-\newcommand{\solution}{Ein Nutzer nähert sich mit einem Quell-Gerät einem Ziel-Gerät. Durch die Nähe wird veranlasst, dass zwischen zwei (oder mehr) Geräten eine Verbindung hergestellt wird.}
+\newcommand{\solution}{Ein Benutzer nähert (\textit{approach}) sich mit seinem Gerät (dem \sendev{}) einem entfernten Gerät (dem \recdev{}). Nähert er sich dem \recdev{} bis auf einen bestimmten räumlichen Abstand, wird eine Verbindung hergestellt, die zur Datenübertragung genutzt werden kann.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -20,30 +20,22 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Anwender nähert sich mit einem portablen Quell-Gerät dem Ziel-Gerät bis auf eine definierte Distanz.}
+\newcommand{\useraction}{Der Benutzer hält ein mobiles \sendev{} in der Hand und nähert sich einem \recdev{} (z.B. einem großen Wanddisplay oder einem Tablet auf dem Tisch). Zwischen \sendev{} und \recdev{} besteht keine Verbindung. Wird nun ein vordefinierter Mindestabstand (Abstands-Schwellwert) unterschritten, initiiert eines der Geräte (üblicherweise das \sendev{}) den Verbindungsaufbau, indem es einen Verbindungsanfrage an das andere sendet.}
 
-\newcommand{\reaction}{Beim Erreichen einer definierten Distanz zwischen Quell- und Ziel-Gerät wird visuell, akustisch oder auf eine andere Weise erkenntlich gemacht, dass sich Quell- und Ziel-Gerät erkannt haben und eine Verbindung zwischen diesen Geräten aufgebaut wurde.}
+\newcommand{\reactionSen}{Besteht keine Verbindung zwischen den Geräten, ist das \sendev{} in einer Art Monitoring-Modus, in dem es auf Geräte in der Umgebung wartet, was dem Benutzer visuell durch statisches oder kontinuierliches visuelles Feedback sichtbar gemacht werden kann. Unterschreitet der Benutzer den Abstands-Schwellwert, erhält er auf dem \sendev{} ein Feedback über das erkannte \recdev{} und den Beginn des Verbindungsaufbaus (z.B. akustisch oder visuell). Bei \textit{erfolgreichem} oder \textit{gescheiterten} Verbindungsaufbau erhält der Benutzer ein entsprechendes Feedback, das wiederum z.B. aus einem akustischen Signal oder Vibration bestehen kann.}
 
-\newcommand{\reactionSuccessVisual}{}
-\newcommand{\reactionSuccessAcustic}{}
-\newcommand{\reactionSuccessSensitive}{}
+\newcommand{\reactionRec}{Das Empfangsgerät hat eine eher passive Rolle und sollte dann Feedback geben, wenn ein mobiles Gerät erkannt wurde und ein Verbindungsaufbau stattfindet, sodass die Reaktion des \sendev{}s und des \recdev{}s gleichzeitig stattfinden und die Zuordnung der Geräte zueinander über das Feedback sichtbar wird.}
 
-\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{haben das Quell- und Ziel-Gerät den Mindest-Abstand zueinander nicht erreicht. Die Distanz darf ggf. nicht zu klein definiert sein. Solange keine funktionierende Verbindung zwischen den Geräten hergestellt werden kann, sucht das Quell-Gerät weiterhin nach dem Ziel-Gerät.}
+\newcommand{\microinteractionstabular}{\textbf{Dominick}}
+\newcommand{\animations}{\textbf{Dominick}}
 
-\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{sucht das Quell-Gerät weiterhin nach dem Ziel-Gerät.}
-
-\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{muss das Quell-Gerät bei gescheitertem Verbindungsaufbau zum Ziel-Gerät einen Hinweis anzeigen, dass das Ziel-Gerät nicht kompatibel ist.}
-
-\newcommand{\designnotes}{Die Distanz zwischen Quell- und Ziel-Gerät darf nicht zu gering definiert werden (sonst müsste man das Quell-Gerät ggf. auf das Ziel-Gerät auflegen).}
+\newcommand{\designnotes}{Der Abstands-Schwellwert darf nicht zu niedrig definiert werden, da  man sonst das \sendev{} auf das \recdev{} auflegen müsste bzw. sehr nah vor einem großen Bildschirm stehen würde. Zudem sollte die Annäherung eindeutig sein, d.h. es sollten innerhalb eines Interaktionskontexts keine konkurrierenden Annäherungsgesten möglich sein.}
 
 % -------------------------------
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{...}
+\newcommand{\validcontext}{Verbinden von mobilen und stationären Geräten, Verbinden von Privatgeräten mit (halb-)öffentlichen Displays.}
 
 \newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
@@ -72,7 +64,7 @@
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{Aufbauen einer Verbindung zu vertraulichen Geräten oder zum Austausch vertraulicher Daten; Sichtbarmachen vertraulicher Informationen (z.B. Name, Alter etc.) auf öffentlichen Displays.}
 
 
 \newcommand{\devicetabular}{
@@ -109,11 +101,12 @@ Screens               &            &            &        &          &         \\
 \end{itemize}
 }
 
-\newcommand{\stateoftheart}{...
-%\begin{enumerate}
-%\item
-%\item
-%\end{enumerate}
+\newcommand{\stateoftheart}{
+\begin{enumerate}
+\item Aufbauen einer Bluetooth-Verbindung beim Betreten des Raums \cite{Dachselt2009}.
+\item Kommunikation verschiedener Personen mit einem Fernseher basierend auf der Nähe \cite{Greenberg2011}.
+\item Theoretische und praktische Ansätze zu \textit{Proxemics}, behandelt auch negative Nutzungskontexte (sog. Dark Patterns) \cite{Marquardt2015}.
+\end{enumerate}
 }
 
 
