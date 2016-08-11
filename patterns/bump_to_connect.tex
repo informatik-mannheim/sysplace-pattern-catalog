@@ -6,9 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Eine Verbindung soll zwischen zwei Geräten hergestellt werden.}
+\newcommand{\desc}{Ein Benutzer (der \sen{}) möchte sein Gerät (das \sendev{}) durch direkten Kontakt mit einem anderen Gerät (dem \recdev{}) verbinden um eine Datenübertragung zu ermöglichen.}
 
-\newcommand{\solution}{Das Empfänger-Gerät wird mit Sender-Gerät leicht zusammengestoßen/gebumpt. Dadurch wird eine Verbindung zwischen den Geräten aufgebaut.}
+\newcommand{\solution}{Der \sen\ hat das \sendev\ in der Hand. Durch das  zusammenstoßen (\glslink{bump}{Bumpen}) des \sendev s\ mit dem \recdev\ wird der Verbindungsvorgang gestartet.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -20,28 +20,54 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Zwei Benutzer halten jeweils ein Gerät fest in der Hand und lassen die Geräte an der Stirnseite/Seitenkante/Ecke zusammenstoßen/bumpen. }
+\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand und stößt es leicht an das \recdev\ an. Das \recdev\ kann dabei von einer weiteren Person gehalten werden oder stationär sein (z.B ein Tablet oder Tabletop).}
 
-\newcommand{\reaction}{Die Geräte geben nach dem Zusammenstoß eine visuelle oder akustische Rückmeldung an die Benutzer.\\
-Es wird signalisiert, dass ein Bump vom Endgerät festgestellt wurde z.B. über Vibration. Die Verbindung zwischen den Geräten ist nach erfolgreichem bumpen hergestellt.}
+\newcommand{\reactionSen}{Auf dem \sendev\ sollte zu verschiedenen Phasen des Bumps Feedback gegeben werden. Ein Bump besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
+Da es sich bei \textbf{Bump to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Vor dem Bump besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{verbindungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
 
-\newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
-\newcommand{\reactionSuccessSensitive}{}
+\newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev .\
+}
 
-\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine Verbindung hergestellt werden konnte zu einem Gerät.}
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Move & M & Gerät wurde bewegt (Accelerometerdaten) & \data\ ist ausgewählt &  Animation 1 \\ 
+\hline
+Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Accelerometerdaten) & Accelerometerdaten erfüllen Bump-Anforderungen & Animation 2 \\ 
+\hline
+Bump Recognized & S & Bump-Daten an Verbindungskomponente gesendet und Antwort erhalten & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\ 
+\hline
+Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer \newline ist möglich & Animation 4 \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Bump to Connect Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
 
-\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine Geräte identifiziert werden konnten.}
-
-\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine kompatiblen Geräte identifiziert werden konnten.}
+\newcommand{\animations}{
+\begin{enumerate}
+\item Move-Animation: visualisiert dem Benutzer, dass das physische Bewegen des Geräts eine Funktionalität darstellt (z.B. Ein Objekt auf dem Bildschirm bewegt sich etwas verzögert, als hätte es Masse)
+\item Abrupt Stop-Animation: visualisiert dem Benutzer, dass ein Bump auf seinem Gerät erkannt wurde (z.B. Das Objekt bleibt am angestoßenen Rand des Bildschirms)
+\item Bump Recognized-Animation: visualisiert dem Benutzer, dass die Bump-Geste richtig erkannt wurde. (z.B. Das Objekt färbt sich grün)
+\item Connect-Animation: visualisiert dem Benutzer, eine Verbindung hergestellt wurde(z.B. Das Objekt wird zu einem Stecker und bewegt sich in Richtung des anderen Geräts)
+\end{enumerate}
+}
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Es sollte im besten Fall keinen Abstand zwischen den beiden Geräten geben beim Ausführen der Bump-Geste, um die Erkennung des angelegten Gerätes zu gewährleisten.
-\item Der Zusammenstoß der Geräte muss so erfolgen, dass eine Erkennung möglich ist, andererseits aber die Geräte nicht beschädigt werden.
+\item[-] Beim Ausführen der Bump-Geste sollten die Geräte direkt aneinandergestoßen werden um eine möglichst gute Erkennung zu gewährleisten. Zudem sollte die Härte des Zusammenstoßes stark genug sein um eine Erkennung zu ermöglichen, jedoch die Geräte nicht beschädigen.
+\item[-] Bei jeder Synchronen Connect-Geste muss es eine Verbindungskomponente geben, an die die relevanten Daten der Geste gesendet werden. Diese vergleicht die empfangenen Daten der beiden involvierten Geräte und gibt positive oder negative Rückmeldung.
 \end{itemize}}
 
 % -------------------------------
@@ -62,20 +88,14 @@ Es wird signalisiert, dass ein Bump vom Endgerät festgestellt wurde z.B. über 
 \newcommand{\stationary}{}
 \newcommand{\onthego}{}
 
-%\newcommand{\leanback}{}
+\newcommand{\leanback}{}
 \newcommand{\leanforward}{}
 
-%\newcommand{\single}{}
+\newcommand{\single}{}
 \newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
-%\newcommand{\sidetoside}{}
-%\newcommand{\cornertocorner}{}
-
-%\newcommand{\smalltask}{}
-\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
-%\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
+\newcommand{\sidetoside}{}
+\newcommand{\cornertocorner}{}
 
 \newcommand{\notvalidcontext}{--- keine Information ---}
 
@@ -85,11 +105,12 @@ Es wird signalisiert, dass ein Bump vom Endgerät festgestellt wurde z.B. über 
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &            &            &        &          &         \\ 
+Smartwatch            &     x      &     x      &   x    &    x     &         \\ 
 \hline 
-Smartphone            &            &     x      &   x    &     x    &    x    \\ 
+Smartphone            &     x      &     x      &   x    &     x    &        \\ 
 \hline 
-Tablet                &            &            &   x    &     x    &    x    \\ 
+Tablet                &     x      &     x      &   x    &     x    &    
+\\ 
 \hline 
 Tabletop              &            &            &        &          &         \\ 
 \hline
@@ -117,7 +138,8 @@ Screens               &            &            &        &          &         \\
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen.
+\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
+\item Hinckley, K., Bumping Objects Together as a Semantically Rich Way of Forming Connections between Ubiquitous Devices. UbiComp 2003 Formal Video Program, Seattle, WA, Oct 12-15, 2003.
 \end{enumerate}
 }
 
@@ -128,11 +150,11 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\imageSchemaObject}{}
 %\newcommand{\imageSchemaSubstance}{}
 %\newcommand{\imageSchemaCenterPeriphery}{}
-%\newcommand{\imageSchemaContact}{}
+\newcommand{\imageSchemaContact}{}
 %\newcommand{\imageSchemaFrontBack}{}
 %\newcommand{\imageSchemaLocation}{}
 %\newcommand{\imageSchemaNearFar}{}
-\newcommand{\imageSchemaPath}{}
+%\newcommand{\imageSchemaPath}{}
 %\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaScale}{}
 %\newcommand{\imageSchemaLeftRight}{}
@@ -143,7 +165,7 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\imageSchemaSurface}{}
 %\newcommand{\imageSchemaMerging}{}
 %\newcommand{\imageSchemaSplitting}{}
-%\newcommand{\imageSchemaMomentum}{}
+\newcommand{\imageSchemaMomentum}{}
 %\newcommand{\imageSchemaSelfMotion}{}
 %\newcommand{\imageSchemaBigSmall}{}
 %\newcommand{\imageSchemaFastSlow}{}

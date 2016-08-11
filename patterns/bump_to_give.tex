@@ -6,10 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Benutzer (der Sender) hat ein Datenobjekt und will es mit einem weiteren Benutzer (dem Empfänger) bzw. einem Empfangsgerät teilen. Es soll vom Sendegerät auf das Empfangsgerät übertragen werden,
-sodass es anschließend auf beiden Geräten verfügbar ist.}
+\newcommand{\desc}{Ein Benutzer (der \sen{}) hat ein \data\ und will es mit einem weiteren Benutzer (dem \rec{}) bzw. einem \recdev\ teilen. Es soll durch direkten Kontakt vom \sendev\ auf das \recdev\ übertragen werden, sodass es anschließend auf beiden Geräten verfügbar ist.}
 
-\newcommand{\solution}{Der Sender hat das Sendegerät in der Hand. Durch das  zusammenstoßen (bumpen) des Sendegeräts mit dem Empfangsgerät wird das Datenobjekt auf das Empfangsgerät übertragen.}
+\newcommand{\solution}{Der \sen\ hat das \sendev\ in der Hand. Durch das  zusammenstoßen (\glslink{bump}{Bumpen}) des \sendev s\ mit dem \recdev\ wird das \data\ auf das \recdev\ übertragen.}
 
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -21,14 +20,14 @@ sodass es anschließend auf beiden Geräten verfügbar ist.}
 % WIE
 % -------------------------------`
 
-\newcommand{\useraction}{Der Sender hält das Sendegerät in der Hand und stößt es leicht an das Empfangsgerät an. Das Empfangsgerät kann dabei von einer weiteren Person gehalten werden oder stationär sein (z.B ein Tablet oder Tabletop). Ein Datenobjekt ist entweder explizit vom Sender (z.B. ein Foto) oder implizit durch die Applikation (z.B. der
+\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand und stößt es leicht an das \recdev\ an. Das \recdev\ kann dabei von einer weiteren Person gehalten werden oder stationär sein (z.B ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der
 aktuelle Bildschirm) zum Versenden ausgewählt worden. Zudem besteht eine
-Verbindung zum Empfangsgerät.}
+Verbindung zum \recdev{}.}
 
-\newcommand{\reactionSen}{Auf dem \sendev\ sollte zu verschiedenen Phasen des Bumps ein Feedback gegeben werden. Ein Bump besteht aus den drei {Atomaren Interaktionen}: \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
-Da es sich bei \textbf{Bump to Give} um eine \textit{Synchrone Geste} handelt, werden nach dem Bump die Acceleratordaten der beteiligten Geräte verglichen. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt, nach Beendigung der letzten wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Bump wird kein Transfer ausgeführt.}
+\newcommand{\reactionSen}{Auf dem \sendev\ sollte zu verschiedenen Phasen des Bumps Feedback gegeben werden. Ein Bump besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
+Da es sich bei \textbf{Bump to Give} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt, nach Beendigung der letzten wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Bump wird kein Transfer ausgeführt.}
 
-\newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, dass von einem Nutzer gehalten wird, werden die selben Atomaren Interaktionen ausgeführt wie auf dem \sendev .\ Bei einem erfolgreichen Datentransfer (Atomare Reaktion \textit{Receive}) sollte dem \rec\ Feedback über den Empfang des \data\ gegeben werden.}
+\newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev .\ Bei einem erfolgreichen Datentransfer (Atomare Reaktion \textit{Receive}) sollte dem \rec\ Feedback über den Empfang des \data s\ gegeben werden.}
 
 \newcommand{\microinteractionstabular}{
 \begin{figure}[H]
@@ -42,11 +41,11 @@ Da es sich bei \textbf{Bump to Give} um eine \textit{Synchrone Geste} handelt, w
 \begin{tabularx}{\textwidth}{tsbbm}
 \thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
-Move & M & Gerät wurde bewegt (Acceleratordaten) & \data\ ist ausgewählt &  Animation 1 \\ 
+Move & M & Gerät wurde bewegt (Accelerometerdaten) & \data\ ist ausgewählt &  Animation 1 \\ 
 \hline
-Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Acceleratordaten) & Acceleratordaten erfüllen Bump-Anforderungen & Animation 2 \\ 
+Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Accelerometerdaten) & Accelerometerdaten erfüllen Bump-Anforderungen & Animation 2 \\ 
 \hline
-Bump Recognized & S & Bump-Daten von anderem Gerät empfangen und mit eigenen verglichen & Acceleratordaten beider Geräte ähnlich genug & Animation 3 \\ 
+Bump Recognized & S & Bump-Daten von anderem Gerät empfangen und mit eigenen verglichen & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\ 
 \hline
 Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vibration \\
 \hline
@@ -61,8 +60,8 @@ Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vi
 \begin{enumerate}
 \item Move-Animation: visualisiert dem Benutzer, dass das physische Bewegen des Geräts eine Funktionalität darstellt (z.B. Das Datenobjekt bewegt sich etwas verzögert, als hätte es Masse)
 \item Abrupt Stop-Animation: visualisiert dem Benutzer, dass ein Bump auf seinem Gerät erkannt wurde (z.B. Das \data\ bleibt am angestoßenen Rand des Bildschirms)
-\item Bump Recognized-Animation: visualisiert dem Benutzer, dass die Bump-Geste richtig erkannt wurde und das \data\ versandt wurde (z.B. Das \data\ verlässt den Bildschirm in Richtung des \recdev s\ )
-\item Receive-Animation: visualisiert dem Benutzer, dass ein \data\ empfangen wurde
+\item Bump Recognized-Animation: visualisiert dem Benutzer, dass die Bump-Geste richtig erkannt wurde und das \data\ versandt wurde (z.B. Das \data\ verlässt den Bildschirm in Richtung des \recdev{}s)
+\item Receive-Animation: visualisiert dem Benutzer, dass ein \data\ empfangen wurde (z.B. Das \data\ kommt auf den Bildschirm aus der Richtung des \sendev{}s)
 \end{enumerate}
 }
 
@@ -134,7 +133,8 @@ Screens             &            &            &        &          &         \\
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen. 
+\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
+\item Hinckley, K., Bumping Objects Together as a Semantically Rich Way of Forming Connections between Ubiquitous Devices. UbiComp 2003 Formal Video Program, Seattle, WA, Oct 12-15, 2003.
 \end{enumerate}
 }
 

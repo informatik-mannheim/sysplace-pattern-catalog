@@ -6,7 +6,7 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein \Gls{benutzer} (der \sen) hat ein \data\ und will es mit einem weiteren Benutzer (dem \rec) bzw. einem \recdev\ teilen. Es soll über Distanz vom \sendev\ auf das \Gls{empfangsgeraet} übertragen werden, sodass es anschließend auf beiden Geräten verfügbar ist.}
+\newcommand{\desc}{Ein Benutzer (der \sen) hat ein \data\ und will es mit einem weiteren Benutzer (dem \rec) bzw. einem \recdev\ teilen. Es soll über Distanz vom \sendev\ auf das \recdev\ übertragen werden, sodass es anschließend auf beiden Geräten verfügbar ist.}
 
 \newcommand{\solution}{Der \sen\ hat das \sendev\ in der Hand oder vor sich liegen. Durch eine Wischbewegung (\Gls{swipe}) in Richtung des \recdev s\ wird das \data\ auf das \recdev\ übertragen.}
 
@@ -24,10 +24,10 @@
 
 Der \sen\ führt einen Swipe mit einem Finger in Richtung des \recdev s\ aus. Die Dynamik der Swipe Geste sollte dem Sender das Gefühl geben, die physikalische Distanz zum \recdev\ durch Bewegung des \data s\ zu überbrücken. Diese Dynamik kann über Anpassung der Parameter (\textit{Länge}, \textit{Richtung}, \textit{Geschwindigkeit}) des Swipes gestaltet werden. Von den gewählten Parametern hängt ab, wann ein Swipe als \textit{erfolgreich} oder \textit{nicht erfolgreich} erkannt wird.}
 
-\newcommand{\reactionSen}{Auf dem \sendev\ kann dem Nutzer zu verschiedenen Phasen des Swipes ein Feedback gegeben werden. Ein Swipe besteht aus den drei atomaren Interaktionen \textit{Touch}, \textit{Move} und \textit{Release}.\\
+\newcommand{\reactionSen}{Auf dem \sendev\ kann dem Nutzer zu verschiedenen Phasen des Swipes ein Feedback gegeben werden. Ein Swipe besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
 Bei einem \textit{erfolgreich} ausgeführten Swipe finden alle atomaren Interaktionen statt, nach Beendigung der letzten atomaren Interaktion wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Swipe wird kein Transfer ausgeführt, einzelne atomare Interaktionen des Swipes können entfallen.}
 
-\newcommand{\reactionRec}{Auf dem \recdev\ kann dem Nutzer bei erfolgreichem Swipe auf dem \sendev\ und anschließendem erfolgreichen Transfer ein Feedback über den Empfang des \data s\ gegeben werden (\Gls{microinteraction} \textit{Receive}).}
+\newcommand{\reactionRec}{Auf dem \recdev\ kann dem Nutzer bei erfolgreichem Swipe auf dem \sendev\ und anschließendem erfolgreichen Transfer ein Feedback über den Empfang des \data s\ gegeben werden (Atomare Interaktion \textit{Receive}).}
 
 \newcommand{\microinteractionstabular}{
 \begin{figure}[H]
