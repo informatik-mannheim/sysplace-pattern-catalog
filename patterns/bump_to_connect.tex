@@ -23,7 +23,7 @@
 \newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand und stößt es leicht an das \recdev\ an. Das \recdev\ kann dabei von einer weiteren Person gehalten werden oder stationär sein (z.B ein Tablet oder Tabletop).}
 
 \newcommand{\reactionSen}{Auf dem \sendev\ sollte zu verschiedenen Phasen des Bumps Feedback gegeben werden. Ein Bump besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
-Da es sich bei \textbf{Bump to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Vor dem Bump besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{verbindungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
+Da es sich bei \textbf{Bump to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Vor dem Bump besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{vermittlungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
 
 \newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev .\
 }
@@ -44,7 +44,7 @@ Move & M & Gerät wurde bewegt (Accelerometerdaten) & \data\ ist ausgewählt &  
 \hline
 Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Accelerometerdaten) & Accelerometerdaten erfüllen Bump-Anforderungen & Animation 2 \\ 
 \hline
-Bump Recognized & S & Bump-Daten an Verbindungskomponente gesendet und Antwort erhalten & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\ 
+Bump Recognized & S & Bump-Daten an Vermittlungskomponente gesendet und Antwort erhalten & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\ 
 \hline
 Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer \newline ist möglich & Animation 4 \\
 \hline
@@ -67,7 +67,7 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 \newcommand{\designnotes}{
 \begin{itemize}
 \item[-] Beim Ausführen der Bump-Geste sollten die Geräte direkt aneinandergestoßen werden um eine möglichst gute Erkennung zu gewährleisten. Zudem sollte die Härte des Zusammenstoßes stark genug sein um eine Erkennung zu ermöglichen, jedoch die Geräte nicht beschädigen.
-\item[-] Bei jeder Synchronen Connect-Geste muss es eine Verbindungskomponente geben, an die die relevanten Daten der Geste gesendet werden. Diese vergleicht die empfangenen Daten der beiden involvierten Geräte und gibt positive oder negative Rückmeldung.
+\item[-] Bei jeder Synchronen Connect-Geste muss es eine Vermittlungskomponente geben, an die die relevanten Daten der Geste gesendet werden. Diese vergleicht die empfangenen Daten der beiden involvierten Geräte und gibt positive oder negative Rückmeldung.
 \end{itemize}}
 
 % -------------------------------
@@ -139,7 +139,8 @@ Screens               &            &            &        &          &         \\
 \newcommand{\stateoftheart}{
 \begin{enumerate}
 \item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
-\item Hinckley, K., Bumping Objects Together as a Semantically Rich Way of Forming Connections between Ubiquitous Devices. UbiComp 2003 Formal Video Program, Seattle, WA, Oct 12-15, 2003.
+\item Beispiel-Implementierung eines Bump Patterns \citep{Grab2015}.
+%\item Microinteractions im Multi-Screen Kontext \citep{Madden2016}.
 \end{enumerate}
 }
 
