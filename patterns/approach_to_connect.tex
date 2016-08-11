@@ -98,6 +98,7 @@ Screens               &            &            &        &          &         \\
 \item Approach To Give
 \item Approach To Take
 \item Approach To Extend
+\item Leave To Disconnect
 \end{itemize}
 }
 
@@ -116,19 +117,19 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\imageSchemaVoid}{}
 %\newcommand{\imageSchemaObject}{}
 %\newcommand{\imageSchemaSubstance}{}
-%\newcommand{\imageSchemaCenterPeriphery}{}
+\newcommand{\imageSchemaCenterPeriphery}{}
 %\newcommand{\imageSchemaContact}{}
 %\newcommand{\imageSchemaFrontBack}{}
 %\newcommand{\imageSchemaLocation}{}
 \newcommand{\imageSchemaNearFar}{}
-%\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaPath}{}
 %\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaScale}{}
 %\newcommand{\imageSchemaLeftRight}{}
 %\newcommand{\imageSchemaContainer}{}
 %\newcommand{\imageSchemaContent}{}
 %\newcommand{\imageSchemaFullEmpty}{}
-%\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaSurface}{}
 %\newcommand{\imageSchemaMerging}{}
 %\newcommand{\imageSchemaSplitting}{}
@@ -151,40 +152,56 @@ Screens               &            &            &        &          &         \\
 % TECHNISCHES
 % -------------------------------
 
-\newcommand{\technologyObjectIntimate}{}
-%\newcommand{\technologyObjectPersonal}{}
-%\newcommand{\technologyObjectSocial}{}
-%\newcommand{\technologyObjectPublic}{}
+\newcommand{\requiredTechnologies}{
+Um Approach To Connect auf einem Gerät (\textit{Device}) ausführen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der verfügbaren Technologien auf diesem Gerät. Ein Gerät ist dann für das Approach To Connect Pattern verwendbar, wenn es folgende Eigenschaften aufweist:
+\begin{itemize}
+\item \textbf{Input}:
+\item \textbf{Output}:
+\item \textbf{Connectivity}:
+\end{itemize}
+}
+\newcommand{\implementation}{
+\subsubsection*{Ablauf Gestenerkennung}
+Bei der Geste Approach To Connect handelt es sich um eine \textit{einfache Geste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf entfällt in zwei Teile (s. Abbildung \ref{gesture_detection}):
+\begin{itemize}
+\item Erkennen der Geste (\textit{Gesture Detection}) und
+\item Überprüfen eventueller Bedingungen an die Geste (\textit{Constraint Check}).
+\end{itemize}
 
-\newcommand{\technologyObjectDesc}{...}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{gesture_detection.png}
+\caption{Allgemeiner Ablauf einer Gestenerkennung}
+\label{gesture_detection}
+\end{figure}
+Wurde die Geste erkannt, wird ein entsprechendes \textit{GestureEvent} generiert, das an den \textit{Constraint Check} übergeben wird.
 
-%\newcommand{\technologyCommunicationServer}{}
-%\newcommand{\technologyCommunicationAdhoc}{}
+\subsubsection*{Approach Erkennung}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{approach_recognize.png}
+\caption{Erkennung der Approach Geste}
+\label{recognize_swipe}
+\end{figure}
 
-\newcommand{\technologyCommunicationDesc}{...}
+\subsubsection*{Approach Constraint Check}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{approach_check_constraints.png}
+\caption{Überprüfung der Constraints für die Approach Geste}
+\label{check_constraints}
+\end{figure}
 
-%\newcommand{\technologyOrientationAccelerometer}{}
-%\newcommand{\technologyOrientationGPS}{}
-%\newcommand{\technologyOrientationGyroskop}{}
-%\newcommand{\technologyOrientationAnnaeherung}{}
-%\newcommand{\technologyOrientationHoehe}{}
-%\newcommand{\technologyOrientationBeacons}{}
-%\newcommand{\technologyOrientationOther}{}
-
-\newcommand{\technologyOrientationDesc}{...}
-
-\newcommand{\prototype}{...}
-
+}
 
 % -------------------------------
 % SONSTIGES
 % -------------------------------
 
-\newcommand{\authors}{...}
+\newcommand{\authors}{Horst Schneider, Hochschule Mannheim\\
+Dominick Madden, Hochschule Mannheim\\
+Valentina Burjan, Hochschule Mannheim}
 \newcommand{\literature}{...}
 \newcommand{\figures}{...}
-\newcommand{\versionhistory}{...}
-\newcommand{\dateofcreation}{15. August 2015}
+\newcommand{\versionhistory}{11.08.2016}
+\newcommand{\dateofcreation}{15.08.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
 
