@@ -21,48 +21,68 @@
 % -------------------------------
 
 \newcommand{\useraction}{Der \rec\ hält das \recdev\ in der Hand und stößt es leicht an das \sendev\ an. Das \sendev\ kann dabei von einer weiteren Person gehalten werden oder stationär sein (z.B ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ oder \rec\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. eine Visitenkarte) zum Versenden ausgewählt worden. Zudem besteht eine
-Verbindung zum \sendev{}.}
+Verbindung zwischen den Geräten.}
 
 \newcommand{\swapReactions}{}
 
-\newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev .\ Bei einem erfolgreichen Datentransfer (Atomare Reaktion \textit{Receive}) sollte dem \rec\ Feedback über den Empfang des \data s\ gegeben werden.}
+\newcommand{\reactionRec}{Auf dem \recdev\ sollte zu verschiedenen Phasen des Bumps Feedback gegeben werden. Ein Bump besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
+Da es sich bei \textbf{Bump to Take} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt. Nach Beendigung der letzten fordert das \recdev\ ein \data\ vom \sendev\ an. Bei einem erfolgreichen Datentransfer (Atomare Reaktion \textit{Receive}) sollte dem \rec\ Feedback über den Empfang des \data s\ gegeben werden. Bei \textit{nicht erfolgreichem} Bump wird kein Transfer ausgeführt.}
 
-\newcommand{\reactionSen}{Auf dem \sendev\ sollte zu verschiedenen Phasen des Bumps Feedback gegeben werden. Ein Bump besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
-Da es sich bei \textbf{Bump to Give} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt, nach Beendigung der letzten wird der Transfer des selektierten \data s\ ausgeführt. Bei \textit{nicht erfolgreichem} Bump wird kein Transfer ausgeführt.}
+\newcommand{\reactionSen}{Handelt es sich bei dem \sendev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \recdev .\ Bei erfolgreicher Anforderung  des \data\ (Atomare Reaktion \textit{Receive Request}) sollte auf dem \sendev\ Feedback über die Anforderung und das anschließende Versenden des \data s\ gegeben werden.}
 
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Move & M & Gerät wurde bewegt (Accelerometerdaten) & \data\ ist ausgewählt &  Animation 1 \\ 
+\hline
+Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Accelerometerdaten) & Accelerometerdaten erfüllen Bump-Anforderungen & Animation 2 \\ 
+\hline
+Bump Recognized & S & Bump-Daten von anderem Gerät empfangen und mit eigenen verglichen & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\ 
+\hline
+Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vibration \\
+\hline
+Receive Request & S & Daten wurden angefordert & Angeforderte Daten können versendet werden & Animation 5 \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Bump to Give Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
 
-
-
-\newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
-\newcommand{\reactionSuccessSensitive}{}
-
-\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine funktionierende Verbindung besteht.}
-
-\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine Geräte identifiziert werden konnten.}
-
-\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{sollte eine visuelle Meldung erscheinen, dass der Bump registriert wurde, aber keine kompatiblen Geräte identifiziert werden konnten.}
+\newcommand{\animations}{
+\begin{enumerate}
+\item Move-Animation: visualisiert dem Benutzer, dass das physische Bewegen des Geräts eine Funktionalität darstellt (z.B. Es befindet sich eine leere Visitenkarte auf dem Bildschirm und bewegt sich etwas verzögert, als hätte sie Masse)
+\item Abrupt Stop-Animation: visualisiert dem Benutzer, dass ein Bump auf seinem Gerät erkannt wurde (z.B. Die Visitenkarte bleibt am angestoßenen Rand des Bildschirms)
+\item Bump Recognized-Animation: visualisiert dem Benutzer, dass die Bump-Geste richtig erkannt wurde und das \data\ angefordert wurde (z.B. Die Visitenkarte verlässt den Bildschirm in Richtung des \sendev{}s)
+\item Receive-Animation: visualisiert dem Benutzer, dass ein \data\ empfangen wurde (z.B. Die nun beschriebene Visitenkarte kommt auf den Bildschirm aus der Richtung des \sendev{}s)
+\item Receive Request-Animation: visualisiert dem Benutzer, dass ein \data\ angefordert wurde und daraufhin versendet wird (z.B. Eine leere Visitenkarte kommt aus der Richtung des \recdev s\ auf den Bildschirm, wird beschrieben und verlässt den Bildschirm wieder in die selbe Richtung)
+\end{enumerate}
+}
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Es sollte im besten Fall keinen Abstand zwischen den beiden Geräten geben beim Ausführen der Bump-Geste, um die Erkennung des angelegten Gerätes zu gewährleisten.
-\item Der Zusammenstoß der Geräte muss so erfolgen, dass eine Erkennung möglich ist, andererseits aber die Geräte nicht beschädigt werden.
+\item Beim Ausführen der Bump-Geste sollten die Geräte direkt aneinandergestoßen werden um eine möglichst gute Erkennung zu gewährleisten. Zudem sollte die Härte des Zusammenstoßes stark genug sein um eine Erkennung zu ermöglichen, jedoch die Geräte nicht beschädigen.
+\item Bei allen Take-Gesten muss dem \rec\ bekannt sein, was für ein \data\ er anfordert, da dies sonst zu Verwirrung führen kann.
 \end{itemize}}
 
 % -------------------------------
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{...}
+\newcommand{\validcontext}{Datenaustausch von Bildern, Videos, Visitenkarten, Social Network IDs, Systembefehlen}
 
 \newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
-
-\newcommand{\online}{}
-%\newcommand{\offline}{}
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
@@ -70,40 +90,36 @@ Da es sich bei \textbf{Bump to Give} um eine \gls{synchronegeste} handelt, werde
 \newcommand{\stationary}{}
 \newcommand{\onthego}{}
 
-%\newcommand{\leanback}{}
+\newcommand{\leanback}{}
 \newcommand{\leanforward}{}
 
-%\newcommand{\single}{}
+\newcommand{\single}{}
 \newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
-%\newcommand{\sidetoside}{}
-%\newcommand{\cornertocorner}{}
-
-\newcommand{\smalltask}{}
-%\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
-%\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
+\newcommand{\sidetoside}{}
 
 \newcommand{\notvalidcontext}{--- keine Information ---}
 
-
 \newcommand{\devicetabular}{
-\begin{tabular}[H]{|c|c|c|c|c|c|}
+\begin{figure}[H]
+\begin{tabular}{|c|c|c|c|c|c|}
 \hline 
-\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &            &            &        &          &         \\ 
+Smartwatch          &     x      &     x      &   x    &     x    &        \\ 
 \hline 
-Smartphone            &            &     x      &   x    &     x    &    x    \\ 
+Smartphone          &     x      &     x      &   x    &     x    &        \\ 
 \hline 
-Tablet                &            &            &   x    &     x    &    x    \\ 
+Tablet              &     x      &     x      &   x    &     x    &        \\ 
 \hline 
-Tabletop              &            &            &        &          &         \\ 
+Tabletop            &            &            &        &          &        \\ 
 \hline
-Screens               &            &            &        &          &         \\ 
+Screens             &            &            &        &          &         \\ 
 \hline 
-\end{tabular}}
+\end{tabular}
+\caption{Geräteklassen für das Bump To Take Pattern} 
+\end{figure}
+}
 
 % -------------------------------
 % WARUM
@@ -125,20 +141,37 @@ Screens               &            &            &        &          &         \\
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen. 
+\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
+\item Hinckley, K., Bumping Objects Together as a Semantically Rich Way of Forming Connections between Ubiquitous Devices. UbiComp 2003 Formal Video Program, Seattle, WA, Oct 12-15, 2003.
 \end{enumerate}
 }
 
 \newcommand{\designprinciples}{}
 
 \newcommand{\imageschemata}{}
-\newcommand{\imageSchemaContainer}{}
-%\newcommand{\imageSchemaInOut}{}
-%\newcommand{\imageSchemaPath}{}
-%\newcommand{\imageSchemaSourcePathGoal}{}
-%\newcommand{\imageSchemaUpDown}{}
-\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaVoid}{}
+\newcommand{\imageSchemaObject}{}
+%\newcommand{\imageSchemaSubstance}{}
+%\newcommand{\imageSchemaCenterPeriphery}{}
+\newcommand{\imageSchemaContact}{}
+%\newcommand{\imageSchemaFrontBack}{}
+%\newcommand{\imageSchemaLocation}{}
 %\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaScale}{}
+%\newcommand{\imageSchemaLeftRight}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaContent}{}
+%\newcommand{\imageSchemaFullEmpty}{}
+\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaSurface}{}
+%\newcommand{\imageSchemaMerging}{}
+%\newcommand{\imageSchemaSplitting}{}
+\newcommand{\imageSchemaMomentum}{}
+%\newcommand{\imageSchemaSelfMotion}{}
+%\newcommand{\imageSchemaBigSmall}{}
+\newcommand{\imageSchemaFastSlow}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
@@ -148,7 +181,7 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Fistbump, Anstoßen (wie mit Getränken)}
+\newcommand{\metaphordesc}{Fistbump, Anstoßen von Getränken}
 
 % -------------------------------
 % TECHNISCHES
@@ -199,7 +232,8 @@ dieser Grundlage wurde ein Algorithmus entwickelt, der die durch den Aufprall er
 
 \newcommand{\authors}{
 Benjamin Grab, Hochschule Mannheim\\
-Valentina Burjan, Hochschule Mannheim}
+Valentina Burjan, Hochschule Mannheim\\
+Dominick Madden, Hochschule Mannheim}
 \newcommand{\literature}{
 \begin{enumerate}
 \item Bump. [Online]. \url{http://bu.mp/}
