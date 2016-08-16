@@ -75,15 +75,25 @@
 \newpage
 \section*{Wie}
 
+%%%define swapReactions if the receiver is the primary actor%%%
+%%%define usersEqual if there is no sender and receiver%%%
 \ifx\swapReactions\undefined
-	\subsection*{Aktion des \sen s}
-	\useraction
+	\ifx\usersEqual\undefined	
+		\subsection*{Aktion des \sen s}
+		\useraction
 
-	\subsection*{Reaktionen des \sendev s}
-	\reactionSen
+		\subsection*{Reaktionen des \sendev s}
+		\reactionSen
 
-	\subsection*{Reaktionen des \recdev s}
-	\reactionRec
+		\subsection*{Reaktionen des \recdev s}
+		\reactionRec
+	\else
+		\subsection*{Aktion der Benutzer}
+		\useraction
+
+		\subsection*{Reaktionen der Geräte}
+		\reactionSen
+	\fi
 \else
 	\subsection*{Aktion des \rec s}
 	\useraction
