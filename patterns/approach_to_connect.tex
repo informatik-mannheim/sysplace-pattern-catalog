@@ -26,8 +26,37 @@
 
 \newcommand{\reactionRec}{Das Empfangsgerät hat eine eher passive Rolle und sollte dann Feedback geben, wenn ein mobiles Gerät erkannt wurde und ein Verbindungsaufbau stattfindet, sodass die Reaktion des \sendev{}s und des \recdev{}s gleichzeitig stattfinden und die Zuordnung der Geräte zueinander über das Feedback sichtbar wird.}
 
-\newcommand{\microinteractionstabular}{\textbf{Dominick}}
-\newcommand{\animations}{\textbf{Dominick}}
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Enter Radius & M & Der Benutzer nähert sich dem anderen Gerät von außerhalb des Erkennungsradius der Technologie (z.B. Bluetooth) & Die Geräte erkennen, dass eine Verbindung zwischen ihnen möglich ist &  Animation 1, \newline Vibration\\ 
+\hline
+Cross Threshold & M & Der Benutzer überschreitet den Entfernungsschwellwert & Eines der Geräte initiiert die Verbindung & Animation 2 \\ 
+\hline
+Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer \newline ist möglich & Animation 3 \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Approach to Connect Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
+
+\newcommand{\animations}{\begin{enumerate}
+\item Enter Radius-Animation: Die Vibration erregt die Aufmerksamkeit des Nutzers. Die Animation informiert und visualisiert dem Benutzer, dass eine Verbindung zu einem anderen Gerät möglich ist (z.B. Ein Stecker und eine Steckdose erscheinen auf dem Bildschirm. Je näher der Benutzer dem Gerät kommt, desto näher kommt der Stecker der Steckdose)
+\item Cross Threshold-Animation: Visualisiert dem Benutzer, dass er die Mindestentfernung zum Gerät erreicht hat (z.B. Der Stecker bleibt kurz vor der Steckdose stehen und vibriert)
+\item Connect-Animation: visualisiert dem Benutzer, dass eine Verbindung hergestellt wurde (z.B. Der Stecker verbindet sich mit der Steckdose)
+\end{enumerate}
+}
 
 \newcommand{\designnotes}{Der Abstands-Schwellwert darf nicht zu niedrig definiert werden, da  man sonst das \sendev{} auf das \recdev{} auflegen müsste bzw. sehr nah vor einem großen Bildschirm stehen würde. Zudem sollte die Annäherung eindeutig sein, d.h. es sollten innerhalb eines Interaktionskontexts keine konkurrierenden Annäherungsgesten möglich sein.}
 
