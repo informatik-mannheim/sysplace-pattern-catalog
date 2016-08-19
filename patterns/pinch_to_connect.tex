@@ -1,14 +1,14 @@
 \input{header.tex}
 
-\newcommand{\name}{Bump To Connect}
+\newcommand{\name}{Pinch To Connect}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Benutzer (der \sen{}) möchte sein Gerät (das \sendev{}) durch direkten Kontakt mit einem anderen Gerät (dem \recdev{}) verbinden um eine Datenübertragung zu ermöglichen.}
+\newcommand{\desc}{Ein Benutzer (der \sen{}) möchte sein Gerät (das \sendev{}) mit einem anderen, in unmittelbarer Nähe befindlichen Gerät (dem \recdev{}) verbinden um eine Datenübertragung zu ermöglichen.}
 
-\newcommand{\solution}{Der \sen\ hat das \sendev\ in der Hand. Durch das  zusammenstoßen (\glslink{bump}{Bumpen}) des \sendev s\ mit dem \recdev\ wird der Verbindungsvorgang gestartet.}
+\newcommand{\solution}{Der \sen\ hat das \sendev\ Kante an Kante neben dem \recdev\ und führt eine \glslink{pinch}{Pinch-Geste} aus wodurch wird der Verbindungsvorgang angestoßen wird.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -20,9 +20,9 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand und stößt es leicht an das \recdev\ an. Das \recdev\ kann dabei von einer weiteren Person gehalten werden oder stationär sein (z.B ein Tablet oder Tabletop).}
+\newcommand{\useraction}{Der \sen\ hat das \sendev\ entweder auf einer Oberfläche - Kante an Kante - neben dem \recdev\ liegen, oder hat es in der Hand und hält es neben das \recdev{}. Er führt eine Pinch-Geste aus, wobei sich der Daumen auf dem Display des einen Geräts befindet und der Zeigefinger auf dem des anderen.}
 
-\newcommand{\reactionSen}{Auf dem \sendev\ sollte zu verschiedenen Phasen des Bumps Feedback gegeben werden. Ein Bump besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
+\newcommand{\reactionSen}{Auf beiden Geräten sollte zu verschiedenen Phasen des Pinchs Feedback gegeben werden. Ein Bump besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
 Da es sich bei \textbf{Bump to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Vor dem Bump besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{vermittlungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
 
 \newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev .\
