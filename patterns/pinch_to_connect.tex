@@ -8,7 +8,7 @@
 
 \newcommand{\desc}{Ein Benutzer (der \sen{}) möchte sein Gerät (das \sendev{}) mit einem anderen, in unmittelbarer Nähe befindlichen Gerät (dem \recdev{}) verbinden um eine Datenübertragung zu ermöglichen.}
 
-\newcommand{\solution}{Der \sen\ hat das \sendev\ Kante an Kante neben dem \recdev\ und führt eine \glslink{pinch}{Pinch-Geste} aus wodurch wird der Verbindungsvorgang angestoßen wird.}
+\newcommand{\solution}{Der \sen\ hat das \sendev\ Kante an Kante neben dem \recdev\ und führt eine \glslink{pinch}{Pinch-Geste} aus, wodurch der Verbindungsvorgang angestoßen wird.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -22,8 +22,9 @@
 
 \newcommand{\useraction}{Der \sen\ hat das \sendev\ entweder auf einer Oberfläche - Kante an Kante - neben dem \recdev\ liegen, oder hat es in der Hand und hält es neben das \recdev{}. Er führt eine Pinch-Geste aus, wobei sich der Daumen auf dem Display des einen Geräts befindet und der Zeigefinger auf dem des anderen.}
 
-\newcommand{\reactionSen}{Auf beiden Geräten sollte zu verschiedenen Phasen des Pinchs Feedback gegeben werden. Ein Bump besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
-Da es sich bei \textbf{Bump to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Vor dem Bump besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{vermittlungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
+\newcommand{\reactionSen}{Auf beiden Geräten sollte zu verschiedenen Phasen des Pinchs Feedback gegeben werden. Ein Pinch besteht aus zwei simultanen Swipes, jeweils von der Bildschirmmitte der Geräte zum Rand. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Da es sich bei \textbf{Pinch to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Pinch einige relevanten Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Pinch, so wird der Verbindungsvorgang angestoßen. \\
+Vor dem Pinch besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{vermittlungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Pinch als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Pinch finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
 
 \newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev .\
 }
@@ -40,33 +41,34 @@ Da es sich bei \textbf{Bump to Connect} um eine \gls{synchronegeste} handelt, we
 \begin{tabularx}{\textwidth}{tsbbm}
 \thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
-Move & M & Gerät wurde bewegt (Accelerometerdaten) & \data\ ist ausgewählt &  Animation 1 \\ 
+Touch & M & Touch Down Event auf dem Screen & Touch auf dem \data\ &  Animation 1 \\ 
 \hline
-Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Accelerometerdaten) & Accelerometerdaten erfüllen Bump-Anforderungen & Animation 2 \\ 
+Move & M & Touch Move Event auf dem Screen & 
+Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\ 
 \hline
-Bump Recognized & S & Bump-Daten an Vermittlungskomponente gesendet und Antwort erhalten & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\ 
+Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
 \hline
 Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer \newline ist möglich & Animation 4 \\
 \hline
 \end{tabularx}
 \end{table}
-\caption{Atomare Interaktionen für das Bump to Connect Pattern}
+\caption{Atomare Interaktionen für das Pinch to Connect Pattern}
 \end{figure}
 *Typ: (M)anuell, (S)ystem
 }
 
 \newcommand{\animations}{
 \begin{enumerate}
-\item Move-Animation: visualisiert dem Benutzer, dass das physische Bewegen des Geräts eine Funktionalität darstellt (z.B. Ein Objekt auf dem Bildschirm bewegt sich etwas verzögert, als hätte es Masse)
-\item Abrupt Stop-Animation: visualisiert dem Benutzer, dass ein Bump auf seinem Gerät erkannt wurde (z.B. Das Objekt bleibt am angestoßenen Rand des Bildschirms)
-\item Bump Recognized-Animation: visualisiert dem Benutzer, dass die Bump-Geste richtig erkannt wurde. (z.B. Das Objekt färbt sich grün)
-\item Connect-Animation: visualisiert dem Benutzer, dass eine Verbindung hergestellt wurde(z.B. Das Objekt wird zu einem Stecker und bewegt sich in Richtung des anderen Geräts)
+\item Touch-Animation: visualisiert dem Benutzer, dass ein Pinch die Verbindungsfunktionalität auslöst (z.B. Ein Gerät zeigt eine Steckdose an, das andere einen Stecker. Führt man sie zusammen, so verbindet man die Geräte miteinander)
+\item Move-Animation: visualisiert dem Benutzer, dass die Objekte beweglich sind (z.B. Drag-and-Drop von Stecker und Steckdose)
+\item Release-Animation: visualisiert dem Benutzer, dass Geste erfolgreich ausgeführt wurde und ein Verbindungsaufbau initiiert wird (z.B. Stecker und Steckdose verbinden sich)
+\item Connect-Animation: visualisiert dem Benutzer, dass die Verbindung hergestellt wurde (z.B. Es fließen Daten durch die Kabel des Steckers und der Steckdose)
 \end{enumerate}
 }
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item[-] Beim Ausführen der Bump-Geste sollten die Geräte direkt aneinandergestoßen werden um eine möglichst gute Erkennung zu gewährleisten. Zudem sollte die Härte des Zusammenstoßes stark genug sein um eine Erkennung zu ermöglichen, jedoch die Geräte nicht beschädigen.
+\item[-] Beide involvierten Geräte benötigen einen Touchscreen.
 \item[-] Bei jeder Synchronen Connect-Geste muss es eine Vermittlungskomponente geben, an die die relevanten Daten der Geste gesendet werden. Diese vergleicht die empfangenen Daten der beiden involvierten Geräte und gibt positive oder negative Rückmeldung.
 \end{itemize}}
 
@@ -80,7 +82,7 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 %\newcommand{\sequentially}{}
 
 \newcommand{\online}{}
-%\newcommand{\offline}{}
+\newcommand{\offline}{}
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
@@ -88,14 +90,14 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 \newcommand{\stationary}{}
 \newcommand{\onthego}{}
 
-\newcommand{\leanback}{}
+%\newcommand{\leanback}{}
 \newcommand{\leanforward}{}
 
 \newcommand{\single}{}
-\newcommand{\collaboration}{}
-\newcommand{\facetoface}{}
+%\newcommand{\collaboration}{}
+%\newcommand{\facetoface}{}
 \newcommand{\sidetoside}{}
-\newcommand{\cornertocorner}{}
+%\newcommand{\cornertocorner}{}
 
 \newcommand{\notvalidcontext}{Sichtbarmachen vertraulicher Informationen (z.B. Name, Alter etc.) auf öffentlichen Displays.}
 
@@ -105,11 +107,11 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     x      &     x      &   x    &    x     &         \\ 
+Smartwatch            &            &            &        &          &         \\ 
 \hline 
-Smartphone            &     x      &     x      &   x    &     x    &        \\ 
+Smartphone            &            &     x      &   x    &     x    &        \\ 
 \hline 
-Tablet                &     x      &     x      &   x    &     x    &    
+Tablet                &            &     x      &   x    &     x    &    
 \\ 
 \hline 
 Tabletop              &            &            &        &          &         \\ 
@@ -129,18 +131,19 @@ Screens               &            &            &        &          &         \\
 
 \newcommand{\otherpatterns}{
 \begin{itemize}
-\item Bump To Give
-\item Bump To Take
-\item Bump To Exchange
-\item Nudge
+\item Spread To Disconnect
+\item Stitch To Give
+\item Stitch To Take
+\item Stitch To Extend
 \end{itemize}
 }
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
-\item Beispiel-Implementierung eines Bump Patterns \citep{Grab2015}.
+%\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
+%\item Beispiel-Implementierung eines Bump Patterns \citep{Grab2015}.
 %\item Microinteractions im Multi-Screen Kontext \citep{Madden2016}.
+\item Stitch-to-Tile: Eine Gestensteuerung zur Auslösung von Bildschirmerweiterung \citep{Madden2015}
 \end{enumerate}
 }
 
@@ -151,14 +154,14 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\imageSchemaObject}{}
 %\newcommand{\imageSchemaSubstance}{}
 %\newcommand{\imageSchemaCenterPeriphery}{}
-\newcommand{\imageSchemaContact}{}
+%\newcommand{\imageSchemaContact}{}
 %\newcommand{\imageSchemaFrontBack}{}
 %\newcommand{\imageSchemaLocation}{}
 %\newcommand{\imageSchemaNearFar}{}
-%\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaPath}{}
 %\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaScale}{}
-%\newcommand{\imageSchemaLeftRight}{}
+\newcommand{\imageSchemaLeftRight}{}
 %\newcommand{\imageSchemaContainer}{}
 %\newcommand{\imageSchemaContent}{}
 %\newcommand{\imageSchemaFullEmpty}{}
@@ -166,7 +169,7 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\imageSchemaSurface}{}
 %\newcommand{\imageSchemaMerging}{}
 %\newcommand{\imageSchemaSplitting}{}
-\newcommand{\imageSchemaMomentum}{}
+%\newcommand{\imageSchemaMomentum}{}
 %\newcommand{\imageSchemaSelfMotion}{}
 %\newcommand{\imageSchemaBigSmall}{}
 %\newcommand{\imageSchemaFastSlow}{}
@@ -179,7 +182,7 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Fistbump, Anstoßen (wie mit Getränken)}
+\newcommand{\metaphordesc}{Zusammenführen von Stecker und Steckdose}
 
 % -------------------------------
 % TECHNISCHES
@@ -190,12 +193,12 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\technologyObjectSocial}{}
 %\newcommand{\technologyObjectPublic}{}
 
-\newcommand{\technologyObjectDesc}{Über die Major- und Minor-Werte kann mit iBeacon jedem Endgerät eine einzigartige ID zugeordnet werden mit der Endgeräte identifiziert werden können. Um diese ID zwischen Bump-Partnern auszutauschen, wird auf beiden Geräten iBeacon zum Zeitpunk des Bumps für kurze Zeit aktiviert. Gerade lange genug, damit die Endgeräte alle aktiven Beacons in ihrem Umfeld sehen können. Dadurch besitzt jedes Gerät eine Liste an Beacons die zu einen bestimmten Zeitpunkt an einem Bump, in ihrer Empfangsreichweite, beteiligt waren. Können die Endgeräte jeweils nur ein anderes Beacon sehen, haben Sie ihren Bump-Partner identifiziert. Ist mehr als ein Beacon sichtbar, fanden mehrere Bumps zeitgleich statt. In diesen Fällen können die Partner, über die Entfernung der Geräte zueinander, ermittelt werden. Bei den Geräten mit dem geringsten Abstand handelt es sich um die Bump-Partner. Die Erkennung der Partnergeräte über die Entfernung macht es erforderlich, dass zeitgleiche Bumps mindestens einige Zentimeter voneinander entfernt stattfinden. Dies stellt sicher, dass eine falsche Zuordnung durch ungenaue Abstandsmessungen vermieden wird.}
+\newcommand{\technologyObjectDesc}{}
 
 %\newcommand{\technologyCommunicationServer}{}
 \newcommand{\technologyCommunicationAdhoc}{}
 
-\newcommand{\technologyCommunicationDesc}{Wird auf einem Gerät ein Bump registriert, ist der erste Schritt die Generierung von Zufallszahlen für den Major- und Minor-Wert von iBeacon. Diese Zahlen bilden eine eindeutige ID, mit der sich jedes Gerät im Netzwerk identifizieren kann. Anschließend wird iBeacon aktiviert, die Geräte können sich gegenseitig sehen, GeräteIDs lesen und die Distanz zu allen sichtbaren Beacons erfassen. Ist mehr als ein Beacon sichtbar, wird jenes ermittelt, welches die geringste Distanz zum suchenden Gerät aufweist. Die GeräteID dieses Geräts wird lokal gespeichert und iBeacon wird deaktiviert. Anschließend startet die DiscoveryPhase des Multipeer-Connectivity-Frameworks.}
+\newcommand{\technologyCommunicationDesc}{}
 
 %\newcommand{\technologyOrientationAccelerometer}{}
 %\newcommand{\technologyOrientationGPS}{}
@@ -216,15 +219,13 @@ Screens               &            &            &        &          &         \\
 
 \newcommand{\authors}{
 Benjamin Grab, Hochschule Mannheim\\
-Valentina Burjan, Hochschule Mannheim}
+Valentina Burjan, Hochschule Mannheim\\
+Horst Schneider, Hochschule Mannheim\\
+Dominick Madden, Hochschule Mannheim}
+
 \newcommand{\literature}{
 \begin{enumerate}
-\item Bump. [Online]. \url{http://bu.mp/}
-\item BumpTechnologies. Youtube.com. [Online]. \url{https://www.youtube.com/user/BumpTechnologies}
-\item Ken Hinckley. 2003. Synchronous gestures for multiple persons and computers. In Proceedings of the 16th annual ACM symposium on User interface software and technology (UIST '03). ACM, New York, NY, USA, 149-158. DOI=10.1145/964696.964713 
-\item \url{https://github.com/informatik-mannheim/thesis-bump-to-transfer/tree/master/sources/
-Bumper}\\
-Swift-Code zu der Demonstrator Applikationen von Bump
+\item Ken Hinckley. 2003. Synchronous gestures for multiple persons and computers. In Proceedings of the 16th annual ACM symposium on User interface software and technology (UIST '03). ACM, New York, NY, USA, 149-158. DOI=10.1145/964696.964713
 \end{enumerate}
 }
 \newcommand{\figures}{...}
