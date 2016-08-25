@@ -106282,9 +106282,9 @@
 																	"showShadow": false,
 																	"containerChangeable": false,
 																	"containerExtending": false,
-																	"left": 215,
-																	"top": 569,
-																	"width": 140,
+																	"left": 255,
+																	"top": 467,
+																	"width": 147,
 																	"height": 13,
 																	"autoResize": false,
 																	"underline": false,
@@ -106307,12 +106307,12 @@
 																	"containerChangeable": false,
 																	"containerExtending": false,
 																	"left": 255,
-																	"top": 475,
+																	"top": 469,
 																	"width": 147,
 																	"height": 13,
 																	"autoResize": false,
 																	"underline": false,
-																	"text": "Event A",
+																	"text": "Event A: BumpEvent",
 																	"horizontalAlignment": 2,
 																	"verticalAlignment": 5
 																},
@@ -106332,7 +106332,7 @@
 																	"containerChangeable": false,
 																	"containerExtending": false,
 																	"left": 239,
-																	"top": 586,
+																	"top": 574,
 																	"width": 165.4453125,
 																	"height": 13,
 																	"autoResize": false,
@@ -106357,7 +106357,7 @@
 																	"containerChangeable": false,
 																	"containerExtending": false,
 																	"left": 36,
-																	"top": 18,
+																	"top": 6,
 																	"width": 0,
 																	"height": 13,
 																	"autoResize": false,
@@ -106376,7 +106376,7 @@
 															"containerChangeable": false,
 															"containerExtending": false,
 															"left": 250,
-															"top": 468,
+															"top": 462,
 															"width": 157,
 															"height": 25,
 															"autoResize": false,
@@ -106404,7 +106404,7 @@
 													"containerChangeable": true,
 													"containerExtending": false,
 													"left": 250,
-													"top": 468,
+													"top": 462,
 													"width": 157,
 													"height": 25,
 													"autoResize": false,
@@ -106483,7 +106483,7 @@
 																	"height": 13,
 																	"autoResize": false,
 																	"underline": false,
-																	"text": "Event B",
+																	"text": "Event B: BumpEvent",
 																	"horizontalAlignment": 2,
 																	"verticalAlignment": 5
 																},
@@ -108614,7 +108614,11 @@
 											},
 											"name": "Event A",
 											"documentation": "test\n",
+											"stereotype": "",
 											"visibility": "public",
+											"type": {
+												"$ref": "AAAAAAFQKG6/9R4kMsg="
+											},
 											"isControlType": false,
 											"ordering": "FIFO"
 										},
@@ -108626,6 +108630,9 @@
 											},
 											"name": "Event B",
 											"visibility": "public",
+											"type": {
+												"$ref": "AAAAAAFQKG6/9R4kMsg="
+											},
 											"isControlType": false,
 											"ordering": "FIFO"
 										},
@@ -108821,7 +108828,7 @@
 									"_parent": {
 										"$ref": "AAAAAAFWeWzNyS60+Ng="
 									},
-									"name": "AsymmetricBump",
+									"name": "Recognize Bump",
 									"ownedElements": [
 										{
 											"_type": "UMLStatechartDiagram",
@@ -108829,7 +108836,7 @@
 											"_parent": {
 												"$ref": "AAAAAAFQGGg91ukhN2Y="
 											},
-											"name": "AsymmetricBump",
+											"name": "Recognize Bump",
 											"visible": true,
 											"defaultDiagram": false,
 											"ownedViews": [
@@ -108898,7 +108905,7 @@
 																	"height": 13,
 																	"autoResize": false,
 																	"underline": false,
-																	"text": "Checking Internal Bump",
+																	"text": "Recognize Bump",
 																	"horizontalAlignment": 2,
 																	"verticalAlignment": 5
 																},
@@ -112497,7 +112504,7 @@
 													"_parent": {
 														"$ref": "AAAAAAFQGGg91ukiaBI="
 													},
-													"name": "Checking Internal Bump",
+													"name": "Recognize Bump",
 													"visibility": "public",
 													"regions": [
 														{
