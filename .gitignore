@@ -22,3 +22,4 @@
 *0x.png
 output/
 composer/*
+.sass-cache/
