@@ -42,11 +42,11 @@ Da es sich bei \textbf{Bump to Take} um eine \gls{synchronegeste} handelt, werde
 \begin{tabularx}{\textwidth}{tsbbm}
 \thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
-Move & M & Gerät wurde bewegt (Accelerometerdaten) & \data\ ist ausgewählt &  Animation 1 \\ 
+Move & M & Gerät wurde bewegt (Accelerometerdaten) & \data\ ist ausgewählt &  Animation 1 \\
 \hline
-Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Accelerometerdaten) & Accelerometerdaten erfüllen Bump-Anforderungen & Animation 2 \\ 
+Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Accelerometerdaten) & Accelerometerdaten erfüllen Bump-Anforderungen & Animation 2 \\
 \hline
-Bump Recognized & S & Bump-Daten von anderem Gerät empfangen und mit eigenen verglichen & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\ 
+Bump Recognized & S & Bump-Daten von anderem Gerät empfangen und mit eigenen verglichen & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\
 \hline
 Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vibration \\
 \hline
@@ -103,21 +103,21 @@ Receive Request & S & Daten wurden angefordert & Angeforderte Daten können vers
 \newcommand{\devicetabular}{
 \begin{figure}[H]
 \begin{tabular}{|c|c|c|c|c|c|}
-\hline 
-\diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
-\hline 
-Smartwatch          &     x      &     x      &   x    &     x    &        \\ 
-\hline 
-Smartphone          &     x      &     x      &   x    &     x    &        \\ 
-\hline 
-Tablet              &     x      &     x      &   x    &     x    &        \\ 
-\hline 
-Tabletop            &            &            &        &          &        \\ 
 \hline
-Screens             &            &            &        &          &         \\ 
-\hline 
+\diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\
+\hline
+Smartwatch          &     x      &     x      &   x    &     x    &        \\
+\hline
+Smartphone          &     x      &     x      &   x    &     x    &        \\
+\hline
+Tablet              &     x      &     x      &   x    &     x    &        \\
+\hline
+Tabletop            &            &            &        &          &        \\
+\hline
+Screens             &            &            &        &          &         \\
+\hline
 \end{tabular}
-\caption{Geräteklassen für das Bump To Take Pattern} 
+\caption{Geräteklassen für das Bump To Take Pattern}
 \end{figure}
 }
 
@@ -234,23 +234,13 @@ dieser Grundlage wurde ein Algorithmus entwickelt, der die durch den Aufprall er
 \newcommand{\authors}{
 Benjamin Grab, Hochschule Mannheim\\
 Valentina Burjan, Hochschule Mannheim\\
-Dominick Madden, Hochschule Mannheim}
-\newcommand{\literature}{
-\begin{enumerate}
-\item Bump. [Online]. \url{http://bu.mp/}
-\item BumpTechnologies. Youtube.com. [Online]. \url{https://www.youtube.com/user/BumpTechnologies}
-\item Ken Hinckley. 2003. Synchronous gestures for multiple persons and computers. In Proceedings of the 16th annual ACM symposium on User interface software and technology (UIST '03). ACM, New York, NY, USA, 149-158. DOI=10.1145/964696.964713 
-\item \url{https://github.com/informatik-mannheim/thesis-bump-to-transfer/tree/master/sources/
-Bumper}\\
-Swift-Code zu der Demonstrator Applikationen von Bump
-\end{enumerate}
-}
-\newcommand{\figures}{...}
-\newcommand{\versionhistory}{...}
-\newcommand{\dateofcreation}{20. September 2015}
+Dominick Madden, Hochschule Mannheim\\
+Horst Schneider, Hochschule Mannheim}
+
+\newcommand{\versionhistory}{30.08.2016}
+\newcommand{\dateofcreation}{20.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
-
 
 % template inkludieren --------------
 
