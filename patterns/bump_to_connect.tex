@@ -140,8 +140,7 @@ Screens               &            &            &        &          &         \\
 \begin{enumerate}
 \item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
 \item Beispiel-Implementierung eines Bump Patterns \citep{Grab2015}.
-\item Hinckley, K. \citep{Hinckley2003}
-%\item Microinteractions im Multi-Screen Kontext \citep{Madden2016}.
+\item Ken Hinckley - Forschung zu Bump-Gesten im Speziellen und Definition synchroner Gesten im Allgemeinen \citep{Hinckley2003}.
 \end{enumerate}
 }
 
@@ -189,9 +188,9 @@ Screens               &            &            &        &          &         \\
 \newcommand{\requiredTechnologies}{
 Um Bump To Connect auf einem Gerät (\textit{Device}) ausführen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der verfügbaren Technologien auf diesem Gerät. Ein Gerät ist dann verwendbar, wenn es folgende Eigenschaften aufweist (s. Abbildung \ref{bump_hardware}):
 \begin{itemize}
-\item \textbf{Input}: Unbedingte Voraussetzung für die Erkennung von Bump-Gesten ist die Möglichkeit, die Beschleunigung eines Gerätes messen zu können. Dazu wird in mobilen Geräten zumeist ein Beschleunigungssensor (Accelerometer) verbaut, der auf Änderungen in der Geschwindigkeit reagiert und diese Werte Applikationen zur Verfügung stellt.
+\item \textbf{Input}: Unbedingte Voraussetzung für die Erkennung von Bump-Gesten ist die Möglichkeit, die Beschleunigung eines Gerätes messen zu können. Dazu wird in mobilen Geräten zumeist ein \Gls{accelerometer} verbaut, dessen Werte von Applikationen verarbeitet werden können.
 \item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind visueller Output (Bildschirm) sowie Vibration und Sound denkbar, um erkannte Geräte und aufgebaute Verbindungen zu signalisieren.
-\item \textbf{Connectivity}: Ziel der Bump To Connect Geste ist das Aufbauen einer Verbindung zwischen zwei Geräten. Da die Geräte sich vorher nicht kennen, aber ein Protokoll für die Erkennung der synchronen Geste notwendig ist, ist ein Infrastruktur-Komponente (z.B. Message-Queue-Server, Webservice o.Ä.) zur Vermittlung zwischen den Geräten notwendig. Der anschließende Verbindungsaufbau zwischen den Geräten erfolgt über ein Ad-Hoc-Netzwerk wie Bluetooth oder WiFi Direct.
+\item \textbf{Connectivity}: Ziel der Bump To Connect Geste ist das Aufbauen einer Verbindung zwischen zwei Geräten. Da die Geräte sich vorher nicht kennen, aber ein Protokoll für die Erkennung der synchronen Geste verwendet wird, ist eine \Gls{vermittlungskomponente} (z.B. Message-Queue-Server, Webservice o.Ä.) zur Vermittlung zwischen den Geräten notwendig. Der anschließende Verbindungsaufbau zwischen den Geräten erfolgt über ein Ad-Hoc-Netzwerk wie Bluetooth oder WiFi Direct.
 \end{itemize}
 
 \begin{figure}[h]
@@ -203,56 +202,57 @@ Um Bump To Connect auf einem Gerät (\textit{Device}) ausführen zu können, gib
 
 \newcommand{\implementation}{
 \subsubsection*{Erkennung synchroner Gesten}
-Bei der Geste Bump To Connect handelt es sich um eine \textit{synchrone Geste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf entfällt in zwei Teile (s. Abbildung \ref{gesture_detection}):
-\begin{itemize}
-\item Erkennen der Geste (\textit{Gesture Detection}) und
-\item Überprüfen eventueller Bedingungen an die Geste (\textit{Constraint Check}).
-\end{itemize}
+Bei der Geste Bump To Connect handelt es sich um eine \Gls{synchronegeste}. Abbildung \ref{sync_gesture_detection} zeigt den Ablauf der synchronen Gestenerkennung, der in mehrere Teile zerfällt:
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{synchronous_gesture_detection.png}
-\caption{Allgemeiner Ablauf einer Gestenerkennung}
-\label{gesture_detection}
-\end{figure}
-Wurde die Geste erkannt, wird ein entsprechendes \textit{GestureEvent} generiert, das an den \textit{Constraint Check} übergeben wird.
-
-\subsubsection*{Bump Erkennung}
-Zum Erkennen der Geste wird \textit{Proximity}-Hardware vorausgesetzt, die \textit{Ranging} ermöglicht, also eine kontinuierliche Suche nach Geräten in der Umgebung. Gefundene Geräte sollten sich mit einer \textit{Service-UUID} o.Ä. identifizieren, anhand derer sie als mögliche Verbindungspartner identifiziert werden können. Daraus ergeben sich folgende Events:
-\begin{itemize}
-\item \textbf{DEVICE\_FOUND}: Beim Ranging wurde ein entferntes Gerät gefunden.
-\item \textbf{MATCH}: Ein gefundenes Gerät besitzt die korrekte Service-UUID.
-\item \textbf{NO\_MATCH}: Ein gefundenes Gerät besitzt eine ungültige Service-UUID.
-\item \textbf{STOP\_RANGING}: Das Ranging wurde beendet, es werden keine weiteren. 
-\end{itemize}
-
-Basierend auf diesen Events ergibt sich die Implementierung der Approach-Erkennung entsprechend Abbildung \ref{recognize_approach}. Ein Approach wird dann erkannt, wenn ein beim Ranging gefundenes Gerät die erwartete Service-UUID besitzt. Danach kann entweder nach weiteren Geräten gesucht oder die Suche beendet werden. Besitzt ein gefundenes Gerät keine gültige Service-UUID, wird so lange weiter gesucht, bis entweder ein möglicher Verbindungspartner gefunden wurde oder ein Abbruch des Ranging signalisiert wird. Wurde ein Approach erkannt, wird ein \textit{ProximityEvent} generiert, das für die Überprüfung der \textit{Constraints} im nächsten Schritt benötigt wird.
-
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{approach_recognize.png}
-\caption{Erkennung der Approach Geste}
-\label{recognize_approach}
+\caption{Allgemeiner Ablauf einer synchronen Gestenerkennung}
+\label{sync_gesture_detection}
 \end{figure}
 
-\subsubsection*{Bump Constraint Check}
-Um einzuschränken, unter welchen Bedingungen eine Annäherung als Approach To Connect gewertet werden soll, wird das im vorigen Schritt generierte \textit{ProximityEvent} mit vorher gesetzten \textit{Constraint} verglichen. Abbildung \ref{check_approach_constraints} zeigt beispielhaft den Ablauf des \textit{Constraint Checks}. Es werden zwei Constraints überprüft:
 \begin{itemize}
-\item Ein Integer, die sog. Major-Nummer und
-\item die Entfernung (\textit{Proximity}) zum erkannten Gerät.
+\item Registrierung bei einer zentralen Vermittlungskomponente.
+\item Erkennung der Einzelanteile einer synchronen Geste pro Gerät (\textit{Gesture Detection)}, entspricht jeweils der Erkennung für \glspl{einfachegeste}.
+\item Vergleich der resultierenden \textit{GestureEvents} aus der einfachen Gestenerkennung (\textit{Gesture Event Matching}) durch die Vermittlungskomponente.
+\item Vermittlung von Verbindungsdaten, wenn die Geste erfolgreich erkannt wurde.
 \end{itemize}
-Der erste Constraint ist angelehnt an das iBeacon-Protokoll, in dem neben einer Service-UUID (s. voriges Kapitel) zur eindeutigen Identifikation von Geräten eine Major- und Minor-Nummer gesendet werden können. Dadurch kann der Kreis möglicher Verbindungspartner weiter eingeschränkt werden. 
-Im nächsten Schritt wird die gemessene Entfernung mit einem Vorgabewert verglichen. Die vier Bereiche \textit{immediate}, \textit{near}, \textit{far} und \textit{unknown} sind angelehnt an \cite{Marquardt2015} und können auch durch konkrete Entfernungswerte ersetzt werden.\\
+
+Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde  eine Geste lokal erkannt, entscheidet die Vermittlungskomponente, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Bump To Connect Geste jeweils im Detail.
+
+\subsubsection*{Bump Gesture Detection}
+Die Gesture Detection für Bump Gesten speichert eine Reihe von Beschleunigungsvektoren des Accelerometers, sobald ein anfänglicher Schwellwert (Parameter \texttt{threshold}) überschritten wurde (Übergang vom state \texttt{idle} in den state \texttt{recording}). Die Anzahl der gespeicherten Beschleunigungsvektoren vor dem Übergang in den state \texttt{Counting Peaks} hängt vom Parameter \texttt{win\-dow\_size} ab. Im state \texttt{Counting Peaks} werden sog. \texttt{peaks} (Spitzen) in der Beschleunigung gezählt, also Beschleunigungsvektoren, deren Betrag jeweils größer oder kleiner als die der nächsten Nachbarn in der Liste ist. Ist die Anzahl der \texttt{peaks} größer als der Parameter \texttt{min\_peaks}, wird ein Bump erkannt und an die Vermittlungskomponente übermittelt (s. Abbildung \ref{sync_gesture_detection}).
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{bump_recognize.png}
+\caption{Gesture Detection der Bump Geste lokal auf einem Gerät}
+\label{recognize_bump}
+\end{figure}
+
+Über die drei Parameter \texttt{threshold}, \texttt{min\_peaks} sowie \texttt{window\_size} lässt sich die Empfindlichkeit der Bumperkennung einstellen bzw. Ungenauigkeiten bei der Verwendung unterschiedlicher Accelerometer ausgleichen.
+
+\subsubsection*{Bump Event Matching}
+Die Vermittlungskomponente führt ein \textit{Bump Event Matching} durch, wenn von zwei Geräten \textit{BumpEvents} empfangen wurden, die als komplementäre Anteile einer synchronen Geste in Frage kommen könnten. Abbildung \ref{bump_event_matching} veranschaulicht einen exemplarischen Ablauf dieses Vergleiches.
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{bump_event_matching.png}
+\caption{Bump Event Matching - Vergleichen zweier Bump Events durch die Vermittlungskomponente}
+\label{bump_event_matching}
+\end{figure}
+
+Grundsätzlich kann der Vergleich anhand beliebiger Parameter vorgenommen werden, die im übermittelten \textit{BumpEvent} enthalten sind. Das Beispiel in Abbildung \ref{bump_event_matching} vergleicht zwei Events anhand ihrer
+\begin{itemize}
+\item höchsten Peaks (\texttt{max\_peak\_a} bzw. \texttt{max\_peak\_b}) mit einer konfigurierbaren Toleranz von \texttt{max\_peak\_delta} und
+\item ihrer Zeitstempel (\texttt{timestamp\_end\_a} und \texttt{timestamp\_end\_b}) mit einer  konfigurierbaren Toleranz von \texttt{max\_time\_delta}.
+\end{itemize} 
+
+Weitere Vergleiche sind denkbar, sofern die \textit{Bump Gesture Detection} aus Kapitel \ref{recognize_bump} diese Werte im \textit{BumpEvent} zur Verfügung stellt.
 
 Entsprechend dem Lebenszyklus einer Multiscreen-Applikation besteht nach erfolgreich
-ausgeführtem Approach To Connect eine Verbindung zum \recdev{}, was die Voraussetzung für Transfer-Gesten ist.
+ausgeführtem Bump To Connect eine Verbindung zwischen zwischen zwei Geräten, was die Voraussetzung für anschließende Transfer- oder Disconnect-Gesten ist.
+
 Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren
 Gestaltungsmöglichkeiten für den \textit{Connect}, \textit{Feedbacks} etc. finden sich
 auf der \developerpage.
-
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{approach_check_constraints.png}
-\caption{Überprüfung der Constraints für die Approach Geste}
-\label{check_approach_constraints}
-\end{figure}
 }
 
 % -------------------------------
