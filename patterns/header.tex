@@ -15,16 +15,17 @@
 \usepackage{tabularx}
 \usepackage{csquotes}
 \usepackage{hyperref}
+\usepackage{booktabs}
 % for some reason, the grouping has to be disabled because htlatex won't work with it!
 \usepackage[nonumberlist,nogroupskip]{glossaries}
 \usepackage[natbib=true,bibstyle=numeric,backend=bibtexu,citestyle=numeric]{biblatex}
-\bibliography{lit.bib} 
+\bibliography{lit.bib}
 \renewcommand\theadalign{cb}
 \renewcommand\theadfont{\bfseries}
 \renewcommand\theadgape{\Gape[4pt]}
 
 \usepackage{nopageno}
-\makeglossaries
+\makeglossaries{}
 
 \include{glossary}
 
@@ -37,7 +38,7 @@
 \ifx#1\undefined
   $\Box$
 \else
-  $\boxtimes$  
+  $\boxtimes$
 \fi}
 
 % Template für optionale Listenpunkte ----

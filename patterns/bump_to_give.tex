@@ -41,11 +41,11 @@ Da es sich bei \textbf{Bump to Give} um eine \gls{synchronegeste} handelt, werde
 \begin{tabularx}{\textwidth}{tsbbm}
 \thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
-Move & M & Gerät wurde bewegt (Accelerometerdaten) & \data\ ist ausgewählt &  Animation 1 \\ 
+Move & M & Gerät wurde bewegt (Accelerometerdaten) & \data\ ist ausgewählt &  Animation 1 \\
 \hline
-Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Accelerometerdaten) & Accelerometerdaten erfüllen Bump-Anforderungen & Animation 2 \\ 
+Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Accelerometerdaten) & Accelerometerdaten erfüllen Bump-Anforderungen & Animation 2 \\
 \hline
-Bump Recognized & S & Bump-Daten von anderem Gerät empfangen und mit eigenen verglichen & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\ 
+Bump Recognized & S & Bump-Daten von anderem Gerät empfangen und mit eigenen verglichen & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\
 \hline
 Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vibration \\
 \hline
@@ -65,7 +65,7 @@ Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vi
 \end{enumerate}
 }
 
-\newcommand{\designnotes}{ 
+\newcommand{\designnotes}{
 Beim Ausführen der Bump-Geste sollten die Geräte direkt aneinandergestoßen werden um eine möglichst gute Erkennung zu gewährleisten. Zudem sollte die Härte des Zusammenstoßes stark genug sein um eine Erkennung zu ermöglichen, jedoch die Geräte nicht beschädigen.}
 
 % -------------------------------
@@ -95,21 +95,21 @@ Beim Ausführen der Bump-Geste sollten die Geräte direkt aneinandergestoßen we
 \newcommand{\devicetabular}{
 \begin{figure}[H]
 \begin{tabular}{|c|c|c|c|c|c|}
-\hline 
-\diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
-\hline 
-Smartwatch          &     x      &     x      &   x    &     x    &        \\ 
-\hline 
-Smartphone          &     x      &     x      &   x    &     x    &        \\ 
-\hline 
-Tablet              &     x      &     x      &   x    &     x    &        \\ 
-\hline 
-Tabletop            &            &            &        &          &        \\ 
 \hline
-Screens             &            &            &        &          &         \\ 
-\hline 
+\diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\
+\hline
+Smartwatch          &     x      &     x      &   x    &     x    &        \\
+\hline
+Smartphone          &     x      &     x      &   x    &     x    &        \\
+\hline
+Tablet              &     x      &     x      &   x    &     x    &        \\
+\hline
+Tabletop            &            &            &        &          &        \\
+\hline
+Screens             &            &            &        &          &         \\
+\hline
 \end{tabular}
-\caption{Geräteklassen für das Bump To Give Pattern} 
+\caption{Geräteklassen für das Bump To Give Pattern}
 \end{figure}
 }
 
@@ -135,7 +135,7 @@ Screens             &            &            &        &          &         \\
 \begin{enumerate}
 \item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
 \item Beispiel-Implementierung eines Bump Patterns \citep{Grab2015}.
-\item Hinckley, K. \citep{Hinckley2003}
+\item Ken Hinckley - Forschung zu Bump-Gesten im Speziellen und Definition synchroner Gesten im Allgemeinen \citep{Hinckley2003}.
 \end{enumerate}
 }
 
@@ -180,43 +180,76 @@ Screens             &            &            &        &          &         \\
 % TECHNISCHES
 % -------------------------------
 
-\newcommand{\technologyObjectIntimate}{}
-\newcommand{\technologyObjectPersonal}{}
-%\newcommand{\technologyObjectSocial}{}
-%\newcommand{\technologyObjectPublic}{}
+\newcommand{\requiredTechnologies}{
+Um Bump To Give auf einem Gerät (\textit{Device}) ausführen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der in dem Gerät verfügbaren Technologien. Ein Gerät ist dann verwendbar, wenn es folgende Eigenschaften aufweist (s. Abbildung \ref{bump_hardware}):
+\begin{itemize}
+\item \textbf{Input}: Unbedingte Voraussetzung für die Erkennung von Bump-Gesten ist die Möglichkeit, die Beschleunigung eines Gerätes messen zu können. Dazu wird in mobilen Geräten zumeist ein \Gls{accelerometer} verbaut, dessen Werte von Applikationen verarbeitet werden können.
+\item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind visueller Output (Bildschirm) sowie Vibration und Sound einsetzbar, um erkannte Geräte und aufgebaute Verbindungen zu signalisieren.
+\item \textbf{Connectivity}: Ziel der Bump To Give Geste ist die Dateiübertragung zwischen zwei Geräten, die bereits über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct miteinander verbunden sind. Alternativ kann auch eine Vermittlungskomponente (Server) genutzt werden, der den Datenaustausch zentral verwaltet und die Bumperkennung durchführt.
+\end{itemize}
 
-\newcommand{\technologyObjectDesc}{Über die Major- und Minor-Werte kann mit iBeacon jedem Endgerät eine einzigartige ID zugeordnet werden mit der Endgeräte identifiziert werden können. Um diese ID zwischen Bump-Partnern auszutauschen, wird auf beiden Geräten iBeacon zum Zeitpunk des Bumps für kurze Zeit aktiviert. Gerade lange genug, damit die Endgeräte alle aktiven Beacons in ihrem Umfeld sehen können. Dadurch besitzt jedes Gerät eine Liste an Beacons die zu einen bestimmten Zeitpunkt an einem Bump, in ihrer Empfangsreichweite, beteiligt waren. Können die Endgeräte jeweils nur ein anderes Beacon sehen, haben Sie ihren Bump-Partner identifiziert. Ist mehr als ein Beacon sichtbar, fanden mehrere Bumps zeitgleich statt. In diesen Fällen können die Partner, über die Entfernung der Geräte zueinander, ermittelt werden. Bei den Geräten mit dem geringsten Abstand handelt es sich um die Bump-Partner. Die Erkennung der Partnergeräte über die Entfernung macht es erforderlich, dass zeitgleiche Bumps mindestens einige Zentimeter voneinander entfernt stattfinden. Dies stellt sicher, dass eine falsche Zuordnung durch ungenaue Abstandsmessungen vermieden wird.}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{bump_hardware.png}
+\caption{Benötigte Technologien für das Bump To Give Pattern}
+\label{bump_hardware}
+\end{figure}
+}
 
-%\newcommand{\technologyCommunicationServer}{}
-\newcommand{\technologyCommunicationAdhoc}{}
+\newcommand{\implementation}{
+\subsubsection*{Erkennung synchroner Gesten}
+Bei der Geste Bump To Give handelt es sich um eine \gls{synchronegeste}. Abbildung \ref{sync_gesture_detection} zeigt den Ablauf der synchronen Gestenerkennung, die in mehrere Teile zerfällt:
 
-\newcommand{\technologyCommunicationDesc}{Wird auf einem Gerät ein Bump registriert, ist der erste Schritt die Generierung von Zufallszahlen für den Major- und Minor-Wert von iBeacon. Diese Zahlen bilden eine eindeutige ID, mit der sich jedes Gerät im Netzwerk identifizieren kann. Anschließend wird iBeacon aktiviert, die Geräte können sich gegenseitig sehen, GeräteIDs lesen und die Distanz zu allen sichtbaren Beacons erfassen. Ist mehr als ein Beacon sichtbar, wird jenes ermittelt, welches die geringste Distanz zum suchenden Gerät aufweist. Die GeräteID dieses Geräts wird lokal gespeichert und iBeacon wird deaktiviert. Anschließend startet die DiscoveryPhase des Multipeer-Connectivity-Frameworks.}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{synchronous_gesture_detection.png}
+\caption{Allgemeiner Ablauf einer synchronen Gestenerkennung}
+\label{sync_gesture_detection}
+\end{figure}
 
-\newcommand{\technologyOrientationAccelerometer}{}
-%\newcommand{\technologyOrientationGPS}{}
-%\newcommand{\technologyOrientationGyroskop}{}
-%\newcommand{\technologyOrientationAnnaeherung}{}
-%\newcommand{\technologyOrientationHoehe}{}
-\newcommand{\technologyOrientationBeacons}{}
-%\newcommand{\technologyOrientationOther}{}
+\begin{itemize}
+\item Registrierung bei einer zentralen Vermittlungskomponente,
+\item Erkennung der Einzelanteile einer synchronen Geste pro Gerät (\textit{Gesture Detection)}, entspricht jeweils der Erkennung für \glspl{einfachegeste},
+\item Vergleich der resultierenden \textit{GestureEvents} aus der einfachen Gestenerkennung (\textit{Gesture Event Matching}) durch die Vermittlungskomponente und
+\item Vermittlung von Verbindungsdaten, wenn die Geste erfolgreich erkannt wurde.
+\end{itemize}
 
-\newcommand{\technologyOrientationDesc}{-}
+Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde  eine Geste lokal erkannt und an das entsprechende \textit{GestureEvent} an die Vermittlungskomponente gesendet, entscheidet diese, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Bump To Give Geste jeweils im Detail.
 
-\newcommand{\prototype}{
-Die Bump-Interaktion besteht aus drei Teilsystemen:
-Eines dieser Systeme muss erkennen, wenn Endgeräte angestoßen werden. Ein weiteres System muss Endgeräte identifizieren können, damit die Daten zwischen den
-richtigen Geräten ausgetauscht werden. Außerdem wird ein System benötigt, über das ein Kommunikationskanal zwischen den Geräten hergestellt wird, über den Daten
-ausgetauscht werden können.\\
+Da bei Bump To Give bereits eine Verbindung zwischen den Geräten besteht, ist es auch möglich, dass eins der Geräte das \textit{Bump Event Matching} durchführt und dadurch als Vermittlungskomponente fungiert.
 
-Es wurden drei iOS Frameworks genutzt für die Umsetzung von Bump:
-\begin{enumerate}
-\item Core Motion Framework: bietet Applikationen Zugang zu Sensordaten (Beschleunigungssensor) die durch die Gerätehardware erfasst werden
-\item Core Location Framework: bietet Zugriff auf die Technologien GPS und iBeacon, mit denen standortbasierte Dienste realisiert werden können.
-\item Multipeer Connectivity Framework: bietet Kommunikation für iOS und MacOS Geräte über WLAN oder Bluetooth zu kommunizieren.
-\end{enumerate}
 
-Wichtig ist, dass sich die Geräte gegenseitig anstoßen, um den Verbindungsaufbau und den Datenaustausch zwischen den Geräten auszulösen. Der dabei auftretende Zusammenprall der Geräte aneinander erzeugt Kräfte, die durch Beschleunigungssensoren gemessen werden können. Auf
-dieser Grundlage wurde ein Algorithmus entwickelt, der die durch den Aufprall erzeugten Daten des Accelerometers auswertet, um zu erkennen, wann ein Bump stattgefunden hat.\\
+\subsubsection*{Bump Gesture Detection}
+Die Gesture Detection für Bump Gesten speichert eine Reihe von Beschleunigungsvektoren des Accelerometers, sobald ein anfänglicher Schwellwert (Parameter \texttt{threshold}) überschritten wurde (Übergang vom state \texttt{idle} in den state \texttt{recording}). Die Anzahl der gespeicherten Beschleunigungsvektoren vor dem Übergang in den state \texttt{Counting Peaks} hängt vom Parameter \texttt{win\-dow\_size} ab. Im state \texttt{Counting Peaks} werden sog. \texttt{peaks} (Spitzen) in der Beschleunigung gezählt, also Beschleunigungsvektoren, deren Betrag jeweils größer oder kleiner als die der nächsten Nachbarn in der Liste ist. Ist die Anzahl der \texttt{peaks} größer als der Parameter \texttt{min\_peaks}, wird ein Bump erkannt und an die Vermittlungskomponente übermittelt (s. Abbildung \ref{sync_gesture_detection}).
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{bump_recognize.png}
+\caption{Gesture Detection der Bump Geste lokal auf einem Gerät}
+\label{recognize_bump}
+\end{figure}
+
+Über die drei Parameter \texttt{threshold}, \texttt{min\_peaks} sowie \texttt{window\_size} lässt sich die Empfindlichkeit der Bumperkennung einstellen bzw. Ungenauigkeiten bei der Verwendung unterschiedlicher Accelerometer ausgleichen.
+
+\subsubsection*{Bump Event Matching}
+Die Vermittlungskomponente führt ein \textit{Bump Event Matching} durch, wenn von zwei Geräten \textit{BumpEvents} empfangen wurden, die als komplementäre Anteile einer synchronen Geste in Frage kommen könnten. Abbildung \ref{bump_event_matching} veranschaulicht einen exemplarischen Ablauf dieses Vergleiches.
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{bump_event_matching.png}
+\caption{Bump Event Matching - Vergleichen zweier Bump Events durch die Vermittlungskomponente}
+\label{bump_event_matching}
+\end{figure}
+
+Grundsätzlich kann der Vergleich anhand beliebiger Parameter vorgenommen werden, die im übermittelten \textit{BumpEvent} enthalten sind. Das Beispiel in Abbildung \ref{bump_event_matching} vergleicht zwei Events anhand ihrer
+\begin{itemize}
+\item höchsten Peaks (\texttt{max\_peak\_a} bzw. \texttt{max\_peak\_b}) mit einer konfigurierbaren Toleranz von \texttt{max\_peak\_delta} und
+\item ihrer Zeitstempel (\texttt{timestamp\_end\_a} und \texttt{timestamp\_end\_b}) mit einer  konfigurierbaren Toleranz von \texttt{max\_time\_delta}.
+\end{itemize} 
+
+Weitere Vergleiche sind denkbar, sofern die \textit{Bump Gesture Detection} diese Werte im \textit{BumpEvent} zur Verfügung stellt.
+
+Entsprechend dem Lebenszyklus einer Multiscreen-Applikation ist die Voraussetzung für Bump To Give eine bestehende Verbindung zwischen zwei Geräten (vorangegangener \textit{Connect}) und die Auswahl zu übermittelnder Daten (\textit{Select}) auf dem \sendev{}. Bump To Give kann mehrmals hintereinander ausgeführt werden (Sequenz von \textit{Transfers}), solange kein \textit{Disconnect} erfolgt ist. \\
+
+Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren
+Gestaltungsmöglichkeiten für den \textit{Transfer}, \textit{Feedbacks} etc. finden sich
+auf der \developerpage.
 }
 
 
@@ -229,18 +262,10 @@ Benjamin Grab, Hochschule Mannheim\\
 Valentina Burjan, Hochschule Mannheim\\
 Dominick Madden, Hochschule Mannheim\\
 Horst Schneider, Hochschule Mannheim}
-\newcommand{\literature}{
-\begin{enumerate}
-\item Bump. [Online]. \url{http://bu.mp/}
-\item BumpTechnologies. Youtube.com. [Online]. \url{https://www.youtube.com/user/BumpTechnologies}
-\item Ken Hinckley. 2003. Synchronous gestures for multiple persons and computers. In Proceedings of the 16th annual ACM symposium on User interface software and technology (UIST '03). ACM, New York, NY, USA, 149-158. DOI=10.1145/964696.964713 
-\item \url{https://github.com/informatik-mannheim/thesis-bump-to-transfer/tree/master/sources/
-Bumper}\\
-Swift-Code zu der Demonstrator Applikationen von Bump
-\end{enumerate}}
+
 \newcommand{\figures}{...}
-\newcommand{\versionhistory}{07. September 2016}
-\newcommand{\dateofcreation}{17. September 2015}
+\newcommand{\versionhistory}{07.09.2016}
+\newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
 

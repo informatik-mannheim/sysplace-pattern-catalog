@@ -23,3 +23,4 @@
 output/
 composer/*
 .sass-cache/
+.build/
