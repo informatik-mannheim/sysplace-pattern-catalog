@@ -6,9 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Benutzer möchte zur Datenübertragung eine Verbindung zwischen seinem Gerät und einem weiteren, in der Nähe befindlichen Gerät aufbauen.}
+\newcommand{\desc}{Ein Benutzer möchte zur Datenübertragung eine Verbindung zwischen seinem mobilen Gerät und einem weiteren, in der Nähe befindlichen Gerät aufbauen.}
 
-\newcommand{\solution}{Ein Benutzer nähert (\textit{approach}) sich mit seinem Gerät (dem \sendev{}) einem entfernten Gerät (dem \recdev{}). Nähert er sich dem \recdev{} bis auf einen bestimmten räumlichen Abstand, wird eine Verbindung hergestellt, die zur Datenübertragung genutzt werden kann.}
+\newcommand{\solution}{Ein Benutzer nähert (\gls{approach}) sich mit seinem Gerät (dem \sendev{}) einem entfernten Gerät (dem \recdev{}). Nähert er sich dem \recdev{} bis auf einen bestimmten räumlichen Abstand, wird eine Verbindung hergestellt, die zur Datenübertragung genutzt werden kann.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -135,7 +135,10 @@ Screens               &            &            &        &          &         \\
 \begin{enumerate}
 \item Aufbauen einer Bluetooth-Verbindung beim Betreten des Raums \cite{Dachselt2009}.
 \item Kommunikation verschiedener Personen mit einem Fernseher basierend auf der Nähe \cite{Greenberg2011}.
-\item Theoretische und praktische Ansätze zu \textit{Proxemics}, behandelt auch negative Nutzungskontexte (sog. Dark Patterns) \cite{Marquardt2015}.
+\item Theoretische und praktische Ansätze zu \textit{Proxemics}, behandelt auch negative Nutzungskontexte (sog. Dark Patterns) \cite{Marquardt2015}, \cite{Marquardt2012}.
+\item Googles Proximity Beacon API auf Basis von Eddystone \cite{Eddystone2016}.
+\item Apples iBeacon-Standard zur Erkennung von Proximity \cite{IBeacon2016}.
+\item Aufbauen einer WLAN-Verbindung über räumliche Nähe \cite{Rekimoto2003}.
 \end{enumerate}
 }
 
@@ -200,7 +203,7 @@ Abbildung \ref{approach_hardware} fasst die benötigten Technologien modellhaft 
 
 \newcommand{\implementation}{
 \subsubsection*{Ablauf Gestenerkennung}
-Bei der Geste Approach To Connect handelt es sich um eine \textit{einfache Geste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf entfällt in zwei Teile (s. Abbildung \ref{gesture_detection}):
+Bei der Geste Approach To Connect handelt es sich um eine \gls{einfachegeste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf entfällt in zwei Teile (s. Abbildung \ref{gesture_detection}):
 \begin{itemize}
 \item Erkennen der Geste (\textit{Gesture Detection}) und
 \item Überprüfen eventueller Bedingungen an die Geste (\textit{Constraint Check}).
@@ -259,8 +262,6 @@ auf der \developerpage.
 \newcommand{\authors}{Horst Schneider, Hochschule Mannheim\\
 Dominick Madden, Hochschule Mannheim\\
 Valentina Burjan, Hochschule Mannheim}
-\newcommand{\literature}{...}
-\newcommand{\figures}{...}
 \newcommand{\versionhistory}{11.08.2016}
 \newcommand{\dateofcreation}{15.08.2015}
 \newcommand{\comments}{...}
