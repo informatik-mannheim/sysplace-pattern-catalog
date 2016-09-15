@@ -141,9 +141,14 @@ Function build-web
 	Write-Host ("It took " + $stopwatch.Elapsed.ToString("mm\:ss") + " to build.")
 }
 
-Function deploy
+Function deploy-internal
 {
 	pscp -r output/html/* webdeploy@141.19.142.50:/var/www/html/sysplace
+}
+
+Function deploy-external
+{
+	pscp -r output/html/* webdeploy@37.61.204.167:/var/www/html/sysplace
 }
 
 Function generate-index
