@@ -132,7 +132,8 @@ Screens             &            &            &        &          &         \\
 \newcommand{\stateoftheart}{
 \begin{enumerate}
 \item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
-\item Hinckley, K., Bumping Objects Together as a Semantically Rich Way of Forming Connections between Ubiquitous Devices. UbiComp 2003 Formal Video Program, Seattle, WA, Oct 12-15, 2003.
+\item Beispiel-Implementierung eines Bump Patterns \citep{Grab2015}.
+\item Ken Hinckley - Forschung zu Bump-Gesten im Speziellen und Definition synchroner Gesten im Allgemeinen \citep{Hinckley2003}.
 \end{enumerate}
 }
 
@@ -242,7 +243,7 @@ Grundsätzlich kann der Vergleich anhand beliebiger Parameter vorgenommen werden
 
 Weitere Vergleiche sind denkbar, sofern die \textit{Bump Gesture Detection} diese Werte im \textit{BumpEvent} zur Verfügung stellt.
 
-Entsprechend dem Lebenszyklus einer Multiscreen-Applikation ist die Voraussetzung für Bump To Exchange eine bestehende Verbindung zwischen zwei Geräten (vorangegangener \textit{Connect}) und die Auswahl zu übermittelnder Daten (\textit{Select}) auf beiden Geräten. Bump To Exchange kann mehrmals hintereinander ausgeführt werden (Sequenz von \textit{Transfers}), solange kein \textit{Disconnect} erfolgt ist. \\
+Entsprechend dem Lebenszyklus einer Multiscreen-Applikation ist die Voraussetzung für Bump To Exchange eine bestehende Verbindung zwischen zwei Geräten (vorangegangener \textit{Connect}) und die Auswahl zu übermittelnder Daten (\textit{Select}) auf \textbf{beiden} Geräten. Bump To Exchange kann mehrmals hintereinander ausgeführt werden (Sequenz von \textit{Transfers}), solange kein \textit{Disconnect} erfolgt ist. \\
 
 Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren
 Gestaltungsmöglichkeiten für den \textit{Transfer}, \textit{Feedbacks} etc. finden sich
@@ -258,19 +259,12 @@ auf der \developerpage.
 \newcommand{\authors}{
 Benjamin Grab, Hochschule Mannheim\\
 Valentina Burjan, Hochschule Mannheim\\
+Horst Schneider, Hochschule Mannheim\\
 Dominick Madden, Hochschule Mannheim}
-\newcommand{\literature}{
-\begin{enumerate}
-\item Bump. [Online]. \url{http://bu.mp/}
-\item BumpTechnologies. Youtube.com. [Online]. \url{https://www.youtube.com/user/BumpTechnologies}
-\item Ken Hinckley. 2003. Synchronous gestures for multiple persons and computers. In Proceedings of the 16th annual ACM symposium on User interface software and technology (UIST '03). ACM, New York, NY, USA, 149-158. DOI=10.1145/964696.964713 
-\item \url{https://github.com/informatik-mannheim/thesis-bump-to-transfer/tree/master/sources/
-Bumper}\\
-Swift-Code zu der Demonstrator Applikationen von Bump
-\end{enumerate}}
-\newcommand{\figures}{...}
-\newcommand{\versionhistory}{07. September 2016}
-\newcommand{\dateofcreation}{15. August 2015}
+
+
+\newcommand{\versionhistory}{07.09.2016}
+\newcommand{\dateofcreation}{15.08.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
 
