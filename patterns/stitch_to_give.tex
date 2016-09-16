@@ -25,19 +25,6 @@ Dabei wird ein Datenobjekt vom Sender- auf das Empfänger-Gerät übertragen.}
 
 \newcommand{\reaction}{...}
 
-%\newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
-%\newcommand{\reactionSuccessSensitive}{}
-
-%\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{...}
-
-%\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{...}
-
-%\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{...}
-
 \newcommand{\designnotes}{...}
 
 % -------------------------------
@@ -81,15 +68,15 @@ Dabei wird ein Datenobjekt vom Sender- auf das Empfänger-Gerät übertragen.}
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     •      &     •      &   •    &     •    &     •   \\ 
+Smartwatch            &     x      &            &        &          &         \\ 
 \hline 
-Smartphone            &     •      &     •      &   •    &     •    &     •   \\ 
+Smartphone            &            &     x      &   x    &   x     &         \\ 
 \hline 
-Tablet                &     •      &     •      &   •    &     •    &     •   \\ 
+Tablet                &            &     x      &   x    &    x   &         \\ 
 \hline 
-Tabletop              &     •      &     •      &   •    &     •    &     •   \\ 
+Tabletop              &           &           &       &         &         \\ 
 \hline
-Screens               &     •      &     •      &   •    &     •    &     •   \\ 
+Screens               &           &           &       &         &         \\ 
 \hline 
 \end{tabular} }
 
@@ -102,13 +89,21 @@ Screens               &     •      &     •      &   •    &     •    &   
 %\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{...}
+\newcommand{\otherpatterns}{
+\begin{itemize}
+\item Stitch To Take
+\item Stitch To Extend
+\item Stitch To Connect
+\item Pinch To Connect
+\item Spread To Disconnect
+\end{itemize}
+}
 
 \newcommand{\stateoftheart}{
-%\begin{enumerate}
-%\item
-%\item
-%\end{enumerate}
+\begin{enumerate}
+\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}
+\item Erste wissenschaftliche Erwähnung von Stitch-Gesten \cite{Hinckley2004}.
+\end{enumerate}
 }
 
 
@@ -153,39 +148,15 @@ Screens               &     •      &     •      &   •    &     •    &   
 % TECHNISCHES
 % -------------------------------
 
-%\newcommand{\technologyObjectIntimate}{}
-%\newcommand{\technologyObjectPersonal}{}
-%\newcommand{\technologyObjectSocial}{}
-%\newcommand{\technologyObjectPublic}{}
-
-\newcommand{\technologyObjectDesc}{...}
-
-%\newcommand{\technologyCommunicationServer}{}
-%\newcommand{\technologyCommunicationAdhoc}{}
-
-\newcommand{\technologyCommunicationDesc}{...}
-
-%\newcommand{\technologyOrientationAccelerometer}{}
-%\newcommand{\technologyOrientationGPS}{}
-%\newcommand{\technologyOrientationGyroskop}{}
-%\newcommand{\technologyOrientationAnnaeherung}{}
-%\newcommand{\technologyOrientationHoehe}{}
-%\newcommand{\technologyOrientationBeacons}{}
-%\newcommand{\technologyOrientationOther}{}
-
-\newcommand{\technologyOrientationDesc}{...}
-
-\newcommand{\prototype}{...}
 
 
 % -------------------------------
 % SONSTIGES
 % -------------------------------
-\newcommand{\authors}{...}
-\newcommand{\literature}{...}
-\newcommand{\figures}{...}
-\newcommand{\versionhistory}{...}
-\newcommand{\dateofcreation}{...}
+\newcommand{\authors}{Horst Schneider, Hochschule Mannheim\\
+Dominick Madden, Hochschule Mannheim}
+\newcommand{\versionhistory}{16.09.2016}
+\newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
 

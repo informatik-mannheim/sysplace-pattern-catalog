@@ -25,19 +25,6 @@ Diese Nutzerinteraktion löst die Erweiterung des Bildschirminhalts vom Quell- a
 
 \newcommand{\reaction}{Die Bildschirm-Ansicht des Quell-Gerätes wird bei korrekter Ausführung und Erkennung auf dem Ziel-Gerät erweitert, also anteilig, dargestellt. }
 
-\newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
-%\newcommand{\reactionSuccessSensitive}{}
-
-%\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{...}
-
-%\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{...}
-
-%\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{...}
-
 \newcommand{\designnotes}{Bei zu unterschiedlichen Displaygrößen der beteiligten Geräte kann ggf. kein Mehrwert erzeugt werden (z.B. wenn ein Tablet und ein Smartphone hochkant nebeneinandergelegt werden kann bei der Erweiterung Fläche verloren gehen (siehe Abb.)).\\
 Um einen möglichst fließenden Übergang zu gewinnen müssen die Displays sehr nah und parallel zueinander anliegen.\\
 Jeder Bildschirm hat einen Rand, was dazu führt, dass durch das Nebeneinanderlegen zweier Geräte eine Lücke zwischen den Displays entsteht. Dadurch, dass mobile Endgeräte viel kleiner sind als Computermonitore, ist die Lücke zwischen den Geräten relativ zu ihren Dimensionen meist größer.\\
@@ -136,16 +123,18 @@ Screens               &            &            &        &          &         \\
 
 \newcommand{\otherpatterns}{
 \begin{itemize}
-\item Stitch to Connect
-\item Stitch to Give
-\item Stitch to Take
+\item Stitch To Give
+\item Stitch To Take
+\item Stitch To Connect
+\item Pinch To Connect
+\item Spread To Disconnect
 \end{itemize}
 }
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item HINKLEY, Ken: Distributed and Local Sensing Techniques for Face-to-Face Collaboration. Proc. ICMI'03, November 5-7, 2003, Vancouver, British Columbia, Canada.
-\item HINKLEY, Ken; RAMOS, Gonzalo; GUIMBRETIERE, Francois; BAUDISCH, Patrick; SMITH, Marc: Stitching: Pen Gestures that Span Multiple Displays. Proc. AVI 2004, May 25-28, 2004, Gallipoli (LE), Italy.
+\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}
+\item Erste wissenschaftliche Erwähnung von Stitch-Gesten \cite{Hinckley2004}.
 \end{enumerate}
 }
 
@@ -175,39 +164,6 @@ Screens               &            &            &        &          &         \\
 % TECHNISCHES
 % -------------------------------
 
-\newcommand{\technologyObjectIntimate}{}
-%\newcommand{\technologyObjectPersonal}{}
-%\newcommand{\technologyObjectSocial}{}
-%\newcommand{\technologyObjectPublic}{}
-
-\newcommand{\technologyObjectDesc}{Die Geräteerkennung basiert auf einer Verbindung über Wifi-Direct zwischen dem Sende- und Empfängergerät. Die Geräte liegen hierbei in unmittelbarer Nähe nebeneinander.\\
-Die Geräte tauschen untereinander ihre Eigenschaften wie Display-Breite und Pixeldichte aus (wichtig für die optimale Aufteilung der erweiterten Bildschirm-Ansicht). Dabei ist zu berücksichtigen, dass einige Endgeräte (sowohl Smartphones, als auch Tablets) falsche Werte zurückgeben, somit bei der Berechnung die Relation der Ansicht/Erweiterung falsch ausfallen kann.
-}
-
-%\newcommand{\technologyCommunicationServer}{}
-\newcommand{\technologyCommunicationAdhoc}{}
-
-\newcommand{\technologyCommunicationDesc}{Die Sende- und Empfängergeräte bauen eine Kommunikation über Wi-Fi Direct auf.\\
-Ein Stitch besteht technisch gesehen aus zwei Swipes.
-Der ausgehende Swipe geht von dem Sendegerät aus, beginnt immer in der Mitte des Bildschirms und endet am Rand.
-Der eingehende Swipe kommt vom Bildschirmrand des Gerätes und endet an der Stelle, an der der Nutzer seinen Finger vom Display nimmt.
-Ein Swipe besteht aus einem Startpunkt, einem Endpunkt, der Bewegungsrichtung (Links, rechts, oben, unten) und der Information, ob es sich um einen ausgehenden oder eingehenden Swipe handelt.\\
-Um einen Swipe konsistent erkennen zu können muss an den Bildschirmrändern eine Kulanz von 100 Pixeln miteinbezogen werden. Ohne diese müsste der Nutzer den Finger bis zum letzten Pixel am Rand des Gerätes bewegen, was sich als unzuverlässig erwiesen hat.
-Wird ein Swipe erfolgreich erstellt, informiert dieser den Kommunikationsservice. Der Service kümmert sich daraufhin um die Erkennung des Stitches. Damit ein Stitch erkannt werden kann, müssen die zwei ermittelten Swipes miteinander verglichen werden.
-}
-
-%\newcommand{\technologyOrientationAccelerometer}{}
-%\newcommand{\technologyOrientationGPS}{}
-%\newcommand{\technologyOrientationGyroskop}{}
-%\newcommand{\technologyOrientationAnnaeherung}{}
-%\newcommand{\technologyOrientationHoehe}{}
-%\newcommand{\technologyOrientationBeacons}{}
-\newcommand{\technologyOrientationOther}{}
-
-\newcommand{\technologyOrientationDesc}{Bei der Stitch-Geste werden die Bewegungen des Fingers vom einen Bildschirm über den anderen (das sog. Swipen) von einem Service getrackt und verglichen. }
-
-\newcommand{\prototype}{...}
-
 
 % -------------------------------
 % SONSTIGES
@@ -215,11 +171,10 @@ Wird ein Swipe erfolgreich erstellt, informiert dieser den Kommunikationsservice
 
 \newcommand{\authors}{
 Valentina Burjan, Hochschule Mannheim\\
-Dominick Madden, Hochschule Mannheim}
-\newcommand{\literature}{...}
-\newcommand{\figures}{...}
-\newcommand{\versionhistory}{...}
-\newcommand{\dateofcreation}{...}
+Dominick Madden, Hochschule Mannheim\\
+Horst Schneider, Hochschule Mannheim}
+\newcommand{\versionhistory}{16.09.2016}
+\newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
 
