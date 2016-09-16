@@ -147,6 +147,71 @@ Screens               &           &           &       &         &         \\
 % -------------------------------
 % TECHNISCHES
 % -------------------------------
+\newcommand{\requiredTechnologies}{
+Um Stitch To Connect auf einem Gerät (\textit{Device}) einsetzen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der verfügbaren Technologien auf diesem Gerät. Ein Gerät ist dann für das Stitch To Connect Pattern verwendbar, wenn es folgende Eigenschaften aufweist:
+\begin{itemize}
+\item \textbf{Input}: Für die Erkennung von Stitch-Geste ist ein Touchscreen notwendig. Bezüglich der technischen Funktionsweise des \textit{Screens} (kapazitiv, resistiv etc.) gibt es keine Einschränkungen, da ein einzelner Touchpunkt von den meisten gängigen Technologien erkannt wird.
+\item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind \textit{Output} per Bildschirm sowie Vibration und Sound denkbar, wobei letztere optional sind.
+\item \textbf{Connectivity}: Ziel der Stitch To Connect Geste ist das Aufbauen einer Verbindung zwischen zwei Geräten. Da die Geräte sich vorher nicht kennen, aber ein Protokoll für die Erkennung der synchronen Geste verwendet wird, ist eine Vermittlungskomponente (z.B. Message-Queue-Server, Webservice o.Ä.) zur Vermittlung zwischen den Geräten notwendig. Der anschließende Verbindungsaufbau zwischen den Geräten erfolgt über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct.
+\end{itemize}
+
+Abbildung \ref{stitch_hardware} fasst die benötigten Technologien modellhaft zusammen.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{stitch_hardware.png}
+\caption{Bentötigte Technlogien für das Stich To Connect Pattern}
+\label{stitch_hardware}
+\end{figure}
+}
+
+\newcommand{\implementation}{
+\subsubsection*{Erkennung synchroner Gesten}
+Beim Stitch To Connect handelt es sich um eine \gls{synchronegeste}. Abbildung \ref{sync_gesture_detection} zeigt den Ablauf der synchronen Gestenerkennung, die in mehrere Teile zerfällt:
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{synchronous_gesture_detection.png}
+\caption{Allgemeiner Ablauf einer synchronen Gestenerkennung}
+\label{sync_gesture_detection}
+\end{figure}
+
+\begin{itemize}
+\item Registrierung bei einer zentralen Vermittlungskomponente,
+\item Erkennung der Einzelanteile einer synchronen Geste pro Gerät (\textit{Gesture Detection)}, entspricht jeweils der Erkennung für \glspl{einfachegeste},
+\item Vergleich der resultierenden \textit{GestureEvents} aus der einfachen Gestenerkennung (\textit{Gesture Event Matching}) durch die Vermittlungskomponente und
+\item Vermittlung von Verbindungsdaten, wenn die Geste erfolgreich erkannt wurde.
+\end{itemize}
+
+Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde  eine Geste lokal erkannt und an das entsprechende \textit{GestureEvent} an die Vermittlungskomponente gesendet, entscheidet diese, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Stitch To Connect Geste jeweils im Detail.
+
+\subsubsection*{Stitch Gesture Detection}
+Die lokale Erkennung einer Stitch-Geste entspricht der Erkennung von Swipes (da die einzelne Anteile eines Stitches lediglich einfache Swipe-Gesten sind). Die Erkennung von Swipe Gesten ist in der Patternbeschreibung zu $\rightarrow$ Swipe To Give ausführlich dokumentiert.\\
+
+Hier müssen lediglich im erzeugten Swipe-Event zusätzliche Parameter erfasst werden, die das \textit{Stitch Event Matching} ermöglichen, wie z.B. ein Zeitstempel (\texttt{timestamp}) oder der Ein- bzw. Austrittswinkel des Swipes aus dem Bildschirm (\texttt{angle}). Zudem sollten Swipe-Gesten, die Teil von Stitch-Gesten sind, über Constraints so eingeschränkt werden, dass nur solche lokalen Swipes zulässig sind, die ein Stitch ermöglichen (bspw. nur Swipes von links nach rechts).
+
+\subsubsection*{Stitch Event Matching}
+Die Vermittlungskomponente führt ein Stitch Event Matching durch, wenn von zwei Geräten \textit{StitchEvents} empfangen wurden, die als komplementäre Anteile einer synchronen Geste in Frage kommen könnten. Abbildung \ref{stitch_event_matching} veranschaulicht einen exemplarischen Ablauf dieses Vergleiches.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{stitch_event_matching.png}
+\caption{Stitch Event Matching}
+\label{stitch_event_matching}
+\end{figure}
+
+Die Auswertung basiert in diesem Beispiel auf drei Parametern der jeweiligen \textit{StitchEvents}:
+\begin{itemize}
+\item \texttt{timestamp}: Vergleich der Differenz zwischen dem Ende des Swipes auf Gerät A (\texttt{time\_up}) und dem Beginn des Swipes auf Gerät B (\texttt{time\_down}) mit einer maximal erlaubten Differenz von 1500ms.
+\item \texttt{angle}: Vergleich der Ein- und Austrittswinkel der beiden \textit{StitchEvents} mit einer Toleranz von 20 Grad.
+\item \texttt{direction}: Vergleich der Richtung der beiden Swipes (hier nur links oder rechts vorgesehen).
+\end{itemize}
+
+Weitere Parameter oder eine andere Interpretation der Werte bzw. eine Anpassung der Toleranzbereiche ermöglichen eine Anpassung der Stitch Geste.
+
+Entsprechend dem Lebenszyklus einer Multiscreen-Applikation besteht nach erfolgreich
+ausgeführtem Stitch To Connect eine Verbindung zwischen zwischen zwei Geräten, was die Voraussetzung für anschließende Transfer- oder Disconnect-Gesten ist.
+
+Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren
+Gestaltungsmöglichkeiten für den \textit{Connect}, \textit{Feedbacks} etc. finden sich auf der \developerpage.
+}
 
 % -------------------------------
 % SONSTIGES
