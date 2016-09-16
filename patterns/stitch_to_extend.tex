@@ -164,6 +164,80 @@ Screens               &            &            &        &          &         \\
 % TECHNISCHES
 % -------------------------------
 
+\newcommand{\requiredTechnologies}{
+Um Stitch To Extend auf einem Gerät (\textit{Device}) einsetzen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der verfügbaren Technologien auf diesem Gerät. Ein Gerät ist dann für das Stitch To Extend Pattern verwendbar, wenn es folgende Eigenschaften aufweist:
+\begin{itemize}
+\item \textbf{Input}: Für die Erkennung von Stitch-Geste ist ein Touchscreen notwendig. Bezüglich der technischen Funktionsweise des \textit{Screens} (kapazitiv, resistiv etc.) gibt es keine Einschränkungen, da ein einzelner Touchpunkt von den meisten gängigen Technologien erkannt wird.
+\item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind \textit{Output} per Bildschirm sowie Vibration und Sound denkbar, wobei letztere optional sind.
+\item \textbf{Connectivity}: Ziel der Stitch To Give Extend ist die Dateiübertragung zwischen zwei Geräten, die bereits über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct miteinander verbunden sind. Auch das Protokoll zur synchronen Gestenerkennung wird mittels dieser Verbindung durchgeführt.
+\end{itemize}
+
+Abbildung \ref{stitch_hardware} fasst die benötigten Technologien modellhaft zusammen.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{stitch_hardware.png}
+\caption{Bentötigte Technlogien für das Stich To Extend Pattern}
+\label{stitch_hardware}
+\end{figure}
+}
+
+\newcommand{\implementation}{
+\subsubsection*{Erkennung synchroner Gesten}
+Beim Stitch To Extend handelt es sich um eine \gls{synchronegeste}, die in zwei Teile zerfällt:
+
+\begin{itemize}
+\item Erkennung der Einzelanteile einer synchronen Geste pro Gerät (\textit{Gesture
+Detection}), entspricht jeweils der Erkennung für \glspl{einfachegeste}.
+\item Vergleich der resultierenden \textit{Gesture Events} als Anteile an einer synchronen Geste
+\end{itemize}
+
+Da beide Geräte bereits miteinander verbunden sind, entfällt die zentrale Vermittlungskomponente (vgl. $\rightarrow$ Stitch To Connect), stattdessen können beide Geräte über ein Protokoll direkt miteinander kommunizieren.
+
+Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde  eine Geste lokal erkannt und an das entsprechende \textit{GestureEvent} an die Vermittlungskomponente gesendet, entscheidet diese, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Stitch To Extend Geste jeweils im Detail.
+
+\subsubsection*{Stitch Gesture Detection}
+Die lokale Erkennung einer Stitch-Geste entspricht der Erkennung von Swipes (da die einzelne Anteile eines Stitches lediglich einfache Swipe-Gesten sind). Die Erkennung von Swipe Gesten ist in der Patternbeschreibung zu $\rightarrow$ Swipe To Give ausführlich dokumentiert.\\
+
+Hier müssen lediglich im erzeugten Swipe-Event zusätzliche Parameter erfasst werden, die das \textit{Stitch Event Matching} ermöglichen, wie z.B. ein Zeitstempel (\texttt{timestamp}) oder der Ein- bzw. Austrittswinkel des Swipes aus dem Bildschirm (\texttt{angle}). Zudem sollten Swipe-Gesten, die Teil von Stitch-Gesten sind, über Constraints so eingeschränkt werden, dass nur solche lokalen Swipes zulässig sind, die ein Stitch ermöglichen (bspw. nur Swipes von links nach rechts).
+
+\subsubsection*{Stitch Protokoll}
+Neben lokal erkannten Swipe-Anteilen der Stitch Geste können auch Swipe-Anteile der Gegenseite empfangen werden. Abbildung \ref{stitch_protocol} zeigt alle möglichen Zustände, die dabei auf einem Gerät angenommen werden können.\\
+
+Von einem initialen \texttt{idle}-Zustand können entweder \texttt{Inbound} oder \texttt{Outbound}-Swipes erkannt werden, also Swipe-Gesten in Richtung des Bildschirmrandes oder vom Rand weg. Bei erkanntem \texttt{Inbound}-Swipe wird auf ein \texttt{Syn}-Paket gewartet (Zustand \texttt{In}), das die Gegenseite bei erkannten \textit{Outbound}-Swipe versendet; bei erkanntem \texttt{Outbound}-Swipe hingegen wird das \texttt{Syn}-Paket aktiv gesendet und auf ein \texttt{Ack}-Paket gewartet (Zustand \texttt{out}). \texttt{Syn}-Pakete werden jeweils mit einem \texttt{Ack}-Paket beantwortet, sofern das \textit{Stitch Event Matching} (s. folgendes Kapitel) erfolgreich war. Eine erfolgreiche Abfolge von \texttt{Syn}- und \texttt{Ack}-Paketen innerhalb eines gewissen Timeouts (hier exemplarisch 2 Sekunden) markiert eine erfolgreich erkannte Stitch-Geste.\\
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{stitch_protocol.png}
+\caption{Stitch Protokoll zur Verarbeitung lokaler und empfangener Anteile der synchronen Geste}
+\label{stitch_protocol}
+\end{figure}
+
+Ein Sonderfall ergibt sich, wenn ein \texttt{Syn}-Paket im \texttt{idle}-Zustand empfangen wird, ohne dass ein \texttt{Inbound}-Swipe erfolgt ist. Das kann der Fall sein, wenn die Gegenseite einen \texttt{Outbound}-Swipe erkennt und das \texttt{Syn}-Paket schneller sendet, als die eigene lokale Gestenerkennung den entsprechenden \texttt{Inbound}-Swipe registriert. In dem Fall wird innerhalb eines Timeout-Fensters auf die lokale Geste gewartet.
+
+\subsubsection*{Stitch Event Matching}
+Ein Gerät führt ein Stitch Event Matching durch, wenn von der Gegenseite ein \textit{StitchEvent} innerhalb eines \texttt{Syn}-Paketes empfangen wurde, das als komplementärer Anteil eines lokalen \textit{Stitch-Events} in Frage kommen könnte. Abbildung \ref{stitch_event_matching} veranschaulicht einen exemplarischen Ablauf dieses Vergleiches.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{stitch_event_matching.png}
+\caption{Stitch Event Matching}
+\label{stitch_event_matching}
+\end{figure}
+
+Die Auswertung basiert in diesem Beispiel auf drei Parametern der jeweiligen \textit{StitchEvents}:
+\begin{itemize}
+\item \texttt{timestamp}: Vergleich der Differenz zwischen dem Ende des Swipes auf Gerät A (\texttt{time\_up}) und dem Beginn des Swipes auf Gerät B (\texttt{time\_down}) mit einer maximal erlaubten Differenz von 1500ms.
+\item \texttt{angle}: Vergleich der Ein- und Austrittswinkel der beiden \textit{StitchEvents} mit einer Toleranz von 20 Grad.
+\item \texttt{direction}: Vergleich der Richtung der beiden Swipes (hier nur links oder rechts vorgesehen).
+\end{itemize}
+
+Weitere Parameter oder eine andere Interpretation der Werte bzw. eine Anpassung der Toleranzbereiche ermöglichen eine Anpassung der Stitch Geste.
+
+Entsprechend dem Lebenszyklus einer Multiscreen-Applikation ist die Voraussetzung
+für Stitch To Extend eine bestehende Verbindung zum \recdev{} (vorangegangener Connect) und die Auswahl zu teilender Daten (Select) auf dem \sendev{}. Die Initiative zum Teilen des Bildschirms geht vom \sendev{} aus, statt einer Übertragung diskreter Daten wird ein kontinuierlicher Datenstrom übertragen und vom \recdev{} verarbeitet, bis die Verbindung beendet wird.\\
+
+Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren
+Gestaltungsmöglichkeiten für den \textit{Transfer}, \textit{Feedbacks} etc. finden sich
+auf der \developerpage.
+}
 
 % -------------------------------
 % SONSTIGES
