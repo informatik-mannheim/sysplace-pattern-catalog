@@ -20,46 +20,79 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Anwender nähert sich mit einem portablen Quell-Gerät dem Ziel-Gerät bis auf eine definierte Distanz. TODO}
+\newcommand{\useraction}{Der Benutzer hat ein \sendev\ an sich und nähert sich einem \recdev{} (z.B. einem großen Wanddisplay). Ein \data\ ist entweder explizit vom \sen\ oder implizit durch die Applikation (z.B. Benutzerdaten) zum Versenden ausgewählt worden. \recdev\ und \sendev\ sind bereits zum bidirektionalen Datenaustausch verbunden.\\
+Wird nun ein vordefinierter Mindestabstand (Abstands-Schwellwert) unterschritten, versendet das \sendev\ das \data\ an das \recdev{}.}
 
-\newcommand{\reaction}{Beim Erreichen einer definierten Distanz zwischen Quell- und Ziel-Gerät wird visuell, akustisch oder auf eine andere Weise erkenntlich gemacht, dass sich das Quell- und Ziel-Gerät erkannt haben. Daraufhin wird ein ausgewähltes Datenobjekt vom Sender-Gerät auf das Empfänger gerät übertragen und auf dem Ziel-Gerät dargestellt. TODO}
 
-\newcommand{\designnotes}{Die Distanz zwischen Quell- und Ziel-Gerät darf nicht zu gering definiert werden (sonst müsste man das Quell-Gerät ggf. auf das Ziel-Gerät auflegen). TODO}
+\newcommand{\reactionSen}{Auf dem \sendev\ kann dem Benutzer zu verschiedenen Phasen der Interaktion Feedback gegeben werden. Dabei sollte vor allem haptisches und auditives Feedback genutzt werden, sodass der Nutzer auf die Interaktion aufmerksam wird, auch wenn er das Display des Gerätes nicht sieht (Z.B. in der Hosentasche). Ein Approach besteht aus den zwei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Enter Radius} und \textit{Cross Threshold}. Nach Beendigung der letzten atomaren Interaktion wird der Transfer des selektierten \data s\ ausgeführt.}
+
+\newcommand{\reactionRec}{Das Empfangsgerät spielt eine passive Rolle, sollte  dem Nutzer jedoch trotzdem Feedback über die nötige Entfernung zwischen sich und dem Nutzer geben. Zusätzlich muss dem Nutzer ein erfolgreiches Empfangen seines \data\ erkenntlich gemacht werden. Dieses Feedback kann visuell sein, sofern das Display des Geräts sichtbar ist.}
+
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Enter Radius & M & Der Benutzer nähert sich dem anderen Gerät von außerhalb des Erkennungsradius der Technologie (z.B. Bluetooth) & Die Geräte erkennen gegenseitig ihre Anwesenheit und bereiten eine Datenübertragung vor &  Animation 1, \newline Vibration\\ 
+\hline
+Cross Threshold & M & Der Benutzer überschreitet den Entfernungsschwellwert & Das \sendev\ schickt das \data\ an das \recdev\ & Animation 2 \\ 
+\hline
+Receive & S & \recdev\ hat Daten empfangen & Das \data\ ist zulässig und kann verarbeitet werden & Animation 3, Vibration \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Approach to Give Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
+
+\newcommand{\animations}{\begin{enumerate}
+\item Enter Radius-Animation: Die Vibration erregt die Aufmerksamkeit des Nutzers. Die Animation visualisiert dem Benutzer, dass er sich einem \recdev\ nähert. (z.B. Eine radarähnliche Oberfläche mit Echtzeitortung erscheint auf beiden Geräten)
+\item Cross Threshold-Animation: Visualisiert dem Benutzer, dass er die Sendeschwelle übertreten hat. (z.B. Ein \data\ fliegt vom Display des \sendev\ in Richtung des \recdev{}s)
+\item Receive-Animation: Die Vibration des \sendev{}s und die Animationen signalisieren dem Benutzer, dass die Übertragung erfolgreich war. (z.B. Das \data\ fliegt auf das Display des \recdev{}s)
+\end{enumerate}
+}
+
+\newcommand{\designnotes}{Der Abstands-Schwellwert darf nicht zu niedrig definiert werden, da  man sonst das \sendev{} auf das \recdev{} auflegen müsste bzw. sehr nah vor einem großen Bildschirm stehen würde. Zudem sollte die Annäherung eindeutig sein, d.h. es sollten innerhalb eines Interaktionskontexts keine konkurrierenden Annäherungsgesten möglich sein.}
 
 % -------------------------------
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{...}
+\newcommand{\validcontext}{Ein- und Ausstechen am Arbeitsplatz: Das \sendev\ schickt die Mitarbeiter-ID an das \recdev{}. Abhängig von der Richtung, aus der der Arbeiter kommt, wird er vom \recdev\ ein- bzw. ausgestochen.}
 
 \newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
 
-\newcommand{\online}{}
-%\newcommand{\offline}{}
-
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
-%\newcommand{\public}{}
+\newcommand{\public}{}
 \newcommand{\stationary}{}
 %\newcommand{\onthego}{}
 
-%\newcommand{\leanback}{}
+\newcommand{\leanback}{}
 \newcommand{\leanforward}{}
 
 \newcommand{\single}{}
-\newcommand{\collaboration}{}
-\newcommand{\facetoface}{}
+%\newcommand{\collaboration}{}
+%\newcommand{\facetoface}{}
 %\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
 %\newcommand{\smalltask}{}
-%\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
+\newcommand{\repeatedtask}{}
+\newcommand{\locationbased}{}
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{Sichtbarmachen vertraulicher Informationen (z.B. Name, Alter etc.) auf öffentlichen Displays.}
 
 
 \newcommand{\devicetabular}{
@@ -67,11 +100,11 @@
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     x      &     x      &   x    &     x    &     x   \\ 
+Smartwatch            &            &            &   x    &     x    &     x   \\ 
 \hline 
-Smartphone            &     x      &     x      &   x    &     x    &     x   \\ 
+Smartphone            &            &            &   x    &     x    &     x   \\ 
 \hline 
-Tablet                &     x      &     x      &   x    &     x    &     x   \\ 
+Tablet                &            &            &        &          &         \\ 
 \hline 
 Tabletop              &            &            &        &          &         \\ 
 \hline
