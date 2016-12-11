@@ -6,10 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Eine Verbindung soll zwischen zwei Geräten hergestellt werden.}
+\newcommand{\desc}{Ein Benutzer (der \sen{}) möchte sein Gerät (das \sendev{}) mit einem anderen, in unmittelbarer Nähe befindlichen Gerät (dem \recdev{}) verbinden um eine Datenübertragung zu ermöglichen.}
 
-\newcommand{\solution}{Zwei Geräte werden nebeneinandergelegt. Der Anwender zieht mit dem Finger eine Linie auf dem Display des Quell-Gerätes hinüber auf das Display des Ziel-Gerätes, wo die gezogene Linie endet.
-Dabei wird eine Verbindung zwischen den zwei Geräten aufgebaut.}
+\newcommand{\solution}{Der \sen\ hat das \sendev\ Kante an Kante neben dem \recdev\ und führt seinen Finger vom Bildschirm des \sendev\ auf den Bildschirm des \recdev{}s. Durch diese Geste wird der Verbindungsvorgang angestoßen.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -21,11 +20,63 @@ Dabei wird eine Verbindung zwischen den zwei Geräten aufgebaut.}
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{...}
+\newcommand{\useraction}{Der \sen\ hat das \sendev\ entweder auf einer Oberfläche - Kante an Kante - neben dem \recdev\ liegen, oder hat es in der Hand und hält es neben das \recdev{}. Er führt eine \gls{stitch}-Geste aus.}
 
-\newcommand{\reaction}{...}
+\newcommand{\reactionSen}{Auf beiden Geräten sollte zu verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des Geräts führt und der zweite vom Bildschirmrand zur Mitte. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Da es sich bei \textbf{Stitch to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch, so wird der Verbindungsvorgang angestoßen. \\
+Vor dem Stitch besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{vermittlungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Stitch als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Stitch finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
 
-\newcommand{\designnotes}{...}
+\newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev .\
+}
+
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Touch & M & Touch Down Event auf dem Screen & & Animation 1 \\ 
+\hline
+Move & M & Touch Move Event auf dem Screen & 
+Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\ 
+\hline
+Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
+\hline
+Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer \newline ist möglich & Animation 4 \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Stitch to Connect Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
+
+\newcommand{\animations}{
+\begin{enumerate}
+\item Touch-Animation: visualisiert dem Benutzer, dass ein Stitch die Verbindungsfunktionalität auslöst (z.B. Ein Gerät zeigt eine Steckdose an, das andere einen Stecker. Führt man den Stecker zur Steckdose, so verbindet man die Geräte miteinander)
+\item Move-Animation: visualisiert dem Benutzer, dass die Objekte beweglich sind (z.B. Der Stecker hat eine Drag-and-Drop-Funktionalität)
+\item Release-Animation: visualisiert dem Benutzer, dass die Geste erfolgreich ausgeführt wurde und ein Verbindungsaufbau initiiert wird (z.B. Der Stecker wird in die Steckdose gesteckt)
+\item Connect-Animation: visualisiert dem Benutzer, dass die Verbindung hergestellt wurde (z.B. Es fließen Daten durch die Kabel des Steckers und der Steckdose)
+\end{enumerate}
+}
+
+\newcommand{\designnotes}{
+\begin{itemize}
+\item[-] Beide involvierten Geräte benötigen einen Touchscreen.
+\item[-] Bei jeder Synchronen Connect-Geste muss es eine Vermittlungskomponente geben, an die die relevanten Daten der Geste gesendet werden. Diese vergleicht die empfangenen Daten der beiden involvierten Geräte und gibt positive oder negative Rückmeldung.
+\end{itemize}}
+
+
+
+
+
+
 
 % -------------------------------
 % WANN
