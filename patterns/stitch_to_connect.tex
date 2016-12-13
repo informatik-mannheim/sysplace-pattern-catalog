@@ -6,10 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Eine Verbindung soll zwischen zwei Geräten hergestellt werden.}
+\newcommand{\desc}{Ein Benutzer (der \sen{}) möchte sein Gerät (das \sendev{}) mit einem anderen, in unmittelbarer Nähe befindlichen Gerät (dem \recdev{}) verbinden um eine Datenübertragung zu ermöglichen.}
 
-\newcommand{\solution}{Zwei Geräte werden nebeneinandergelegt. Der Anwender zieht mit dem Finger eine Linie auf dem Display des Quell-Gerätes hinüber auf das Display des Ziel-Gerätes, wo die gezogene Linie endet.
-Dabei wird eine Verbindung zwischen den zwei Geräten aufgebaut.}
+\newcommand{\solution}{Der \sen\ hat das \sendev\ Kante an Kante neben dem \recdev\ und führt seinen Finger vom Bildschirm des \sendev\ auf den Bildschirm des \recdev{}s. Durch diese Geste wird der Verbindungsvorgang angestoßen.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -21,24 +20,63 @@ Dabei wird eine Verbindung zwischen den zwei Geräten aufgebaut.}
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{...}
+\newcommand{\useraction}{Der \sen\ hat das \sendev\ entweder auf einer Oberfläche - Kante an Kante - neben dem \recdev\ liegen, oder hat es in der Hand und hält es neben das \recdev{}. Er führt eine \gls{stitch}-Geste aus.}
 
-\newcommand{\reaction}{...}
+\newcommand{\reactionSen}{Auf beiden Geräten sollte zu verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des Geräts führt und der zweite vom Bildschirmrand zur Mitte. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Da es sich bei \textbf{Stitch to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch, so wird der Verbindungsvorgang angestoßen. \\
+Vor dem Stitch besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{vermittlungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Stitch als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Stitch finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
 
-%\newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
-%\newcommand{\reactionSuccessSensitive}{}
+\newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev .\
+}
 
-%\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{...}
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Touch & M & Touch Down Event auf dem Screen & & Animation 1 \\ 
+\hline
+Move & M & Touch Move Event auf dem Screen & 
+Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\ 
+\hline
+Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
+\hline
+Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer \newline ist möglich & Animation 4 \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Stitch to Connect Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
 
-%\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{...}
+\newcommand{\animations}{
+\begin{enumerate}
+\item Touch-Animation: visualisiert dem Benutzer, dass ein Stitch die Verbindungsfunktionalität auslöst (z.B. Ein Gerät zeigt eine Steckdose an, das andere einen Stecker. Führt man den Stecker zur Steckdose, so verbindet man die Geräte miteinander)
+\item Move-Animation: visualisiert dem Benutzer, dass die Objekte beweglich sind (z.B. Der Stecker hat eine Drag-and-Drop-Funktionalität)
+\item Release-Animation: visualisiert dem Benutzer, dass die Geste erfolgreich ausgeführt wurde und ein Verbindungsaufbau initiiert wird (z.B. Der Stecker wird in die Steckdose gesteckt)
+\item Connect-Animation: visualisiert dem Benutzer, dass die Verbindung hergestellt wurde (z.B. Es fließen Daten durch die Kabel des Steckers und der Steckdose)
+\end{enumerate}
+}
 
-%\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{...}
+\newcommand{\designnotes}{
+\begin{itemize}
+\item[-] Beide involvierten Geräte benötigen einen Touchscreen.
+\item[-] Bei jeder Synchronen Connect-Geste muss es eine Vermittlungskomponente geben, an die die relevanten Daten der Geste gesendet werden. Diese vergleicht die empfangenen Daten der beiden involvierten Geräte und gibt positive oder negative Rückmeldung.
+\end{itemize}}
 
-\newcommand{\designnotes}{...}
+
+
+
+
+
 
 % -------------------------------
 % WANN
@@ -75,21 +113,20 @@ Dabei wird eine Verbindung zwischen den zwei Geräten aufgebaut.}
 
 \newcommand{\notvalidcontext}{...}
 
-
 \newcommand{\devicetabular}{
 \begin{tabular}[H]{|c|c|c|c|c|c|}
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     •      &     •      &   •    &     •    &     •   \\ 
+Smartwatch            &     x      &            &        &          &         \\ 
 \hline 
-Smartphone            &     •      &     •      &   •    &     •    &     •   \\ 
+Smartphone            &            &     x      &   x    &   x     &         \\ 
 \hline 
-Tablet                &     •      &     •      &   •    &     •    &     •   \\ 
+Tablet                &            &     x      &   x    &    x   &         \\ 
 \hline 
-Tabletop              &     •      &     •      &   •    &     •    &     •   \\ 
+Tabletop              &           &           &       &         &         \\ 
 \hline
-Screens               &     •      &     •      &   •    &     •    &     •   \\ 
+Screens               &           &           &       &         &         \\ 
 \hline 
 \end{tabular} }
 
@@ -102,13 +139,22 @@ Screens               &     •      &     •      &   •    &     •    &   
 %\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{...}
+\newcommand{\otherpatterns}{
+\begin{itemize}
+\item Stitch To Give
+\item Stitch To Take
+\item Stitch To Extend
+\item Stitch To Connect
+\item Pinch To Connect
+\item Spread To Disconnect
+\end{itemize}
+}
 
 \newcommand{\stateoftheart}{
-%\begin{enumerate}
-%\item
-%\item
-%\end{enumerate}
+\begin{enumerate}
+\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}
+\item Erste wissenschaftliche Erwähnung von Stitch-Gesten \cite{Hinckley2004}.
+\end{enumerate}
 }
 
 
@@ -152,41 +198,80 @@ Screens               &     •      &     •      &   •    &     •    &   
 % -------------------------------
 % TECHNISCHES
 % -------------------------------
+\newcommand{\requiredTechnologies}{
+Um Stitch To Connect auf einem Gerät (\textit{Device}) einsetzen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der verfügbaren Technologien auf diesem Gerät. Ein Gerät ist dann für das Stitch To Connect Pattern verwendbar, wenn es folgende Eigenschaften aufweist:
+\begin{itemize}
+\item \textbf{Input}: Für die Erkennung von Stitch-Geste ist ein Touchscreen notwendig. Bezüglich der technischen Funktionsweise des \textit{Screens} (kapazitiv, resistiv etc.) gibt es keine Einschränkungen, da ein einzelner Touchpunkt von den meisten gängigen Technologien erkannt wird.
+\item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind \textit{Output} per Bildschirm sowie Vibration und Sound denkbar, wobei letztere optional sind.
+\item \textbf{Connectivity}: Ziel der Stitch To Connect Geste ist das Aufbauen einer Verbindung zwischen zwei Geräten. Da die Geräte sich vorher nicht kennen, aber ein Protokoll für die Erkennung der synchronen Geste verwendet wird, ist eine Vermittlungskomponente (z.B. Message-Queue-Server, Webservice o.Ä.) zur Vermittlung zwischen den Geräten notwendig. Der anschließende Verbindungsaufbau zwischen den Geräten erfolgt über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct.
+\end{itemize}
 
-%\newcommand{\technologyObjectIntimate}{}
-%\newcommand{\technologyObjectPersonal}{}
-%\newcommand{\technologyObjectSocial}{}
-%\newcommand{\technologyObjectPublic}{}
+Abbildung \ref{stitch_hardware} fasst die benötigten Technologien modellhaft zusammen.
 
-\newcommand{\technologyObjectDesc}{...}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{stitch_hardware.png}
+\caption{Bentötigte Technlogien für das Stich To Connect Pattern}
+\label{stitch_hardware}
+\end{figure}
+}
 
-%\newcommand{\technologyCommunicationServer}{}
-%\newcommand{\technologyCommunicationAdhoc}{}
+\newcommand{\implementation}{
+\subsubsection*{Erkennung synchroner Gesten}
+Beim Stitch To Connect handelt es sich um eine \gls{synchronegeste}. Abbildung \ref{sync_gesture_detection} zeigt den Ablauf der synchronen Gestenerkennung, die in mehrere Teile zerfällt:
 
-\newcommand{\technologyCommunicationDesc}{...}
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{synchronous_gesture_detection.png}
+\caption{Allgemeiner Ablauf einer synchronen Gestenerkennung}
+\label{sync_gesture_detection}
+\end{figure}
 
-%\newcommand{\technologyOrientationAccelerometer}{}
-%\newcommand{\technologyOrientationGPS}{}
-%\newcommand{\technologyOrientationGyroskop}{}
-%\newcommand{\technologyOrientationAnnaeherung}{}
-%\newcommand{\technologyOrientationHoehe}{}
-%\newcommand{\technologyOrientationBeacons}{}
-%\newcommand{\technologyOrientationOther}{}
+\begin{itemize}
+\item Registrierung bei einer zentralen Vermittlungskomponente,
+\item Erkennung der Einzelanteile einer synchronen Geste pro Gerät (\textit{Gesture Detection)}, entspricht jeweils der Erkennung für \glspl{einfachegeste},
+\item Vergleich der resultierenden \textit{GestureEvents} aus der einfachen Gestenerkennung (\textit{Gesture Event Matching}) durch die Vermittlungskomponente und
+\item Vermittlung von Verbindungsdaten, wenn die Geste erfolgreich erkannt wurde.
+\end{itemize}
 
-\newcommand{\technologyOrientationDesc}{...}
+Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde  eine Geste lokal erkannt und an das entsprechende \textit{GestureEvent} an die Vermittlungskomponente gesendet, entscheidet diese, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Stitch To Connect Geste jeweils im Detail.
 
-\newcommand{\prototype}{...}
+\subsubsection*{Stitch Gesture Detection}
+Die lokale Erkennung einer Stitch-Geste entspricht der Erkennung von Swipes (da die einzelne Anteile eines Stitches lediglich einfache Swipe-Gesten sind). Die Erkennung von Swipe Gesten ist in der Patternbeschreibung zu $\rightarrow$ Swipe To Give ausführlich dokumentiert.\\
 
+Hier müssen lediglich im erzeugten Swipe-Event zusätzliche Parameter erfasst werden, die das \textit{Stitch Event Matching} ermöglichen, wie z.B. ein Zeitstempel (\texttt{timestamp}) oder der Ein- bzw. Austrittswinkel des Swipes aus dem Bildschirm (\texttt{angle}). Zudem sollten Swipe-Gesten, die Teil von Stitch-Gesten sind, über Constraints so eingeschränkt werden, dass nur solche lokalen Swipes zulässig sind, die ein Stitch ermöglichen (bspw. nur Swipes von links nach rechts).
+
+\subsubsection*{Stitch Event Matching}
+Die Vermittlungskomponente führt ein Stitch Event Matching durch, wenn von zwei Geräten \textit{StitchEvents} empfangen wurden, die als komplementäre Anteile einer synchronen Geste in Frage kommen könnten. Abbildung \ref{stitch_event_matching} veranschaulicht einen exemplarischen Ablauf dieses Vergleiches.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{stitch_event_matching.png}
+\caption{Stitch Event Matching}
+\label{stitch_event_matching}
+\end{figure}
+
+Die Auswertung basiert in diesem Beispiel auf drei Parametern der jeweiligen \textit{StitchEvents}:
+\begin{itemize}
+\item \texttt{timestamp}: Vergleich der Differenz zwischen dem Ende des Swipes auf Gerät A (\texttt{time\_up}) und dem Beginn des Swipes auf Gerät B (\texttt{time\_down}) mit einer maximal erlaubten Differenz von 1500ms.
+\item \texttt{angle}: Vergleich der Ein- und Austrittswinkel der beiden \textit{StitchEvents} mit einer Toleranz von 20 Grad.
+\item \texttt{direction}: Vergleich der Richtung der beiden Swipes (hier nur links oder rechts vorgesehen).
+\end{itemize}
+
+Weitere Parameter oder eine andere Interpretation der Werte bzw. eine Anpassung der Toleranzbereiche ermöglichen eine Anpassung der Stitch Geste.
+
+Entsprechend dem Lebenszyklus einer Multiscreen-Applikation besteht nach erfolgreich
+ausgeführtem Stitch To Connect eine Verbindung zwischen zwischen zwei Geräten, was die Voraussetzung für anschließende Transfer- oder Disconnect-Gesten ist.
+
+Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren
+Gestaltungsmöglichkeiten für den \textit{Connect}, \textit{Feedbacks} etc. finden sich auf der \developerpage.
+}
 
 % -------------------------------
 % SONSTIGES
 % -------------------------------
 
-\newcommand{\authors}{...}
-\newcommand{\literature}{...}
-\newcommand{\figures}{...}
-\newcommand{\versionhistory}{...}
-\newcommand{\dateofcreation}{...}
+\newcommand{\authors}{Horst Schneider, Hochschule Mannheim\\
+Dominick Madden, Hochschule Mannheim}
+\newcommand{\versionhistory}{16.09.2016}
+\newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
 
