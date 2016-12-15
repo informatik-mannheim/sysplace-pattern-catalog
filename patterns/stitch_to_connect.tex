@@ -22,11 +22,12 @@
 
 \newcommand{\useraction}{Der \sen\ hat das \sendev\ entweder auf einer Oberfläche - Kante an Kante - neben dem \recdev\ liegen, oder hat es in der Hand und hält es neben das \recdev{}. Er führt eine \gls{stitch}-Geste aus.}
 
-\newcommand{\reactionSen}{Auf beiden Geräten sollte zu verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des Geräts führt und der zweite vom Bildschirmrand zur Mitte. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
+\newcommand{\reactionSen}{Auf beiden Geräten sollte zu den verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des Geräts führt und der zweite vom Bildschirmrand zur Mitte. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
 Da es sich bei \textbf{Stitch to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch, so wird der Verbindungsvorgang angestoßen. \\
 Vor dem Stitch besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{vermittlungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Stitch als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Stitch finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
+\newcommand{\reactionRec}{
 
-\newcommand{\reactionRec}{Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev .\
+Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev{}. 
 }
 
 \newcommand{\microinteractionstabular}{
@@ -82,34 +83,28 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{...}
+\newcommand{\validcontext}{Verbinden von mobilen Geräten zwecks Datenübertragung, Verbinden von mobilen Privatgeräten mit stationären Geräten (z.B. Verbindung zu einem Netzwerk am Arbeitsplatz)}
 
-%\newcommand{\simultaneously}{}
+\newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
 
-%\newcommand{\online}{}
-%\newcommand{\offline}{}
+\newcommand{\online}{}
+\newcommand{\offline}{}
 
-%\newcommand{\private}{}
-%\newcommand{\semipublic}{}
-%\newcommand{\public}{}
-%\newcommand{\stationary}{}
-%\newcommand{\onthego}{}
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+\newcommand{\public}{}
+\newcommand{\stationary}{}
+\newcommand{\onthego}{}
 
 %\newcommand{\leanback}{}
-%\newcommand{\leanforward}{}
+\newcommand{\leanforward}{}
 
-%\newcommand{\single}{}
+\newcommand{\single}{}
 %\newcommand{\collaboration}{}
 %\newcommand{\facetoface}{}
-%\newcommand{\sidetoside}{}
+\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
-
-%\newcommand{\smalltask}{}
-%\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
-%\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
 
 \newcommand{\notvalidcontext}{...}
 
@@ -135,8 +130,8 @@ Screens               &           &           &       &         &         \\
 % -------------------------------
 
 %\newcommand{\established}{}
-%\newcommand{\candidate}{}
-%\newcommand{\realizable}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
 \newcommand{\otherpatterns}{
