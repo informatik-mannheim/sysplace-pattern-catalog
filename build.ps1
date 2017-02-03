@@ -135,6 +135,7 @@ Function build-web
 	# Move / copy all HTML, images and css to output
 	mv -Force *.html ../output/html/patterns
 	cp *.png ../output/html/patterns
+	
 	cd ..
 	
 	$stopwatch.Stop()
