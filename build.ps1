@@ -135,6 +135,7 @@ Function build-web
 	# Move / copy all HTML, images and css to output
 	mv -Force *.html ../output/html/patterns
 	cp *.png ../output/html/patterns
+	
 	cd ..
 	
 	$stopwatch.Stop()
@@ -183,7 +184,7 @@ Function insert-into-file
 	)
 	
 	(Get-Content $file) | ForEach-Object {
-		if ($_ -match "<div class=""maketitle"">") 
+		if ($_ -match "<div id=""inhalt"" class=""inhalt"">") 
 		{
 			Get-Content ../web/_includes/menu.html
 		}
