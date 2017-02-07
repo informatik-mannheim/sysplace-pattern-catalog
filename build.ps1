@@ -129,6 +129,11 @@ Function build-web
 	# Insert menu into generated HTML files
 	gci *.html | ForEach-Object {insert-into-file $_} 
 	
+	# insert download link
+	gci *.html | ForEach-Object {
+		(Get-Content $_).replace('<a id="pattern-download" href="#">', '<a id="pattern-download" href="' + $_.BaseName + '.pdf">') | Set-Content $_;
+	}
+	
 	# Jekyll Build
 	jekyll build -s ../web/ -d ../output/html/
 	
