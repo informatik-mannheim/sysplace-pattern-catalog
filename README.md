@@ -5,8 +5,8 @@ Dokumentation der Pattern im Projekt SysPlace. Aus den LaTeX-Dateien können per
 # Aufbau der Patternbeschreibungen
 Alle Patternbeschreibungen sowie Resourcen (Grafiken, Hilfsdateien etc.) befinden sich als `.tex` Dateien im Ordner `patterns/` (beispielsweise `swipe_to_give.tex`). Änderungen an konkreten Pattern werden am jeweiligen Patterndokument vorgenommen, während Änderungen, die alle Pattern betreffen, in den entsprechenden Meta-Dateien vorgenommen werden. Jedes Patterndokument hat folgenden Aufbau (per LaTeX-includes):
 
-```
-─<pattern>.tex		(konkrete Definition der Platzhalter-Variablen, die in template.tex zur Strukturierung verwendet werden)
+```LaTeX
+─<pattern>.tex		(konkrete Definition der Platzhalter-Variablen aus template.tex)
   ├──header.tex		(verwendete Packages, globale Variablen, Definition von Bibliographie und Glossar)
   │   ├──lit.bib	(Literaturverzeichnis für alle Pattern)
   │   └──glossary	(Glossareinträge für alle Pattern)
