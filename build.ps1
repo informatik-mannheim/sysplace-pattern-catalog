@@ -141,6 +141,9 @@ Function build-web
 	mv -Force *.html ../output/html/patterns
 	cp *.png ../output/html/patterns
 	
+	# copy all pdfs to patterns folder
+	cp ../output/pdf/*.pdf ../output/html/patterns
+	
 	cd ..
 	
 	$stopwatch.Stop()
