@@ -82,7 +82,7 @@ Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgef�
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
 \newcommand{\public}{}
-%\newcommand{\stationary}{}
+\newcommand{\stationary}{}
 \newcommand{\onthego}{}
 
 \newcommand{\leanback}{}
@@ -93,7 +93,7 @@ Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgef�
 \newcommand{\facetoface}{}
 %\newcommand{\sidetoside}{}
 
-\newcommand{\notvalidcontext}{--- keine Information ---}
+\newcommand{\notvalidcontext}{- Kritische Daten sollten nicht an (halb-) öffentliche Displays gesendet werden. \\ - Wenn viele drahtlos verbundene Geräte räumlich nah beieinander sind, ist es schwierig zu entscheiden welches der \rec\ ist.}
 
 \newcommand{\devicetabular}{
 \begin{figure}[H]
@@ -101,13 +101,13 @@ Der Swipe sollte zur eindeutigen Adressierung in Richtung des \recdev s\ ausgef�
 \hline 
 \diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch          &            &     x      &   x    &     x    &     x   \\ 
+Smartwatch          &     x      &     x      &   x    &     x    &     x   \\ 
 \hline 
-Smartphone          &            &     x      &   x    &     x    &     x   \\ 
+Smartphone          &     x      &     x      &   x    &     x    &     x   \\ 
 \hline 
-Tablet              &            &            &   x    &     x    &     x   \\ 
+Tablet              &     x      &     x      &   x    &     x    &     x   \\ 
 \hline 
-Tabletop            &            &            &        &          &     x   \\ 
+Tabletop            &            &            &        &     x    &     x   \\ 
 \hline
 Screens             &            &            &        &          &         \\ 
 \hline 
@@ -125,7 +125,7 @@ Screens             &            &            &        &          &         \\
 %\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{Stitch, Extend With Two Fingers}
+\newcommand{\otherpatterns}{Stitch, Pinch}
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
@@ -220,7 +220,7 @@ Abbildung \ref{swipe_hardware} fasst die benötigten Technologien modellhaft zus
 
 \newcommand{\implementation}{
 \subsubsection*{Ablauf Gestenerkennung}
-Bei der Geste Swipe To Give handelt es sich um eine \textit{einfache Geste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf entfällt in zwei Teile (s. Abbildung \ref{gesture_detection}):
+Bei der Geste Swipe To Give handelt es sich um eine \textit{einfache Geste}, deren Erkennung nur auf einem Gerät durchgeführt werden muss. Der allgemeine Ablauf besteht aus zwei Teilen (s. Abbildung \ref{gesture_detection}):
 \begin{itemize}
 \item Erkennen der Geste (\textit{Gesture Detection}) und
 \item Überprüfen eventueller Bedingungen an die Geste (\textit{Constraint Check}).
@@ -278,7 +278,7 @@ Valentina Burjan, Hochschule Mannheim \\
 Dominick Madden, Hochschule Mannheim \\
 Horst Schneider, Hochschule Mannheim}
 
-\newcommand{\versionhistory}{10.08.2016}
+\newcommand{\versionhistory}{08.02.2017}
 \newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{---}
 \newcommand{\questions}{---}
