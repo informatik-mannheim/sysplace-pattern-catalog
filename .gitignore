@@ -24,3 +24,4 @@ output/
 composer/*
 .sass-cache/
 .build/
+_site/
