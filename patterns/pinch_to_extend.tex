@@ -1,6 +1,6 @@
 \input{header.tex}
 
-\newcommand{\name}{World In Miniature}
+\newcommand{\name}{Pinch To Extend}
 
 % -------------------------------
 % WAS
@@ -8,7 +8,7 @@
 
 \newcommand{\desc}{Der Bildschirm-Inhalt des Quell-Gerätes soll auf dem Ziel-Gerät erweitert dargestellt werden.}
 
-\newcommand{\solution}{Ein Anwender hat ein Ziel-Gerät in der Hand. Das Ziel-Gerät ermöglicht die erweiterte Ansicht (detailliert bzw. gröber) des Bildschirm-Inhaltes des Quell-Gerätes}
+\newcommand{\solution}{Ein Anwender platziert zwei Geräte unmittelbar nebeneinander und berührt mit je einem Finger die Displays der Geräte. Die beiden aufliegenden Finger zieht er zusammen. Dadurch wird eine Erweiterung des Bildschirminhalts des Quell-Geräts auf das Ziel-Gerät veranlasst.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -20,29 +20,27 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Nutzer befindet sich mit dem Ziel-Gerät vor dem Quell-Gerät. Durch Touch-Gesten auf dem Bildschirm des Ziel-Gerätes kann er sich durch den Bildschirm-Inhalt des Quell-Gerätes navigieren. Dabei kann der Anwender den Inhalt fokussieren und detaillierter oder gröber/weniger detailliert betrachten.}
+\newcommand{\useraction}{Der Anwender legt ein Quell-Gerät an ein Ziel-Gerät an. Dann platziert der Anwender einen Finger (z.B. Zeigefinger) auf dem Display des Quell-Gerätes. Anschließend platziert der Anwender einen anderen Finger (z.B. Daumen) auf dem Display des Ziel-Gerätes. Die beiden Finger zieht er zusammen bis sie sich berühren.}
 
-\newcommand{\reaction}{Das Quell-Gerät stellt seinen Bildschirm-Inhalt dar. Durch das Ziel-Gerät wird ein Ausschnitt dieses Inhalts ausgewählt und auf dem Display des Ziel-Geräts dargestellt.\\ 
-Sobald ein anderer Bereich des Bildschirm-Inhalts auf dem Quell-Gerät ausgewählt wurde, wird dieser auf dem Ziel-Gerät dargestellt.}
+\newcommand{\reaction}{Durch Auflegen des ersten Fingers wird das Quell-Gerät bestimmt. Durch Auflegen des zweiten Fingers das Ziel-Gerät. Sobald beide Finger außerhalb des Displayrandes beider Geräte gezogen wurden, wird der Bildschirm-Inhalt des Quell-Gerätes auf dem Ziel-Gerät erweitert dargestellt.}
 
 \newcommand{\reactionSuccessVisual}{}
 %\newcommand{\reactionSuccessAcustic}{}
 %\newcommand{\reactionSuccessSensitive}{}
 
 \newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{sollte auf dem Ziel-Gerät eine Meldung für den Anwender erscheinen, dass das Quell- und Ziel-Gerät noch keine Verbindung zueinander aufgebaut haben.}
+\newcommand{\reactionFailureConnectionDesc}{muss dem Anwender durch einen Hinweis mitgeteilt werden, dass die Interaktion nicht erfolgreich war - der Bildschirm kann nicht erweitert auf einem weiteren Gerät dargestellt werden.}
 
 \newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{sollte erneut versucht werden eine Verbindung aufzubauen. Der Anwender muss informiert werden, welche Schritte er absolvieren muss, damit eine Verbindung hergestellt werden kann (z.B. Bluetooth aktivieren, oder WiFi prüfen).}
+\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender ggf. die Interaktion erneut ausführen. Solange keine erfolgreiche Bildschirm-Erweiterung stattgefunden hat, sollte dem Anwender signalisiert werden, dass das Zielgerät nicht erkannt wurde.}
 
 \newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender informiert werden, welche Geräte miteinander kompatibel sind und die Interaktion mit kompatiblen Geräten erneut durchführen.}
+\newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender vor erneuter Ausführung der Interaktion informiert werden, welche Geräte kompatibel sind und die Interaktion erneut ausführen.}
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Das Ziel-Gerät sollte möglichst handlich sein oder sich standfest vor dem Nutzer befinden (z.B. in Form eines Tabeltops), um mühelos mit dem Quell-Gerät interagieren zu können.
-\end{itemize}
-}
+\item Es sollte im besten Fall keinen Abstand zwischen den beiden Geräten geben, um die Erkennung des angelegten Gerätes zu gewährleisten.
+\end{itemize}}
 
 % -------------------------------
 % WANN
@@ -59,7 +57,7 @@ Sobald ein anderer Bereich des Bildschirm-Inhalts auf dem Quell-Gerät ausgewäh
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
 %\newcommand{\public}{}
-%\newcommand{\stationary}{}
+\newcommand{\stationary}{}
 %\newcommand{\onthego}{}
 
 %\newcommand{\leanback}{}
@@ -68,8 +66,8 @@ Sobald ein anderer Bereich des Bildschirm-Inhalts auf dem Quell-Gerät ausgewäh
 \newcommand{\single}{}
 \newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
-%\newcommand{\sidetoside}{}
-%\newcommand{\cornertocorner}{}
+\newcommand{\sidetoside}{}
+\newcommand{\cornertocorner}{}
 
 %\newcommand{\smalltask}{}
 %\newcommand{\repeatedtask}{}
@@ -77,7 +75,7 @@ Sobald ein anderer Bereich des Bildschirm-Inhalts auf dem Quell-Gerät ausgewäh
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{---}
+\newcommand{\notvalidcontext}{...}
 
 
 \newcommand{\devicetabular}{
@@ -85,13 +83,13 @@ Sobald ein anderer Bereich des Bildschirm-Inhalts auf dem Quell-Gerät ausgewäh
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &            &            &   x    &     x    &     x   \\ 
+Smartwatch            &            &            &        &          &         \\ 
 \hline 
-Smartphone            &            &            &   x    &     x    &     x   \\ 
+Smartphone            &            &     x      &   x    &          &     x   \\ 
 \hline 
-Tablet                &            &            &   x    &     x    &     x   \\ 
+Tablet                &            &     x      &   x    &          &     x   \\ 
 \hline 
-Tabletop              &            &            &        &          &     x   \\ 
+Tabletop              &            &            &        &          &         \\ 
 \hline
 Screens               &            &            &        &          &         \\ 
 \hline 
@@ -106,7 +104,12 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{---}
+\newcommand{\otherpatterns}{
+\begin{itemize}
+\item Approach To Extend - Der Nutzer nähert sich mit dem Quell-Gerät an das Ziel-Gerät.
+\item Stitch To Extend - Der Bildschirm-Inahlt des Quell-Gerätes wird durch eine Bewegung mit dem Finger von dem Quell-Display auf das Ziel-Display erweitert.
+\item Appose - Der Bildschirm-Inhalt des Quell-Gerätes wird durch Anlegen eines Ziel-Gerätes auf diesem erweitert dargestellt. 
+\end{itemize}}
 
 \newcommand{\stateoftheart}{
 %\begin{enumerate}
@@ -119,14 +122,14 @@ Screens               &            &            &        &          &         \\
 \newcommand{\designprinciples}{}
 
 \newcommand{\imageschemata}{}
-%\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaContainer}{}
 %\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaPath}{}
 %\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaUpDown}{}
-%\newcommand{\imageSchemaLeftRight}{}
-\newcommand{\imageSchemaNearFar}{}
-\newcommand{\imageSchemaPartWhole}{}
+\newcommand{\imageSchemaLeftRight}{}
+%\newcommand{\imageSchemaNearFar}{}
+%\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
 \newcommand{\realworldNaivePhysic}{}
@@ -134,14 +137,14 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldEnvironmentAwareness}{}
 \newcommand{\realworldSocialAwareness}{}
 
-%\newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{...}
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Bildschirmerweiterung, etwas herüberziehen}
 
 % -------------------------------
 % TECHNISCHES
 % -------------------------------
 
-%\newcommand{\technologyObjectIntimate}{}
+\newcommand{\technologyObjectIntimate}{}
 %\newcommand{\technologyObjectPersonal}{}
 %\newcommand{\technologyObjectSocial}{}
 %\newcommand{\technologyObjectPublic}{}

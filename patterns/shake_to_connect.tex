@@ -1,58 +1,58 @@
 \input{header.tex}
 
-\newcommand{\name}{Appose}
+\newcommand{\name}{Shake To Connect}
 
 % -------------------------------
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Der Bildschirm-Inhalt des Quell-Gerätes soll auf dem Ziel-Gerät erweitert dargestellt werden.}
+\newcommand{\desc}{Eine Verbindung soll zwischen zwei Geräten hergestellt werden.}
 
-\newcommand{\solution}{Zwei Geräte werden unmittelbar nebeneinander/aneinander gelegt. Hierbei wird die Erweiterung des Displayinhaltes des Quell-Gerätes auf das Ziel-Gerät veranlasst.}
+\newcommand{\solution}{Ein Anwender hat zwei handliche Geräte fest in einer Hand. Durch eine Schüttel-Bewegung wird die Verbindung zwischen den zwei Geräten hergestellt.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
 %\newcommand{\category}{exchange}
-\newcommand{\category}{extend}
-%\newcommand{\category}{connect}
+%\newcommand{\category}{extend}
+\newcommand{\category}{connect}
 
 % -------------------------------
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Anwender legt ein Quell-Gerät an ein Ziel-Gerät an.}
+\newcommand{\useraction}{Der Anwender hält zwei Geräte in einer Hand fest umschlossen. Anschließend schüttelt der Anwender die Geräte solange bis sie eine Verbindung zueinander aufgebaut haben.}
 
-\newcommand{\reaction}{Sobald die Geräte aneinanderliegen wird der Bildschirminhalt des Quell-Gerätes auf dem Ziel-Gerät erweitert dargestellt.}
+\newcommand{\reaction}{Sobald der Anwender die Schüttel-Bewegung ausübt, analysieren die Geräte bzw. die Anwendungen auf den Geräten die Bewegung. Ist die Bewegung auf beiden Geräten identisch werden die zwei Geräte miteinander verbunden. Bei erfolgreicher Verbindung wird der Anwender (z.B. akustisch oder sensitiv) informiert.}
 
-\newcommand{\reactionSuccessVisual}{}
-%\newcommand{\reactionSuccessAcustic}{}
-%\newcommand{\reactionSuccessSensitive}{}
+%\newcommand{\reactionSuccessVisual}{}
+\newcommand{\reactionSuccessAcustic}{}
+\newcommand{\reactionSuccessSensitive}{}
 
 \newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{muss dem Anwender durch einen Hinweis mitgeteilt werden, dass die Interaktion nicht erfolgreich war - der Bildschirm kann nicht erweitert auf einem weiteren Gerät dargestellt werden.}
+\newcommand{\reactionFailureConnectionDesc}{sollte der Anwender informiert werden (akustisch), zum Beispiel wenn die Schüttel-Bewegung länger als eine definierte Zeit (bspw. 3 Sekunden) erfolglos durchgeführt wird.}
 
 \newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender ggf. die Interaktion erneut ausführen. Solange keine erfolgreiche Bildschirm-Erweiterung stattgefunden hat, sollte dem Anwender signalisiert werden, dass das Zielgerät nicht erkannt wurde.}
+\newcommand{\reactionFailureNoDeviceDesc}{wurde von den Geräten eine unterschiedliche Bewegung festgestellt. Der Anwender sollte die Interaktion erneut ausführen.}
 
-\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender vor erneuter Ausführung der Interaktion informiert werden, welche Geräte kompatibel sind und die Interaktion erneut ausführen.}
+%\newcommand{\reactionFailureCompatibility}{}
+\newcommand{\reactionFailureCompatibilityDesc}{...}
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Es sollte im besten Fall keinen bis minimalen Abstand zwischen den beiden Geräten geben, um die Erkennung des angelegten Gerätes zu gewährleisten. 
+\item Die Geräte müssen handlich sein (Smartphones z.B.), um die Interaktion korrekt und erfolgreich durchzuführen. Größere Geräte könnten ggf. beschädigt werden.
+\item Der Anwender muss die Geräte in einer Hand halten. Die Interaktionsausführung mit zwei Händen kann nicht erfolgreich ausgeführt werden, da die Bewegungen mit zwei Händen nicht synchron verlaufen können.
 \end{itemize}}
-
 % -------------------------------
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{Bildschirmerweiterung}
+\newcommand{\validcontext}{...}
 
 \newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
 
 \newcommand{\online}{}
-%\newcommand{\offline}{}
+\newcommand{\offline}{}
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
@@ -60,14 +60,14 @@
 \newcommand{\stationary}{}
 \newcommand{\onthego}{}
 
-%\newcommand{\leanback}{}
+\newcommand{\leanback}{}
 \newcommand{\leanforward}{}
 
 \newcommand{\single}{}
-\newcommand{\collaboration}{}
-\newcommand{\facetoface}{}
-\newcommand{\sidetoside}{}
-\newcommand{\cornertocorner}{}
+%\newcommand{\collaboration}{}
+%\newcommand{\facetoface}{}
+%\newcommand{\sidetoside}{}
+%\newcommand{\cornertocorner}{}
 
 %\newcommand{\smalltask}{}
 %\newcommand{\repeatedtask}{}
@@ -75,7 +75,7 @@
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{}
+\newcommand{\notvalidcontext}{...}
 
 
 \newcommand{\devicetabular}{
@@ -85,9 +85,9 @@
 \hline 
 Smartwatch            &            &            &        &          &         \\ 
 \hline 
-Smartphone            &            &     x      &   x    &          &     x   \\ 
+Smartphone            &            &     x      &        &          &         \\ 
 \hline 
-Tablet                &            &     x      &   x    &          &     x   \\ 
+Tablet                &            &            &        &          &         \\ 
 \hline 
 Tabletop              &            &            &        &          &         \\ 
 \hline
@@ -104,18 +104,13 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{
-\begin{itemize}
-\item Approach To Extend - Der Nutzer nähert sich mit dem Quell-Gerät an das Ziel-Gerät.
-\item Stitch To Extend - Der Bildschirm-Inahlt des Quell-Gerätes wird durch eine Bewegung mit dem Finger von dem Quell-Display auf das Ziel-Display erweitert.
-\item Extend With Two Fingers - Der Bildschirm-Inahlt des Quell-Gerätes wird auf einem Ziel-Gerät erweitert dargestellt, indem der Anwender je einen Finger auf jedem Display platziert und durch Zusammenziehen der Finger die Geräte verbindet.
-\end{itemize}}
+\newcommand{\otherpatterns}{---}
 
 \newcommand{\stateoftheart}{
-%\begin{enumerate}
-%\item
-%\item
-%\end{enumerate}
+\begin{enumerate}
+\item //TODO PAPER
+\item
+\end{enumerate}
 }
 
 
@@ -154,7 +149,7 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Puzzle, Bildschirmerweiterung}
+\newcommand{\metaphordesc}{etwas schütteln}
 
 % -------------------------------
 % TECHNISCHES
@@ -193,7 +188,7 @@ Screens               &            &            &        &          &         \\
 \newcommand{\literature}{...}
 \newcommand{\figures}{...}
 \newcommand{\versionhistory}{...}
-\newcommand{\dateofcreation}{15. August 2015}
+\newcommand{\dateofcreation}{...}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
 
