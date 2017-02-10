@@ -2,7 +2,7 @@
 title: Multiscreen Interaction Patterns
 email: k.kohler@hs-mannheim.de
 description: > # this means to ignore newlines until "baseurl:"
-  Eine Sammlung von Patterns zur Gestaltung von geräteübergreifenden Interaktionen (Multiscreen Interaction Patterns).
+  Eine Sammlung von Patterns zur Gestaltung geräteübergreifender Interaktionen (Multiscreen Interaction Patterns).
 url: "http://37.61.204.167" # the base hostname & protocol for your site
 #twitter_username: jekyllrb
 #github_username:  jekyll
