@@ -926,13 +926,12 @@ table p {padding-left: 0;}
 .hline {display: none;}
 
 .download{
-  position: fixed;
-  top: 200px;
-   right: 11%;
-   width: 60px;
-   height: auto;
-   z-index: 3;
-
+	position: fixed;
+	bottom: 4%;
+	right: 11%;
+	width: 60px;
+	height: auto;
+	z-index: 3;
 }
 
 
