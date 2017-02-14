@@ -627,7 +627,6 @@ div#inhalt > p > img:first-child{
   z-index: 4;
 }
 
-
 p, div.table, h4, h5, h3.sectionHead, dl, ol,h2,ul.itemize1,div.tableofcontents,div.tabular{ 
    padding-left: 160px;
    z-index: 3;
