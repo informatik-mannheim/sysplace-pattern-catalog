@@ -24,7 +24,7 @@
 
 \newcommand{\reactionSen}{
 Auf beiden Geräten sollte zu den verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des \sendev{}s führt und der zweite vom Bildschirmrand zur Mitte des \recdev{}s. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
-Da es sich bei \textbf{Stitch to Give} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch, so wird der Verbindungsvorgang angestoßen. 
+Da es sich bei \textbf{Stitch to Give} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch, so wird das \data\ versendet. 
 }
 
 \newcommand{\reactionRec}{
@@ -43,14 +43,16 @@ Auf dem \recdev{} werden die selben atomaren Interaktionen ausgeführt wie auf d
 \begin{tabularx}{\textwidth}{tsbbm}
 \thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
-Touch & M & Touch Down Event auf dem Screen & & Animation 1 \\ 
+Touch & M & Touch Down Event auf dem Screen & Touch auf dem \data\ & Animation 1 \\ 
 \hline
 Move & M & Touch Move Event auf dem Screen & 
 Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\ 
 \hline
 Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
 \hline
-Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4  \\
+Stitch Recognized & S & Swipe-Daten wurden miteinander verglichen & Swipe-Daten entsprechen Charakteristiken eines Stitch & Animation 4  \\
+\hline
+Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 5  \\
 \hline
 \end{tabularx}
 \end{table}
@@ -61,9 +63,10 @@ Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4  \\
 
 \newcommand{\animations}{
 \begin{enumerate}
-\item Touch-Animation: visualisiert dem Benutzer, dass ein Stitch das Versenden des \data\ auslöst (z.B. Das \data\ liegt auf Schienen, die über die Bildschirmränder fortgeführt werden und auf dem \recdev{} enden. Bei Berührung wird eine Ampel grün)
-\item Move-Animation: visualisiert dem Benutzer, dass das \data\ beweglich sind (z.B. Drag \& Drop Funktionalität entlang der Schienen)
-\item Release-Animation: visualisiert dem Benutzer, dass die Geste erfolgreich ausgeführt wurde und das Objekt versendet wird (z.B. Das \data\ fährt zur Hälfte aus dem Bildschirm des \sendev{}s heraus)
+\item Touch-Animation: visualisiert dem Benutzer, dass ein Stitch das Versenden des \data\ auslöst (z.B. Das \data\ liegt auf Schienen, die über die Bildschirmränder fortgeführt werden und auf dem \recdev{} enden. Bei Berührung wird eine Ampel von rot auf grün gesetzt)
+\item Move-Animation: visualisiert dem Benutzer, dass das \data\ beweglich ist (z.B. Drag \& Drop Funktionalität entlang der Schienen)
+\item Release-Animation: visualisiert dem Benutzer, dass der Swipe erfolgreich ausgeführt wurde (z.B. \sendev{}: Das \data\ fährt zur Hälfte aus dem Bildschirm heraus. Ampel wechselt auf gelb \recdev{}: Ampel wechselt von rot auf gelb)
+\item Stitch-Recognized-Animation: visualisiert dem Benutzer, dass der ausgeführte Stitch erfolgreich erkannt wurde (z.B. Auf beiden Geräten werden die Ampeln grün. Das \data\ setzt sich auf dem \sendev\ in Bewegung)
 \item Receive-Animation: visualisiert dem Benutzer, dass das \data\ empfangen wurde (z.B. Das Objekt fährt auf den Schienen auf den Bildschirm des \recdev{}s)
 \end{enumerate}
 }
@@ -78,50 +81,44 @@ Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4  \\
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{...}
+\newcommand{\validcontext}{Situationen bei denen ein \data\ genau einer Person in unmittelbarer Nähe gesendet werden soll (z.B. Projektmanager verteilt Tasks per Stitch an Mitarbeiter von seinem Tablet auf deren Smartphones).}
 
-%\newcommand{\simultaneously}{}
-%\newcommand{\sequentially}{}
+\newcommand{\simultaneously}{}
+\newcommand{\sequentially}{}
 
-%\newcommand{\online}{}
-%\newcommand{\offline}{}
-
-%\newcommand{\private}{}
-%\newcommand{\semipublic}{}
-%\newcommand{\public}{}
-%\newcommand{\stationary}{}
-%\newcommand{\onthego}{}
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+\newcommand{\public}{}
+\newcommand{\stationary}{}
+\newcommand{\onthego}{}
 
 %\newcommand{\leanback}{}
-%\newcommand{\leanforward}{}
+\newcommand{\leanforward}{}
 
-%\newcommand{\single}{}
-%\newcommand{\collaboration}{}
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
 %\newcommand{\facetoface}{}
-%\newcommand{\sidetoside}{}
+\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
-%\newcommand{\smalltask}{}
-%\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
-%\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
-
-\newcommand{\notvalidcontext}{...}
-
+\newcommand{\notvalidcontext}{
+\begin{itemize}
+\item Versenden von Daten an entfernte Geräte/Personen.
+\item Versenden von Daten an mehrere Geräte/Personen gleichzeitig.
+\end{itemize}}
 
 \newcommand{\devicetabular}{
 \begin{tabular}[H]{|c|c|c|c|c|c|}
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     x      &            &        &          &         \\ 
+Smartwatch            &            &            &        &          &         \\ 
 \hline 
 Smartphone            &            &     x      &   x    &   x     &         \\ 
 \hline 
 Tablet                &            &     x      &   x    &    x   &         \\ 
 \hline 
-Tabletop              &           &           &       &         &         \\ 
+Tabletop              &           &     x      &   x    &         &         \\ 
 \hline
 Screens               &           &           &       &         &         \\ 
 \hline 
@@ -132,8 +129,8 @@ Screens               &           &           &       &         &         \\
 % -------------------------------
 
 %\newcommand{\established}{}
-%\newcommand{\candidate}{}
-%\newcommand{\realizable}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
 \newcommand{\otherpatterns}{
@@ -143,36 +140,41 @@ Screens               &           &           &       &         &         \\
 \item Stitch To Connect
 \item Pinch To Connect
 \item Spread To Disconnect
+\item Swipe To Give
 \end{itemize}
 }
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}
+\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}.
 \item Erste wissenschaftliche Erwähnung von Stitch-Gesten \cite{Hinckley2004}.
+\item Bachelorthesis zu Stitch To Extend
+\cite{Madden2015}.
+\item Studienarbeit zu Interaktionen und Animationen im Multiscreen Kontext
+\cite{Madden2016}.
 \end{enumerate}
 }
 
 
-%\newcommand{\designprinciples}{}
+\newcommand{\designprinciples}{}
 
-%\newcommand{\imageschemata}{}
-\newcommand{\imageSchemaVoid}{}
-%\newcommand{\imageSchemaObject}{}
+\newcommand{\imageschemata}{}
+%\newcommand{\imageSchemaVoid}{}
+\newcommand{\imageSchemaObject}{}
 %\newcommand{\imageSchemaSubstance}{}
 %\newcommand{\imageSchemaCenterPeriphery}{}
-%\newcommand{\imageSchemaContact}{}
+\newcommand{\imageSchemaContact}{}
 %\newcommand{\imageSchemaFrontBack}{}
-%\newcommand{\imageSchemaLocation}{}
+\newcommand{\imageSchemaLocation}{}
 %\newcommand{\imageSchemaNearFar}{}
-%\newcommand{\imageSchemaPath}{}
-%\newcommand{\imageSchemaSourcePathGoal}{}
+\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaScale}{}
 %\newcommand{\imageSchemaLeftRight}{}
-%\newcommand{\imageSchemaContainer}{}
-%\newcommand{\imageSchemaContent}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaContent}{}
 %\newcommand{\imageSchemaFullEmpty}{}
-%\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaSurface}{}
 %\newcommand{\imageSchemaMerging}{}
 %\newcommand{\imageSchemaSplitting}{}
@@ -182,14 +184,14 @@ Screens               &           &           &       &         &         \\
 %\newcommand{\imageSchemaFastSlow}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
-%\newcommand{\realworld}{}
-%\newcommand{\realworldNaivePhysic}{}
-%\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
 %\newcommand{\realworldEnvironmentAwareness}{}
-%\newcommand{\realworldSocialAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
 
-%\newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{...}
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Hinüberschieben eines Dokuments auf einen Schreibtisch}
 
 % -------------------------------
 % TECHNISCHES
@@ -224,10 +226,10 @@ Detection}), entspricht jeweils der Erkennung für \glspl{einfachegeste}.
 
 Da beide Geräte bereits miteinander verbunden sind, entfällt die zentrale Vermittlungskomponente (vgl. $\rightarrow$ Stitch To Connect), stattdessen können beide Geräte über ein Protokoll direkt miteinander kommunizieren.
 
-Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde  eine Geste lokal erkannt und an das entsprechende \textit{GestureEvent} an die Vermittlungskomponente gesendet, entscheidet diese, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Stitch To Give Geste jeweils im Detail.
+Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde  eine Geste lokal erkannt und das entsprechende \textit{GestureEvent} an die Vermittlungskomponente gesendet, entscheidet diese, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Stitch To Give Geste jeweils im Detail.
 
 \subsubsection*{Stitch Gesture Detection}
-Die lokale Erkennung einer Stitch-Geste entspricht der Erkennung von Swipes (da die einzelne Anteile eines Stitches lediglich einfache Swipe-Gesten sind). Die Erkennung von Swipe Gesten ist in der Patternbeschreibung zu $\rightarrow$ Swipe To Give ausführlich dokumentiert.\\
+Die lokale Erkennung einer Stitch-Geste entspricht der Erkennung von Swipes (da die einzelnen Anteile eines Stitches lediglich einfache Swipe-Gesten sind). Die Erkennung von Swipe Gesten ist in der Patternbeschreibung zu $\rightarrow$ Swipe To Give ausführlich dokumentiert.\\
 
 Hier müssen lediglich im erzeugten Swipe-Event zusätzliche Parameter erfasst werden, die das \textit{Stitch Event Matching} ermöglichen, wie z.B. ein Zeitstempel (\texttt{timestamp}) oder der Ein- bzw. Austrittswinkel des Swipes aus dem Bildschirm (\texttt{angle}). Zudem sollten Swipe-Gesten, die Teil von Stitch-Gesten sind, über Constraints so eingeschränkt werden, dass nur solche lokalen Swipes zulässig sind, die ein Stitch ermöglichen (bspw. nur Swipes von links nach rechts).
 
@@ -274,7 +276,7 @@ auf der \developerpage.
 % -------------------------------
 \newcommand{\authors}{Horst Schneider, Hochschule Mannheim\\
 Dominick Madden, Hochschule Mannheim}
-\newcommand{\versionhistory}{16.09.2016}
+\newcommand{\versionhistory}{14.02.2017}
 \newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
