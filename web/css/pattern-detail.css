@@ -457,9 +457,11 @@ div.pattern_ueber > ul > li > a > img{
   width: auto;
 }
 
-div.pattern_uebersicht{position: fixed;
-top: 20%;
-width: 100%;}
+div.pattern_uebersicht{
+	position: fixed;
+	top: 20%;
+	width: 100%;
+}
 
 div.pattern_uebersicht_show {
    position: fixed;
@@ -513,6 +515,18 @@ div.pattern_uebersicht_show > ul {
 	z-index: 3;
 }
 
+div.pattern_uebersicht_show > div {
+	background-color: #ffffff;
+	width:670px;
+	padding: 30px;
+	padding-bottom: 90px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 4px 4px 4px #333333;
+	display: none;
+	z-index: 3;
+}
+
  img.icon_ueber{
    width: 300px;
    height: auto;
@@ -520,8 +534,8 @@ div.pattern_uebersicht_show > ul {
    padding-right: 20px;
  }
 
-
- div.closing{
+ 
+span.closing{
 	position: fixed;
 	top: 24%;
 	left: 50%;
