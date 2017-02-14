@@ -6,10 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
+\newcommand{\desc}{Ein Benutzer (der \sen) hat ein \data\ und will es mit einem weiteren Benutzer (dem \rec) bzw. einem \recdev\ in unmittelbarer Nähe teilen. Es soll vom \sendev\ auf das \recdev\ übertragen werden, sodass es anschließend auf beiden Geräten verfügbar ist.}
 
-\newcommand{\solution}{Zwei Geräte werden nebeneinandergelegt. Der Anwender zieht mit dem Finger eine Linie auf dem Display des Quell-Gerätes hinüber auf das Display des Ziel-Gerätes, wo die gezogene Linie endet.
-Dabei wird ein Datenobjekt vom Sender- auf das Empfänger-Gerät übertragen.}
+\newcommand{\solution}{Der \sen{} hält die Geräte aneinander, sodass sie sich berühren und die Bildschirme parallel zueinander sind. Er führt seinen Finger von einem Punkt auf dem Bildschirm des \sendev{}s über die Bildschirmgrenzen hinweg auf den Bildschirm des \recdev{}s, woraufhin das \data\ übertragen wird.}
 
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -21,11 +20,59 @@ Dabei wird ein Datenobjekt vom Sender- auf das Empfänger-Gerät übertragen.}
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{...}
+\newcommand{\useraction}{Der \sen\ hat das \sendev\ entweder auf einer Oberfläche - Kante an Kante - neben dem \recdev\ liegen, oder hat es in der Hand und hält es neben das \recdev{}. Er führt eine \gls{stitch}-Geste aus.}
 
-\newcommand{\reaction}{...}
+\newcommand{\reactionSen}{
+Auf beiden Geräten sollte zu den verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des \sendev{}s führt und der zweite vom Bildschirmrand zur Mitte des \recdev{}s. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Da es sich bei \textbf{Stitch to Give} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch, so wird der Verbindungsvorgang angestoßen. 
+}
 
-\newcommand{\designnotes}{...}
+\newcommand{\reactionRec}{
+Auf dem \recdev{} werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev{}. Das Gerät sollte dem Benutzer Feedback über den eingegangenen Stitch und das Empfangen der Daten geben. 
+}
+
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Touch & M & Touch Down Event auf dem Screen & & Animation 1 \\ 
+\hline
+Move & M & Touch Move Event auf dem Screen & 
+Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\ 
+\hline
+Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
+\hline
+Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4  \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Stitch to Give Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
+
+\newcommand{\animations}{
+\begin{enumerate}
+\item Touch-Animation: visualisiert dem Benutzer, dass ein Stitch das Versenden des \data\ auslöst (z.B. Das \data\ liegt auf Schienen, die über die Bildschirmränder fortgeführt werden und auf dem \recdev{} enden. Bei Berührung wird eine Ampel grün)
+\item Move-Animation: visualisiert dem Benutzer, dass das \data\ beweglich sind (z.B. Drag \& Drop Funktionalität entlang der Schienen)
+\item Release-Animation: visualisiert dem Benutzer, dass die Geste erfolgreich ausgeführt wurde und das Objekt versendet wird (z.B. Das \data\ fährt zur Hälfte aus dem Bildschirm des \sendev{}s heraus)
+\item Receive-Animation: visualisiert dem Benutzer, dass das \data\ empfangen wurde (z.B. Das Objekt fährt auf den Schienen auf den Bildschirm des \recdev{}s)
+\end{enumerate}
+}
+
+\newcommand{\designnotes}{
+\begin{itemize}
+\item[-] Beide involvierten Geräte benötigen einen Touchscreen.
+\item[-] Da es sich bei Stitch to Give um eine synchrone Geste handelt, müssen die Geräte miteinander kommunizieren können, sodass die beiden Teile der Geste miteinander verglichen werden können.
+\end{itemize}}
 
 % -------------------------------
 % WANN
@@ -160,7 +207,7 @@ Abbildung \ref{stitch_hardware} fasst die benötigten Technologien modellhaft zu
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{stitch_hardware.png}
-\caption{Bentötigte Technlogien für das Stich To Give Pattern}
+\caption{Benötigte Technlogien für das Stich To Give Pattern}
 \label{stitch_hardware}
 \end{figure}
 }
