@@ -123,7 +123,16 @@ p.Beschreibung{
  padding: 0;
  text-align: left;
  font-size: 14pt;
- font-weight: 600;
+}
+
+
+p.Beschreibung-klein{
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+ padding: 0;
+ text-align: left;
+ font-size: 10pt;
 }
 
 p.Beschreibung_Pattern{
@@ -645,6 +654,8 @@ h5{
 .menu-link{
    color: #f9f9f9;
 }
+
+a.menu-link
 
 
 .tooltip {
