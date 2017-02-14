@@ -482,7 +482,6 @@ div.pattern_uebersicht_show > ul > li {
 }
 
 div.pattern_uebersicht_show > ul > h6{
-
   text-align: center;
   font-weight: 700;
   padding-bottom: 10px;
@@ -548,6 +547,12 @@ img.closing{
    margin-top: 9px;
    z-index: 8;
    width: 20px;
+}
+
+li.list-item-pattern-headline {
+	font-weight: 700; 
+	font-size: 10pt; 
+	margin-bottom:25px;
 }
 
 #patterns:target{display: none;}
