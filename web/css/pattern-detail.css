@@ -448,8 +448,6 @@ div.pattern_ueber > ul > li > a{
    color: #333333;
 }
 
-
-
 div.pattern_ueber > ul > li > a > img{
    display: table;
   margin-left: auto;
@@ -501,25 +499,19 @@ div.pattern_uebersicht_show{
    position: fixed;
    top: 20%;
    width: 100%;
-
-  
-   
-
-}
-  div.pattern_uebersicht_show > ul {
-
-   background-color: #ffffff;
-   width:670px;
-   padding: 30px;
-   padding-bottom: 90px;
-
-  margin-left: auto;
-  margin-right: auto;
-box-shadow: 4px 4px 4px #333333;
- display: none;
- z-index: 3;
 }
 
+div.pattern_uebersicht_show > ul {
+	background-color: #ffffff;
+	width:670px;
+	padding: 30px;
+	padding-bottom: 90px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 4px 4px 4px #333333;
+	display: none;
+	z-index: 3;
+}
 
  img.icon_ueber{
    width: 300px;
@@ -529,14 +521,15 @@ box-shadow: 4px 4px 4px #333333;
  }
 
 
- div.closing{position: fixed;
-   top: 24%;
-   left: 50%;
-   margin-left: 367px;
-   z-index: 0;
-   width: 35px;
-   height: 40px;
-   background-color: #333333;
+ div.closing{
+	position: fixed;
+	top: 24%;
+	left: 50%;
+	margin-left: 367px;
+	z-index: 0;
+	width: 35px;
+	height: 40px;
+	background-color: #333333;
 }
 
 img.closing{
@@ -561,7 +554,6 @@ li.list-item-pattern-headline {
 .pattern_uebersicht_take:target {display: table;}
 .pattern_uebersicht_exchange:target {display: table;}
 .pattern_uebersicht_extend:target {display: table;}
-
 .pattern_uebersicht_connect:target {display: table;}
 
 
@@ -660,14 +652,11 @@ h5{
    color: #f9f9f9;
 }
 
-a.menu-link
-
-
 .tooltip {
    	position: relative;
    	display: inline-block;
       color: #0099FF;
-   }
+ }
 
 .tooltip .tooltiptext {
    	visibility: hidden;
@@ -686,17 +675,9 @@ a.menu-link
    	top: 110%; 
    }
 
-
 .tooltip:hover .tooltiptext {
    	visibility: visible;
    } 
-
-  
-
-
-   
-
-
 
 /* disable some unnecessay brakes */
 div.maketitle > br {
