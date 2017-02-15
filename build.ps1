@@ -132,6 +132,8 @@ Function build-web
 	# insert download link
 	gci *.html | ForEach-Object {
 		(Get-Content $_).replace('<a id="pattern-download" href="#">', '<a id="pattern-download" href="' + $_.BaseName + '.pdf">') | Set-Content $_;
+		(Get-Content $_).replace('cellspacing="0"', '') | Set-Content $_;
+		(Get-Content $_).replace('cellpadding="0"', '') | Set-Content $_;
 	}
 	
 	# Jekyll Build
