@@ -74,6 +74,14 @@ body {
 .col_11 {width: 91.66%;}
 .col_12 {width: 100%;}
 
+.italic {
+	font-style: italic !important;
+}
+
+.bold {
+	font-weight: bold !important;
+}
+
 div.Beschreibung{
   overflow-x: hidden;
 }
@@ -121,8 +129,9 @@ p.Beschreibung{
   margin-left: auto;
   margin-right: auto;
  padding: 0;
- text-align: left;
+ text-align: justify;
  font-size: 14pt;
+ word-wrap: break-word;
 }
 
 

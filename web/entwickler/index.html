@@ -4,11 +4,69 @@ title: "Entwickler Page"
 ---
 <div class="content_Beschreibung col_10">
 	<img class="Beschreibung" src="entwickler.png">
+	
 	<h4 class="Beschreibung">ENTWICKLER</h4>
 	
-	<div class="Beschreibung">
-		<h1 class="Beschreibung">Informationen für Entwickler</h1>
-		<p class="Beschreibung col_8">Hier kommen Informationen für Entwickler rein...</p>
-	</div>
+	<p class="Beschreibung col_8">Das Ziel einer Multiscreen-Interaktion ist die intuitive, Gesten-basierte Interaktion zweier Geräte zwecks Verbindungsaufbau, Dateiübertragung, Bildschirmerweiterung oder Verbindungsaufbau. Das Kapitel "Technisches" in den <a href="/patterns/">Pattern-Beschreibungen</a> enthält Pattern-spezifische Hinweise zur Implementierung der jeweiligen Gestenerkennung. Diese Hinweise müssen im Kontext einer Multiscreen-Applikation umgesetzt werden, dessen Aufbau auf dieser Seite modellhaft nach [<a href="#schneider">Schneider 2015</a>] beschrieben wird.</p>
+	
+	<h2 class="Beschreibung">Lebenszyklus einer Multiscreen-Applikation</h2>
+	<p class="Beschreibung col_8">
+		Jede Instanz einer Multiscreen-Applikation kann sich in verschiedenen Zuständen befinden, wobei es aus Sicht von Multiscreen-Interaktionen vier relevante Zustandsänderungen (Lifecycle-Events) gibt, die durch Gesten ausgelöst werden können:
+	</p>
+	
+	<ul class="Beschreibung col_7" style="list-style-type:disc !important; list-style: inside;">
+		<li style="margin-bottom: 10px;"><span class="bold">Connect</span>: Verbindung zu einem anderen Gerät wird hergestellt, im Folgezustand sind beide Geräte verbunden</li>
+		<li style="margin-bottom: 10px;"><span class="bold">Select</span>: Ein Datenobjekt wird zur Übertragung ausgewählt. Es kann sich dabei um eine <span class="italic">Datei</span>, einen <span class="italic">Befehl</span> oder einen <span class="italic">Datenstrom handeln</span> (bspw. zur Bildschirmerweiterung) handeln</li>
+		<li style="margin-bottom: 10px;"><span class="bold">Transfer</span>: Das ausgewählte Datenobjekt wird übertragen</li>
+		<li style="margin-bottom: 10px;"><span class="bold">Disconnect</span>: Die Verbindung zwischen zwei Geräten wird getrennt</li>
+	</ul>
+	
+	<p class="Beschreibung col_8">
+		Die folgende Grafik veranschaulicht die möglichen Zustandsänderungen und deren Zusammenspiel für den Lebenszyklus einer Multiscreen-Applikation.
+	</p>
+	
+	<img class="Beschreibungen col_7" src="lifecycle.png" alt="Lebenszyklus einer Multiscreen-Interaktion bestehend aus Connect, Select, Transfer und Disconnect">
+
+	<h2 class="Beschreibung">Connect</h2>
+	
+	<p class="Beschreibung col_8">
+		Ein Connect...
+	</p>
+	
+	<img class="Beschreibungen col_8" src="connect.png" alt="Ablauf des Lifecycle-Events Connect">
+	
+	<h2 class="Beschreibung">Select</h2>
+	
+	<p class="Beschreibung col_8">
+		Ein Select...
+	</p>
+	
+	<img class="Beschreibungen col_4" src="select.png" alt="Ablauf des Lifecycle-Events Select">
+	
+	<h2 class="Beschreibung">Transfer</h2>
+	
+	<p class="Beschreibung col_8">
+		Ein Transfer...
+	</p>
+	
+	<img class="Beschreibungen col_5" src="transfer.png" alt="Ablauf des Lifecycle-Events Transfer">
+	
+	<h2 class="Beschreibung">Disconnect</h2>
+	
+	<p class="Beschreibung col_8">
+		Ein Disconnect...
+	</p>
+	
+	<img class="Beschreibungen col_6" src="disconnect.png" alt="Ablauf des Lifecycle-Events Disconnect">
+	
+	<h2 class="Beschreibung">Abschlussarbeiten</h2>
+	
+	<p class="Beschreibung col_8">
+		<span>[<a name="schneider">Schneider 2015</a>]</span> Schneider, Horst: <span class="italic">Ein formales Modell zur Beschreibung geräteübergreifender Interaktionsmuster</span>, Hochschule Mannheim, Masterthesis, 2015</a> (<a href="2015_masterthesis_schneider.pdf">pdf</a>)<br/><br/>
+		<span>[<a name="madden">Madden 2015</a>]</span> Madden, Dominick: <span class="italic">Stitch-to-Tile: Eine Gestensteuerung zur Auslösung von Bildschirmerweiterung</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_madden.pdf">pdf</a>)<br/> <br/>
+		<span>[<a name="burjan">Burjan 2015</a>]</span> Burjan, Valentina: <span class="italic">Prototypische Implementierung des Blended Interaction Patterns „grab the screen“</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_burjan.pdf">pdf</a>)<br/><br/>
+		<span>[<a name="hahn">Hahn 2015</a>]</span> Hahn, Alexander: <span class="italic">Konzeption und Implementierung der Swipe-Geste zum Datentransfer im Multi-Screen Kontext</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_hahn.pdf">pdf</a>)<br/><br/>
+		<span>[<a name="grab">Grab 2015</a>]</span> Grab, Benjamin: <span class="italic">Implementierung einer gestenbasierten Interaktion zum Datenaustausch zwischen mobilen Endgeräten</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_grab.pdf">pdf</a>)<br/> <br/>
+	</p>	
 </div>
 
