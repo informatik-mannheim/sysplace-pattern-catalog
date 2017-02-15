@@ -1,0 +1,153 @@
+\input{header.tex}
+
+\newcommand{\name}{Skype To Give}
+
+% -------------------------------
+% WAS
+% -------------------------------
+
+\newcommand{\desc}{Ein Benutzer (der \sen) hat ein \data\ und will es mit einem weiteren Benutzer (dem \rec) bzw. einem \recdev\ teilen. Es soll über das Internet vom \sendev\ auf das \recdev\ übertragen werden, sodass es anschließend auf beiden Geräten verfügbar ist.}
+
+\newcommand{\solution}{Der \sen\ hat das \sendev{} in der Hand oder vor sich liegen und führt eine Skype-Konversation. Er nutzt den bequemen Skype File Transfer zur Übertragung des \data{}s}
+
+\newcommand{\category}{give}
+%\newcommand{\category}{take}
+%\newcommand{\category}{exchange}
+%\newcommand{\category}{extend}
+%\newcommand{\category}{connect}
+
+% -------------------------------
+% WIE
+% -------------------------------
+
+\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand oder hat es vor sich liegen bzw. stehen (z.B. ein Tablet oder Tabletop). Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der aktuelle Bildschirm) zum Versenden ausgewählt worden. \recdev\ und \sendev\ sind bereits durch Skype zum bidirektionalen Datenaustausch verbunden.\\
+
+Der \sen{} wählt durch Rechtsklick auf den \rec{} in seiner Kontaktliste "Datei senden" aus, navigiert im File-Dialog zu einer Datei und klickt auf "senden". Das \data{} wird anschließend auf das \recdev{}übertragen.}
+
+\newcommand{\reactionSen}{Auf dem \sendev{} erscheint eine Fortschrittsanzeige zur Dateiübertragung.}
+
+\newcommand{\reactionRec}{Auf dem \recdev{} erscheint eine Fortschrittsanzeige zur Dateiübertragung. Nach Abschluss der Übertragung kann die Datei bequem im Dateiexplorer angezeigt werden.}
+
+\newcommand{\microinteractionstabular}{}
+
+\newcommand{\animations}{}
+
+\newcommand{\designnotes}{}
+
+% -------------------------------
+% WANN
+% -------------------------------
+
+\newcommand{\validcontext}{Datenaustausch von Bildern, Videos, Visitenkarten, Social Network IDs, Systembefehlen}
+
+%\newcommand{\simultaneously}{}
+\newcommand{\sequentially}{}
+
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+\newcommand{\public}{}
+\newcommand{\stationary}{}
+\newcommand{\onthego}{}
+
+\newcommand{\leanback}{}
+\newcommand{\leanforward}{}
+
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
+\newcommand{\facetoface}{}
+%\newcommand{\sidetoside}{}
+
+\newcommand{\notvalidcontext}{- Kritische Daten sollten nicht an (halb-) öffentliche Displays gesendet werden. \\ - Wenn viele drahtlos verbundene Geräte räumlich nah beieinander sind, ist es schwierig zu entscheiden welches der \rec\ ist.}
+
+\newcommand{\devicetabular}{
+\begin{figure}[H]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline 
+\diagbox{von}{nach} & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
+\hline 
+Smartwatch          &     x      &     x      &   x    &     x    &     x   \\ 
+\hline 
+Smartphone          &     x      &     x      &   x    &     x    &     x   \\ 
+\hline 
+Tablet              &     x      &     x      &   x    &     x    &     x   \\ 
+\hline 
+Tabletop            &            &            &        &     x    &     x   \\ 
+\hline
+Screens             &            &            &        &          &         \\ 
+\hline 
+\end{tabular}
+\caption{Geräteklassen für das Swipe To Give Pattern} 
+\end{figure}
+}
+
+% -------------------------------
+% WARUM
+% -------------------------------
+
+\newcommand{\established}{}
+%\newcommand{\candidate}{}
+%\newcommand{\realizable}{}
+%\newcommand{\futuristic}{}
+
+\newcommand{\otherpatterns}{Stitch, Pinch}
+
+\newcommand{\stateoftheart}{
+}
+
+\newcommand{\designprinciples}{}
+
+\newcommand{\imageschemata}{}
+%\newcommand{\imageSchemaCenterPeriphery}{}
+%\newcommand{\imageSchemaContact}{}
+%\newcommand{\imageSchemaFrontBack}{}
+%\newcommand{\imageSchemaLocation}{}
+%\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaObject}{}
+\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
+%\newcommand{\imageSchemaScale}{}
+%\newcommand{\imageSchemaLeftRight}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaContent}{}
+%\newcommand{\imageSchemaFullEmpty}{}
+\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaSurface}{}
+%\newcommand{\imageSchemaMerging}{}
+%\newcommand{\imageSchemaSplitting}{}
+\newcommand{\imageSchemaMomentum}{}
+%\newcommand{\imageSchemaSelfMotion}{}
+%\newcommand{\imageSchemaBigSmall}{}
+\newcommand{\imageSchemaFastSlow}{}
+%\newcommand{\imageSchemaPartWhole}{}
+
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
+
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Jemandem ein Object durch die Luft zuwerfen.}
+
+% -------------------------------
+% TECHNISCHES
+% -------------------------------
+
+
+
+% -------------------------------
+% SONSTIGES
+% -------------------------------
+
+\newcommand{\authors}{
+Horst Schneider, Hochschule Mannheim}
+
+\newcommand{\versionhistory}{15.02.2017}
+\newcommand{\dateofcreation}{15.02.2017}
+\newcommand{\comments}{Dieses Pattern ist ein Easteregg.}
+\newcommand{\questions}
+
+
+% template inkludieren --------------
+
+\input{template.tex}

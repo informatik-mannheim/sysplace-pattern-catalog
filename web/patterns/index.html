@@ -2,6 +2,20 @@
 layout: default
 title: Übersicht Multiscreen-Pattern
 ---
+<script type="text/javascript" src="/cheet.min.js"></script>
+<script type="text/javascript">
+	var cheet_enabled = false;
+	cheet('up up down down left right left right b a', function () {
+		if(cheet_enabled) { return; }
+		
+		var link = document.querySelectorAll('a[href="swipe_to_give.html"]')[0];
+		link.text = "Skype To Give";
+		link.href = "skype_to_give.html";
+		document.location = document.location += "#pattern_uebersicht_give";
+		cheet_enabled = true;
+	});
+</script>
+
 <a href="#patterns"><img class="closing" src="icon_close.png" alt="x zum schließen"></a>
 
 <div class="pattern_uebersicht">

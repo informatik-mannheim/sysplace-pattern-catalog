@@ -1,4 +1,12 @@
-﻿Function clean
+﻿Function build
+{
+	clean
+	build-pdf
+	build-web
+	deploy-external
+}
+
+Function clean
 {
 	delete-temps
 	gci -Recurse -Path output/ -Include *.* | rm 
@@ -160,12 +168,6 @@ Function deploy-internal
 Function deploy-external
 {
 	pscp -r output/html/* webdeploy@37.61.204.167:/var/www/html/sysplace
-}
-
-Function generate-index
-{
-	..\composer\vendor\bin\jsindex .
-	mv  -Force jssearch.index.js ..\output\html
 }
 
 Function PrintSuccessOrError
