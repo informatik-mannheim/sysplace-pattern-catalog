@@ -24,11 +24,11 @@
 
 \newcommand{\reactionSen}{Auf beiden Geräten sollte zu den verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des \sendev{}s führt und der zweite vom Bildschirmrand zur Mitte des \recdev{}s. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
 Da es sich bei \textbf{Stitch to Connect} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch, so wird der Verbindungsvorgang angestoßen. \\
-Vor dem Stitch besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{vermittlungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Stitch als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Stitch finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
+Vor dem Stitch besteht keine direkte Verbindung zwischen den Geräten, daher muss es eine \gls{vermittlungskomponente} geben (z.B. ein externer Server), an die die Daten zur Überprüfung gesendet werden. Sind die Daten ähnlich genug, gilt der Stitch als \textit{erfolgreich} (Atomare Interaktion \textit{Stitch Recognized}). Bei einem \textit{erfolgreich} ausgeführten Stitch finden alle atomaren Interaktionen statt, nach Beendigung der letzten werden die Geräte drahtlos verbunden (Atomare Interaktion \textit{Connect}), worüber der Nutzer ebenfalls Feedback erhalten sollte.}
 
 \newcommand{\reactionRec}{
-Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev{}. 
-}
+Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev{}. Das Gerät sollte dem Benutzer Feedback über den eingegangenen Stitch und das Verbinden der Geräte geben. 
+} 
 
 \newcommand{\microinteractionstabular}{
 \begin{figure}[H]
@@ -49,7 +49,9 @@ Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\
 \hline
 Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
 \hline
-Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer \newline ist möglich & Animation 4 \\
+Stitch Recognized & S & Swipe-Daten wurden miteinander verglichen & Swipe-Daten entsprechen Charakteristiken eines Stitch & Animation 4  \\
+\hline
+Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer \newline ist möglich & Animation 5 \\
 \hline
 \end{tabularx}
 \end{table}
@@ -62,7 +64,9 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 \begin{enumerate}
 \item Touch-Animation: visualisiert dem Benutzer, dass ein Stitch die Verbindungsfunktionalität auslöst (z.B. Ein Gerät zeigt eine Steckdose an, das andere einen Stecker. Führt man den Stecker zur Steckdose, so verbindet man die Geräte miteinander)
 \item Move-Animation: visualisiert dem Benutzer, dass die Objekte beweglich sind (z.B. Der Stecker hat eine Drag-and-Drop-Funktionalität)
-\item Release-Animation: visualisiert dem Benutzer, dass die Geste erfolgreich ausgeführt wurde und ein Verbindungsaufbau initiiert wird (z.B. Der Stecker wird in die Steckdose gesteckt)
+\item Release-Animation: visualisiert dem Benutzer, dass die Geste erfolgreich ausgeführt wurde und ein Verbindungsaufbau initiiert wird (z.B.\sendev{}: Der Stecker fährt zur Hälfte aus dem Bildschirm heraus.  \recdev{}: Ein Stecker fährt zur Hälfte auf den Bildschirm.
+)
+\item Stitch-Recognized-Animation: visualisiert dem Benutzer, dass der ausgeführte Stitch erfolgreich erkannt wurde (z.B. Der Stecker wird in die Steckdose gesteckt.)
 \item Connect-Animation: visualisiert dem Benutzer, dass die Verbindung hergestellt wurde (z.B. Es fließen Daten durch die Kabel des Steckers und der Steckdose)
 \end{enumerate}
 }
@@ -70,13 +74,10 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 \newcommand{\designnotes}{
 \begin{itemize}
 \item[-] Beide involvierten Geräte benötigen einen Touchscreen.
+\item[-] Da es sich bei Stitch to Connect um eine synchrone Geste handelt, müssen die Geräte miteinander kommunizieren können, sodass die beiden Teile der Geste miteinander verglichen werden können.
 \item[-] Bei jeder Synchronen Connect-Geste muss es eine Vermittlungskomponente geben, an die die relevanten Daten der Geste gesendet werden. Diese vergleicht die empfangenen Daten der beiden involvierten Geräte und gibt positive oder negative Rückmeldung.
+\item[-] Für manche Anwendungsfälle könnte die Stitch-Richtung interessant sein, auch wenn sie technisch nicht notwendig ist.
 \end{itemize}}
-
-
-
-
-
 
 
 % -------------------------------
@@ -101,25 +102,29 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 \newcommand{\leanforward}{}
 
 \newcommand{\single}{}
-%\newcommand{\collaboration}{}
+\newcommand{\collaboration}{}
 %\newcommand{\facetoface}{}
 \newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{
+\begin{itemize}
+\item Verbinden mit entfernten Geräten.
+\item Verbinden mit mehreren Geräten gleichzeitig.
+\end{itemize}}
 
 \newcommand{\devicetabular}{
 \begin{tabular}[H]{|c|c|c|c|c|c|}
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     x      &            &        &          &         \\ 
+Smartwatch            &            &            &        &          &         \\ 
 \hline 
 Smartphone            &            &     x      &   x    &   x     &         \\ 
 \hline 
 Tablet                &            &     x      &   x    &    x   &         \\ 
 \hline 
-Tabletop              &           &           &       &         &         \\ 
+Tabletop              &            &     x      &   x    &         &         \\ 
 \hline
 Screens               &           &           &       &         &         \\ 
 \hline 
@@ -147,33 +152,34 @@ Screens               &           &           &       &         &         \\
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}
+\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}.
 \item Erste wissenschaftliche Erwähnung von Stitch-Gesten \cite{Hinckley2004}.
+\item Bachelorthesis zu Stitch To Extend
+\cite{Madden2015}.
+\item Studienarbeit zu Interaktionen und Animationen im Multiscreen Kontext
+\cite{Madden2016}.
 \end{enumerate}
 }
 
 
-%\newcommand{\designprinciples}{}
+\newcommand{\designprinciples}{}
 
-%\newcommand{\imageschemata}{}
-\newcommand{\imageSchemaVoid}{}
-%\newcommand{\imageSchemaObject}{}
-%\newcommand{\imageSchemaSubstance}{}
-%\newcommand{\imageSchemaCenterPeriphery}{}
-%\newcommand{\imageSchemaContact}{}
+\newcommand{\imageschemata}{}
+\newcommand{\imageSchemaContact}{}
 %\newcommand{\imageSchemaFrontBack}{}
 %\newcommand{\imageSchemaLocation}{}
 %\newcommand{\imageSchemaNearFar}{}
-%\newcommand{\imageSchemaPath}{}
-%\newcommand{\imageSchemaSourcePathGoal}{}
+\newcommand{\imageSchemaObject}{}
+\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaScale}{}
 %\newcommand{\imageSchemaLeftRight}{}
 %\newcommand{\imageSchemaContainer}{}
 %\newcommand{\imageSchemaContent}{}
 %\newcommand{\imageSchemaFullEmpty}{}
-%\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaSurface}{}
-%\newcommand{\imageSchemaMerging}{}
+\newcommand{\imageSchemaMerging}{}
 %\newcommand{\imageSchemaSplitting}{}
 %\newcommand{\imageSchemaMomentum}{}
 %\newcommand{\imageSchemaSelfMotion}{}
@@ -181,14 +187,14 @@ Screens               &           &           &       &         &         \\
 %\newcommand{\imageSchemaFastSlow}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
-%\newcommand{\realworld}{}
-%\newcommand{\realworldNaivePhysic}{}
-%\newcommand{\realworldBodyAwareness}{}
-%\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
 %\newcommand{\realworldSocialAwareness}{}
 
-%\newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{...}
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Einen Stecker in eine Steckdose stecken.}
 
 % -------------------------------
 % TECHNISCHES
@@ -265,7 +271,7 @@ Gestaltungsmöglichkeiten für den \textit{Connect}, \textit{Feedbacks} etc. fin
 
 \newcommand{\authors}{Horst Schneider, Hochschule Mannheim\\
 Dominick Madden, Hochschule Mannheim}
-\newcommand{\versionhistory}{16.09.2016}
+\newcommand{\versionhistory}{16.02.2017}
 \newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
