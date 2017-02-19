@@ -6,10 +6,10 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Der Bildschirm-Inhalt des Quell-Gerätes soll auf dem Ziel-Gerät erweitert dargestellt werden.}
+\newcommand{\desc}{Ein Benutzer möchte den Bildschirminhalt seines Geräts (des \sendev{}s) auf einem anderen Gerät (dem \recdev{}) erweitert anzeigen lassen um mehr Bildschirmfläche nutzen zu können.}
 
-\newcommand{\solution}{Zwei Geräte werden nebeneinander gelegt. Der Anwender zieht mit dem Finger eine Linie von dem Display des Quell-Gerätes hinüber auf das Display des Ziel-Gerätes, wo die gezogene Linie endet.
-Diese Nutzerinteraktion löst die Erweiterung des Bildschirminhalts vom Quell- auf das Ziel-Gerät aus.}
+\newcommand{\solution}{Der Benutzer hat das \sendev\ Kante an Kante neben dem \recdev\ und führt seinen Finger vom Bildschirm des \sendev\ auf den Bildschirm des \recdev{}s. 
+Diese Nutzerinteraktion löst die Erweiterung des Bildschirminhalts aus.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -21,52 +21,82 @@ Diese Nutzerinteraktion löst die Erweiterung des Bildschirminhalts vom Quell- a
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Nutzer legt das Quell- und Zielgerät parallel zueinander Seite an Seite. Auf dem Quell-Gerät wählt er die zu erweiternde Ansicht (z.B. Bild) aus. Er platziert einen Finger auf dem Bildschirm des Quellgerätes und führt diesen auf den Bildschirm des Zielgerätes hinüber, ohne den Finger zu heben.}
+\newcommand{\reactionSen}{Auf beiden Geräten sollte zu den verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des \sendev{}s führt und der zweite vom Bildschirmrand zur Mitte des \recdev{}s. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Da es sich bei \textbf{Stitch to Extend} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch (Atomare Interaktion \textit{Stitch Recognized}), so wird die Bildschirmerweiterung ausgelöst. \\
+}
 
-\newcommand{\reaction}{Die Bildschirm-Ansicht des Quell-Gerätes wird bei korrekter Ausführung und Erkennung auf dem Ziel-Gerät erweitert, also anteilig, dargestellt. }
+\newcommand{\reactionRec}{
+Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \sendev{}. Das Gerät sollte dem Benutzer Feedback über den eingegangenen Stitch geben. 
+} 
 
-\newcommand{\designnotes}{Bei zu unterschiedlichen Displaygrößen der beteiligten Geräte kann ggf. kein Mehrwert erzeugt werden (z.B. wenn ein Tablet und ein Smartphone hochkant nebeneinandergelegt werden kann bei der Erweiterung Fläche verloren gehen (siehe Abb.)).\\
+\newcommand{\designnotes}{
+
+\begin{itemize}
+\item[-] Beide involvierten Geräte benötigen einen Touchscreen.
+\item[-] Da es sich bei Stitch to Extend um eine synchrone Geste handelt, müssen die Geräte miteinander kommunizieren können, sodass die beiden Teile der Geste miteinander verglichen werden können.
+
+\item[-] Bei zu unterschiedlichen Displaygrößen der beteiligten Geräte kann ggf. kein Mehrwert erzeugt werden (z.B. wenn ein Tablet und ein Smartphone hochkant nebeneinandergelegt werden kann bei der Erweiterung Fläche verloren gehen (siehe Abb.)).\\
 Um einen möglichst fließenden Übergang zu gewinnen müssen die Displays sehr nah und parallel zueinander anliegen.\\
 Jeder Bildschirm hat einen Rand, was dazu führt, dass durch das Nebeneinanderlegen zweier Geräte eine Lücke zwischen den Displays entsteht. Dadurch, dass mobile Endgeräte viel kleiner sind als Computermonitore, ist die Lücke zwischen den Geräten relativ zu ihren Dimensionen meist größer.\\
 Es gibt zwei Möglichkeiten Ansichten zu erweitern: 
 \begin{enumerate}
-\item Das Bild in zwei Teile schneiden und die Ränder der Displays ignorieren. Dabei entsteht eine Streckung des Bildes (siehe Abb. /links).
-\item Das Bild in zwei Teile schneiden und die Ränder der Displays einkalkulieren und aus dem Bild ausschneiden (siehe Abb. /rechts).
-\end{enumerate} }
-
-\newcommand{\microinteractions}{
-\begin{enumerate}
-\item Test
-\item Another test
-\end{enumerate}}
+\item Das Bild in zwei Teile schneiden und die Ränder der Displays ignorieren. Dabei entsteht eine Streckung des Bildes.
+\item Das Bild in zwei Teile schneiden und die Ränder der Displays einkalkulieren und aus dem Bild ausschneiden.
+\end{enumerate}
+\end{itemize} }
 
 \newcommand{\microinteractionstabular}{
-\begin{tabular}[H]{|c|c|c|c|c|c|}
-\hline 
-N\degree   & Name & Trigger Type & Trigger & Rules & Feedback \\ 
-\hline 
-1            &     Test      &     asdasf       & asdf       &      hhdfsg    &  filoj  \\ 
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
-2            &    Another Test    &    sad x      &   x  hh  &     (sdfx)* &    asdf    \\ 
-\hline 
-\end{tabular}}
+Touch & M & Touch Down Event auf dem Screen & & Animation 1 \\ 
+\hline
+Move & M & Touch Move Event auf dem Screen & 
+Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\ 
+\hline
+Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
+\hline
+Stitch Recognized & S & Swipe-Daten wurden miteinander verglichen & Swipe-Daten entsprechen Charakteristiken eines Stitch & Animation 4  \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Stitch to Extend Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
+
+\newcommand{\animations}{
+\begin{enumerate}
+\item Touch-Animation: visualisiert dem Benutzer, dass ein Stitch die Bildschirmerweiterung auslöst (z.B. Der aktuelle Bildschirminhalt wird angehoben und Pfeile in Richtung der Bildschirmränder erscheinen.)
+\item Move-Animation: visualisiert dem Benutzer, dass die Objekte beweglich sind (z.B. Der Bildschirminhalt hat eine Drag-and-Drop-Funktionalität)
+\item Release-Animation: visualisiert dem Benutzer, dass die Geste erfolgreich ausgeführt wurde und die Bildschirmerweiterung initiiert wird (z.B.\sendev{}: Der Bildschirminhalt fährt zur Hälfte aus dem Bildschirm heraus.  \recdev{}: Der Bildschirminhalt des \sendev{}s fährt zur Hälfte auf den Bildschirm.
+)
+\item Stitch-Recognized-Animation: visualisiert dem Benutzer, dass der ausgeführte Stitch erfolgreich erkannt wurde (z.B. Der Bildschirminhalt des \sendev{}s streckt sich allmählich über beide Bildschirme)
+\end{enumerate}
+}
 
 % -------------------------------
 % WANN
 % -------------------------------
 
+
 \newcommand{\validcontext}{
 \begin{itemize}
-\item Visuelle Erweiterung/Bildschirmerweiterung: z.B. für Foto- / Video- / Spieleanwendungen / Aufteilen einer Arbeitsfläche in zwei / Panorama-Ansicht bei Bildern (siehe Abb.) / Darstellung von Medien im Originalformat (z.B. aufgeschlagenes Buch, also zwei Seiten auf zwei Bildschirmen darstellen)
-\item Logische Erweiterung: Auslagern von Programmlogik, um auf den Screens verschiedene Aufgaben durchzuführen, z.B. Fernsehen und auf dem zweiten Screen ein dazugehörige Aktion, wie ein Quiz auszuführen.
+\item Visuelle Erweiterung/Bildschirmerweiterung: z.B. für Foto- / Video- / Spieleanwendungen / Aufteilen einer Arbeitsfläche in zwei / Panorama-Ansicht bei Bildern  / Darstellung von Medien im Originalformat (z.B. aufgeschlagenes Buch, also zwei Seiten auf zwei Bildschirmen darstellen)
+\item Logische Erweiterung: Auslagern von Programmlogik, um auf den Screens verschiedene Aufgaben durchzuführen, z.B. Fernsehen und auf dem zweiten Screen eine dazugehörige Aktion, wie ein Quiz auszuführen.
 \end{itemize}
 }
 
 \newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
-
-%\newcommand{\online}{}
-\newcommand{\offline}{}
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
@@ -83,13 +113,11 @@ N\degree   & Name & Trigger Type & Trigger & Rules & Feedback \\
 \newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
-\newcommand{\smalltask}{}
-%\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
-\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
-
-\newcommand{\notvalidcontext}{1. Wenn die zu erweiternde Ansicht eine geringe Auflösung hat, verschlechtert sich die Qualität noch weiter, wenn sie auf einer größeren Bildschirmfläche angezeigt wird. 2. Die benutzten Bildschirme sollten sich von der Größe nicht zu sehr Unterscheiden, da sonst der Zuwachs an Fläche abnimmt(Siehe Abbildung).}
+\newcommand{\notvalidcontext}{
+\begin{enumerate}
+\item Wenn die zu erweiternde Ansicht eine geringe Auflösung hat, verschlechtert sich die Qualität noch weiter, wenn sie auf einer größeren Bildschirmfläche angezeigt wird.
+\item Die benutzten Bildschirme sollten sich von der Größe nicht zu sehr Unterscheiden, da sonst der Zuwachs an Fläche abnimmt.
+\end{enumerate}.}
 
 
 \newcommand{\devicetabular}{
@@ -97,7 +125,7 @@ N\degree   & Name & Trigger Type & Trigger & Rules & Feedback \\
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     x      &            &        &          &         \\ 
+Smartwatch            &            &            &        &          &         \\ 
 \hline 
 Smartphone            &            &     x      &   x    &     (x)* &         \\ 
 \hline 
@@ -133,8 +161,11 @@ Screens               &            &            &        &          &         \\
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}
+\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}.
 \item Erste wissenschaftliche Erwähnung von Stitch-Gesten \cite{Hinckley2004}.
+\item Bachelorthesis zu Stitch To Extend \cite{Madden2015}.
+\item Studienarbeit zu Interaktionen und Animationen im Multiscreen Kontext
+\cite{Madden2016}.
 \end{enumerate}
 }
 
@@ -142,14 +173,27 @@ Screens               &            &            &        &          &         \\
 \newcommand{\designprinciples}{}
 
 \newcommand{\imageschemata}{}
-%\newcommand{\imageSchemaContainer}{}
-%\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageSchemaContact}{}
+%\newcommand{\imageSchemaFrontBack}{}
+%\newcommand{\imageSchemaLocation}{}
+%\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaObject}{}
 \newcommand{\imageSchemaPath}{}
 \newcommand{\imageSchemaSourcePathGoal}{}
-%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaScale}{}
 %\newcommand{\imageSchemaLeftRight}{}
-%\newcommand{\imageSchemaNearFar}{}
-%\newcommand{\imageSchemaPartWhole}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaContent}{}
+%\newcommand{\imageSchemaFullEmpty}{}
+\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaSurface}{}
+\newcommand{\imageSchemaMerging}{}
+%\newcommand{\imageSchemaSplitting}{}
+%\newcommand{\imageSchemaMomentum}{}
+%\newcommand{\imageSchemaSelfMotion}{}
+%\newcommand{\imageSchemaBigSmall}{}
+%\newcommand{\imageSchemaFastSlow}{}
+\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
 \newcommand{\realworldNaivePhysic}{}
@@ -247,7 +291,7 @@ auf der \developerpage.
 Valentina Burjan, Hochschule Mannheim\\
 Dominick Madden, Hochschule Mannheim\\
 Horst Schneider, Hochschule Mannheim}
-\newcommand{\versionhistory}{16.09.2016}
+\newcommand{\versionhistory}{19.02.2017}
 \newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
