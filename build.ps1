@@ -10,7 +10,7 @@ Function clean
 {
 	delete-temps
 	gci -Recurse -Path output/ -Include *.* | rm 
-	gci -Path patterns/ -Include *.html,*.css -Recurse | rm
+	gci -Path patterns/ -Include *.html,*.css,*0x.png,*.pdf -Recurse | rm
 }
 
 Function delete-temps
