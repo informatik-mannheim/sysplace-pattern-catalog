@@ -6,10 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Datenobjekt auf einem Sender-Gerät soll von einem Empfänger-Gerät angefordert werden. Das Datenobjekt soll auch auf dem Empfänger-Gerät verfügbar sein.}
+\newcommand{\desc}{Ein Benutzer (der \rec) hat ein \recdev\ und will von einem anderem Benutzer (dem \sen) bzw. einem \sendev\ ein \data\ anfordern. Die Geräte befinden sich in unmittelbarer Nähe zueinander. Es soll vom \sendev\ auf das \recdev\ übertragen werden, sodass es anschließend auf beiden Geräten verfügbar ist.}
 
-\newcommand{\solution}{Zwei Geräte werden nebeneinandergelegt. Der Anwender zieht mit dem Finger eine Linie auf dem Display des Quell-Gerätes hinüber auf das Display des Ziel-Gerätes, wo die gezogene Linie endet.
-Dabei wird ein Datenobjekt vom Sender-Gerät angefordert und vom Empfänger-Gerät dargestellt.}
+\newcommand{\solution}{Der \rec{} hält die Geräte aneinander, sodass sie sich berühren und die Bildschirme parallel zueinander sind. Er führt seinen Finger von einem Punkt auf dem Bildschirm des \sendev{}s über die Bildschirmgrenzen hinweg auf den Bildschirm des \recdev{}s, woraufhin das \data\ übertragen wird.}
 
 %\newcommand{\category}{give}
 \newcommand{\category}{take}
@@ -21,46 +20,91 @@ Dabei wird ein Datenobjekt vom Sender-Gerät angefordert und vom Empfänger-Ger�
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{...}
+\newcommand{\useraction}{Der \rec\ hat das \recdev\ entweder auf einer Oberfläche - Kante an Kante - neben dem \sendev\ liegen, oder hat es in der Hand und hält es neben das \sendev{}. Er führt eine \gls{stitch}-Geste aus.}
 
-\newcommand{\reaction}{...}
+\newcommand{\swapReactions}{}
 
-\newcommand{\designnotes}{...}
+\newcommand{\reactionRec}{
+
+Auf beiden Geräten sollte zu den verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des \sendev{}s führt und der zweite vom Bildschirmrand zur Mitte des \recdev{}s. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Da es sich bei \textbf{Stitch to Take} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch, so wird das \data\ versendet. 
+}
+
+\newcommand{\reactionSen}{
+Auf dem \sendev{} werden die selben atomaren Interaktionen ausgeführt wie auf dem \recdev{}. Das Gerät sollte dem Benutzer Feedback über den eingegangenen Stitch und das Empfangen der Daten geben. 
+}
+
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Touch & M & Touch Down Event auf dem Screen & Touch auf dem \data\ & Animation 1 \\ 
+\hline
+Move & M & Touch Move Event auf dem Screen & 
+Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\ 
+\hline
+Release & M & Touch Up Event auf dem Screen & Swipelänge OK, \newline Swipedauer OK, \newline Swipeorientierung OK & Animation 3 \\ 
+\hline
+Stitch Recognized & S & Swipe-Daten wurden miteinander verglichen & Swipe-Daten entsprechen Charakteristiken eines Stitch & Animation 4  \\
+\hline
+Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 5  \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Stitch to Give Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
+}
+
+\newcommand{\animations}{
+\begin{enumerate}
+\item Touch-Animation: visualisiert dem Benutzer, dass ein Stitch das Versenden des \data\ auslöst (z.B. Das \data\ liegt auf Schienen, die über die Bildschirmränder fortgeführt werden und auf dem \recdev{} enden. Bei Berührung wird eine Ampel von rot auf grün gesetzt)
+\item Move-Animation: visualisiert dem Benutzer, dass das \data\ beweglich ist (z.B. Drag \& Drop Funktionalität entlang der Schienen)
+\item Release-Animation: visualisiert dem Benutzer, dass der Swipe erfolgreich ausgeführt wurde (z.B. \sendev{}: Das \data\ fährt zur Hälfte aus dem Bildschirm heraus. Ampel wechselt auf gelb \recdev{}: Ampel wechselt von rot auf gelb)
+\item Stitch-Recognized-Animation: visualisiert dem Benutzer, dass der ausgeführte Stitch erfolgreich erkannt wurde (z.B. Auf beiden Geräten werden die Ampeln grün. Das \data\ setzt sich auf dem \sendev\ in Bewegung)
+\item Receive-Animation: visualisiert dem Benutzer, dass das \data\ empfangen wurde (z.B. Das Objekt fährt auf den Schienen auf den Bildschirm des \recdev{}s)
+\end{enumerate}
+}
+
+\newcommand{\designnotes}{
+\begin{itemize}
+\item[-] Beide involvierten Geräte benötigen einen Touchscreen.
+\item[-] Da es sich bei Stitch to Take um eine synchrone Geste handelt, müssen die Geräte miteinander kommunizieren können, sodass die beiden Teile der Geste miteinander verglichen werden können.
+\end{itemize}}
 
 % -------------------------------
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{...}
+\newcommand{\validcontext}{Situationen bei denen ein Benutzer ein \data\ von einem Gerät in unmittelbarer Nähe beziehen will (z.B. Teammitglieder ziehen sich Tasks, die auf einem Touch-Tisch angeordnet sind, auf ihr Smartphone).}
 
-%\newcommand{\simultaneously}{}
+\newcommand{\simultaneously}{}
 %\newcommand{\sequentially}{}
 
-%\newcommand{\online}{}
-%\newcommand{\offline}{}
-
-%\newcommand{\private}{}
-%\newcommand{\semipublic}{}
-%\newcommand{\public}{}
-%\newcommand{\stationary}{}
-%\newcommand{\onthego}{}
+\newcommand{\private}{}
+\newcommand{\semipublic}{}
+\newcommand{\public}{}
+\newcommand{\stationary}{}
+\newcommand{\onthego}{}
 
 %\newcommand{\leanback}{}
-%\newcommand{\leanforward}{}
+\newcommand{\leanforward}{}
 
-%\newcommand{\single}{}
-%\newcommand{\collaboration}{}
+\newcommand{\single}{}
+\newcommand{\collaboration}{}
 %\newcommand{\facetoface}{}
-%\newcommand{\sidetoside}{}
+\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
-%\newcommand{\smalltask}{}
-%\newcommand{\repeatedtask}{}
-%\newcommand{\locationbased}{}
-%\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
-
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{Anfordern von Daten von entfernten Geräten/Personen.}
 
 
 \newcommand{\devicetabular}{
@@ -68,15 +112,15 @@ Dabei wird ein Datenobjekt vom Sender-Gerät angefordert und vom Empfänger-Ger�
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &     x      &            &        &          &         \\ 
+Smartwatch            &            &            &        &         &         \\ 
 \hline 
-Smartphone            &            &     x      &   x    &   x     &         \\ 
+Smartphone            &            &     x      &   x    &    x   &         \\ 
 \hline 
 Tablet                &            &     x      &   x    &    x   &         \\ 
 \hline 
-Tabletop              &           &           &       &         &         \\ 
+Tabletop              &            &      x     &   x    &    x   &         \\ 
 \hline
-Screens               &           &           &       &         &         \\ 
+Screens               &            &            &        &        &         \\ 
 \hline 
 \end{tabular} }
 
@@ -85,8 +129,8 @@ Screens               &           &           &       &         &         \\
 % -------------------------------
 
 %\newcommand{\established}{}
-%\newcommand{\candidate}{}
-%\newcommand{\realizable}{}
+\newcommand{\candidate}{}
+\newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
 \newcommand{\otherpatterns}{
@@ -103,28 +147,32 @@ Screens               &           &           &       &         &         \\
 \begin{enumerate}
 \item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}
 \item Erste wissenschaftliche Erwähnung von Stitch-Gesten \cite{Hinckley2004}.
+\item Bachelorthesis zu Stitch To Extend
+\cite{Madden2015}.
+\item Studienarbeit zu Interaktionen und Animationen im Multiscreen Kontext
+\cite{Madden2016}.
 \end{enumerate}
 }
 
-%\newcommand{\designprinciples}{}
+\newcommand{\designprinciples}{}
 
-%\newcommand{\imageschemata}{}
-\newcommand{\imageSchemaVoid}{}
-%\newcommand{\imageSchemaObject}{}
+\newcommand{\imageschemata}{}
+%\newcommand{\imageSchemaVoid}{}
+\newcommand{\imageSchemaObject}{}
 %\newcommand{\imageSchemaSubstance}{}
 %\newcommand{\imageSchemaCenterPeriphery}{}
-%\newcommand{\imageSchemaContact}{}
+\newcommand{\imageSchemaContact}{}
 %\newcommand{\imageSchemaFrontBack}{}
-%\newcommand{\imageSchemaLocation}{}
+\newcommand{\imageSchemaLocation}{}
 %\newcommand{\imageSchemaNearFar}{}
-%\newcommand{\imageSchemaPath}{}
-%\newcommand{\imageSchemaSourcePathGoal}{}
+\newcommand{\imageSchemaPath}{}
+\newcommand{\imageSchemaSourcePathGoal}{}
 %\newcommand{\imageSchemaScale}{}
 %\newcommand{\imageSchemaLeftRight}{}
-%\newcommand{\imageSchemaContainer}{}
-%\newcommand{\imageSchemaContent}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaContent}{}
 %\newcommand{\imageSchemaFullEmpty}{}
-%\newcommand{\imageSchemaInOut}{}
+\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaSurface}{}
 %\newcommand{\imageSchemaMerging}{}
 %\newcommand{\imageSchemaSplitting}{}
@@ -134,14 +182,14 @@ Screens               &           &           &       &         &         \\
 %\newcommand{\imageSchemaFastSlow}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
-%\newcommand{\realworld}{}
-%\newcommand{\realworldNaivePhysic}{}
-%\newcommand{\realworldBodyAwareness}{}
+\newcommand{\realworld}{}
+\newcommand{\realworldNaivePhysic}{}
+\newcommand{\realworldBodyAwareness}{}
 %\newcommand{\realworldEnvironmentAwareness}{}
-%\newcommand{\realworldSocialAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
 
-%\newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{...}
+\newcommand{\metaphor}{}
+\newcommand{\metaphordesc}{Ein Dokument von einem Schreibtisch nehmen}
 
 % -------------------------------
 % TECHNISCHES
@@ -227,7 +275,7 @@ auf der \developerpage.
 
 \newcommand{\authors}{Horst Schneider, Hochschule Mannheim\\
 Dominick Madden, Hochschule Mannheim}
-\newcommand{\versionhistory}{16.09.2016}
+\newcommand{\versionhistory}{20.02.2017}
 \newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
