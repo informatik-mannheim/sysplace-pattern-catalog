@@ -1,13 +1,13 @@
 ---
 layout: default
-title: "Entwickler Page"
+title: "Informationen für Entwickler"
 ---
 <div class="content_Beschreibung col_10">
-	<img class="Beschreibung" src="entwickler.png">
+	<img class="Beschreibung" src="entwickler.png" alt="Eine mouse">
 	
 	<h4 class="Beschreibung">ENTWICKLER</h4>
 	
-	<p class="Beschreibung col_8">Das Ziel einer Multiscreen-Interaktion ist die intuitive, Gesten-basierte Interaktion zweier Geräte zwecks Verbindungsaufbau, Dateiübertragung, Bildschirmerweiterung oder Verbindungsaufbau. Das Kapitel "Technisches" in den <a href="/patterns/">Pattern-Beschreibungen</a> enthält Pattern-spezifische Hinweise zur Implementierung der jeweiligen Gestenerkennung. Diese Hinweise müssen im Kontext einer Multiscreen-Applikation umgesetzt werden, dessen Aufbau auf dieser Seite modellhaft nach [<a href="#schneider">Schneider 2015</a>] beschrieben wird.</p>
+	<p class="Beschreibung col_8">Das Ziel einer Multiscreen-Interaktion ist die intuitive, Gesten-basierte Interaktion zweier Geräte zwecks Verbindungsaufbau, Dateiübertragung, Bildschirmerweiterung oder Verbindungsabbau. Das Kapitel "Technisches" in den <a href="/patterns/">Pattern-Beschreibungen</a> enthält Pattern-spezifische Hinweise zur Implementierung der jeweiligen Gestenerkennung. Diese Hinweise müssen im Kontext einer Multiscreen-Applikation umgesetzt werden, dessen Aufbau auf dieser Seite modellhaft nach [<a href="#schneider">Schneider 2015</a>] beschrieben wird.</p>
 	
 	<h2 class="Beschreibung">Lebenszyklus einer Multiscreen-Applikation</h2>
 	<p class="Beschreibung col_8">
@@ -30,15 +30,30 @@ title: "Entwickler Page"
 	<h2 class="Beschreibung">Connect</h2>
 	
 	<p class="Beschreibung col_8">
-		Ein Connect...
+		Das Lifecycle-Event <span class="italic">Connect</span> kann durch eine synchrone Geste ausgelöst werden. Synchrone Gesten unterscheiden sich von einfahcen Gesten dadurch, dass an der Gesten-Erkennung zwei Geräte simultan beteiligt sind. Ein Beispiel ist das Zusammenstoßen zweier Geräte zwecks Verbindungsaufbau (Pattern "Bump To Connect"). Die folgende Grafik veranschaulicht den Ablauf des Connect-Events aus Implementierungssicht:
 	</p>
 	
 	<img class="Beschreibungen col_8" src="connect.png" alt="Ablauf des Lifecycle-Events Connect">
 	
+	<p class="Beschreibung col_8">
+		Im Abschnitt "Technisches" einer Patternbeschreibung befinden sich jeweils die Impelemtierungs-Details für die synchrone Geste (grüne Box). Sämtliche Gesten, die für ein Connect in Frage kommen, befinden sich in der <a href="/patterns/#pattern_uebersicht_connect" target="_blank">Kategorie Connect</a>. Allgemeine Informationen zur Gestaltung des Feedbacks einer Interaktion (rote Boxen) finden sich auf der <a href="/designer/">Designerseite</a>, konkrete Gestaltungshinweise jeweils im Abschnitt "Wie" der Patternbeschreibungen. 
+	</p>
+	
+	<br />
+	
 	<h2 class="Beschreibung">Select</h2>
 	
 	<p class="Beschreibung col_8">
-		Ein Select...
+		Nachdem eine Verbindung hergestellt wurde, müssen Daten ausgewählt werden, die zwischen den Geräten übertragen werden sollen. Im Lifecycle-Event <span class="italic">Select</span> gibt es zwei Möglichkeiten, eine die Daten zu selektieren:
+	</p>
+	
+	<ul class="Beschreibung col_7" style="list-style-type:disc !important; list-style: inside;">
+		<li style="margin-bottom: 10px;"><span class="bold">explizite Selektion:</span> Auswahl durch eine <span class="italic">einfache Geste</span> (z.B. Tap, Double Tap, Anklicken von GUI-Elementen)</li>
+		<li style="margin-bottom: 10px;"><span class="bold">implizite Selektion:</span> Auswahl ist durch den Kontext implizit gegeben (z.B. ein geöffnetes Foto oder ein Datenstrom für Screen Sharing)</li>
+	</ul>
+
+	<p class="Beschreibung col_8">
+		Die folgende Grafik veranschaulicht den Ablauf des Select-Events:
 	</p>
 	
 	<img class="Beschreibungen col_4" src="select.png" alt="Ablauf des Lifecycle-Events Select">
@@ -46,15 +61,30 @@ title: "Entwickler Page"
 	<h2 class="Beschreibung">Transfer</h2>
 	
 	<p class="Beschreibung col_8">
-		Ein Transfer...
+		Nachdem die Verbindung aufgebaut und zu übermittelnde Daten ausgewählt wurden, kann durch <span class="italic">einfache</span> oder <span class="italic">synchrone Gesten</span> ein <span class="italic">Transfer</span> der Daten durchgeführt werden; je nach Kontext kann der Transfer auch automatisch ausgelöst werden. Die folgende Grafik veranschaulicht den Ablauf des Lifecycle-Events <span class="italic">Transfer</span>:
 	</p>
 	
 	<img class="Beschreibungen col_5" src="transfer.png" alt="Ablauf des Lifecycle-Events Transfer">
 	
+	<p class="Beschreibung col_8">
+		Der Transfer kann verschiedenen Ausprägungen haben, was durch Pattern verschiedener Kategorien abgedeckt wird:
+	</p>
+	
+	<ul class="Beschreibung col_7" style="list-style-type:disc !important; list-style: inside;">
+		<li style="margin-bottom: 10px;"><a href="/patterns/#pattern_uebersicht_give" target="_blank">Give</a>: Einfache Geste auf Gerät A zum Übermitteln eines Datenobjekts von Gerät A auf Gerät B</li>
+		<li style="margin-bottom: 10px;"><a href="/patterns/#pattern_uebersicht_take" target="_blank">Take</a>: Einfache Geste auf Gerät A zum Übermitteln eines Datenobjekts von Gerät B auf Gerät A</li>
+		<li style="margin-bottom: 10px;"><a href="/patterns/#pattern_uebersicht_exchange" target="_blank">Exchange</a>: Synchrone Geste zum Austausch von Datenobjekten zwischen Gerät A und Gerät B </li>
+		<li style="margin-bottom: 10px;"><a href="/patterns/#pattern_uebersicht_extend" target="_blank">Extend</a>: Synchrone Geste zum Erweitern des Bildschirms zwischen Gerät A und Gerät B</li>
+	</ul>
+	
+	<p class="Beschreibung col_8">
+		Die Abschlussarbeiten [<a href="#madden">Madden 2015</a>], [<a href="#grab">Grab 2015</a>], [<a href="#burjan">Burjan 2015</a>] und [<a href="#hahn">Hahn 2015</a>] behandeln verschiedene Implementierungsansätze zum Transfer im Detail.
+	</p>
+	
 	<h2 class="Beschreibung">Disconnect</h2>
 	
 	<p class="Beschreibung col_8">
-		Ein Disconnect...
+		Der Verbindungsabbau (<span class="italic">Disconnect</span>) kann durch eine einfache oder synchrone Geste initiiert werden, Pattern dazu finden sich in der Kategorie <a href="/patterns/#pattern_uebersicht_connect" target="_blank">Connect</a>. Die folgende Grafik veranschaulicht den Ablauf des Lifecycle-Events Disconnect:
 	</p>
 	
 	<img class="Beschreibungen col_6" src="disconnect.png" alt="Ablauf des Lifecycle-Events Disconnect">
@@ -62,11 +92,11 @@ title: "Entwickler Page"
 	<h2 class="Beschreibung">Abschlussarbeiten</h2>
 	
 	<p class="Beschreibung col_8">
-		<span>[<a name="schneider">Schneider 2015</a>]</span> Schneider, Horst: <span class="italic">Ein formales Modell zur Beschreibung geräteübergreifender Interaktionsmuster</span>, Hochschule Mannheim, Masterthesis, 2015</a> (<a href="2015_masterthesis_schneider.pdf">pdf</a>)<br/><br/>
-		<span>[<a name="madden">Madden 2015</a>]</span> Madden, Dominick: <span class="italic">Stitch-to-Tile: Eine Gestensteuerung zur Auslösung von Bildschirmerweiterung</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_madden.pdf">pdf</a>)<br/> <br/>
-		<span>[<a name="burjan">Burjan 2015</a>]</span> Burjan, Valentina: <span class="italic">Prototypische Implementierung des Blended Interaction Patterns „grab the screen“</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_burjan.pdf">pdf</a>)<br/><br/>
-		<span>[<a name="hahn">Hahn 2015</a>]</span> Hahn, Alexander: <span class="italic">Konzeption und Implementierung der Swipe-Geste zum Datentransfer im Multi-Screen Kontext</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_hahn.pdf">pdf</a>)<br/><br/>
-		<span>[<a name="grab">Grab 2015</a>]</span> Grab, Benjamin: <span class="italic">Implementierung einer gestenbasierten Interaktion zum Datenaustausch zwischen mobilen Endgeräten</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_grab.pdf">pdf</a>)<br/> <br/>
+		<span>[<a id="schneider">Schneider 2015</a>]</span> Schneider, Horst: <span class="italic">Ein formales Modell zur Beschreibung geräteübergreifender Interaktionsmuster</span>, Hochschule Mannheim, Masterthesis, 2015 (<a href="2015_masterthesis_schneider.pdf">pdf</a>)<br/><br/>
+		<span>[<a id="madden">Madden 2015</a>]</span> Madden, Dominick: <span class="italic">Stitch-to-Tile: Eine Gestensteuerung zur Auslösung von Bildschirmerweiterung</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_madden.pdf">pdf</a>)<br/> <br/>
+		<span>[<a id="burjan">Burjan 2015</a>]</span> Burjan, Valentina: <span class="italic">Prototypische Implementierung des Blended Interaction Patterns „grab the screen“</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_burjan.pdf">pdf</a>)<br/><br/>
+		<span>[<a id="hahn">Hahn 2015</a>]</span> Hahn, Alexander: <span class="italic">Konzeption und Implementierung der Swipe-Geste zum Datentransfer im Multi-Screen Kontext</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_hahn.pdf">pdf</a>)<br/><br/>
+		<span>[<a id="grab">Grab 2015</a>]</span> Grab, Benjamin: <span class="italic">Implementierung einer gestenbasierten Interaktion zum Datenaustausch zwischen mobilen Endgeräten</span>, Hochschule Mannheim, Bachelorthesis, 2015 (<a href="2015_bachelorthesis_grab.pdf">pdf</a>)<br/> <br/>
 	</p>	
 </div>
 
