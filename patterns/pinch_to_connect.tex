@@ -41,7 +41,7 @@ Vor dem Pinch besteht keine direkte Verbindung zwischen den Geräten, daher muss
 \begin{tabularx}{\textwidth}{tsbbm}
 \thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
-Touch & M & Touch Down Event auf dem Screen & Touch auf dem \data\ &  Animation 1 \\ 
+Touch & M & Touch Down Event auf dem Screen &   &  Animation 1 \\ 
 \hline
 Move & M & Touch Move Event auf dem Screen & 
 Touch ausgeführt, \newline Release nicht ausgeführt & Animation 2 \\ 
@@ -99,7 +99,12 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 \newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
-\newcommand{\notvalidcontext}{Sichtbarmachen vertraulicher Informationen (z.B. Name, Alter etc.) auf öffentlichen Displays.}
+\newcommand{\notvalidcontext}{
+\begin{itemize}
+\item Sichtbarmachen vertraulicher Informationen (z.B. Name, Alter etc.) auf öffentlichen Displays.
+\item Verbinden zu entfernten Geräten.
+\end{itemize}
+}
 
 
 \newcommand{\devicetabular}{
@@ -114,7 +119,7 @@ Smartphone            &            &     x      &   x    &     x    &        \\
 Tablet                &            &     x      &   x    &     x    &    
 \\ 
 \hline 
-Tabletop              &            &            &        &          &         \\ 
+Tabletop              &            &     x       &  x      &          &         \\ 
 \hline
 Screens               &            &            &        &          &         \\ 
 \hline 
@@ -135,15 +140,16 @@ Screens               &            &            &        &          &         \\
 \item Stitch To Give
 \item Stitch To Take
 \item Stitch To Extend
+\item Stitch To Connect
 \end{itemize}
 }
 
 \newcommand{\stateoftheart}{
 \begin{enumerate}
-%\item Bump App: Bis 2014 in den App/Play Stores erhältlich gewesen [\url{http://bu.mp/}]
-%\item Beispiel-Implementierung eines Bump Patterns \citep{Grab2015}.
-%\item Microinteractions im Multi-Screen Kontext \citep{Madden2016}.
-\item Stitch-to-Tile: Eine Gestensteuerung zur Auslösung von Bildschirmerweiterung \citep{Madden2015}
+\item Erwähnung von Stitch-Gesten und Ableitung der Pinch-Geste \cite{Lucero2010}.
+\item Erste wissenschaftliche Erwähnung von Stitch-Gesten \cite{Hinckley2004}.
+\item Bachelorthesis zu Stitch To Extend \cite{Madden2015}.
+\item Studienarbeit zu Interaktionen und Animationen im Multiscreen Kontext\cite{Madden2016}.
 \end{enumerate}
 }
 
@@ -154,7 +160,7 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\imageSchemaObject}{}
 %\newcommand{\imageSchemaSubstance}{}
 %\newcommand{\imageSchemaCenterPeriphery}{}
-%\newcommand{\imageSchemaContact}{}
+\newcommand{\imageSchemaContact}{}
 %\newcommand{\imageSchemaFrontBack}{}
 %\newcommand{\imageSchemaLocation}{}
 %\newcommand{\imageSchemaNearFar}{}
@@ -167,19 +173,19 @@ Screens               &            &            &        &          &         \\
 %\newcommand{\imageSchemaFullEmpty}{}
 %\newcommand{\imageSchemaInOut}{}
 %\newcommand{\imageSchemaSurface}{}
-%\newcommand{\imageSchemaMerging}{}
+\newcommand{\imageSchemaMerging}{}
 %\newcommand{\imageSchemaSplitting}{}
 %\newcommand{\imageSchemaMomentum}{}
 %\newcommand{\imageSchemaSelfMotion}{}
 %\newcommand{\imageSchemaBigSmall}{}
 %\newcommand{\imageSchemaFastSlow}{}
-%\newcommand{\imageSchemaPartWhole}{}
+\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
 \newcommand{\realworldNaivePhysic}{}
 \newcommand{\realworldBodyAwareness}{}
-%\newcommand{\realworldEnvironmentAwareness}{}
-%\newcommand{\realworldSocialAwareness}{}
+\newcommand{\realworldEnvironmentAwareness}{}
+\newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
 \newcommand{\metaphordesc}{Zusammenführen von Stecker und Steckdose}
@@ -229,8 +235,8 @@ Dominick Madden, Hochschule Mannheim}
 \end{enumerate}
 }
 \newcommand{\figures}{...}
-\newcommand{\versionhistory}{...}
-\newcommand{\dateofcreation}{...}
+\newcommand{\versionhistory}{20.02.2017}
+\newcommand{\dateofcreation}{12.07.2016}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
 
