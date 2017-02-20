@@ -21,6 +21,8 @@ Diese Nutzerinteraktion löst die Erweiterung des Bildschirminhalts aus.}
 % WIE
 % -------------------------------
 
+\newcommand{\useraction}{Der \sen\ hat das \sendev\ entweder auf einer Oberfläche - Kante an Kante - neben dem \recdev\ liegen, oder hat es in der Hand und hält es neben das \recdev{}. Er führt eine \gls{stitch}-Geste aus.}
+
 \newcommand{\reactionSen}{Auf beiden Geräten sollte zu den verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des \sendev{}s führt und der zweite vom Bildschirmrand zur Mitte des \recdev{}s. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
 Da es sich bei \textbf{Stitch to Extend} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch (Atomare Interaktion \textit{Stitch Recognized}), so wird die Bildschirmerweiterung ausgelöst. \\
 }
@@ -35,7 +37,7 @@ Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer geh
 \item[-] Beide involvierten Geräte benötigen einen Touchscreen.
 \item[-] Da es sich bei Stitch to Extend um eine synchrone Geste handelt, müssen die Geräte miteinander kommunizieren können, sodass die beiden Teile der Geste miteinander verglichen werden können.
 
-\item[-] Bei zu unterschiedlichen Displaygrößen der beteiligten Geräte kann ggf. kein Mehrwert erzeugt werden (z.B. wenn ein Tablet und ein Smartphone hochkant nebeneinandergelegt werden kann bei der Erweiterung Fläche verloren gehen (siehe Abb.)).\\
+\item[-] Bei zu unterschiedlichen Displaygrößen der beteiligten Geräte kann ggf. kein Mehrwert erzeugt werden (z.B. wenn ein Tablet und ein Smartphone hochkant nebeneinandergelegt werden kann bei der Erweiterung Fläche verloren gehen).\\
 Um einen möglichst fließenden Übergang zu gewinnen müssen die Displays sehr nah und parallel zueinander anliegen.\\
 Jeder Bildschirm hat einen Rand, was dazu führt, dass durch das Nebeneinanderlegen zweier Geräte eine Lücke zwischen den Displays entsteht. Dadurch, dass mobile Endgeräte viel kleiner sind als Computermonitore, ist die Lücke zwischen den Geräten relativ zu ihren Dimensionen meist größer.\\
 Es gibt zwei Möglichkeiten Ansichten zu erweitern: 
@@ -117,7 +119,7 @@ Stitch Recognized & S & Swipe-Daten wurden miteinander verglichen & Swipe-Daten 
 \begin{enumerate}
 \item Wenn die zu erweiternde Ansicht eine geringe Auflösung hat, verschlechtert sich die Qualität noch weiter, wenn sie auf einer größeren Bildschirmfläche angezeigt wird.
 \item Die benutzten Bildschirme sollten sich von der Größe nicht zu sehr Unterscheiden, da sonst der Zuwachs an Fläche abnimmt.
-\end{enumerate}.}
+\end{enumerate}}
 
 
 \newcommand{\devicetabular}{
@@ -127,11 +129,11 @@ Stitch Recognized & S & Swipe-Daten wurden miteinander verglichen & Swipe-Daten 
 \hline 
 Smartwatch            &            &            &        &          &         \\ 
 \hline 
-Smartphone            &            &     x      &   x    &     (x)* &         \\ 
+Smartphone            &            &     x      &   x    &    (x)*  &         \\ 
 \hline 
 Tablet                &            &     x      &   x    &     x    &         \\ 
 \hline 
-Tabletop              &            &     (x)*   &   x    &     x    &         \\ 
+Tabletop              &            &    (x)*    &   x    &     x    &         \\ 
 \hline
 Screens               &            &            &        &          &         \\ 
 \hline 
@@ -291,7 +293,7 @@ auf der \developerpage.
 Valentina Burjan, Hochschule Mannheim\\
 Dominick Madden, Hochschule Mannheim\\
 Horst Schneider, Hochschule Mannheim}
-\newcommand{\versionhistory}{19.02.2017}
+\newcommand{\versionhistory}{20.02.2017}
 \newcommand{\dateofcreation}{17.09.2015}
 \newcommand{\comments}{...}
 \newcommand{\questions}{...}
