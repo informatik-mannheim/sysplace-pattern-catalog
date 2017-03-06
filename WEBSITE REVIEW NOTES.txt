@@ -1,0 +1,1 @@
+Hier kommen allgemeine Probleme rein, die aufwändiger zu ändern sind (Z.B. wenn etwas in allen Pattern-Dokumenten geändert werden soll).
