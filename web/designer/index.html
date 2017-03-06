@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Designer Page"
+title: "Informationen für Designer"
 ---
 <div class="content_Beschreibung col_10">
 	<img class="Beschreibung" src="designer.png">
@@ -8,32 +8,42 @@ title: "Designer Page"
 	<h4 class="Beschreibung">DESIGNER</h4>
 	
 	<p class="Beschreibung col_8">
-		Der Anspruch an Multiscreen-Interaktionen ist es intuitive Interaktionen zwischen zwei Geräten zu ermöglichen. 
+		Der Anspruch an Multiscreen-Interaktionen ist es, intuitive Interaktionen zwischen zwei Geräten zu ermöglichen. 
 		Feedback ist dabei ein wichtiger Teil und trägt zu der Gestaltung einer guten User Experience bei. 
-		Der Nutzer sollte sich zu keiner Zeit unsicher sein was seine Aktion ausgelöst hat oder ob seine Eingabe überhaupt registriert wurde. 
-		Gerade im Umgang mit neuen Technologien und Interaktionsmethoden, wie den hier beschriebenen, ist es besonders wichtig zu jedem Zeitpunkt sinnvolles Feedback zu geben. 
-		Die Aufteilung einer solchen Interaktion in ihre kleinsten Bestandteile kann hilfreich dabei sein Situationen zu erkennen, an denen Feedback einen positiven Effekt haben könnte.
+		Der Nutzer sollte sich zu keiner Zeit unsicher sein, ob seine Eingabe registriert und eine Aktion ausgelöst wurde. 
+		Gerade im Umgang mit neuen Technologien und Interaktionsmethoden wie den hier beschriebenen ist es besonders wichtig, zu jedem Zeitpunkt sinnvolles Feedback zu geben. 
+		Die Aufteilung einer solchen Interaktion in ihre einzelnen Bestandteile kann hilfreich dabei sein, Situationen zu erkennen, an denen Feedback einen positiven Effekt haben könnte.
 	</p>
 	
 	<p class="Beschreibung col_8">
-		Das Kapitel "Wie" in den <a href="/patterns/">Pattern-Beschreibungen</a> enthält eine Pattern-spezifische Aufzählung ebendieser "atomaren Interaktionen" aus denen sie bestehen. 
-		Zusätzlich wird zu jeder dieser atomaren Interaktionen die gewünschte Aussage des Feedbacks gezeigt und ein Beispiel gegeben. 
+		Das Kapitel "Wie" in den <a href="/patterns/">Pattern-Beschreibungen</a> enthält eine Pattern-spezifische Aufzählung solcher "atomarer Interaktionen". 
+		Zusätzlich wird zu jeder dieser atomaren Interaktionen die gewünschte Aussage des Feedbacks gezeigt und ein Beispiel gegeben.
 	</p>
 	
 	<p class="Beschreibung col_8">
-		Folgend wird zunächst der von Dan Saffer geprägte Begriff "Microinteraction" erklärt und daraufhin die in [<a href="#madden">Madden 2016</a>] davon abgeleiteten, noch feingranulareren atomaren Interaktionen. 
+		Im Folgenden wird zunächst der von Dan Saffer geprägte Begriff "Microinteraction" erklärt und daraufhin die in [<a href="#madden">Madden 2016</a>] davon abgeleiteten, feingranulareren atomaren Interaktionen beschrieben. 
 	</p>
 	
 	<h2 class="Beschreibung">Microinteractions</h2>
 	
 	<p class="Beschreibung col_8">
-		Microinteractions sind die funktionalen, interaktiven Details eines jeden Produkts. Jedes mal wenn man eine Einstellung ändert, sich einen Wecker stellt, oder sich auf einer Webseite einloggt, trifft man auf Microinteractions. Diese Details können entweder nur einen kleinen Teil eines Produkts darstellen, oder aber die gesamte Funktionalität. So könnte eine simple Weckerapplikation nur aus einer Microinteraction bestehen: Dem Stellen des Weckers. Viele solche Apps werden jedoch um weitere Microinteractions erweitert. Ein Beispiel dafür wäre, dass der Nutzer erst eine Mathematikaufgabe lösen muss, bevor der Wecker ausgeschaltet werden kann. 
+		Microinteractions sind die funktionalen, interaktiven Details eines jeden Produkts. Jedes mal wenn man eine Einstellung ändert, sich einen Wecker stellt oder sich auf einer Webseite einloggt, trifft man auf Microinteractions. Diese Details können entweder nur einen kleinen Teil eines Produkts darstellen oder aber die gesamte Funktionalität. So könnte eine simple Weckerapplikation nur aus einer Microinteraction bestehen: Dem Stellen des Weckers. Viele solche Apps werden jedoch um weitere Microinteractions erweitert. Ein Beispiel dafür wäre, dass der Nutzer erst eine Mathematikaufgabe lösen muss, bevor der Wecker ausgeschaltet werden kann. 
 	</p>
 	
 	<img class="Beschreibungen col_7" src="microinteractions_detailed.PNG" alt="Die vier Teile einer Microinteraction">
 	
 	<p class="Beschreibung col_8">
-		Eine Microinteraction besteht aus vier Elementen: Einem Auslöser („Trigger“), Regeln („Rules“), Feedback und Schleifen und Modi („Loops and Modes“).
+		Eine Microinteraction besteht aus vier Elementen: 
+	</p>
+	
+	<ul class="Beschreibung col_7" style="list-style-type:disc !important; list-style: inside;">
+		<li><span class="bold">Einem Auslöser („Trigger“)</span>,</li>
+		<li><span class="bold">Regeln („Rules“)</span>,</li>
+		<li><span class="bold">Feedback</span>,</li>
+		<li><span class="bold">Schleifen und Modi („Loops and Modes“).</span></li>
+	</ul>
+	
+	<p class="Beschreibung col_8">
 		Der Trigger ist der Auslöser für eine Microinteraction. Sobald die Konditionen des Triggers erfüllt wurden, spielt sich der Rest der Interaktion ab. Man unterscheidet zwischen zwei Arten von Triggern: 
 	</p>
 	
@@ -43,9 +53,8 @@ title: "Designer Page"
 	</ul>
 	
 	<p class="Beschreibung col_8">
-		Ein manueller Trigger wird benötigt wenn der Nutzer aktiv etwas tun möchte. Will er zum Beispiel die Tastensperre seines Handys lösen wird er einen manuellen Trigger aktivieren müssen („Swipe to Unlock“).
-		Systemtrigger hingegen kommen zum Einsatz, wenn eine Microinteraction ohne Nutzerinteraktion gestartet werden muss. Eine Weckerapplikation könnte zum Beispiel Systemtrigger benutzen um zur richtigen Zeit die Microinteraction des Weckens zu starten.
-		Rules sind die Regeln einer Microinteraction. Sie bestimmen was geschehen soll, sobald die Microinteraction durch den Trigger ausgelöst wurde, wie lange sie dauert und was der Nutzer während des Ablaufs tun muss.
+		Ein manueller Trigger wird benötigt, wenn der Nutzer aktiv etwas tun möchte. Will er zum Beispiel die Tastensperre seines Handys lösen, wird er einen manuellen Trigger aktivieren müssen („Swipe to Unlock“).
+		Systemtrigger hingegen kommen zum Einsatz, wenn eine Microinteraction ohne Nutzerinteraktion gestartet werden muss. Eine Weckerapplikation könnte zum Beispiel Systemtrigger benutzen um zur richtigen Zeit die Microinteraction des Weckens zu starten. Rules sind die Regeln einer Microinteraction. Sie bestimmen was geschehen soll, sobald die Microinteraction durch den Trigger ausgelöst wurde, wie lange sie dauert und was der Nutzer während des Ablaufs tun muss.
 	</p>
 	
 	<p class="Beschreibung col_8">
@@ -54,22 +63,20 @@ title: "Designer Page"
 	</p>
 	
 	<p class="Beschreibung col_8">
-		Feedback in Microinteractions hat in erster Linie die Aufgabe die Regeln der Microinteraction zu vermitteln. Wenn ein Nutzer zum Beispiel einen Knopf drückt, sollte ihm Feedback gegeben werden, das zwei Aufgaben erfüllt. Erstens, sollte der Nutzer wissen, dass dieser Button gedrückt wurde. Zweitens, muss der Nutzer erfahren, was das Drücken dieses Knopfes bewirkt hat.
-		Loops („Schleifen“) in Microinteractions kommen immer zum Einsatz, wenn eine Microinteraction oder ein Teil davon mehrfach wiederholt werden oder zu einem späteren Zeitpunkt etwas aktivieren muss. Hat man zum Beispiel mehrmals sein Passwort falsch eingegeben, könnte ein Loop lauten, für eine Minute Einlogversuche zu unterbinden.
-		Modes („Modi“) sind im Zusammenhang mit Microinteractions eine „Gabelung in den Regeln“. Damit ist gemeint, dass die normalen Regeln einer Microinteraction nicht mehr so gelten, wie ohne den Mode. Ein Beispiel dafür ist die Capslock Taste. Wenn sie einmal betätigt wurde, verhält sich die Eingabe von Text anders, als es normalerweise der Fall ist: alle Kleinbuchstaben werden zu Großbuchstaben und umgekehrt.
+		Feedback in Microinteractions hat in erster Linie die Aufgabe, die Regeln der Microinteraction zu vermitteln. Wenn ein Nutzer zum Beispiel einen Knopf drückt, sollte ihm Feedback gegeben werden, das zwei Aufgaben erfüllt. Erstens sollte der Nutzer wissen, dass dieser Button gedrückt wurde. Zweitens muss der Nutzer erfahren, was das Drücken dieses Knopfes bewirkt hat.
+		Loops („Schleifen“) in Microinteractions kommen immer zum Einsatz, wenn eine Microinteraction oder ein Teil davon mehrfach wiederholt werden oder zu einem späteren Zeitpunkt etwas aktivieren muss. Hat man zum Beispiel mehrmals sein Passwort falsch eingegeben, könnte ein Loop sein, für eine Minute Einlogversuche zu unterbinden.
+		Modes („Modi“) sind im Zusammenhang mit Microinteractions eine „Gabelung in den Regeln“. Damit ist gemeint, dass die normalen Regeln einer Microinteraction nicht mehr so gelten, wie ohne den Mode. Ein Beispiel dafür ist die Capslock-Taste. Wenn sie einmal betätigt wurde, verhält sich die Eingabe von Text anders, als es normalerweise der Fall ist: alle Kleinbuchstaben werden zu Großbuchstaben und umgekehrt.
 	</p>
 	
 	<h2 class="Beschreibung">Atomare Interaktionen</h2>
 	
 	<p class="Beschreibung col_8">
-		Atomare Interaktionen wurden von Dan Saffers Konzept der Microinteractions abgeleitet und beschreiben eine noch feinere Betrachtung einer Nutzerinteraktion. Bei Microinteractions betrachtet man die funktionalen Details eines Produkts und teilt sie in vier Teile auf: Trigger, Rules, Feedback und Loops & Modes (Siehe Microinteractions). 
+		Atomare Interaktionen wurden von <a href="#saffer">Dan Saffers Konzept der Microinteractions </a> abgeleitet und beschreiben eine noch feinere Betrachtung einer Nutzerinteraktion. Bei Microinteractions betrachtet man die funktionalen Details eines Produkts und teilt sie in vier Teile auf: Trigger, Rules, Feedback und Loops & Modes (Siehe Microinteractions). 
 	</p>
 	<p class="Beschreibung col_8">
 	Diese differenzierte Betrachtung eines scheinbar kleinen Details ist hilfreich, da eine systematische Herangehensweise an das Design von Interaktionen es ermöglicht ein besseres Nutzererleben zu schaffen.
 		In manchen Fällen reicht die Detailtiefe von Microinteractions jedoch nicht aus, um die Feinheiten einer Interaktion zu beschreiben. Will ein Nutzer beispielsweise die Tastensperre seines Smartphones lösen, so muss er die Microinteraction „Swipe to Unlock“ ausführen, wobei er seinen Finger entlang einer auf dem Bildschirm angezeigten Linie führt. Dieser Swipe kann nun weiter in drei atomare Interaktionen unterteilt werden. 
 	</p>
-	
-		
 	
 	<ul class="Beschreibung col_7" style="list-style-type:disc !important; list-style: inside;">
 		<li style="margin-bottom: 10px;"><span class="bold">Berührung des Bildschirms</span></li>
@@ -84,9 +91,8 @@ title: "Designer Page"
 	<h2 class="Beschreibung">Quellen</h2>
 	
 	<p class="Beschreibung col_8">
-		<span>[<a name="schneider">Saffer 2014</a>]</span> Saffer, Dan: <span class="italic">Microinteractions – Designing with Details. Sebastopol, CA, 2014</span></a> (<a href="http://microinteractions.com/about-the-book/">Informationen zum Buch</a>)<br/><br/>
+		<span>[<a name="saffer">Saffer 2014</a>]</span> Saffer, Dan: <span class="italic">Microinteractions – Designing with Details. Sebastopol, CA, 2014</span></a> (<a href="http://microinteractions.com/about-the-book/">Informationen zum Buch</a>)<br/><br/>
 		<span>[<a name="madden">Madden 2016</a>]</span> Madden, Dominick: <span class="italic">Animationen und Microinteractions im Multi-Screen Kontext</span>, Hochschule Mannheim, Studienarbeit, 2016 (<a href="2016_studienarbeit_madden.pdf">pdf</a>)<br/> <br/>
 		
 	</p>	
 </div>
-
