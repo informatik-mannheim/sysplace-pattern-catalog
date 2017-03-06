@@ -6,72 +6,89 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Ein Datenobjekt von einem Sender-Gerät soll auch auf einem Empfänger-Gerät verfügbar sein.}
+\newcommand{\desc}{Ein Benutzer (der \sen) hat ein \data\ und will es mit einem weiteren Benutzer (dem \rec) bzw. einem \recdev\ teilen. Es soll über Distanz vom \sendev\ auf das \recdev\ übertragen werden, sodass es anschließend auf beiden Geräten verfügbar ist.}
 
-\newcommand{\solution}{Der Benutzer hält Sender-Gerät in der Hand und schwenkt es waagerecht aus dem Handgelenk heraus in Richtung des Empfänger-Gerätes. Dabei wird ein Datenobjekt vom Quell-Gerät auf das Ziel-Gerät übertragen.}
+\newcommand{\solution}{Der \sen\ hat das \sendev{} in der Hand. Durch eine schwungvolle Bewegung in Richtung des \recdev{}s wird das \data{} auf das \recdev{} übertragen.}
 
 \newcommand{\category}{give}
 %\newcommand{\category}{take}
 %\newcommand{\category}{exchange}
 %\newcommand{\category}{extend}
 %\newcommand{\category}{connect}
-
 % -------------------------------
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Benutzer hält ein Sender-Gerät fest in der Hand. Aus dem Handgelenk heraus schwenkt der Benutzer das Gerät (vom Körper weg) wie eine Frisbee-Scheibe in Richtung des Empfänger-Gerätes.}
+\newcommand{\useraction}{Der \sen\ hält das \sendev\ in der Hand. Ein \data\ ist entweder explizit vom \sen\ (z.B. ein Foto) oder implizit durch die Applikation (z.B. der aktuelle Bildschirm) zum Versenden ausgewählt worden. \recdev\ und \sendev\ sind bereits zum bidirektionalen Datenaustausch verbunden.\\
 
-\newcommand{\reaction}{Das Sender-Gerät erkennt die Schwenkbewegung. Dadurch wird ein ausgewähltes Datenobjekt an das Empfänger-Gerät übertragen und durch eine akustische Rückmeldung oder z.B. Vibration bestätigt.\\
-Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Display an.
+Der \sen\ schwingt das \sendev\ von seinem aus Körper in Richtung des \recdev{}s. Die Dynamik der Throw Geste sollte dem Sender das Gefühl geben, die physikalische Distanz zum \recdev\ durch die Bewegung des Geräts zu überbrücken.}
+
+\newcommand{\reactionSen}{Auf dem \sendev\ kann dem Nutzer zu verschiedenen Phasen des Throws Feedback gegeben werden. Ein Throw besteht aus den zwei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Accelerate} und \textit{Decelerate}. Entspricht die Kombination der beiden atomaren Interaktionen den Kriterien eines Throws, wird das \data\ übertragen.}
+
+\newcommand{\reactionRec}{Auf dem \recdev\ kann dem Nutzer bei erfolgreichem Throw auf dem \sendev\ und anschließendem erfolgreichen Transfer ein Feedback über den Empfang des \data s\ gegeben werden (Atomare Interaktion \textit{Receive}).}
+
+\newcommand{\microinteractionstabular}{
+\begin{figure}[H]
+\begin{table}[H]
+\renewcommand{\arraystretch}{2}\addtolength{\tabcolsep}{-2pt}
+\centering
+\newcolumntype{b}{X}
+\newcolumntype{t}{>{\hsize=.3\hsize}X}
+\newcolumntype{s}{>{\hsize=.2\hsize}c}
+\newcolumntype{m}{>{\hsize=.6\hsize}X}
+\begin{tabularx}{\textwidth}{tsbbm}
+\thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
+\hline
+Accelerate & M & Accelerometer des \sendev{}s erkennt Beschleunigung & Die Beschleunigungsrichtung zeigt in Richtung des \recdev{}s, \newline Beschleunigung hoch genug &  Animation 1 \\ 
+\hline
+Decelerate & M & Accelerometer des \sendev{}s erkennt Entschleunigung & Entschleunigung abrupt genug,\newline Die Bewegung des \sendev{}s endet in Richtung des \recdev{} & Animation 2 \newline Vibration\\ 
+\hline
+Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 3 \newline Vibration \\
+\hline
+\end{tabularx}
+\end{table}
+\caption{Atomare Interaktionen für das Throw To Give Pattern}
+\end{figure}
+*Typ: (M)anuell, (S)ystem
 }
 
-\newcommand{\reactionSuccessVisual}{}
-\newcommand{\reactionSuccessAcustic}{}
-\newcommand{\reactionSuccessSensitive}{}
+\newcommand{\animations}{
+\begin{enumerate}
+\item Accelerate-Animation: visualisiert dem Benutzer, dass das \data\ auf Beschleunigung reagiert (z.B. durch leicht verzögerte Bewegung in Beschleunigungsrichtung).
+\item Decelerate-Animation: visualisiert dem Benutzer, wenn die Kombination aus Be- und Entschleunigung nicht ausreichend dynamisch war (z.B. Das \data\ wird erst verschickt wenn es durch die Animation 1 den Bildschirm verlässt). Die Vibration bestätigt zudem, dass die Geste korrekt ausgeführt wurde.
+\item Receive-Animation: visualisiert dem Benutzer, dass ein \data\ empfangen wurde (z.B. Das \data\ fliegt aus Richtung des \sendev{}s auf den Bildschirm).
+\end{enumerate}
+}
 
-\newcommand{\reactionFailureConnection}{}
-\newcommand{\reactionFailureConnectionDesc}{muss dem Anwender durch ein Signal, z.B. einen Ton, mitgeteilt werden, dass die Interaktion und Datenübertragung nicht funktioniert.}
-
-\newcommand{\reactionFailureNoDevice}{}
-\newcommand{\reactionFailureNoDeviceDesc}{muss der Anwender ggf. die Interaktion erneut ausführen. Solange kein erfolgreicher Datentransfer stattgefunden hat, sollte dem Anwender signalisiert werden, dass das Zielgerät nicht erkannt wurde.}
-
-\newcommand{\reactionFailureCompatibility}{}
-\newcommand{\reactionFailureCompatibilityDesc}{sollte der Anwender vor erneuter Ausführung der Interaktion informiert werden, welche Geräte kompatibel sind und die Interaktion erneut ausführen.}
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Eine Rückmeldung nach dem Senden der Daten (nach der Schwenk-Bewegung) ist erforderlich, um dem Benutzer mitzuteilen, dass die Aktion erfolgreich war. Erfolgt keine Rückmeldung, besteht die Möglichkeit, dass der Benutzer häufig hintereinander die Interaktion durchführt, obwohl bereits die Daten erfolgreich das Ziel-Gerät versendet wurden.
-\item Das Empfänger-Gerät sollte standfest sein (z.B. Screens an der Wand) und einen Abstand zum Sender-Gerät gewährleisten, um die Interaktion korrekt auszuführen.
 \item Die Schwenk-Bewegung muss eine definierte Geschwindigkeit erreichen bis das System die Bewegung als Interaktion erkennt, damit der Anwender ein natürliches Empfinden hat bei der Ausführung der Interaktion.
-\item Das Sender-Gerät sollte handlich sein, um die definierte Mindestgeschwindigkeit der Geste zu erreichen ohne dabei das Gerät zu beschädigen.
+\item Das \sendev\ sollte handlich sein, um die definierte Mindestgeschwindigkeit der Geste zu erreichen ohne dabei das Gerät zu beschädigen.
 \end{itemize}}
 
 % -------------------------------
 % WANN
 % -------------------------------
 
-\newcommand{\validcontext}{Geeignet für z.B. Datenaustausch: Bilder, Videos, Dateien, Social Network IDs, Kontaktinformationen}
+\newcommand{\validcontext}{Geeignet für Datenaustausch: Bilder, Videos, Dateien, Social Network IDs, Kontaktinformationen}
 
-\newcommand{\simultaneously}{}
-%\newcommand{\sequentially}{}
-
-\newcommand{\online}{}
-%\newcommand{\offline}{}
+%\newcommand{\simultaneously}{}
+\newcommand{\sequentially}{}
 
 \newcommand{\private}{}
 \newcommand{\semipublic}{}
-%\newcommand{\public}{}
+\newcommand{\public}{}
 \newcommand{\stationary}{}
-%\newcommand{\onthego}{}
+\newcommand{\onthego}{}
 
-%\newcommand{\leanback}{}
-\newcommand{\leanforward}{}
+\newcommand{\leanback}{}
+%newcommand{\leanforward}{}
 
 \newcommand{\single}{}
 \newcommand{\collaboration}{}
 \newcommand{\facetoface}{}
-\newcommand{\sidetoside}{}
+%\newcommand{\sidetoside}{}
 %\newcommand{\cornertocorner}{}
 
 %\newcommand{\smalltask}{}
@@ -80,7 +97,7 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 %\newcommand{\distraction}{}
 %\newcommand{\urgent}{} 
 
-\newcommand{\notvalidcontext}{...}
+\newcommand{\notvalidcontext}{- Kritische Daten sollten nicht an (halb-) öffentliche Displays gesendet werden. \\ - Wenn viele drahtlos verbundene Geräte räumlich nah beieinander sind, ist es schwierig zu entscheiden welches der \rec\ ist. \\ - Der Nutzer sollte nicht zu nah am \recdev\ stehen, da es zu Schäden kommen könnte. Außerdem ist die Wurfmetapher erst ab einer bestimmten Entfernung gegeben.}
 
 
 \newcommand{\devicetabular}{
@@ -88,9 +105,9 @@ Das Ziel-Gerät zeigt nach dem Empfangen des Datenobjektes dieses auf dem Displa
 \hline 
 \diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
 \hline 
-Smartwatch            &            &            &   x    &     x    &     x   \\ 
+Smartwatch            &            &            &       &         &        \\ 
 \hline 
-Smartphone            &            &            &   x    &     x    &     x   \\ 
+Smartphone            &     x       &      x      &   x    &     x    &     x   \\ 
 \hline 
 Tablet                &            &            &        &          &         \\ 
 \hline 
@@ -109,27 +126,43 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{Das Pattern Tennis - ähnlich in der Ausführung}
+\newcommand{\otherpatterns}{Shake to Connect}
 
 
 \newcommand{\stateoftheart}{
-%\begin{enumerate}
-%\item
-%\item
-%\end{enumerate}
+\begin{enumerate}
+\item Studienarbeit zu Interaktionen und Animationen im Multiscreen Kontext
+\cite{Madden2016}.
+\item Bachelorthesis zur Implementierung einer gestenbasierten Interaktion zum Datenaustausch zwischen mobilen Endgeräten \cite{Grab2015}.
+\item Wissenschaftliche Erwähnung der Throw Gesten \cite{Dachselt2009}.
+\end{enumerate}
 }
 
 
 \newcommand{\designprinciples}{}
 
 \newcommand{\imageschemata}{}
-\newcommand{\imageSchemaContainer}{}
-\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaCenterPeriphery}{}
+%\newcommand{\imageSchemaContact}{}
+%\newcommand{\imageSchemaFrontBack}{}
+%\newcommand{\imageSchemaLocation}{}
+\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaObject}{}
 \newcommand{\imageSchemaPath}{}
 \newcommand{\imageSchemaSourcePathGoal}{}
-%\newcommand{\imageSchemaUpDown}{}
+%\newcommand{\imageSchemaScale}{}
 %\newcommand{\imageSchemaLeftRight}{}
-\newcommand{\imageSchemaNearFar}{}
+\newcommand{\imageSchemaContainer}{}
+\newcommand{\imageSchemaContent}{}
+%\newcommand{\imageSchemaFullEmpty}{}
+\newcommand{\imageSchemaInOut}{}
+%\newcommand{\imageSchemaSurface}{}
+%\newcommand{\imageSchemaMerging}{}
+%\newcommand{\imageSchemaSplitting}{}
+\newcommand{\imageSchemaMomentum}{}
+\newcommand{\imageSchemaSelfMotion}{}
+%\newcommand{\imageSchemaBigSmall}{}
+\newcommand{\imageSchemaFastSlow}{}
 %\newcommand{\imageSchemaPartWhole}{}
 
 \newcommand{\realworld}{}
@@ -139,7 +172,7 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Frisbee, etwas wegwerfen}
+\newcommand{\metaphordesc}{Jemandem ein Objekt zuwerfen (Frisbee, Ball).}
 
 % -------------------------------
 % TECHNISCHES
@@ -174,13 +207,14 @@ Screens               &            &            &        &          &         \\
 % SONSTIGES
 % -------------------------------
 
-\newcommand{\authors}{...}
-\newcommand{\literature}{...}
-\newcommand{\figures}{...}
-\newcommand{\versionhistory}{...}
-\newcommand{\dateofcreation}{...}
-\newcommand{\comments}{...}
-\newcommand{\questions}{...}
+\newcommand{\authors}{Alexander Hahn, Hochschule Mannheim  \\
+Valentina Burjan, Hochschule Mannheim \\
+Dominick Madden, Hochschule Mannheim \\
+Horst Schneider, Hochschule Mannheim}
+\newcommand{\versionhistory}{06.03.2017}
+\newcommand{\dateofcreation}{27.07.2016}
+\newcommand{\comments}{---}
+\newcommand{\questions}{---}
 
 
 % template inkludieren --------------
