@@ -22,7 +22,7 @@
 
 \newcommand{\useraction}{Der Benutzer hält ein mobiles \sendev{} in der Hand und nähert sich einem \recdev{} (z.B. einem großen Wanddisplay oder einem Tablet auf dem Tisch). Zwischen \sendev{} und \recdev{} besteht keine Verbindung. Wird nun ein vordefinierter Mindestabstand (Abstands-Schwellwert) unterschritten, initiiert eines der Geräte (üblicherweise das \sendev{}) den Verbindungsaufbau, indem es einen Verbindungsanfrage an das andere sendet.}
 
-\newcommand{\reactionSen}{Besteht keine Verbindung zwischen den Geräten, ist das \sendev{} in einer Art Monitoring-Modus, in dem es auf Geräte in der Umgebung wartet, was dem Benutzer visuell durch statisches oder kontinuierliches visuelles Feedback sichtbar gemacht werden kann. Unterschreitet der Benutzer den Abstands-Schwellwert, erhält er auf dem \sendev{} ein Feedback über das erkannte \recdev{} und den Beginn des Verbindungsaufbaus (z.B. akustisch oder visuell). Bei \textit{erfolgreichem} oder \textit{gescheiterten} Verbindungsaufbau erhält der Benutzer ein entsprechendes Feedback, das wiederum z.B. aus einem akustischen Signal oder Vibration bestehen kann.}
+\newcommand{\reactionSen}{Besteht keine Verbindung zwischen den Geräten, ist das \sendev{} im Monitoring-Modus, in dem es auf Geräte in der Umgebung wartet, was dem Benutzer visuell durch statisches oder kontinuierliches Feedback sichtbar gemacht werden kann. Unterschreitet der Benutzer den Abstands-Schwellwert, erhält er auf dem \sendev{} ein Feedback über das erkannte \recdev{} und den Beginn des Verbindungsaufbaus (z.B. akustisch oder visuell). Bei \textit{erfolgreichem} oder \textit{gescheiterten} Verbindungsaufbau erhält der Benutzer ein entsprechendes Feedback, das wiederum z.B. aus einem akustischen Signal oder Vibration bestehen kann.}
 
 \newcommand{\reactionRec}{Das Empfangsgerät spielt eine passive Rolle und sollte dann Feedback geben, wenn ein mobiles Gerät erkannt wurde und ein Verbindungsaufbau stattfindet, sodass die Reaktion des \sendev{}s und des \recdev{}s gleichzeitig stattfinden und die Zuordnung der Geräte zueinander über das Feedback sichtbar wird.}
 
@@ -38,9 +38,9 @@
 \begin{tabularx}{\textwidth}{tsbbm}
 \thead[X]{Name} & \thead[c]{Typ*} & \thead[X]{Trigger} & \thead[X]{Regeln} & \thead[X]{Feedback} \\
 \hline
-Enter Radius & M & Der Benutzer nähert sich dem anderen Gerät von außerhalb des Erkennungsradius der Technologie (z.B. Bluetooth) & Die Geräte erkennen, dass eine Verbindung zwischen ihnen möglich ist &  Animation 1, \newline Vibration\\ 
+Enter Radius & M & Der Benutzer nähert sich dem anderen Gerät von außerhalb des Erkennungsradius der Technologie (z.B. Bluetooth) & Die Geräte erkennen, dass eine Verbindung zwischen ihnen möglich ist &  Animation 1, \newline Vibration\\
 \hline
-Cross Threshold & M & Der Benutzer überschreitet den Entfernungsschwellwert & Eines der Geräte initiiert die Verbindung & Animation 2 \\ 
+Cross Threshold & M & Der Benutzer unterschreitet den Entfernungsschwellwert & Eines der Geräte initiiert die Verbindung & Animation 2 \\
 \hline
 Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer \newline ist möglich & Animation 3 \\
 \hline
@@ -58,7 +58,7 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 \end{enumerate}
 }
 
-\newcommand{\designnotes}{Der Abstands-Schwellwert darf nicht zu niedrig definiert werden, da  man sonst das \sendev{} auf das \recdev{} auflegen müsste bzw. sehr nah vor einem großen Bildschirm stehen würde. Zudem sollte die Annäherung eindeutig sein, d.h. es sollten innerhalb eines Interaktionskontexts keine konkurrierenden Annäherungsgesten möglich sein.}
+\newcommand{\designnotes}{Der Abstands-Schwellwert darf nicht zu niedrig definiert werden, da  man sonst das \sendev{} auf das \recdev{} auflegen müsste bzw. sehr nah vor einem großen Bildschirm stehen würde.}
 
 % -------------------------------
 % WANN
@@ -91,26 +91,26 @@ Connect & S & Verbindung zwischen den Geräten wurde hergestellt & Datentransfer
 %\newcommand{\repeatedtask}{}
 %\newcommand{\locationbased}{}
 %\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
+%\newcommand{\urgent}{}
 
 \newcommand{\notvalidcontext}{Aufbauen einer Verbindung zu vertraulichen Geräten oder zum Austausch vertraulicher Daten; Sichtbarmachen vertraulicher Informationen (z.B. Name, Alter etc.) auf öffentlichen Displays.}
 
 
 \newcommand{\devicetabular}{
 \begin{tabular}[H]{|c|c|c|c|c|c|}
-\hline 
-\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
-\hline 
-Smartwatch            &            &     x      &   x    &     x    &     x   \\ 
-\hline 
-Smartphone            &            &     x      &   x    &     x    &     x   \\ 
-\hline 
-Tablet                &            &            &       &          &         \\ 
-\hline 
-Tabletop              &            &            &        &          &         \\ 
 \hline
-Screens               &            &            &        &          &         \\ 
-\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\
+\hline
+Smartwatch            &            &     x      &   x    &     x    &     x   \\
+\hline
+Smartphone            &            &     x      &   x    &     x    &     x   \\
+\hline
+Tablet                &            &            &       &          &         \\
+\hline
+Tabletop              &            &            &        &          &         \\
+\hline
+Screens               &            &            &        &          &         \\
+\hline
 \end{tabular} }
 
 % -------------------------------
@@ -222,7 +222,7 @@ Zum Erkennen der Geste wird \textit{Proximity}-Hardware vorausgesetzt, die \text
 \item \textbf{DEVICE\_FOUND}: Beim Ranging wurde ein entferntes Gerät gefunden.
 \item \textbf{MATCH}: Ein gefundenes Gerät besitzt die korrekte Service-UUID.
 \item \textbf{NO\_MATCH}: Ein gefundenes Gerät besitzt eine ungültige Service-UUID.
-\item \textbf{STOP\_RANGING}: Das Ranging wurde beendet, es werden keine weiteren. 
+\item \textbf{STOP\_RANGING}: Das Ranging wurde beendet, es werden keine weiteren.
 \end{itemize}
 
 Basierend auf diesen Events ergibt sich die Implementierung der Approach-Erkennung entsprechend Abbildung \ref{recognize_approach}. Ein Approach wird dann erkannt, wenn ein beim Ranging gefundenes Gerät die erwartete Service-UUID besitzt. Danach kann entweder nach weiteren Geräten gesucht oder die Suche beendet werden. Besitzt ein gefundenes Gerät keine gültige Service-UUID, wird so lange weiter gesucht, bis entweder ein möglicher Verbindungspartner gefunden wurde oder ein Abbruch des Ranging signalisiert wird. Wurde ein Approach erkannt, wird ein \textit{ProximityEvent} generiert, das für die Überprüfung der \textit{Constraints} im nächsten Schritt benötigt wird.
@@ -239,7 +239,7 @@ Um einzuschränken, unter welchen Bedingungen eine Annäherung als Approach To C
 \item Ein Integer, die sog. Major-Nummer und
 \item die Entfernung (\textit{Proximity}) zum erkannten Gerät.
 \end{itemize}
-Der erste Constraint ist angelehnt an das iBeacon-Protokoll, in dem neben einer Service-UUID (s. voriges Kapitel) zur eindeutigen Identifikation von Geräten eine Major- und Minor-Nummer gesendet werden können. Dadurch kann der Kreis möglicher Verbindungspartner weiter eingeschränkt werden. 
+Der erste Constraint ist angelehnt an das iBeacon-Protokoll, in dem neben einer Service-UUID (s. voriges Kapitel) zur eindeutigen Identifikation von Geräten eine Major- und Minor-Nummer gesendet werden können. Dadurch kann der Kreis möglicher Verbindungspartner weiter eingeschränkt werden.
 Im nächsten Schritt wird die gemessene Entfernung mit einem Vorgabewert verglichen. Die vier Bereiche \textit{immediate}, \textit{near}, \textit{far} und \textit{unknown} sind angelehnt an \cite{Marquardt2015} und können auch durch konkrete Entfernungswerte ersetzt werden.\\
 
 Entsprechend dem Lebenszyklus einer Multiscreen-Applikation besteht nach erfolgreich
