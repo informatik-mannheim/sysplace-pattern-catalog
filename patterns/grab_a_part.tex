@@ -8,7 +8,7 @@
 
 \newcommand{\desc}{Ein Teil eines Bildschirmes von einem Gerät soll mit einem anderen Gerät ausgewählt und aufgesaugt werden, sodass der gewählte Ausschnitt auf dem anderen Gerät verfügbar ist.}
 
-\newcommand{\solution}{Durch Auflegen eines Ziel-Gerätes auf ein Quell-Gerät wird ein ausgewählter Bildausschnitt vom Quell- auf das Ziel-Gerät übertragen. Nach dem Wiederwegnehmen ist der Ausschnitt auch auf Ziel-Gerät verfügbar.}
+\newcommand{\solution}{Durch Auflegen eines \recdev{}s auf ein \sendev{} wird ein ausgewählter Bildausschnitt vom \sendev{} auf das \recdev{} übertragen. Nach dem Wiederwegnehmen ist der Ausschnitt auch auf dem \recdev{} verfügbar.}
 
 %\newcommand{\category}{give}
 \newcommand{\category}{take}
@@ -20,10 +20,10 @@
 % WIE
 % -------------------------------
 
-\newcommand{\useraction}{Der Anwender legt ein Ziel-Gerät auf ein Quell-Gerät. 
-Anschließend nimmt der Anwender das Ziel-Gerät wieder weg.}
+\newcommand{\useraction}{Der Anwender legt ein \recdev{} auf ein \sendev{}.
+Anschließend nimmt der Anwender das \recdev{} wieder weg.}
 
-\newcommand{\reaction}{Das ausgewählte Datenobjekt auf dem Quell-Gerät wird auf dem Bildschirm des Ziel-Gerätes dargestellt.}
+\newcommand{\reaction}{Das ausgewählte Datenobjekt auf dem \sendev{} wird auf dem Bildschirm des \recdev{} dargestellt.}
 
 \newcommand{\reactionSuccessVisual}{}
 %\newcommand{\reactionSuccessAcustic}{}
@@ -76,26 +76,26 @@ Anschließend nimmt der Anwender das Ziel-Gerät wieder weg.}
 %\newcommand{\repeatedtask}{}
 \newcommand{\locationbased}{}
 %\newcommand{\distraction}{}
-%\newcommand{\urgent}{} 
+%\newcommand{\urgent}{}
 
-\newcommand{\notvalidcontext}{Wenn der ausgewählte Ausschnitt auf dem Sender-Gerät für das Empfänger-Gerät flächenmäßig (für das Display) zu groß ist.}
+\newcommand{\notvalidcontext}{Wenn die Fläche des ausgewählten Ausschnitts auf dem \sendev{} größer ist als das Display des \recdev{}s.}
 
 
 \newcommand{\devicetabular}{
 \begin{tabular}[H]{|c|c|c|c|c|c|}
-\hline 
-\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\ 
-\hline 
-Smartwatch            &            &            &        &          &         \\ 
-\hline 
-Smartphone            &            &            &   x    &     x    &     x   \\ 
-\hline 
-Tablet                &            &            &        &     x    &     x   \\ 
-\hline 
-Tabletop              &            &            &        &          &         \\ 
 \hline
-Screens               &            &            &        &          &         \\ 
-\hline 
+\diagbox{von}{nach}   & Smartwatch & Smartphone & Tablet & Tabletop & Screens \\
+\hline
+Smartwatch            &            &            &        &          &         \\
+\hline
+Smartphone            &            &            &   x    &     x    &     x   \\
+\hline
+Tablet                &            &            &        &     x    &     x   \\
+\hline
+Tabletop              &            &            &        &          &         \\
+\hline
+Screens               &            &            &        &          &         \\
+\hline
 \end{tabular} }
 
 % -------------------------------
@@ -107,7 +107,7 @@ Screens               &            &            &        &          &         \\
 \newcommand{\realizable}{}
 %\newcommand{\futuristic}{}
 
-\newcommand{\otherpatterns}{Grab An Object - analoge Interaktion, aber hierbei wird ein zuvor definiertes Objekt (aus einer endlichen Menge) ausgewählt durch das Auflegen des Ziel-Gerätes.}
+\newcommand{\otherpatterns}{Grab An Object - analoge Interaktion, aber hier wird ein zuvor definiertes Objekt (aus einer endlichen Menge) durch das Auflegen des \recdev{}s ausgewählt.}
 
 \newcommand{\stateoftheart}{...
 \begin{enumerate}
@@ -136,7 +136,7 @@ Hier wird das Gerät nicht direkt aufgelegt auf das andere Gerät, sondern wie b
 \newcommand{\realworldSocialAwareness}{}
 
 \newcommand{\metaphor}{}
-\newcommand{\metaphordesc}{Ein Medium hinlegen, wie ein Schwamm, das den Inhalt von dem anderen Medium aufsaugt. Ausstanzen. Ausschneiden. Screenshot. Nach etwas greifen/aufheben, wie nach einem Prospekt.}
+\newcommand{\metaphordesc}{Ein Medium hinlegen, wie ein Schwamm, das den Inhalt von dem anderen Medium aufsaugt. Ausstanzen. Ausschneiden. Screenshot. Nach etwas greifen/aufheben.}
 
 % -------------------------------
 % TECHNISCHES
@@ -148,7 +148,7 @@ Hier wird das Gerät nicht direkt aufgelegt auf das andere Gerät, sondern wie b
 %\newcommand{\technologyObjectPublic}{}
 
 \newcommand{\technologyObjectDesc}{Um das aufliegende Smartphone auf dem Multi-Touch-Tisch zu erkennen benötigt es eine Technologie (wie Tags), wenn der Multi-Touch-Tisch keine Schnittstelle wie Bluetooth oder NFC anbietet. Sofern der Multi-Touch-Tisch und das Smartphone aber über eine drahtlose Schnittstelle wie Bluetooth kommunizieren können ist die Objekterkennung auch in einer entfernteren Distanz möglich. \\
-In weiteren Prototypen (TODO QUELLE Huddlelamp) ist auch die Kamera als Objekterkennung und zur Lokalisation verwendet worden.}
+In weiteren Prototypen (\url{http://hci.uni-konstanz.de/downloads/HuddleLamp_ITS2014.pdf}) ist auch die Kamera als Objekterkennung und zur Lokalisation verwendet worden.}
 
 \newcommand{\technologyCommunicationServer}{}
 \newcommand{\technologyCommunicationAdhoc}{}
