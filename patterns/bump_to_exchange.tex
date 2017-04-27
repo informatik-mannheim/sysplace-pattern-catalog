@@ -6,9 +6,9 @@
 % WAS
 % -------------------------------
 
-\newcommand{\desc}{Zwei Benutzer haben \data e\ auf ihren Geräten und wollen es durch direkten Kontakt miteinander teilen, sodass anschließend beide \data e\ auf beiden Geräten verfügbar sind.}
+\newcommand{\desc}{Zwei Benutzer haben \data e\ auf ihren Geräten und wollen jene durch direkten Kontakt miteinander teilen, sodass anschließend beide \data e\ auf beiden Geräten verfügbar sind.}
 
-\newcommand{\solution}{Beide Benutzer haben ihr Gerät in der Hand. Durch das leichte Zusammenstoßen (\glslink{bump}{Bumpen}) der Geräte werden die \data e\ auf das jeweils andere Gerät übertragen.}
+\newcommand{\solution}{Beide Benutzer haben ihre Geräte in der Hand. Durch das leichte Zusammenstoßen (\glslink{bump}{Bumpen}) der Geräte werden die \data e\ auf das jeweils andere Gerät übertragen.}
 
 %\newcommand{\category}{give}
 %\newcommand{\category}{take}
@@ -181,9 +181,9 @@ Screens             &            &            &        &          &         \\
 \newcommand{\requiredTechnologies}{
 Um Bump To Exchange auf einem Gerät (\textit{Device}) ausführen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der in dem Gerät verfügbaren Technologien. Ein Gerät ist dann verwendbar, wenn es folgende Eigenschaften aufweist (s. Abbildung \ref{bump_hardware}):
 \begin{itemize}
-\item \textbf{Input}: Unbedingte Voraussetzung für die Erkennung von Bump-Gesten ist die Möglichkeit, die Beschleunigung eines Gerätes messen zu können. Dazu wird in mobilen Geräten zumeist ein \Gls{accelerometer} verbaut, dessen Werte von Applikationen verarbeitet werden können.
+\item \textbf{Input}: Unbedingte Voraussetzung für die Erkennung von Bump-Gesten ist die Möglichkeit, die Beschleunigung eines Geräts messen zu können. Dazu wird in mobilen Geräten zumeist ein \Gls{accelerometer} verbaut, dessen Werte von Applikationen verarbeitet werden können.
 \item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind visueller Output (Bildschirm) sowie Vibration und Sound einsetzbar, um erkannte Geräte und aufgebaute Verbindungen zu signalisieren.
-\item \textbf{Connectivity}: Ziel der Bump To Exchange Geste ist die Dateiübertragung zwischen zwei Geräten, die bereits über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct miteinander verbunden sind. Alternativ kann auch eine Vermittlungskomponente (Server) genutzt werden, der den Datenaustausch zentral verwaltet und die Bumperkennung durchführt.
+\item \textbf{Connectivity}: Ziel der Bump To Exchange Geste ist die Dateiübertragung zwischen zwei Geräten, die bereits über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct miteinander verbunden sind. Alternativ kann auch eine Vermittlungskomponente (Server) genutzt werden, der den Datenaustausch zentral verwaltet und die Bump-Erkennung durchführt.
 \end{itemize}
 
 \begin{figure}[h]
@@ -224,7 +224,7 @@ Die Gesture Detection für Bump Gesten speichert eine Reihe von Beschleunigungsv
 \label{recognize_bump}
 \end{figure}
 
-Über die drei Parameter \texttt{threshold}, \texttt{min\_peaks} sowie \texttt{window\_size} lässt sich die Empfindlichkeit der Bumperkennung einstellen bzw. Ungenauigkeiten bei der Verwendung unterschiedlicher Accelerometer ausgleichen.
+Über die drei Parameter \texttt{threshold}, \texttt{min\_peaks} sowie \texttt{window\_size} lässt sich die Empfindlichkeit der Bump-Erkennung einstellen bzw. Ungenauigkeiten bei der Verwendung unterschiedlicher Accelerometer ausgleichen.
 
 \subsubsection*{Bump Event Matching}
 Die Vermittlungskomponente führt ein \textit{Bump Event Matching} durch, wenn von zwei Geräten \textit{BumpEvents} empfangen wurden, die als komplementäre Anteile einer synchronen Geste in Frage kommen könnten. Abbildung \ref{bump_event_matching} veranschaulicht einen exemplarischen Ablauf dieses Vergleiches.
