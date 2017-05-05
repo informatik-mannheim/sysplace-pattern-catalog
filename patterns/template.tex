@@ -266,10 +266,16 @@ Letzte Änderung am: \versionhistory
 \ifx\questions\undefined	
 \else
 	\subsection*{Offene Fragen}
-\questions
+	\questions
 \fi
 
-\listoffigures
+\ifx\microinteractionstabular\undefined
+\else
+	\ifx\requiredTechnologies\undefined
+	\else
+		\listoffigures
+	\fi
+\fi
 
 \printbibliography
 
