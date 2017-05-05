@@ -26,9 +26,9 @@ Verbindung zwischen den Geräten.}
 \newcommand{\swapReactions}{}
 
 \newcommand{\reactionRec}{Auf dem \recdev\ sollte zu verschiedenen Phasen des Bumps Feedback gegeben werden. Ein Bump besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Move}, \textit{Abrupt Stop} und \textit{Bump Recognized}.\\
-Da es sich bei \textbf{Bump to Take} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt. Nach Beendigung der letzten fordert das \recdev\ ein \data\ vom \sendev\ an. Bei einem erfolgreichen Datentransfer (Atomare Reaktion \textit{Receive}) sollte dem \rec\ Feedback über den Empfang des \data s\ gegeben werden. Bei \textit{nicht erfolgreichem} Bump wird kein Transfer ausgeführt.}
+Da es sich bei \textbf{Bump to Take} um eine \gls{synchronegeste} handelt, werden nach dem Bump die \glslink{accelerometer}{Accelerometerdaten} der beteiligten Geräte verglichen. Sind die Daten ähnlich genug, gilt der Bump als \textit{erfolgreich}. Bei einem \textit{erfolgreich} ausgeführten Bump finden alle atomaren Interaktionen statt. Nach Beendigung der Letzten fordert das \recdev\ ein \data\ vom \sendev\ an. Bei einem erfolgreichen Datentransfer (Atomare Reaktion \textit{Receive}) sollte dem \rec\ Feedback über den Empfang des \data s\ gegeben werden. Bei \textit{nicht erfolgreichem} Bump wird kein Transfer ausgeführt.}
 
-\newcommand{\reactionSen}{Handelt es sich bei dem \sendev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \recdev .\ Bei erfolgreicher Anforderung  des \data\ (Atomare Reaktion \textit{Receive Request}) sollte auf dem \sendev\ Feedback über die Anforderung und das anschließende Versenden des \data s\ gegeben werden.}
+\newcommand{\reactionSen}{Handelt es sich bei dem \sendev\ um ein mobiles Gerät, das von einem Nutzer gehalten wird, werden die selben atomaren Interaktionen ausgeführt wie auf dem \recdev .\ Bei erfolgreicher Anforderung des \data\ (Atomare Reaktion \textit{Receive Request}) sollte auf dem \sendev\ Feedback über die Anforderung und das anschließende Versenden des \data s\ gegeben werden.}
 
 \newcommand{\microinteractionstabular}{
 \begin{figure}[H]
@@ -48,13 +48,13 @@ Abrupt Stop & M & Das Gerät ist mit etwas hartem zusammengestoßen (Acceleromet
 \hline
 Bump Recognized & S & Bump-Daten von anderem Gerät empfangen und mit eigenen verglichen & Accelerometerdaten beider Geräte ähnlich genug & Animation 3 \\
 \hline
-Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 4 \newline Vibration \\
+Receive Request & S & Daten wurden angefordert & Angeforderte Daten können versendet werden & Animation 4 \\
 \hline
-Receive Request & S & Daten wurden angefordert & Angeforderte Daten können versendet werden & Animation 5 \\
+Receive & S & Daten empfangen & \data\ ist darstellbar & Animation 5 \newline Vibration \\
 \hline
 \end{tabularx}
 \end{table}
-\caption{Atomare Interaktionen für das Bump to Take Pattern}
+\caption{Atomare Interaktionen für das Bump To Take Pattern}
 \end{figure}
 *Typ: (M)anuell, (S)ystem
 }
@@ -64,14 +64,14 @@ Receive Request & S & Daten wurden angefordert & Angeforderte Daten können vers
 \item Move-Animation: visualisiert dem Benutzer, dass das physische Bewegen des Geräts eine Funktionalität darstellt (z.B. Es befindet sich eine leere Visitenkarte auf dem Bildschirm und bewegt sich etwas verzögert, als hätte sie Masse)
 \item Abrupt Stop-Animation: visualisiert dem Benutzer, dass ein Bump auf seinem Gerät erkannt wurde (z.B. Die Visitenkarte bleibt am angestoßenen Rand des Bildschirms)
 \item Bump Recognized-Animation: visualisiert dem Benutzer, dass die Bump-Geste richtig erkannt wurde und das \data\ angefordert wurde (z.B. Die Visitenkarte verlässt den Bildschirm in Richtung des \sendev{}s)
-\item Receive-Animation: visualisiert dem Benutzer, dass ein \data\ empfangen wurde (z.B. Die nun beschriebene Visitenkarte kommt auf den Bildschirm aus der Richtung des \sendev{}s)
 \item Receive Request-Animation: visualisiert dem Benutzer, dass ein \data\ angefordert wurde und daraufhin versendet wird (z.B. Eine leere Visitenkarte kommt aus der Richtung des \recdev s\ auf den Bildschirm, wird beschrieben und verlässt den Bildschirm wieder in die selbe Richtung)
+\item Receive-Animation: visualisiert dem Benutzer, dass ein \data\ empfangen wurde (z.B. Die nun beschriebene Visitenkarte kommt auf den Bildschirm aus der Richtung des \sendev{}s)
 \end{enumerate}
 }
 
 \newcommand{\designnotes}{
 \begin{itemize}
-\item Beim Ausführen der Bump-Geste sollten die Geräte direkt aneinandergestoßen werden um eine möglichst gute Erkennung zu gewährleisten. Zudem sollte die Härte des Zusammenstoßes stark genug sein um eine Erkennung zu ermöglichen, jedoch die Geräte nicht beschädigen.
+\item Beim Ausführen der Bump-Geste sollten die Geräte direkt aneinandergestoßen werden, um eine möglichst gute Erkennung zu gewährleisten. Zudem sollte die Härte des Zusammenstoßes stark genug sein um eine Erkennung zu ermöglichen, jedoch die Geräte nicht beschädigen.
 \item Bei allen Take-Gesten muss dem \rec\ bekannt sein, was für ein \data\ er anfordert, da dies sonst zu Verwirrung führen kann.
 \end{itemize}}
 
@@ -193,7 +193,7 @@ Um Bump To Take auf einem Gerät (\textit{Device}) ausführen zu können, gibt e
 \begin{itemize}
 \item \textbf{Input}: Unbedingte Voraussetzung für die Erkennung von Bump-Gesten ist die Möglichkeit, die Beschleunigung eines Gerätes messen zu können. Dazu wird in mobilen Geräten zumeist ein \Gls{accelerometer} verbaut, dessen Werte von Applikationen verarbeitet werden können.
 \item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind visueller Output (Bildschirm) sowie Vibration und Sound einsetzbar, um erkannte Geräte und aufgebaute Verbindungen zu signalisieren.
-\item \textbf{Connectivity}: Ziel der Bump To Take Geste ist die Dateiübertragung zwischen zwei Geräten, die bereits über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct miteinander verbunden sind. Alternativ kann auch eine Vermittlungskomponente (Server) genutzt werden, der den Datenaustausch zentral verwaltet und die Bumperkennung durchführt.
+\item \textbf{Connectivity}: Ziel der Bump To Take Geste ist die Dateiübertragung zwischen zwei Geräten, die bereits über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct miteinander verbunden sind. Alternativ kann auch eine Vermittlungskomponente (Server) genutzt werden, die den Datenaustausch zentral verwaltet und die Bumperkennung durchführt.
 \end{itemize}
 
 \begin{figure}[h]
@@ -220,13 +220,13 @@ Bei der Geste Bump To Take handelt es sich um eine \gls{synchronegeste}. Abbildu
 \item Vermittlung von Verbindungsdaten, wenn die Geste erfolgreich erkannt wurde.
 \end{itemize}
 
-Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde  eine Geste lokal erkannt und an das entsprechende \textit{GestureEvent} an die Vermittlungskomponente gesendet, entscheidet diese, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Bump To Take Geste jeweils im Detail.
+Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde eine Geste lokal erkannt und an das entsprechende \textit{GestureEvent} an die Vermittlungskomponente gesendet, entscheidet diese, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Bump To Take Geste jeweils im Detail.
 
-Da bei Bump To Take bereits eine Verbindung zwischen den Geräten besteht, ist es auch möglich, dass eins der Geräte das \textit{Bump Event Matching} durchführt und dadurch als Vermittlungskomponente fungiert.
+Da bei Bump To Take bereits eine Verbindung zwischen den Geräten besteht, ist es auch möglich, dass eines der Geräte das \textit{Bump Event Matching} durchführt und dadurch als Vermittlungskomponente fungiert.
 
 
 \subsubsection*{Bump Gesture Detection}
-Die Gesture Detection für Bump Gesten speichert eine Reihe von Beschleunigungsvektoren des Accelerometers, sobald ein anfänglicher Schwellwert (Parameter \texttt{threshold}) überschritten wurde (Übergang vom state \texttt{idle} in den state \texttt{recording}). Die Anzahl der gespeicherten Beschleunigungsvektoren vor dem Übergang in den state \texttt{Counting Peaks} hängt vom Parameter \texttt{win\-dow\_size} ab. Im state \texttt{Counting Peaks} werden sog. \texttt{peaks} (Spitzen) in der Beschleunigung gezählt, also Beschleunigungsvektoren, deren Betrag jeweils größer oder kleiner als die der nächsten Nachbarn in der Liste ist. Ist die Anzahl der \texttt{peaks} größer als der Parameter \texttt{min\_peaks}, wird ein Bump erkannt und an die Vermittlungskomponente übermittelt (s. Abbildung \ref{sync_gesture_detection}).
+Die Gesture Detection für Bump Gesten speichert eine Reihe von Beschleunigungsvektoren des Accelerometers, sobald ein anfänglicher Schwellwert (Parameter \texttt{threshold}) überschritten wurde (Übergang vom Status \texttt{idle} in den Status \texttt{recording}). Die Anzahl der gespeicherten Beschleunigungsvektoren vor dem Übergang in den Status \texttt{Counting Peaks} hängt vom Parameter \texttt{win\-dow\_size} ab. Im Status \texttt{Counting Peaks} werden sog. \texttt{peaks} (Spitzen) in der Beschleunigung gezählt, also Beschleunigungsvektoren, deren Betrag jeweils größer oder kleiner als die der nächsten Nachbarn in der Liste ist. Ist die Anzahl der \texttt{peaks} größer als der Parameter \texttt{min\_peaks}, wird ein Bump erkannt und an die Vermittlungskomponente übermittelt (s. Abbildung \ref{sync_gesture_detection}).
 
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{bump_recognize.png}
@@ -245,15 +245,15 @@ Die Vermittlungskomponente führt ein \textit{Bump Event Matching} durch, wenn v
 \label{bump_event_matching}
 \end{figure}
 
-Grundsätzlich kann der Vergleich anhand beliebiger Parameter vorgenommen werden, die im übermittelten \textit{BumpEvent} enthalten sind. Das Beispiel in Abbildung \ref{bump_event_matching} vergleicht zwei Events anhand ihrer
+Grundsätzlich kann der Vergleich anhand beliebiger Parameter vorgenommen werden, die im übermittelten \textit{BumpEvent} enthalten sind. Das Beispiel in Abbildung \ref{bump_event_matching} vergleicht zwei Events anhand 
 \begin{itemize}
-\item höchsten Peaks (\texttt{max\_peak\_a} bzw. \texttt{max\_peak\_b}) mit einer konfigurierbaren Toleranz von \texttt{max\_peak\_delta} und
+\item ihrer höchsten Peaks (\texttt{max\_peak\_a} bzw. \texttt{max\_peak\_b}) mit einer konfigurierbaren Toleranz von \texttt{max\_peak\_delta} und
 \item ihrer Zeitstempel (\texttt{timestamp\_end\_a} und \texttt{timestamp\_end\_b}) mit einer  konfigurierbaren Toleranz von \texttt{max\_time\_delta}.
 \end{itemize} 
 
 Weitere Vergleiche sind denkbar, sofern die \textit{Bump Gesture Detection} diese Werte im \textit{BumpEvent} zur Verfügung stellt.
 
-Entsprechend dem Lebenszyklus einer Multiscreen-Applikation ist die Voraussetzung für Bump To Take eine bestehende Verbindung zwischen zwei Geräten (vorangegangener \textit{Connect}) und die Auswahl zu übermittelnder Daten (\textit{Select}) auf den \sendev{}. Bump To Take kann mehrmals hintereinander ausgeführt werden (Sequenz von \textit{Transfers}), solange kein \textit{Disconnect} erfolgt ist. \\
+Entsprechend dem Lebenszyklus einer Multiscreen-Applikation ist die Voraussetzung für Bump To Take eine bestehende Verbindung zwischen zwei Geräten (vorangegangener \textit{Connect}) und die Auswahl zu übermittelnder Daten (\textit{Select}) auf dem \sendev{}. Bump To Take kann mehrmals hintereinander ausgeführt werden (Sequenz von \textit{Transfers}), solange kein \textit{Disconnect} erfolgt ist. \\
 
 Weitergehende Informationen zum Applikations-Lebenszyklus und den weiteren
 Gestaltungsmöglichkeiten für den \textit{Transfer}, \textit{Feedbacks} etc. finden sich

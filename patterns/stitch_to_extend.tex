@@ -23,8 +23,8 @@ Diese Nutzerinteraktion löst die Erweiterung des Bildschirminhalts aus.}
 
 \newcommand{\useraction}{Der \sen\ hat das \sendev\ entweder auf einer Oberfläche - Kante an Kante - neben dem \recdev\ liegen, oder hat es in der Hand und hält es neben das \recdev{}. Er führt eine \gls{stitch}-Geste aus.}
 
-\newcommand{\reactionSen}{Auf beiden Geräten sollte zu den verschiedenen Phasen des Stitch Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des \sendev{}s führt und der zweite vom Bildschirmrand zur Mitte des \recdev{}s. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
-Da es sich bei \textbf{Stitch to Extend} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch (Atomare Interaktion \textit{Stitch Recognized}), so wird die Bildschirmerweiterung ausgelöst. \\
+\newcommand{\reactionSen}{Auf beiden Geräten sollte zu den verschiedenen Phasen des Stitchs Feedback gegeben werden. Technisch besteht ein Stitch aus zwei aufeinanderfolgenden Swipes, wobei der erste von der Bildschirmmitte zum Rand des \sendev{}s führt und der zweite vom Bildschirmrand zur Mitte des \recdev{}s. Jeder der beiden Swipes besteht aus den drei \glslink{atomareinteraktion}{atomaren Interaktionen} \textit{Touch}, \textit{Move} und \textit{Release}.\\
+Da es sich bei \textbf{Stitch To Extend} um eine \gls{synchronegeste} handelt, werden nach dem Stitch einige relevante Daten (Richtung, Timestamp, Orientierung) der beiden Swipes verglichen. Entsprechen die Daten einem Stitch (Atomare Interaktion \textit{Stitch Recognized}), so wird die Bildschirmerweiterung ausgelöst. 
 }
 
 \newcommand{\reactionRec}{
@@ -35,7 +35,7 @@ Handelt es sich bei dem \recdev\ um ein mobiles Gerät, das von einem Nutzer geh
 
 \begin{itemize}
 \item[-] Beide involvierten Geräte benötigen einen Touchscreen.
-\item[-] Da es sich bei Stitch to Extend um eine synchrone Geste handelt, müssen die Geräte miteinander kommunizieren können, sodass die beiden Teile der Geste miteinander verglichen werden können.
+\item[-] Da es sich bei Stitch To Extend um eine synchrone Geste handelt, müssen die Geräte miteinander kommunizieren können, sodass die beiden Teile der Geste miteinander verglichen werden können.
 
 \item[-] Bei zu unterschiedlichen Displaygrößen der beteiligten Geräte kann ggf. kein Mehrwert erzeugt werden (z.B. wenn ein Tablet und ein Smartphone hochkant nebeneinandergelegt werden kann bei der Erweiterung Fläche verloren gehen).\\
 Um einen möglichst fließenden Übergang zu gewinnen müssen die Displays sehr nah und parallel zueinander anliegen.\\
@@ -70,7 +70,7 @@ Stitch Recognized & S & Swipe-Daten wurden miteinander verglichen & Swipe-Daten 
 \hline
 \end{tabularx}
 \end{table}
-\caption{Atomare Interaktionen für das Stitch to Extend Pattern}
+\caption{Atomare Interaktionen für das Stitch To Extend Pattern}
 \end{figure}
 *Typ: (M)anuell, (S)ystem
 }
@@ -79,8 +79,7 @@ Stitch Recognized & S & Swipe-Daten wurden miteinander verglichen & Swipe-Daten 
 \begin{enumerate}
 \item Touch-Animation: visualisiert dem Benutzer, dass ein Stitch die Bildschirmerweiterung auslöst (z.B. Der aktuelle Bildschirminhalt wird angehoben und Pfeile in Richtung der Bildschirmränder erscheinen.)
 \item Move-Animation: visualisiert dem Benutzer, dass die Objekte beweglich sind (z.B. Der Bildschirminhalt hat eine Drag-and-Drop-Funktionalität)
-\item Release-Animation: visualisiert dem Benutzer, dass die Geste erfolgreich ausgeführt wurde und die Bildschirmerweiterung initiiert wird (z.B.\sendev{}: Der Bildschirminhalt fährt zur Hälfte aus dem Bildschirm heraus.  \recdev{}: Der Bildschirminhalt des \sendev{}s fährt zur Hälfte auf den Bildschirm.
-)
+\item Release-Animation: visualisiert dem Benutzer, dass die Geste erfolgreich ausgeführt wurde und die Bildschirmerweiterung initiiert wird (z.B.\sendev{}: Der Bildschirminhalt fährt zur Hälfte aus dem Bildschirm heraus.  \recdev{}: Der Bildschirminhalt des \sendev{}s fährt zur Hälfte auf den Bildschirm.)
 \item Stitch-Recognized-Animation: visualisiert dem Benutzer, dass der ausgeführte Stitch erfolgreich erkannt wurde (z.B. Der Bildschirminhalt des \sendev{}s streckt sich allmählich über beide Bildschirme)
 \end{enumerate}
 }
@@ -118,7 +117,7 @@ Stitch Recognized & S & Swipe-Daten wurden miteinander verglichen & Swipe-Daten 
 \newcommand{\notvalidcontext}{
 \begin{enumerate}
 \item Wenn die zu erweiternde Ansicht eine geringe Auflösung hat, verschlechtert sich die Qualität noch weiter, wenn sie auf einer größeren Bildschirmfläche angezeigt wird.
-\item Die benutzten Bildschirme sollten sich von der Größe nicht zu sehr Unterscheiden, da sonst der Zuwachs an Fläche abnimmt.
+\item Die benutzten Bildschirme sollten sich von der Größe nicht zu sehr unterscheiden, da sonst der Zuwachs an Fläche abnimmt.
 \end{enumerate}}
 
 
@@ -213,9 +212,9 @@ Screens               &            &            &        &          &         \\
 \newcommand{\requiredTechnologies}{
 Um Stitch To Extend auf einem Gerät (\textit{Device}) einsetzen zu können, gibt es einige Voraussetzungen und Einschränkungen bezüglich der verfügbaren Technologien auf diesem Gerät. Ein Gerät ist dann für das Stitch To Extend Pattern verwendbar, wenn es folgende Eigenschaften aufweist:
 \begin{itemize}
-\item \textbf{Input}: Für die Erkennung von Stitch-Geste ist ein Touchscreen notwendig. Bezüglich der technischen Funktionsweise des \textit{Screens} (kapazitiv, resistiv etc.) gibt es keine Einschränkungen, da ein einzelner Touchpunkt von den meisten gängigen Technologien erkannt wird.
+\item \textbf{Input}: Für die Erkennung von der Stitch-Geste ist ein Touchscreen notwendig. Bezüglich der technischen Funktionsweise des \textit{Screens} (kapazitiv, resistiv etc.) gibt es keine Einschränkungen, da ein einzelner Touchpunkt von den meisten gängigen Technologien erkannt wird.
 \item \textbf{Output}: Je nachdem, welches Feedback dem User gegeben werden soll, sind \textit{Output} per Bildschirm sowie Vibration und Sound denkbar, wobei letztere optional sind.
-\item \textbf{Connectivity}: Ziel der Stitch To Give Extend ist die Dateiübertragung zwischen zwei Geräten, die bereits über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct miteinander verbunden sind. Auch das Protokoll zur synchronen Gestenerkennung wird mittels dieser Verbindung durchgeführt.
+\item \textbf{Connectivity}: Ziel der Stitch To Extend Geste ist die Dateiübertragung zwischen zwei Geräten, die bereits über ein Ad-Hoc Netzwerk wie Bluetooth oder WiFi Direct miteinander verbunden sind. Auch das Protokoll zur synchronen Gestenerkennung wird mittels dieser Verbindung durchgeführt.
 \end{itemize}
 
 Abbildung \ref{stitch_hardware} fasst die benötigten Technologien modellhaft zusammen.
@@ -242,7 +241,7 @@ Da beide Geräte bereits miteinander verbunden sind, entfällt die zentrale Verm
 Nach Registrierung bei der zentralen Vermittlungskomponente führen Geräte kontinuierlich eine lokale, einfache Gestenerkennung basierend auf Sensordaten (Hard- oder Software) durch (\textit{Gesture Detection)}. Wurde  eine Geste lokal erkannt und an das entsprechende \textit{GestureEvent} an die Vermittlungskomponente gesendet, entscheidet diese, ob alle erforderlichen komplementären Anteile der synchronen Geste durch andere Geräte ebenfalls übermittelt wurden (\textit{Gesture Event Matching}). Die folgenden beiden Kapitel erläutern diese beiden Schritte für die Stitch To Extend Geste jeweils im Detail.
 
 \subsubsection*{Stitch Gesture Detection}
-Die lokale Erkennung einer Stitch-Geste entspricht der Erkennung von Swipes (da die einzelne Anteile eines Stitches lediglich einfache Swipe-Gesten sind). Die Erkennung von Swipe Gesten ist in der Patternbeschreibung zu $\rightarrow$ Swipe To Give ausführlich dokumentiert.\\
+Die lokale Erkennung einer Stitch-Geste entspricht der Erkennung von Swipes (da die einzelnen Anteile eines Stitches lediglich einfache Swipe-Gesten sind). Die Erkennung von Swipe Gesten ist in der Patternbeschreibung zu $\rightarrow$ Swipe To Give ausführlich dokumentiert.\\
 
 Hier müssen lediglich im erzeugten Swipe-Event zusätzliche Parameter erfasst werden, die das \textit{Stitch Event Matching} ermöglichen, wie z.B. ein Zeitstempel (\texttt{timestamp}) oder der Ein- bzw. Austrittswinkel des Swipes aus dem Bildschirm (\texttt{angle}). Zudem sollten Swipe-Gesten, die Teil von Stitch-Gesten sind, über Constraints so eingeschränkt werden, dass nur solche lokalen Swipes zulässig sind, die ein Stitch ermöglichen (bspw. nur Swipes von links nach rechts).
 
