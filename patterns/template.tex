@@ -2,35 +2,35 @@
 
 % ------ fixes the build for all patterns where those new variables haven't been defined yet
 
-\ifdefined\reactionSen
-\else
-\newcommand{\reactionSen}{tbd.}
-\fi
+%\ifdefined\reactionSen
+%\else
+%\newcommand{\reactionSen}{tbd.}
+%\fi
 	
- \ifdefined\reactionRec
-\else
-\newcommand{\reactionRec}{tbd.}
-\fi
+%\ifdefined\reactionRec
+%\else
+%\newcommand{\reactionRec}{tbd.}
+%\fi
 
-\ifdefined\microinteractionstabular
-\else
-\newcommand{\microinteractionstabular}{tbd.}
-\fi
+%\ifdefined\microinteractionstabular
+%\else
+%\newcommand{\microinteractionstabular}{tbd.}
+%\fi
 
-\ifdefined\animations
-\else
-\newcommand{\animations}{tbd.}
-\fi
+%\ifdefined\animations
+%\else
+%\newcommand{\animations}{tbd.}
+%\fi
 
-\ifdefined\requiredTechnologies
-\else
-\newcommand{\requiredTechnologies}{tbd.}
-\fi
+%\ifdefined\requiredTechnologies
+%\else
+%\newcommand{\requiredTechnologies}{tbd.}
+%\fi
 
-\ifdefined\implementation
-\else
-\newcommand{\implementation}{tbd.}
-\fi
+%\ifdefined\implementation
+%\else
+%\newcommand{\implementation}{tbd.}
+%\fi
 
 \maketitle
 
@@ -77,40 +77,48 @@
 
 %%%define swapReactions if the receiver is the primary actor%%%
 %%%define usersEqual if there is no sender and receiver%%%
-\ifx\swapReactions\undefined
-	\ifx\usersEqual\undefined	
-		\subsection*{Aktion des \sen s}
+\ifx\reactionSen\undefined
+\else
+	\ifx\swapReactions\undefined
+		\ifx\usersEqual\undefined	
+			\subsection*{Aktion des \sen s}
+			\useraction
+
+			\subsection*{Reaktionen des \sendev s}
+			\reactionSen
+
+			\subsection*{Reaktionen des \recdev s}
+			\reactionRec
+		\else
+			\subsection*{Aktion der Benutzer}
+			\useraction
+
+			\subsection*{Reaktionen der Geräte}
+			\reactionSen
+		\fi
+	\else
+		\subsection*{Aktion des \rec s}
 		\useraction
-
-		\subsection*{Reaktionen des \sendev s}
-		\reactionSen
-
+	
 		\subsection*{Reaktionen des \recdev s}
 		\reactionRec
-	\else
-		\subsection*{Aktion der Benutzer}
-		\useraction
-
-		\subsection*{Reaktionen der Geräte}
+	
+		\subsection*{Reaktionen des \sendev s}
 		\reactionSen
 	\fi
+\fi	
+
+\ifx\microinteractionstabular\undefined
 \else
-	\subsection*{Aktion des \rec s}
-	\useraction
-	
-	\subsection*{Reaktionen des \recdev s}
-	\reactionRec
-	
-	\subsection*{Reaktionen des \sendev s}
-	\reactionSen
+	\subsection*{Übersicht über die Atomaren Interaktionen}
+	\microinteractionstabular
 \fi
 
-
-\subsection*{Übersicht über die Atomaren Interaktionen}
-\microinteractionstabular
-
-\subsubsection*{Animationen}
-\animations
+\ifx\animations\undefined
+\else
+	\subsubsection*{Animationen}
+	\animations
+\fi
 
 \subsection*{Hinweise zur Gestaltung der Interaktion}
 \designnotes
@@ -220,13 +228,20 @@
 % TECHNISCHES
 % -------------------------------
 
-\section*{Technisches}
+\ifx\requiredTechnologies\undefined	
+\else
+	\section*{Technisches}
 
-\subsection*{Benötigte Technologien}
-\requiredTechnologies
+	\subsection*{Benötigte Technologien}
+	\requiredTechnologies
 
-\subsection*{Implementierungshinweise}
-\implementation
+	\ifx\implementation\undefined	
+	\else
+		\subsection*{Implementierungshinweise}
+		\implementation
+	\fi
+\fi
+
 
 % -------------------------------
 % SONSTIGES
@@ -241,11 +256,18 @@
 Erstelldatum: \dateofcreation \\
 Letzte Änderung am: \versionhistory
 
-\subsection*{Kommentare}
-\comments
 
-\subsection*{Offene Fragen}
+\ifx\comments\undefined	
+\else
+	\subsection*{Kommentare}
+	\comments
+\fi
+
+\ifx\questions\undefined	
+\else
+	\subsection*{Offene Fragen}
 \questions
+\fi
 
 \listoffigures
 
